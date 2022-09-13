@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "tinkersurvival:aspen_logs"
+            "tag": "survivalessentials:aspen_logs"
           }
         ]
       }

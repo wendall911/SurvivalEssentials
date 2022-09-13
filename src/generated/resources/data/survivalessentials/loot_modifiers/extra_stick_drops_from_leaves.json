@@ -1,0 +1,46 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.16
+    },
+    {
+      "condition": "minecraft:entity_properties",
+      "predicate": {
+        "type": "minecraft:player"
+      },
+      "entity": "this"
+    },
+    {
+      "condition": "survivalessentials:is_tag",
+      "tag": "minecraft:leaves"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "enchantments": [
+            {
+              "enchantment": "minecraft:silk_touch",
+              "levels": {
+                "min": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "tag": "survivalessentials:shear_tools"
+        }
+      }
+    }
+  ],
+  "item": "minecraft:stick",
+  "type": "survivalessentials:stick_drops"
+}

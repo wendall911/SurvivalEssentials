@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "immersiveengineering:buzzsaw",
+      "required": false
+    },
+    "survivalessentials:crude_hatchet"
+  ]
+}

@@ -9,10 +9,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "tinkersurvival:zelkova_logs"
+      "tag": "survivalessentials:zelkova_logs"
     },
     {
-      "item": "tinkersurvival:crude_saw"
+      "item": "survivalessentials:crude_saw"
     }
   ],
   "result": {

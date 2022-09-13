@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "immersiveengineering:buzzsaw",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:drill",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:hammer",
+      "required": false
+    }
+  ]
+}

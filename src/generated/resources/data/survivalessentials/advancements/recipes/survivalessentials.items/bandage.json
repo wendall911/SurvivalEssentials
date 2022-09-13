@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "survivalessentials:bandage"
+    ]
+  },
+  "criteria": {
+    "has_ointment": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "survivalessentials:ointment"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "survivalessentials:bandage"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ointment",
+      "has_the_recipe"
+    ]
+  ]
+}

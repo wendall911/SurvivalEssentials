@@ -1,0 +1,17 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "handle": "survivalessentials:item/tool/knife/handle",
+    "head": "survivalessentials:item/tool/knife/head",
+    "binding": "survivalessentials:item/tool/knife/binding",
+    "broken_head": "survivalessentials:item/tool/knife/broken_head"
+  },
+  "large": false,
+  "modifier_roots": [ "survivalessentials:item/tool/knife/modifiers/" ],
+  "parts": [
+    { "name": "handle",  "index": 1 },
+    { "name": "head",    "index": 0, "broken": "broken_head" },
+    { "name": "binding", "index": 2 }
+  ]
+}

@@ -9,10 +9,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "tinkersurvival:palo_verde_logs"
+      "tag": "survivalessentials:palo_verde_logs"
     },
     {
-      "item": "tinkersurvival:crude_saw"
+      "item": "survivalessentials:crude_saw"
     }
   ],
   "result": {

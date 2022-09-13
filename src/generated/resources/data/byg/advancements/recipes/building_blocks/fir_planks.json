@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "tinkersurvival:fir_logs"
+            "tag": "survivalessentials:fir_logs"
           }
         ]
       }

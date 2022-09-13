@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "tinkersurvival:grongle_logs"
+            "tag": "survivalessentials:grongle_logs"
           }
         ]
       }

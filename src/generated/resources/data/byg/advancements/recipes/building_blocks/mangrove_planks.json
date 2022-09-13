@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "tinkersurvival:mangrove_logs"
+            "tag": "survivalessentials:mangrove_logs"
           }
         ]
       }

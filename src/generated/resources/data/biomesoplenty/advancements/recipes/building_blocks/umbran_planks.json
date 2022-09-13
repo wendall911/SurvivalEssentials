@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "tinkersurvival:umbran_logs"
+            "tag": "survivalessentials:umbran_logs"
           }
         ]
       }

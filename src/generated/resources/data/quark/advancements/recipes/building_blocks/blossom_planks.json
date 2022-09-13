@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "tinkersurvival:blossom_logs"
+            "tag": "survivalessentials:blossom_logs"
           }
         ]
       }

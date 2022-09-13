@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "survivalessentials:string_from_plant_string"
+    ]
+  },
+  "criteria": {
+    "has_plant_string": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "survivalessentials:plant_string"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "survivalessentials:string_from_plant_string"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_plant_string",
+      "has_the_recipe"
+    ]
+  ]
+}

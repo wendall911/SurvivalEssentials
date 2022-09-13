@@ -1,0 +1,24 @@
+{
+    "conditions": [
+        {
+            "type": "survivalessentials:item_exists",
+            "item": "toughasnails:wool_leggings"
+        },
+        {
+            "type": "survivalessentials:item_exists",
+            "item": "minecraft:diamond_leggings"
+        }
+    ],
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "item": "toughasnails:wool_leggings"
+        },
+        {
+            "item": "minecraft:diamond_leggings"
+        }
+    ],
+    "result": {
+        "item": "survivalessentials:reinforced_wool_leggings"
+    }
+}

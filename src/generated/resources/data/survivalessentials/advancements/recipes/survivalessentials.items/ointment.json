@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "survivalessentials:ointment"
+    ]
+  },
+  "criteria": {
+    "has_plant_paste": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "survivalessentials:plant_paste"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "survivalessentials:ointment"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_plant_paste",
+      "has_the_recipe"
+    ]
+  ]
+}

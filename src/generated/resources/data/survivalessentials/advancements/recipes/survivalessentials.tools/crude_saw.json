@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "survivalessentials:crude_saw"
+    ]
+  },
+  "criteria": {
+    "has_crude_saw_handle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "survivalessentials:crude_saw_handle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "survivalessentials:crude_saw"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_crude_saw_handle",
+      "has_the_recipe"
+    ]
+  ]
+}

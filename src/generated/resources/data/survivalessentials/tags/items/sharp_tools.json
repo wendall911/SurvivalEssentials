@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "immersiveengineering:revolver",
+      "required": false
+    },
+    "#survivalessentials:knife_tools",
+    "#survivalessentials:axe_tools"
+  ]
+}

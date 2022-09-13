@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#survivalessentials:loose_rocks",
+    "#minecraft:beds",
+    "minecraft:gravel",
+    "#forge:gravel",
+    "#minecraft:leaves",
+    "#minecraft:dirt",
+    "#forge:sand",
+    "#minecraft:sand"
+  ]
+}

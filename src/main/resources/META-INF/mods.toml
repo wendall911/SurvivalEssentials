@@ -1,117 +1,111 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
-issueTrackerURL="https://github.com/wendall911/TinkerSurvival/issues"
+issueTrackerURL="https://github.com/wendall911/SurvivalEssentials/issues"
 license="MIT"
 
 [[mods]]
-  modId="tinkersurvival"
+  modId="survivalessentials"
   displayName="Tinkers' Survival"
   description="A small mod to make the first day or two of play more believable. New early game tools, Tinkers' Construct tools, and more!"
   version="${version}"
-  displayURL="https://github.com/wendall911/TinkerSurvival"
-  updateJSONURL="https://raw.githubusercontent.com/wendall911/TinkerSurvival/1.18.2/files/updates.json"
+  displayURL="https://github.com/wendall911/SurvivalEssentials"
+  updateJSONURL="https://raw.githubusercontent.com/wendall911/SurvivalEssentials/1.18.2/files/updates.json"
   authors="wendall911"
   credits="ashar42 billyzekat"
-  itemIcon="tinkersurvival:rock_stone"
+  itemIcon="survivalessentials:rock_stone"
   logoFile="logo.png"
 
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="forge"
     mandatory=true
     versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="minecraft"
     mandatory=true
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.tinkersurvival]]
-    modId="tconstruct"
-    mandatory=true
-    versionRange="[0,)"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="fruittrees"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="quark"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="biomesoplenty"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="allyoucaneat"
     mandatory=false
     versionRange="[0,]"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="watersource"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="sushigocrafting"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="botania"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="immersiveengineering"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="ars_nouveau"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="geckolib3"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="undergarden"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="byg"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="twilightforest"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tinkersurvival]]
+[[dependencies.survivalessentials]]
     modId="ecologics"
     mandatory=false
     versionRange="[0,)"

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "survivalessentials:cobblestone_from_rocks"
+    ]
+  },
+  "criteria": {
+    "has_loose_rock": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "survivalessentials:rock_stone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "survivalessentials:cobblestone_from_rocks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_loose_rock",
+      "has_the_recipe"
+    ]
+  ]
+}

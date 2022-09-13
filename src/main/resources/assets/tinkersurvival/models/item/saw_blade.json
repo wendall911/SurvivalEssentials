@@ -1,8 +1,0 @@
-{
-  "loader": "tconstruct:material",
-  "parent": "forge:item/default",
-  "textures": {
-    "texture": "tinkersurvival:item/tool/saw/head"
-  },
-  "offset": [-1, 1]
-}

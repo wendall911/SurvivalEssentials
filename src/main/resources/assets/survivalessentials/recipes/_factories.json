@@ -1,0 +1,6 @@
+{
+    "conditions": {
+        "ore_exists": "survivalessentials.recipe.condition.OreExists",
+        "item_exists": "survivalessentials.recipe.condition.ItemExists"
+    }
+}

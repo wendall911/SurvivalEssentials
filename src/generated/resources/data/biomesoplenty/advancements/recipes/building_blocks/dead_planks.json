@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "tinkersurvival:dead_logs"
+            "tag": "survivalessentials:dead_logs"
           }
         ]
       }

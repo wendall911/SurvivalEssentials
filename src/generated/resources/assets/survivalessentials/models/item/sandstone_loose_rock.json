@@ -1,0 +1,6 @@
+{
+  "parent": "survivalessentials:block/sandstone_loose_rock",
+  "textures": {
+    "all": "survivalessentials:block/loose/9p_loose_sandstone"
+  }
+}

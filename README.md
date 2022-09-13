@@ -16,5 +16,5 @@ All Downloads:
 
 ## Links of Interest
 
-+ [Tinkers' Survival Wiki](https://github.com/wendall911/TinkerSurvival/wiki)
-+ [Tinkers' Survival Curseforge Page](https://minecraft.curseforge.com/projects/tinkersurvival)
++ [Tinkers' Survival Wiki](https://github.com/wendall911/SurvivalEssentials/wiki)
++ [Tinkers' Survival Curseforge Page](https://minecraft.curseforge.com/projects/survivalessentials)

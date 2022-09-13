@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "flint_shards",
+  "ingredients": [
+    {
+      "tag": "survivalessentials:flint_knappable"
+    },
+    {
+      "tag": "survivalessentials:knife_tools"
+    }
+  ],
+  "result": {
+    "item": "survivalessentials:flint_shard",
+    "count": 2
+  }
+}

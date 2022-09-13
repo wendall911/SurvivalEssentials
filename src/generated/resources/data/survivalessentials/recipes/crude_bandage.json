@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SF",
+    "PF"
+  ],
+  "key": {
+    "P": {
+      "item": "survivalessentials:plant_string"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "F": {
+      "item": "survivalessentials:plant_fiber"
+    }
+  },
+  "result": {
+    "item": "survivalessentials:crude_bandage"
+  }
+}
