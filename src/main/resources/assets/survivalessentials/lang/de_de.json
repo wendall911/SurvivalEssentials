@@ -41,7 +41,7 @@
     "block.survivalessentials.granite_loose_rock": "Lockeres Gestein (Granit)",
     "block.survivalessentials.sandstone_loose_rock": "Lockeres Gestein (Sandstone)",
     "block.survivalessentials.red_sandstone_loose_rock": "Lockeres Gestein (Red Sandstone)",
-    "jei.survivalessentials.description.rock": "Auf dem Boden liegende Steinbrocken. Diese können mit einem Messer in einer Werkbank verwendet werden, um Feuersteinsplitter herzustellen.",
+    "jei.survivalessentials.description.rock_stone": "Auf dem Boden liegende Steinbrocken. Diese können mit einem Messer in einer Werkbank verwendet werden, um Feuersteinsplitter herzustellen.",
     "jei.survivalessentials.description.plant_fiber": "Pflanzenfasern können beim Abbau von Gras mit einem Messer erhalten werden. Sie werden zur Herstellung von Pflanzenschnüren für Werkzeuge und Pflanzenpaste für Verbandsalben verwendet.",
     "jei.survivalessentials.description.stick": "Stöcke können beim Abbau von Blättern erhalten werden. Die Verwendung eines Messers verdoppelt die Chance auf einen Stock.",
     "jei.survivalessentials.description.flint_shard": "Feuersteinsplitter können erhalten werden, indem man Feuerstein auf eine beliebige felsige Oberfläche schlägt. Wenn ein Feuerstein auf einen steinartigen Block geschlagen wird, könnte er sich in zwei Feuersteinsplitter aufteilen.",
