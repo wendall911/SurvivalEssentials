@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "modid": "undergarden",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalessentials:grongle_logs"
+    },
+    {
+      "tag": "survivalessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "item": "undergarden:grongle_planks",
+    "count": 4
+  }
+}

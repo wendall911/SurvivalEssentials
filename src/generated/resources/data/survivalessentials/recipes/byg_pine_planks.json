@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "modid": "byg",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalessentials:pine_logs"
+    },
+    {
+      "tag": "survivalessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "item": "byg:pine_planks",
+    "count": 4
+  }
+}

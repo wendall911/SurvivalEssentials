@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BS",
+    " H"
+  ],
+  "key": {
+    "H": {
+      "item": "survivalessentials:saw_handle"
+    },
+    "B": {
+      "item": "survivalessentials:sharp_saw_blade"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "survivalessentials:sharp_saw"
+  }
+}

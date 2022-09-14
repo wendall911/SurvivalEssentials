@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M",
+    "K"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:diamond"
+    },
+    "K": {
+      "item": "survivalessentials:basic_knife"
+    }
+  },
+  "result": {
+    "item": "survivalessentials:sharp_knife"
+  }
+}

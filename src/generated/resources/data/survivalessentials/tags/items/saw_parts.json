@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "survivalessentials:crude_saw_handle",
+    "survivalessentials:saw_handle",
     "survivalessentials:crude_saw_blade"
   ]
 }

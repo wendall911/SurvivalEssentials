@@ -48,10 +48,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         build(itemGenerated, SurvivalEssentialsItems.PLANT_PASTE);
         build(itemGenerated, SurvivalEssentialsItems.CLOTH);
         build(itemGenerated, SurvivalEssentialsItems.CRUDE_SAW_BLADE);
+        build(itemGenerated, SurvivalEssentialsItems.BASIC_SAW_BLADE);
+        build(itemGenerated, SurvivalEssentialsItems.SHARP_SAW_BLADE);
         build(itemHandheld, SurvivalEssentialsItems.CRUDE_KNIFE);
+        build(itemHandheld, SurvivalEssentialsItems.BASIC_KNIFE);
+        build(itemHandheld, SurvivalEssentialsItems.SHARP_KNIFE);
         build(itemHandheld, SurvivalEssentialsItems.CRUDE_HATCHET);
-        build(itemHandheld, SurvivalEssentialsItems.CRUDE_SAW_HANDLE);
+        build(itemHandheld, SurvivalEssentialsItems.SAW_HANDLE);
         build(itemHandheld, SurvivalEssentialsItems.CRUDE_SAW);
+        build(itemHandheld, SurvivalEssentialsItems.BASIC_SAW);
+        build(itemHandheld, SurvivalEssentialsItems.SHARP_SAW);
         build(itemGenerated, SurvivalEssentialsItems.MORTAR_AND_PESTLE);
         build(itemGenerated, SurvivalEssentialsItems.CRUDE_BANDAGE);
         build(itemGenerated, SurvivalEssentialsItems.BANDAGE);

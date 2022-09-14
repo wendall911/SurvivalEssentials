@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "modid": "allyoucaneat",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalessentials:hazel_logs"
+    },
+    {
+      "tag": "survivalessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "item": "allyoucaneat:hazel_planks",
+    "count": 4
+  }
+}

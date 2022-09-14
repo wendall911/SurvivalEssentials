@@ -20,9 +20,11 @@ public final class TagManager {
         public static final TagKey<Item> PICKAXE_TOOLS = create("pickaxe_tools");
         public static final TagKey<Item> AXE_TOOLS = create("axe_tools");
         public static final TagKey<Item> SAW_TOOLS = create("saw_tools");
+        public static final TagKey<Item> ADVANCED_SAW_TOOLS = create("advanced_saw_tools");
         public static final TagKey<Item> SHOVEL_TOOLS = create("shovel_tools");
         public static final TagKey<Item> HOE_TOOLS = create("hoe_tools");
         public static final TagKey<Item> KNIFE_TOOLS = create("knife_tools");
+        public static final TagKey<Item> ADVANCED_KNIFE_TOOLS = create("advanced_knife_tools");
         public static final TagKey<Item> SHARP_TOOLS = create("sharp_tools");
         public static final TagKey<Item> SHEAR_TOOLS = create("shear_tools");
         public static final TagKey<Item> ROCK = create("rock");

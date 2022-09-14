@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "survivalessentials:item/basic_saw_blade"
+  }
+}

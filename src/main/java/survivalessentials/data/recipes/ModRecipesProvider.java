@@ -20,11 +20,9 @@ import net.minecraft.world.level.ItemLike;
 
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import net.minecraftforge.fml.common.Mod;
 
 import survivalessentials.common.TagManager;
 import survivalessentials.data.integration.ModIntegration;
-import survivalessentials.data.recipes.ConsumerWrapperBuilder;
 import survivalessentials.items.SurvivalEssentialsItems;
 import survivalessentials.SurvivalEssentials;
 import survivalessentials.util.ItemUse;
@@ -111,6 +109,24 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("SD")
                 .unlockedBy("has_plant_string", has(plantString))
                 .save(consumer);
+
+        ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.BASIC_SAW_BLADE)
+                .define('D', Items.IRON_INGOT)
+                .define('S', Items.STRING)
+                .define('I', Items.STICK)
+                .pattern("ID")
+                .pattern("SD")
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.SHARP_SAW_BLADE)
+                .define('D', Items.DIAMOND)
+                .define('S', Items.STRING)
+                .define('I', Items.STICK)
+                .pattern("ID")
+                .pattern("SD")
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(consumer);
         
         // Tool Recipes
         ShapedRecipeBuilder.shaped(crudeKnife)
@@ -119,6 +135,22 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("S")
                 .pattern("T")
                 .unlockedBy("has_flint_shard", has(flintShard))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.BASIC_KNIFE)
+                .define('M', Items.IRON_INGOT)
+                .define('K', crudeKnife)
+                .pattern("M")
+                .pattern("K")
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.SHARP_KNIFE)
+                .define('M', Items.DIAMOND)
+                .define('K', SurvivalEssentialsItems.BASIC_KNIFE)
+                .pattern("M")
+                .pattern("K")
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.CRUDE_HATCHET)
@@ -130,7 +162,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .unlockedBy("has_loose_rock", has(rockStone))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.CRUDE_SAW_HANDLE)
+        ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.SAW_HANDLE)
                 .define('S', plantString)
                 .define('I', Items.STICK)
                 .pattern("IS")
@@ -139,12 +171,30 @@ public class ModRecipesProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.CRUDE_SAW)
-                .define('H', SurvivalEssentialsItems.CRUDE_SAW_HANDLE)
+                .define('H', SurvivalEssentialsItems.SAW_HANDLE)
                 .define('B', SurvivalEssentialsItems.CRUDE_SAW_BLADE)
                 .define('S', plantString)
                 .pattern("BS")
                 .pattern(" H")
-                .unlockedBy("has_crude_saw_handle", has(SurvivalEssentialsItems.CRUDE_SAW_HANDLE))
+                .unlockedBy("has_crude_saw_handle", has(SurvivalEssentialsItems.SAW_HANDLE))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.BASIC_SAW)
+                .define('H', SurvivalEssentialsItems.SAW_HANDLE)
+                .define('B', SurvivalEssentialsItems.BASIC_SAW_BLADE)
+                .define('S', Items.STRING)
+                .pattern("BS")
+                .pattern(" H")
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.SHARP_SAW)
+                .define('H', SurvivalEssentialsItems.SAW_HANDLE)
+                .define('B', SurvivalEssentialsItems.SHARP_SAW_BLADE)
+                .define('S', Items.STRING)
+                .pattern("BS")
+                .pattern(" H")
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(mortar)
@@ -172,14 +222,12 @@ public class ModRecipesProvider extends RecipeProvider {
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(consumer, new ResourceLocation(SurvivalEssentials.MODID, "string_from_wool"));
 
-        /*
         ShapelessRecipeBuilder.shapeless(Items.STRING, 4)
                 .requires(ItemTags.WOOL)
-                .requires(TConItems.KNIFE)
+                .requires(TagManager.Items.ADVANCED_KNIFE_TOOLS)
                 .group("string")
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(consumer, new ResourceLocation(SurvivalEssentials.MODID, "string_from_wool_advanced"));
-        */
 
         ShapelessRecipeBuilder.shapeless(flintShard, 2)
                 .requires(TagManager.Items.FLINT_KNAPPABLE)
@@ -347,22 +395,19 @@ public class ModRecipesProvider extends RecipeProvider {
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, ModIntegration.TF_TWILIGHT_OAK_WOOD, "has_logs", "wood/", "twilight_oak_from_wood_planks", ModIntegration.TF_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, ModIntegration.TF_TWILIGHT_OAK_STRIPPED_WOOD, "has_logs", "wood/", "twilight_oak_from_stripped_wood_planks", ModIntegration.TF_MODID);
 
-        /*
         ShapelessRecipeBuilder.shapeless(Items.OAK_PLANKS, 64)
                 .requires(TagManager.Items.TF_GIANT_LOGS)
-                .requires(TConItems.SAW)
+                .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
-                .unlockedBy("has_logs", has(TinkerTables.tinkerStation))
+                .unlockedBy("has_advanced_saw", has(TagManager.Items.ADVANCED_SAW_TOOLS))
                 .save(consumer, new ResourceLocation(ModIntegration.TF_MODID, "giant_log_to_oak_planks"));
-        */
 
         // Immersive Engineering
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.IE_MODID));
 
-        /*
         ShapelessRecipeBuilder.shapeless(ModIntegration.IE_STICK_TREATED, 2)
                 .requires(TagManager.Items.IE_TREATED_WOOD)
-                .requires(TConItems.SAW)
+                .requires(SurvivalEssentialsItems.CRUDE_SAW)
                 .group("treated_sticks")
                 .unlockedBy("has_treated_planks", has(TagManager.Items.IE_TREATED_WOOD))
                 .save(wrapped, new ResourceLocation(SurvivalEssentials.MODID, "stick_treated"));
@@ -370,11 +415,10 @@ public class ModRecipesProvider extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(ModIntegration.IE_STICK_TREATED, 4)
                 .requires(TagManager.Items.IE_TREATED_WOOD)
                 .requires(TagManager.Items.IE_TREATED_WOOD)
-                .requires(TConItems.SAW)
+                .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("treated_sticks")
                 .unlockedBy("has_treated_planks", has(TagManager.Items.IE_TREATED_WOOD))
                 .save(wrapped, new ResourceLocation(ModIntegration.IE_MODID, "crafting/stick_treated"));
-        */
 
         // Ecologics
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.ECO_MODID));
@@ -408,14 +452,12 @@ public class ModRecipesProvider extends RecipeProvider {
             plankOverrideRecipe.save(consumer);
         }
 
-        /*
         ShapelessRecipeBuilder.shapeless(item, 4)
                 .requires(itemTag)
-                .requires(TConItems.SAW)
+                .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
-                .unlockedBy(label, has(TinkerTables.tinkerStation))
+                .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
                 .save(consumer, new ResourceLocation(SurvivalEssentials.MODID, modid + "_" + name));
-        */
     }
 
     private static void itemPlankRecipeBuilder(Consumer<FinishedRecipe> consumer, ItemLike output, ItemLike input, String label, String path, String name, String modid) {
@@ -427,14 +469,12 @@ public class ModRecipesProvider extends RecipeProvider {
 
         plankOverrideRecipe.save(consumer, new ResourceLocation(modid, path + name));
 
-        /*
         ShapelessRecipeBuilder.shapeless(output, 4)
                 .requires(input)
-                .requires(TConItems.SAW)
+                .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
-                .unlockedBy(label, has(TinkerTables.tinkerStation))
+                .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
                 .save(consumer, new ResourceLocation(SurvivalEssentials.MODID, modid + "_" + name));
-        */
     }
 
     private static Consumer<FinishedRecipe> withCondition(Consumer<FinishedRecipe> consumer, ICondition... conditions) {

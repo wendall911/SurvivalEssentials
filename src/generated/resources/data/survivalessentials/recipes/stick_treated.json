@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "modid": "immersiveengineering",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "group": "treated_sticks",
+  "ingredients": [
+    {
+      "tag": "forge:treated_wood"
+    },
+    {
+      "item": "survivalessentials:crude_saw"
+    }
+  ],
+  "result": {
+    "item": "immersiveengineering:stick_treated",
+    "count": 2
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "modid": "botania",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalessentials:livingwood_logs"
+    },
+    {
+      "tag": "survivalessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "item": "botania:livingwood_planks",
+    "count": 4
+  }
+}

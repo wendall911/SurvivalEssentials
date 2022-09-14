@@ -7,14 +7,13 @@ import net.minecraft.world.item.Tier;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import survivalessentials.common.CreativeTabs;
-import survivalessentials.items.CrudeItemTiers;
 import survivalessentials.items.item.Bandage;
 import survivalessentials.items.item.CrudeBandage;
 import survivalessentials.items.item.Mortar;
 import survivalessentials.items.item.WoodenCup;
 import survivalessentials.items.tool.CrudeHatchet;
-import survivalessentials.items.tool.CrudeKnife;
-import survivalessentials.items.tool.CrudeSaw;
+import survivalessentials.items.tool.SurvivalKnife;
+import survivalessentials.items.tool.SurvivalSaw;
 import survivalessentials.SurvivalEssentials;
 
 public final class SurvivalEssentialsItems {
@@ -31,10 +30,16 @@ public final class SurvivalEssentialsItems {
 
     // Tools
     public static Item CRUDE_KNIFE;
+    public static Item BASIC_KNIFE;
+    public static Item SHARP_KNIFE;
     public static Item CRUDE_HATCHET;
-    public static Item CRUDE_SAW_HANDLE;
+    public static Item SAW_HANDLE;
     public static Item CRUDE_SAW_BLADE;
+    public static Item BASIC_SAW_BLADE;
+    public static Item SHARP_SAW_BLADE;
     public static Item CRUDE_SAW;
+    public static Item BASIC_SAW;
+    public static Item SHARP_SAW;
     public static Item MORTAR_AND_PESTLE;
 
     // Bandages
@@ -55,13 +60,17 @@ public final class SurvivalEssentialsItems {
         CLOTH = registerItem("cloth");
 
         // Tools
-        CRUDE_KNIFE = registerKnifeTool("crude_knife", CrudeItemTiers.FLINT_TIER);
-        CRUDE_HATCHET = registerHatchetTool("crude_hatchet", CrudeItemTiers.STONE_TIER);
-        CRUDE_SAW_HANDLE = registerSawTool("crude_saw_handle", CrudeItemTiers.NO_TIER, -8.0F);
-        CRUDE_SAW_BLADE = registerItem("crude_saw_blade", new Item(
-            new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP)
-        ));
-        CRUDE_SAW = registerSawTool("crude_saw", CrudeItemTiers.FLINT_TIER, -4.0F);
+        CRUDE_KNIFE = registerKnifeTool("crude_knife", ItemTiers.FLINT_TIER);
+        BASIC_KNIFE = registerKnifeTool("basic_knife", ItemTiers.IRON_TIER);
+        SHARP_KNIFE = registerKnifeTool("sharp_knife", ItemTiers.DIAMOND_TIER);
+        CRUDE_HATCHET = registerHatchetTool("crude_hatchet", ItemTiers.STONE_TIER);
+        SAW_HANDLE = registerSawTool("saw_handle", ItemTiers.NO_TIER, -8.0F);
+        CRUDE_SAW_BLADE = registerSawBlade("crude_saw_blade");
+        BASIC_SAW_BLADE = registerSawBlade("basic_saw_blade");
+        SHARP_SAW_BLADE = registerSawBlade("sharp_saw_blade");
+        CRUDE_SAW = registerSawTool("crude_saw", ItemTiers.FLINT_TIER, -4.0F);
+        BASIC_SAW = registerSawTool("basic_saw", ItemTiers.IRON_TIER, -4.0F);
+        SHARP_SAW = registerSawTool("sharp_saw", ItemTiers.DIAMOND_TIER, -4.0F);
         MORTAR_AND_PESTLE = registerMortar("mortar_and_pestle");
 
         // Bandages
@@ -75,6 +84,12 @@ public final class SurvivalEssentialsItems {
         // Zombie Jesus
         WOODEN_CUP = registerItem("wooden_cup", new WoodenCup(
             (new Item.Properties()).stacksTo(1).tab(CreativeTabs.ITEM_TAB_GROUP)
+        ));
+    }
+
+    public static Item registerSawBlade(String name) {
+        return registerItem(name, new Item(
+            new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP)
         ));
     }
 
@@ -93,7 +108,7 @@ public final class SurvivalEssentialsItems {
     }
 
     private static Item registerKnifeTool(String name, Tier tier) {
-        Item knifeTool = new CrudeKnife(tier, 1, -1.4F, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item knifeTool = new SurvivalKnife(tier, 1, -1.4F, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
 
         return registerItem(name, knifeTool);
     }
@@ -105,7 +120,7 @@ public final class SurvivalEssentialsItems {
     }
 
     private static Item registerSawTool(String name, Tier tier, float speed) {
-        Item sawTool = new CrudeSaw(name, tier, speed, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item sawTool = new SurvivalSaw(name, tier, speed, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
 
         return registerItem(name, sawTool);
     }

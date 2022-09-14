@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M",
+    "K"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:iron_ingot"
+    },
+    "K": {
+      "item": "survivalessentials:crude_knife"
+    }
+  },
+  "result": {
+    "item": "survivalessentials:basic_knife"
+  }
+}

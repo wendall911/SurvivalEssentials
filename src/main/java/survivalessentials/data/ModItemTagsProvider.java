@@ -1,7 +1,6 @@
 package survivalessentials.data;
 
 import java.util.Arrays;
-import java.util.function.Consumer;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -48,7 +47,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .add(SurvivalEssentialsItems.CRUDE_HATCHET);
         builder(
             TagManager.Items.SAW_TOOLS,
-            SurvivalEssentialsItems.CRUDE_SAW
+            SurvivalEssentialsItems.CRUDE_SAW,
+            SurvivalEssentialsItems.BASIC_SAW,
+            SurvivalEssentialsItems.SHARP_SAW
+        );
+        builder(
+            TagManager.Items.ADVANCED_SAW_TOOLS,
+            SurvivalEssentialsItems.BASIC_SAW,
+            SurvivalEssentialsItems.SHARP_SAW
         );
         getBuilder(TagManager.Items.SHOVEL_TOOLS)
             .addOptional(ModIntegration.ieLoc("drill"));
@@ -57,7 +63,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         );
         builder(
             TagManager.Items.KNIFE_TOOLS,
-            SurvivalEssentialsItems.CRUDE_KNIFE
+            SurvivalEssentialsItems.CRUDE_KNIFE,
+            SurvivalEssentialsItems.BASIC_KNIFE,
+            SurvivalEssentialsItems.SHARP_KNIFE
+        );
+        builder(
+            TagManager.Items.ADVANCED_KNIFE_TOOLS,
+            SurvivalEssentialsItems.BASIC_KNIFE,
+            SurvivalEssentialsItems.SHARP_KNIFE
         );
         getBuilder(TagManager.Items.SHARP_TOOLS)
             .addOptional(ModIntegration.ieLoc("revolver"))
@@ -68,7 +81,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         builder(TagManager.Items.ROCK, SurvivalEssentialsWorld.ROCK_STONE);
         builder(
             TagManager.Items.SAW_PARTS,
-            SurvivalEssentialsItems.CRUDE_SAW_HANDLE,
+            SurvivalEssentialsItems.SAW_HANDLE,
             SurvivalEssentialsItems.CRUDE_SAW_BLADE
         );
         builder(
