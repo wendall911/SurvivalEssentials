@@ -6,7 +6,8 @@
   "mixins": [
     "AbstractBlockAccessor",
     "AbstractBlockStateAccessor",
-    "DiggerItemAccessor"
+    "DiggerItemAccessor",
+    "PunchTreeTutorialStepMixin"
   ],
   "client": [],
   "injectors": {
