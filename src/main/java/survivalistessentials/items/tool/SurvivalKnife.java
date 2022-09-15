@@ -16,9 +16,9 @@ import net.minecraft.world.level.Level;
 
 import survivalistessentials.common.TagManager;
 
-public class SurvivalistKnife extends SwordItem {
+public class SurvivalKnife extends SwordItem {
 
-    public SurvivalistKnife(Tier tier, int damage, float speed, Item.Properties tabGroup) {
+    public SurvivalKnife(Tier tier, int damage, float speed, Item.Properties tabGroup) {
         super(tier, damage, speed, tabGroup);
     }
 

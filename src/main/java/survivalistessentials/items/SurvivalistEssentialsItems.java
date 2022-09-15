@@ -12,8 +12,8 @@ import survivalistessentials.items.item.CrudeBandage;
 import survivalistessentials.items.item.Mortar;
 import survivalistessentials.items.item.WoodenCup;
 import survivalistessentials.items.tool.CrudeHatchet;
-import survivalistessentials.items.tool.SurvivalistKnife;
-import survivalistessentials.items.tool.SurvivalistSaw;
+import survivalistessentials.items.tool.SurvivalKnife;
+import survivalistessentials.items.tool.SurvivalSaw;
 import survivalistessentials.SurvivalistEssentials;
 
 public final class SurvivalistEssentialsItems {
@@ -108,7 +108,7 @@ public final class SurvivalistEssentialsItems {
     }
 
     private static Item registerKnifeTool(String name, Tier tier) {
-        Item knifeTool = new SurvivalistKnife(tier, 1, -1.4F, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item knifeTool = new SurvivalKnife(tier, 1, -1.4F, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
 
         return registerItem(name, knifeTool);
     }
@@ -120,7 +120,7 @@ public final class SurvivalistEssentialsItems {
     }
 
     private static Item registerSawTool(String name, Tier tier, float speed) {
-        Item sawTool = new SurvivalistSaw(name, tier, speed, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item sawTool = new SurvivalSaw(name, tier, speed, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
 
         return registerItem(name, sawTool);
     }

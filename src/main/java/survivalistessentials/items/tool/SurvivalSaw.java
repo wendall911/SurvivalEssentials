@@ -26,13 +26,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 
-public class SurvivalistSaw extends TieredItem {
+public class SurvivalSaw extends TieredItem {
 
     public String name;
     private final float speed;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-    public SurvivalistSaw(String name, Tier tier, float speed, Item.Properties tabGroup) {
+    public SurvivalSaw(String name, Tier tier, float speed, Item.Properties tabGroup) {
         super(tier, tabGroup);
 
         this.speed = speed;
