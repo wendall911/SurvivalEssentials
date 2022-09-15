@@ -1,0 +1,64 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cooked_beef",
+    "minecraft:cooked_chicken",
+    "minecraft:cooked_cod",
+    "minecraft:cooked_mutton",
+    "minecraft:cooked_porkchop",
+    "minecraft:cooked_rabbit",
+    "minecraft:cooked_salmon",
+    {
+      "id": "aquaculture:fish_fillet_cooked",
+      "required": false
+    },
+    {
+      "id": "aquaculture:frog_legs_cooked",
+      "required": false
+    },
+    {
+      "id": "betteranimalsplus:turkey_cooked",
+      "required": false
+    },
+    {
+      "id": "betteranimalsplus:venisoncooked",
+      "required": false
+    },
+    {
+      "id": "betteranimalsplus:pheasantcooked",
+      "required": false
+    },
+    {
+      "id": "betteranimalsplus:crab_meat_cooked",
+      "required": false
+    },
+    {
+      "id": "betteranimalsplus:turkey_leg_cooked",
+      "required": false
+    },
+    {
+      "id": "betteranimalsplus:eel_meat_cooked",
+      "required": false
+    },
+    {
+      "id": "betteranimalsplus:calamari_cooked",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cooked_lobster_tail",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cooked_moose_ribs",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cooked_kangaroo_meat",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cooked_catfish",
+      "required": false
+    }
+  ]
+}

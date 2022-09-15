@@ -14,6 +14,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+import net.minecraftforge.fml.common.Mod;
 import survivalessentials.common.TagManager;
 import survivalessentials.data.integration.ModIntegration;
 import survivalessentials.items.SurvivalEssentialsItems;
@@ -89,6 +90,27 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             SurvivalEssentialsItems.CRUDE_BANDAGE,
             SurvivalEssentialsItems.BANDAGE
         );
+        getBuilder(TagManager.Items.COOKED_MEAT)
+            .add(Items.COOKED_BEEF)
+            .add(Items.COOKED_CHICKEN)
+            .add(Items.COOKED_COD)
+            .add(Items.COOKED_MUTTON)
+            .add(Items.COOKED_PORKCHOP)
+            .add(Items.COOKED_RABBIT)
+            .add(Items.COOKED_SALMON)
+            .addOptional(ModIntegration.aquaLoc("fish_fillet_cooked"))
+            .addOptional(ModIntegration.aquaLoc("frog_legs_cooked"))
+            .addOptional(ModIntegration.bapLoc("turkey_cooked"))
+            .addOptional(ModIntegration.bapLoc("venisoncooked"))
+            .addOptional(ModIntegration.bapLoc("pheasantcooked"))
+            .addOptional(ModIntegration.bapLoc("crab_meat_cooked"))
+            .addOptional(ModIntegration.bapLoc("turkey_leg_cooked"))
+            .addOptional(ModIntegration.bapLoc("eel_meat_cooked"))
+            .addOptional(ModIntegration.bapLoc("calamari_cooked"))
+            .addOptional(ModIntegration.alexLoc("cooked_lobster_tail"))
+            .addOptional(ModIntegration.alexLoc("cooked_moose_ribs"))
+            .addOptional(ModIntegration.alexLoc("cooked_kangaroo_meat"))
+            .addOptional(ModIntegration.alexLoc("cooked_catfish"));
 
         // Fruit Trees
         addFTLogVariants(TagManager.Items.CHERRY_LOGS, "cherry");

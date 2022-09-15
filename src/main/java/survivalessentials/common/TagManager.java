@@ -30,6 +30,7 @@ public final class TagManager {
         public static final TagKey<Item> ROCK = create("rock");
         public static final TagKey<Item> SAW_PARTS = create("saw_parts");
         public static final TagKey<Item> BANDAGES = create("bandages");
+        public static final TagKey<Item> COOKED_MEAT = create("cooked_meat");
 
         // Mod Integration
         // Fruit Trees

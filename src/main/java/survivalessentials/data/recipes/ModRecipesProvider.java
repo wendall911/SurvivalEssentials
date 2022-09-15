@@ -15,6 +15,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.ItemLike;
 
@@ -255,6 +256,11 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("PO")
                 .unlockedBy("has_ointment", has(ointment))
                 .save(consumer);
+
+        // Leather from Smoking
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(TagManager.Items.COOKED_MEAT), Items.LEATHER, 0.35F, 100)
+            .unlockedBy("has_cooked_meat", has(TagManager.Items.COOKED_MEAT))
+            .save(consumer, new ResourceLocation(SurvivalEssentials.MODID, "leather_from_cooked_meat_smoking"));
 
         // Book
 

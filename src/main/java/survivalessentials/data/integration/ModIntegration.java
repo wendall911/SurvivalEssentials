@@ -26,6 +26,9 @@ public final class ModIntegration {
     public static final String BYG_MODID = "byg";
     public static final String TF_MODID = "twilightforest";
     public static final String ECO_MODID = "ecologics";
+    public static final String AQUA_MODID = "aquaculture";
+    public static final String BAP_MODID = "betteranimalsplus";
+    public static final String ALEX_MODID = "alexsmobs";
 
     public static Item CHERRY_PLANKS;
     public static Item CITRUS_PLANKS;
@@ -320,6 +323,18 @@ public final class ModIntegration {
 
     public static ResourceLocation ecoLoc(String name) {
         return getLoc(ECO_MODID, name);
+    }
+
+    public static ResourceLocation aquaLoc(String name) {
+        return getLoc(AQUA_MODID, name);
+    }
+
+    public static ResourceLocation bapLoc(String name) {
+        return getLoc(BAP_MODID, name);
+    }
+
+    public static ResourceLocation alexLoc(String name) {
+        return getLoc(ALEX_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {
