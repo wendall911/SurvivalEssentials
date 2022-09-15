@@ -1,4 +1,4 @@
-package survivalessentials.client;
+package survivalistessentials.client;
 
 import java.util.function.Supplier;
 

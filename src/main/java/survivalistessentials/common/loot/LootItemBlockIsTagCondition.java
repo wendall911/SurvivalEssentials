@@ -1,4 +1,4 @@
-package survivalessentials.common.loot;
+package survivalistessentials.common.loot;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
@@ -32,7 +32,7 @@ public class LootItemBlockIsTagCondition implements LootItemCondition {
 
     @Override
     public LootItemConditionType getType() {
-        return SurvivalEssentialsLootItemConditions.IS_TAG.get();
+        return SurvivalistEssentialsLootItemConditions.IS_TAG.get();
     }
 
     @Override

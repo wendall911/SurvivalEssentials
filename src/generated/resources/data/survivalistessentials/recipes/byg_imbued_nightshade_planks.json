@@ -9,10 +9,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalessentials:imbued_nightshade_logs"
+      "tag": "survivalistessentials:imbued_nightshade_logs"
     },
     {
-      "tag": "survivalessentials:advanced_saw_tools"
+      "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {

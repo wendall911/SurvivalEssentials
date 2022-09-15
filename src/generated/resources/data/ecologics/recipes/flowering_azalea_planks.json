@@ -9,10 +9,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalessentials:flowering_azalea_logs"
+      "tag": "survivalistessentials:flowering_azalea_logs"
     },
     {
-      "item": "survivalessentials:crude_saw"
+      "item": "survivalistessentials:crude_saw"
     }
   ],
   "result": {

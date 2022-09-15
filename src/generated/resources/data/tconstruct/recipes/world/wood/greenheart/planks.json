@@ -3,10 +3,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalessentials:greenheart_logs"
+      "tag": "survivalistessentials:greenheart_logs"
     },
     {
-      "item": "survivalessentials:crude_saw"
+      "item": "survivalistessentials:crude_saw"
     }
   ],
   "result": {

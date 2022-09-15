@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "translate": "advancements.survivalessentials.getting_wood.title"
+            "translate": "advancements.survivalistessentials.getting_wood.title"
         },
         "description": {
-            "translate": "advancements.survivalessentials.getting_wood.desc"
+            "translate": "advancements.survivalistessentials.getting_wood.desc"
         },
         "icon": {
             "item": "minecraft:oak_planks"
@@ -44,5 +44,5 @@
             "has_pattens"
         ]
     ],
-    "parent": "survivalessentials:crude_saw"
+    "parent": "survivalistessentials:crude_saw"
 }

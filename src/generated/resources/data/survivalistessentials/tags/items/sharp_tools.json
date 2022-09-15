@@ -5,7 +5,7 @@
       "id": "immersiveengineering:revolver",
       "required": false
     },
-    "#survivalessentials:knife_tools",
-    "#survivalessentials:axe_tools"
+    "#survivalistessentials:knife_tools",
+    "#survivalistessentials:axe_tools"
   ]
 }

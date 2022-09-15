@@ -6,10 +6,10 @@
   ],
   "key": {
     "F": {
-      "item": "survivalessentials:plant_fiber"
+      "item": "survivalistessentials:plant_fiber"
     }
   },
   "result": {
-    "item": "survivalessentials:plant_string"
+    "item": "survivalistessentials:plant_string"
   }
 }

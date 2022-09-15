@@ -9,10 +9,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalessentials:grongle_logs"
+      "tag": "survivalistessentials:grongle_logs"
     },
     {
-      "item": "survivalessentials:crude_saw"
+      "item": "survivalistessentials:crude_saw"
     }
   ],
   "result": {

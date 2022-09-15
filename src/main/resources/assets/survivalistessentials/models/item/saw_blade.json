@@ -2,7 +2,7 @@
   "loader": "tconstruct:material",
   "parent": "forge:item/default",
   "textures": {
-    "texture": "survivalessentials:item/tool/saw/head"
+    "texture": "survivalistessentials:item/tool/saw/head"
   },
   "offset": [-1, 1]
 }

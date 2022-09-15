@@ -1,20 +1,20 @@
 {
     "display": {
         "icon": {
-            "item": "survivalessentials:rock_stone"
+            "item": "survivalistessentials:rock_stone"
         },
         "title": {
-            "translate": "advancements.survivalessentials.sticks_and_stones.title"
+            "translate": "advancements.survivalistessentials.sticks_and_stones.title"
         },
         "description": {
-            "translate": "advancements.survivalessentials.sticks_and_stones.desc"
+            "translate": "advancements.survivalistessentials.sticks_and_stones.desc"
         },
         "frame": "task",
         "show_toast": true,
         "announce_to_chat": false,
         "hidden": false
     },
-    "parent": "survivalessentials:root",
+    "parent": "survivalistessentials:root",
     "criteria": {
         "has_rock_stone": {
             "trigger": "minecraft:inventory_changed",
@@ -22,7 +22,7 @@
                 "items": [
                     {
                         "items": [
-                            "survivalessentials:rock_stone"
+                            "survivalistessentials:rock_stone"
                         ]
                     }
                 ]
@@ -51,7 +51,7 @@
     ],
     "rewards": {
         "recipes": [
-            "survivalessentials:cobblestone"
+            "survivalistessentials:cobblestone"
         ]
     }
 }

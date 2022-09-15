@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "translate": "advancements.survivalessentials.root.title"
+            "translate": "advancements.survivalistessentials.root.title"
         },
         "description": {
-            "translate": "advancements.survivalessentials.root.desc"
+            "translate": "advancements.survivalistessentials.root.desc"
         },
         "icon": {
-            "item": "survivalessentials:crude_hatchet"
+            "item": "survivalistessentials:crude_hatchet"
         },
         "show_toast": true,
         "announce_to_chat": false,

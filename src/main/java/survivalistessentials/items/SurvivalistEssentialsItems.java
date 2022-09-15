@@ -1,4 +1,4 @@
-package survivalessentials.items;
+package survivalistessentials.items;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -6,17 +6,17 @@ import net.minecraft.world.item.Tier;
 
 import net.minecraftforge.registries.IForgeRegistry;
 
-import survivalessentials.common.CreativeTabs;
-import survivalessentials.items.item.Bandage;
-import survivalessentials.items.item.CrudeBandage;
-import survivalessentials.items.item.Mortar;
-import survivalessentials.items.item.WoodenCup;
-import survivalessentials.items.tool.CrudeHatchet;
-import survivalessentials.items.tool.SurvivalKnife;
-import survivalessentials.items.tool.SurvivalSaw;
-import survivalessentials.SurvivalEssentials;
+import survivalistessentials.common.CreativeTabs;
+import survivalistessentials.items.item.Bandage;
+import survivalistessentials.items.item.CrudeBandage;
+import survivalistessentials.items.item.Mortar;
+import survivalistessentials.items.item.WoodenCup;
+import survivalistessentials.items.tool.CrudeHatchet;
+import survivalistessentials.items.tool.SurvivalistKnife;
+import survivalistessentials.items.tool.SurvivalistSaw;
+import survivalistessentials.SurvivalistEssentials;
 
-public final class SurvivalEssentialsItems {
+public final class SurvivalistEssentialsItems {
 
     private static IForgeRegistry<Item> ITEM_REGISTRY;
 
@@ -100,7 +100,7 @@ public final class SurvivalEssentialsItems {
     }
 
     private static Item registerItem(String name, Item item) {
-        Item itemConfigured = item.setRegistryName(new ResourceLocation(SurvivalEssentials.MODID, name));
+        Item itemConfigured = item.setRegistryName(new ResourceLocation(SurvivalistEssentials.MODID, name));
 
         ITEM_REGISTRY.register(itemConfigured);
 
@@ -108,7 +108,7 @@ public final class SurvivalEssentialsItems {
     }
 
     private static Item registerKnifeTool(String name, Tier tier) {
-        Item knifeTool = new SurvivalKnife(tier, 1, -1.4F, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item knifeTool = new SurvivalistKnife(tier, 1, -1.4F, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
 
         return registerItem(name, knifeTool);
     }
@@ -120,7 +120,7 @@ public final class SurvivalEssentialsItems {
     }
 
     private static Item registerSawTool(String name, Tier tier, float speed) {
-        Item sawTool = new SurvivalSaw(name, tier, speed, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item sawTool = new SurvivalistSaw(name, tier, speed, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
 
         return registerItem(name, sawTool);
     }

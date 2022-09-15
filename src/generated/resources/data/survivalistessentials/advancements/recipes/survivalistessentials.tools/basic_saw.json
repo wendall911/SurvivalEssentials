@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:basic_saw"
+      "survivalistessentials:basic_saw"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:basic_saw"
+        "recipe": "survivalistessentials:basic_saw"
       }
     }
   },

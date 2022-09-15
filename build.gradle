@@ -60,7 +60,7 @@ repositories {
     }
 }
 
-group = 'com.github.wendall911.survivalessentials'
+group = 'com.github.wendall911.survivalistessentials'
 version = "${minecraft_version}-${mod_version}"
 archivesBaseName = "${mod_name}"
 def mcversion = "${minecraft_version}"
@@ -80,7 +80,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                survivalessentials {
+                survivalistessentials {
                     source sourceSets.main
                 }
             }
@@ -94,7 +94,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                survivalessentials {
+                survivalistessentials {
                     source sourceSets.main
                 }
             }
@@ -107,14 +107,14 @@ minecraft {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
-            args '--mod', 'survivalessentials',
+            args '--mod', 'survivalistessentials',
                     '--all',
                     '--output', file('src/generated/resources/'),
                     '--existing', file('src/main/resources/'),
                     '--existing', file('src/generated/resources')
 
             mods {
-                survivalessentials {
+                survivalistessentials {
                     source sourceSets.main
                 }
             }
@@ -177,7 +177,7 @@ dependencies {
 }
 
 def commonManifest = {
-    attributes 'FMLAT': 'survivalessentials_at.cfg'
+    attributes 'FMLAT': 'survivalistessentials_at.cfg'
 }
 
 jar {

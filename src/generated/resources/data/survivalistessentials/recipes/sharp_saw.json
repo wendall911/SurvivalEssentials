@@ -6,16 +6,16 @@
   ],
   "key": {
     "H": {
-      "item": "survivalessentials:saw_handle"
+      "item": "survivalistessentials:saw_handle"
     },
     "B": {
-      "item": "survivalessentials:sharp_saw_blade"
+      "item": "survivalistessentials:sharp_saw_blade"
     },
     "S": {
       "tag": "forge:string"
     }
   },
   "result": {
-    "item": "survivalessentials:sharp_saw"
+    "item": "survivalistessentials:sharp_saw"
   }
 }

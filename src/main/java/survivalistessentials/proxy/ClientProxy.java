@@ -1,4 +1,4 @@
-package survivalessentials.proxy;
+package survivalistessentials.proxy;
 
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.api.distmarker.Dist;

@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "survivalessentials:crude_saw",
-    "survivalessentials:basic_saw",
-    "survivalessentials:sharp_saw"
+    "survivalistessentials:crude_saw",
+    "survivalistessentials:basic_saw",
+    "survivalistessentials:sharp_saw"
   ]
 }

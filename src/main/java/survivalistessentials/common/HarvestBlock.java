@@ -4,7 +4,7 @@
  * Work under copyright. See the project LICENSE.md for details.
  */
 
-package survivalessentials.common;
+package survivalistessentials.common;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -27,13 +27,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import survivalessentials.config.ConfigHandler;
-import survivalessentials.mixin.AbstractBlockAccessor;
-import survivalessentials.mixin.AbstractBlockStateAccessor;
-import survivalessentials.mixin.DiggerItemAccessor;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.util.ItemUse;
-import survivalessentials.util.ToolType;
+import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.mixin.AbstractBlockAccessor;
+import survivalistessentials.mixin.AbstractBlockStateAccessor;
+import survivalistessentials.mixin.DiggerItemAccessor;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.util.ItemUse;
+import survivalistessentials.util.ToolType;
 
 public final class HarvestBlock {
 
@@ -109,10 +109,10 @@ public final class HarvestBlock {
         }
 
         if (!unknownMaterialBlocks.isEmpty()) {
-            SurvivalEssentials.LOGGER.error("Unable to infer primary tools for %s blocks with unknown materials. These blocks will not be enforce correct tool.", unknownMaterialBlocks.values().stream().mapToInt(Collection::size).sum());
+            SurvivalistEssentials.LOGGER.error("Unable to infer primary tools for %s blocks with unknown materials. These blocks will not be enforce correct tool.", unknownMaterialBlocks.values().stream().mapToInt(Collection::size).sum());
             unknownMaterialBlocks
                 .forEach((mat, blocks) -> {
-                    blocks.forEach(SurvivalEssentials.LOGGER::warn);
+                    blocks.forEach(SurvivalistEssentials.LOGGER::warn);
                 });
         }
 
@@ -120,7 +120,7 @@ public final class HarvestBlock {
             final Material material = entry.getKey();
             final List<Block> blocks = entry.getValue();
 
-            SurvivalEssentials.LOGGER.warn("Material: [isLiquid=%s, isSolid=%s, blocksMotion=%s, isFlammable=%s, isReplaceable=%s, isSolidBlocking=%s, getPushReaction=%s, getColor=[id=%s, col=%s]] | Blocks: %s",
+            SurvivalistEssentials.LOGGER.warn("Material: [isLiquid=%s, isSolid=%s, blocksMotion=%s, isFlammable=%s, isReplaceable=%s, isSolidBlocking=%s, getPushReaction=%s, getColor=[id=%s, col=%s]] | Blocks: %s",
                 material.isLiquid(), material.isSolid(), material.blocksMotion(), material.isFlammable(), material.isReplaceable(), material.isSolidBlocking(), material.getPushReaction(), material.getColor().id, new Color(material.getColor().col),
                 blocks.stream().map(b -> b.getRegistryName().toString()).collect(Collectors.joining(", ")));
         }

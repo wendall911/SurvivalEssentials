@@ -1,4 +1,4 @@
-package survivalessentials.items.tool;
+package survivalistessentials.items.tool;
 
 import java.util.Random;
 
@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 
-import survivalessentials.SurvivalEssentials;
+import survivalistessentials.SurvivalistEssentials;
 
 public class CrudeHatchet extends AxeItem {
 

@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "translate": "advancements.survivalessentials.crude_saw.title"
+            "translate": "advancements.survivalistessentials.crude_saw.title"
         },
         "description": {
-            "translate": "advancements.survivalessentials.crude_saw.desc"
+            "translate": "advancements.survivalistessentials.crude_saw.desc"
         },
         "icon": {
-            "item": "survivalessentials:crude_saw"
+            "item": "survivalistessentials:crude_saw"
         },
         "frame": "task",
         "show_toast": true,
@@ -20,7 +20,7 @@
             "conditions": {
                 "items": [
                     {
-                        "items": ["survivalessentials:crude_saw"]
+                        "items": ["survivalistessentials:crude_saw"]
                     }
                 ]
             }
@@ -31,5 +31,5 @@
             "has_saw"
         ]
     ],
-    "parent": "survivalessentials:plant_string"
+    "parent": "survivalistessentials:plant_string"
 }

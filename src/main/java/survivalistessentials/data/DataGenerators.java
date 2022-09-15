@@ -1,4 +1,4 @@
-package survivalessentials.data;
+package survivalistessentials.data;
 
 import net.minecraft.data.DataGenerator;
 
@@ -7,15 +7,15 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
-import survivalessentials.data.client.ModBlockStateProvider;
-import survivalessentials.data.client.ModItemModelProvider;
-import survivalessentials.data.loot.ModLootTables;
-import survivalessentials.data.loot.GlobalLootModifier;
-import survivalessentials.data.overrides.BlockTagsOverrideProvider;
-import survivalessentials.data.recipes.ModRecipesProvider;
-import survivalessentials.SurvivalEssentials;
+import survivalistessentials.data.client.ModBlockStateProvider;
+import survivalistessentials.data.client.ModItemModelProvider;
+import survivalistessentials.data.loot.ModLootTables;
+import survivalistessentials.data.loot.GlobalLootModifier;
+import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
+import survivalistessentials.data.recipes.ModRecipesProvider;
+import survivalistessentials.SurvivalistEssentials;
 
-@Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class DataGenerators {
 
     private DataGenerators() {}

@@ -7,14 +7,14 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "tag": "survivalessentials:knife_tools"
+        "tag": "survivalistessentials:knife_tools"
       }
     },
     {
-      "condition": "survivalessentials:is_tag",
-      "tag": "survivalessentials:fiber_plants"
+      "condition": "survivalistessentials:is_tag",
+      "tag": "survivalistessentials:fiber_plants"
     }
   ],
-  "item": "survivalessentials:plant_fiber",
-  "type": "survivalessentials:plant_fiber_drops"
+  "item": "survivalistessentials:plant_fiber",
+  "type": "survivalistessentials:plant_fiber_drops"
 }

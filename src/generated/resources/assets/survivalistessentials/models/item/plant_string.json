@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "survivalessentials:item/plant_string"
+    "layer0": "survivalistessentials:item/plant_string"
   }
 }

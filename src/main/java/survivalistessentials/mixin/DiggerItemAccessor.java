@@ -4,7 +4,7 @@
  * Work under copyright. See the project LICENSE.md for details.
  */
 
-package survivalessentials.mixin;
+package survivalistessentials.mixin;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DiggerItem;

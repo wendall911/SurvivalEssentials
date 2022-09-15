@@ -1,4 +1,4 @@
-package survivalessentials.world.item;
+package survivalistessentials.world.item;
 
 import java.util.Objects;
 
@@ -21,9 +21,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Material;
 
-import survivalessentials.config.ConfigHandler;
-import survivalessentials.items.SurvivalEssentialsItems;
-import survivalessentials.sound.Sounds;
+import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.items.SurvivalistEssentialsItems;
+import survivalistessentials.sound.Sounds;
 
 public class RockStone extends BlockItem {
 
@@ -48,7 +48,7 @@ public class RockStone extends BlockItem {
                     if (level.random.nextFloat() < 0.5) {
                         if (level.random.nextFloat() < ConfigHandler.Common.flintChance()) {
                             NonNullList<ItemStack> dropStack =
-                                NonNullList.withSize(1, new ItemStack(SurvivalEssentialsItems.FLINT_SHARD, 2));
+                                NonNullList.withSize(1, new ItemStack(SurvivalistEssentialsItems.FLINT_SHARD, 2));
 
                             Containers.dropContents(level, Objects.requireNonNull(player).getOnPos(), dropStack);
                         }

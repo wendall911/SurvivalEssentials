@@ -1,4 +1,4 @@
-package survivalessentials.loot;
+package survivalistessentials.loot;
 
 import com.google.gson.JsonObject;
 
@@ -16,9 +16,9 @@ import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.RegistryObject;
 
-import survivalessentials.common.SurvivalEssentialsModule;
+import survivalistessentials.common.SurvivalistEssentialsModule;
 
-public class SurvivalEssentialsLootTables extends SurvivalEssentialsModule {
+public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule {
 
     public static RegistryObject<LootTableSerializer> PLANT_FIBER_DROPS = LOOT_MODIFIER_REGISTRY.register("plant_fiber_drops", LootTableSerializer::new);
     public static RegistryObject<LootTableSerializer> STICK_DROPS = LOOT_MODIFIER_REGISTRY.register("stick_drops", LootTableSerializer::new);

@@ -9,6 +9,6 @@
       "loot_table_id": "minecraft:chests/village/village_toolsmith"
     }
   ],
-  "item": "survivalessentials:crude_knife",
-  "type": "survivalessentials:tool_loot"
+  "item": "survivalistessentials:crude_knife",
+  "type": "survivalistessentials:tool_loot"
 }

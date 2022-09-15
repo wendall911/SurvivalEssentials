@@ -1,4 +1,4 @@
-package survivalessentials.items;
+package survivalistessentials.items;
 
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;

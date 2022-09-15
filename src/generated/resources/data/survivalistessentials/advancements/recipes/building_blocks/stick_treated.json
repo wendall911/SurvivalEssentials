@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:stick_treated"
+      "survivalistessentials:stick_treated"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:stick_treated"
+        "recipe": "survivalistessentials:stick_treated"
       }
     }
   },

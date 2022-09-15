@@ -1,4 +1,4 @@
-package survivalessentials.sound;
+package survivalistessentials.sound;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -8,7 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import survivalessentials.SurvivalEssentials;
+import survivalistessentials.SurvivalistEssentials;
 
 public class Sounds {
 
@@ -22,7 +22,7 @@ public class Sounds {
     public static RegistryObject<SoundEvent> TOOL_FAIL;
 
     public static void init(IEventBus bus) {
-        SOUND_REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, SurvivalEssentials.MODID);
+        SOUND_REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, SurvivalistEssentials.MODID);
 
         SOUND_REGISTRY.register(bus);
 
@@ -35,7 +35,7 @@ public class Sounds {
     }
 
     private static RegistryObject<SoundEvent> registerSound(String name) {
-        return SOUND_REGISTRY.register(name, () -> new SoundEvent(new ResourceLocation(SurvivalEssentials.MODID, name)));
+        return SOUND_REGISTRY.register(name, () -> new SoundEvent(new ResourceLocation(SurvivalistEssentials.MODID, name)));
     }
 
 }

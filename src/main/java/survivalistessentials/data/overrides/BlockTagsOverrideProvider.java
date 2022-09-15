@@ -1,4 +1,4 @@
-package survivalessentials.data.overrides;
+package survivalistessentials.data.overrides;
 
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
@@ -10,16 +10,16 @@ import net.minecraft.world.level.block.Blocks;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import survivalessentials.SurvivalEssentials;
+import survivalistessentials.SurvivalistEssentials;
 
 public class BlockTagsOverrideProvider extends BlockTagsProvider {
     public BlockTagsOverrideProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
-        super(generatorIn, SurvivalEssentials.MODID, existingFileHelper);
+        super(generatorIn, SurvivalistEssentials.MODID, existingFileHelper);
     }
 
     @Override
     public String getName() {
-        return "SurvivalEssentials - BlockTags Overrides";
+        return "SurvivalistEssentials - BlockTags Overrides";
     }
 
     @Override 

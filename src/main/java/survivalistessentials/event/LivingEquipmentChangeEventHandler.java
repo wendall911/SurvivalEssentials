@@ -1,4 +1,4 @@
-package survivalessentials.event;
+package survivalistessentials.event;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -13,11 +13,11 @@ import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import survivalessentials.sound.Sounds;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.util.ItemUse;
+import survivalistessentials.sound.Sounds;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.util.ItemUse;
 
-@Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID)
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class LivingEquipmentChangeEventHandler {
 
     @SubscribeEvent

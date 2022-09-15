@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "survivalessentials:item/basic_knife"
+    "layer0": "survivalistessentials:item/basic_knife"
   }
 }

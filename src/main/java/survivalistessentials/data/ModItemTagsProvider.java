@@ -1,4 +1,4 @@
-package survivalessentials.data;
+package survivalistessentials.data;
 
 import java.util.Arrays;
 
@@ -15,21 +15,21 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import net.minecraftforge.fml.common.Mod;
-import survivalessentials.common.TagManager;
-import survivalessentials.data.integration.ModIntegration;
-import survivalessentials.items.SurvivalEssentialsItems;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.world.SurvivalEssentialsWorld;
+import survivalistessentials.common.TagManager;
+import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.items.SurvivalistEssentialsItems;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
     public ModItemTagsProvider(DataGenerator dataGenerator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagsProvider, SurvivalEssentials.MODID, existingFileHelper);
+        super(dataGenerator, blockTagsProvider, SurvivalistEssentials.MODID, existingFileHelper);
     }
 
     @Override
     public String getName() {
-        return "SurvivalEssentials - Item Tags";
+        return "SurvivalistEssentials - Item Tags";
     }
 
     @Override
@@ -37,7 +37,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         builder(
             TagManager.Items.FLINT_KNAPPABLE,
             Items.FLINT,
-            SurvivalEssentialsWorld.ROCK_STONE
+            SurvivalistEssentialsWorld.ROCK_STONE
         );
         getBuilder(TagManager.Items.PICKAXE_TOOLS)
             .addOptional(ModIntegration.ieLoc("buzzsaw"))
@@ -45,17 +45,17 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addOptional(ModIntegration.ieLoc("hammer"));
         getBuilder(TagManager.Items.AXE_TOOLS)
             .addOptional(ModIntegration.ieLoc("buzzsaw"))
-            .add(SurvivalEssentialsItems.CRUDE_HATCHET);
+            .add(SurvivalistEssentialsItems.CRUDE_HATCHET);
         builder(
             TagManager.Items.SAW_TOOLS,
-            SurvivalEssentialsItems.CRUDE_SAW,
-            SurvivalEssentialsItems.BASIC_SAW,
-            SurvivalEssentialsItems.SHARP_SAW
+            SurvivalistEssentialsItems.CRUDE_SAW,
+            SurvivalistEssentialsItems.BASIC_SAW,
+            SurvivalistEssentialsItems.SHARP_SAW
         );
         builder(
             TagManager.Items.ADVANCED_SAW_TOOLS,
-            SurvivalEssentialsItems.BASIC_SAW,
-            SurvivalEssentialsItems.SHARP_SAW
+            SurvivalistEssentialsItems.BASIC_SAW,
+            SurvivalistEssentialsItems.SHARP_SAW
         );
         getBuilder(TagManager.Items.SHOVEL_TOOLS)
             .addOptional(ModIntegration.ieLoc("drill"));
@@ -64,14 +64,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         );
         builder(
             TagManager.Items.KNIFE_TOOLS,
-            SurvivalEssentialsItems.CRUDE_KNIFE,
-            SurvivalEssentialsItems.BASIC_KNIFE,
-            SurvivalEssentialsItems.SHARP_KNIFE
+            SurvivalistEssentialsItems.CRUDE_KNIFE,
+            SurvivalistEssentialsItems.BASIC_KNIFE,
+            SurvivalistEssentialsItems.SHARP_KNIFE
         );
         builder(
             TagManager.Items.ADVANCED_KNIFE_TOOLS,
-            SurvivalEssentialsItems.BASIC_KNIFE,
-            SurvivalEssentialsItems.SHARP_KNIFE
+            SurvivalistEssentialsItems.BASIC_KNIFE,
+            SurvivalistEssentialsItems.SHARP_KNIFE
         );
         getBuilder(TagManager.Items.SHARP_TOOLS)
             .addOptional(ModIntegration.ieLoc("revolver"))
@@ -79,16 +79,16 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addTag(TagManager.Items.AXE_TOOLS);
         getBuilder(TagManager.Items.SHEAR_TOOLS)
             .addTag(Tags.Items.SHEARS);
-        builder(TagManager.Items.ROCK, SurvivalEssentialsWorld.ROCK_STONE);
+        builder(TagManager.Items.ROCK, SurvivalistEssentialsWorld.ROCK_STONE);
         builder(
             TagManager.Items.SAW_PARTS,
-            SurvivalEssentialsItems.SAW_HANDLE,
-            SurvivalEssentialsItems.CRUDE_SAW_BLADE
+            SurvivalistEssentialsItems.SAW_HANDLE,
+            SurvivalistEssentialsItems.CRUDE_SAW_BLADE
         );
         builder(
             TagManager.Items.BANDAGES,
-            SurvivalEssentialsItems.CRUDE_BANDAGE,
-            SurvivalEssentialsItems.BANDAGE
+            SurvivalistEssentialsItems.CRUDE_BANDAGE,
+            SurvivalistEssentialsItems.BANDAGE
         );
         getBuilder(TagManager.Items.COOKED_MEAT)
             .add(Items.COOKED_BEEF)

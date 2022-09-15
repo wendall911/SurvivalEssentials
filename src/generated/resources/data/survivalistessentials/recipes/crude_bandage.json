@@ -6,16 +6,16 @@
   ],
   "key": {
     "P": {
-      "item": "survivalessentials:plant_string"
+      "item": "survivalistessentials:plant_string"
     },
     "S": {
       "item": "minecraft:stick"
     },
     "F": {
-      "item": "survivalessentials:plant_fiber"
+      "item": "survivalistessentials:plant_fiber"
     }
   },
   "result": {
-    "item": "survivalessentials:crude_bandage"
+    "item": "survivalistessentials:crude_bandage"
   }
 }

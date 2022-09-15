@@ -1,4 +1,4 @@
-package survivalessentials.util;
+package survivalistessentials.util;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -7,7 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-import survivalessentials.common.TagManager;
+import survivalistessentials.common.TagManager;
 
 /**
  * This represents a primary tool that must be present on a given block

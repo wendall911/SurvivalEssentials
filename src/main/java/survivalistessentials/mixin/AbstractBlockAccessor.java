@@ -4,7 +4,7 @@
  * Work under copyright. See the project LICENSE.md for details.
  */
 
-package survivalessentials.mixin;
+package survivalistessentials.mixin;
 
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;

@@ -1,4 +1,4 @@
-package survivalessentials.util;
+package survivalistessentials.util;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

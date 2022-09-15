@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:crude_hatchet"
+      "survivalistessentials:crude_hatchet"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "survivalessentials:rock_stone"
+              "survivalistessentials:rock_stone"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:crude_hatchet"
+        "recipe": "survivalistessentials:crude_hatchet"
       }
     }
   },

@@ -1,4 +1,4 @@
-package survivalessentials.items.tool;
+package survivalistessentials.items.tool;
 
 import java.util.Random;
 
@@ -14,11 +14,11 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 
-import survivalessentials.common.TagManager;
+import survivalistessentials.common.TagManager;
 
-public class SurvivalKnife extends SwordItem {
+public class SurvivalistKnife extends SwordItem {
 
-    public SurvivalKnife(Tier tier, int damage, float speed, Item.Properties tabGroup) {
+    public SurvivalistKnife(Tier tier, int damage, float speed, Item.Properties tabGroup) {
         super(tier, damage, speed, tabGroup);
     }
 

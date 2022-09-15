@@ -12,7 +12,7 @@
       "entity": "this"
     },
     {
-      "condition": "survivalessentials:is_tag",
+      "condition": "survivalistessentials:is_tag",
       "tag": "minecraft:leaves"
     },
     {
@@ -36,11 +36,11 @@
       "term": {
         "condition": "minecraft:match_tool",
         "predicate": {
-          "tag": "survivalessentials:shear_tools"
+          "tag": "survivalistessentials:shear_tools"
         }
       }
     }
   ],
   "item": "minecraft:stick",
-  "type": "survivalessentials:stick_drops"
+  "type": "survivalistessentials:stick_drops"
 }

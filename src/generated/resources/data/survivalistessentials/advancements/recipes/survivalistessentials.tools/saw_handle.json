@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:saw_handle"
+      "survivalistessentials:saw_handle"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "survivalessentials:plant_string"
+              "survivalistessentials:plant_string"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:saw_handle"
+        "recipe": "survivalistessentials:saw_handle"
       }
     }
   },

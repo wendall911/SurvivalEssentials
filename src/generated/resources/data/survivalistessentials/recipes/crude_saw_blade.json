@@ -6,16 +6,16 @@
   ],
   "key": {
     "D": {
-      "item": "survivalessentials:flint_shard"
+      "item": "survivalistessentials:flint_shard"
     },
     "S": {
-      "item": "survivalessentials:plant_string"
+      "item": "survivalistessentials:plant_string"
     },
     "I": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "survivalessentials:crude_saw_blade"
+    "item": "survivalistessentials:crude_saw_blade"
   }
 }

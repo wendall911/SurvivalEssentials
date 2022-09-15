@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "survivalessentials.mixin",
+  "package": "survivalistessentials.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AbstractBlockAccessor",
@@ -14,5 +14,5 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "survivalessentials.refmap.json"
+  "refmap": "survivalistessentials.refmap.json"
 }

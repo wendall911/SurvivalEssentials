@@ -1,4 +1,4 @@
-package survivalessentials.event;
+package survivalistessentials.event;
 
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
@@ -9,12 +9,12 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import survivalessentials.config.ConfigHandler;
-import survivalessentials.sound.Sounds;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.util.ItemUse;
+import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.sound.Sounds;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.util.ItemUse;
 
-@Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID)
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class AttackEventHandler {
 
     @SubscribeEvent

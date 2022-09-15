@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "translate": "advancements.survivalessentials.flint_shard.title"
+            "translate": "advancements.survivalistessentials.flint_shard.title"
         },
         "description": {
-            "translate": "advancements.survivalessentials.flint_shard.desc"
+            "translate": "advancements.survivalistessentials.flint_shard.desc"
         },
         "icon": {
-            "item": "survivalessentials:flint_shard"
+            "item": "survivalistessentials:flint_shard"
         },
         "frame": "task",
         "show_toast": true,
@@ -20,7 +20,7 @@
             "conditions": {
                 "items": [
                     {
-                        "items": ["survivalessentials:flint_shard"]
+                        "items": ["survivalistessentials:flint_shard"]
                     }
                 ]
             }
@@ -33,9 +33,9 @@
     ],
     "rewards": {
         "recipes": [
-            "survivalessentials:flint",
-            "survivalessentials:crude_knife"
+            "survivalistessentials:flint",
+            "survivalistessentials:crude_knife"
         ]
     },
-    "parent": "survivalessentials:sticks_and_stones"
+    "parent": "survivalistessentials:sticks_and_stones"
 }

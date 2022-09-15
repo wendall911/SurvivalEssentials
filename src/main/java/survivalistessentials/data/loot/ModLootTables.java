@@ -1,4 +1,4 @@
-package survivalessentials.data.loot;
+package survivalistessentials.data.loot;
 
 import com.google.common.collect.ImmutableList;
 
@@ -27,7 +27,7 @@ public class ModLootTables extends LootTableProvider {
 
     @Override
     public String getName() {
-        return "SurvivalEssentials - Loot Tables";
+        return "SurvivalistEssentials - Loot Tables";
     }
 
     @Override

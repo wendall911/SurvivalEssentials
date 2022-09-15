@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:string_from_wool_advanced"
+      "survivalistessentials:string_from_wool_advanced"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:string_from_wool_advanced"
+        "recipe": "survivalistessentials:string_from_wool_advanced"
       }
     }
   },

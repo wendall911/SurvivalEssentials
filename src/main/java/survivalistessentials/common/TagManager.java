@@ -1,4 +1,4 @@
-package survivalessentials.common;
+package survivalistessentials.common;
 
 import java.util.Collections;
 import java.util.Objects;
@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
-import survivalessentials.SurvivalEssentials;
+import survivalistessentials.SurvivalistEssentials;
 
 public final class TagManager {
 
@@ -156,7 +156,7 @@ public final class TagManager {
     }
 
     public static ResourceLocation identifier(String path) {
-        return new ResourceLocation(SurvivalEssentials.MODID, path);
+        return new ResourceLocation(SurvivalistEssentials.MODID, path);
     }
 
     public static ResourceLocation forgeLoc(String path) {

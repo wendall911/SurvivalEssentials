@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "translate": "advancements.survivalessentials.crude_hatchet.title"
+            "translate": "advancements.survivalistessentials.crude_hatchet.title"
         },
         "description": {
-            "translate": "advancements.survivalessentials.crude_hatchet.desc"
+            "translate": "advancements.survivalistessentials.crude_hatchet.desc"
         },
         "icon": {
-            "item": "survivalessentials:crude_hatchet"
+            "item": "survivalistessentials:crude_hatchet"
         },
         "frame": "task",
         "show_toast": true,
@@ -20,7 +20,7 @@
             "conditions": {
                 "items": [
                     {
-                        "items": ["survivalessentials:crude_hatchet"]
+                        "items": ["survivalistessentials:crude_hatchet"]
                     }
                 ]
             }
@@ -31,5 +31,5 @@
             "has_crude_knife"
         ]
     ],
-    "parent": "survivalessentials:plant_string"
+    "parent": "survivalistessentials:plant_string"
 }

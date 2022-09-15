@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "survivalessentials:block/granite_loose_rock"
+      "model": "survivalistessentials:block/granite_loose_rock"
     }
   }
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:mortar_and_pestle"
+      "survivalistessentials:mortar_and_pestle"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "survivalessentials:plant_fiber"
+              "survivalistessentials:plant_fiber"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:mortar_and_pestle"
+        "recipe": "survivalistessentials:mortar_and_pestle"
       }
     }
   },

@@ -1,14 +1,14 @@
-package survivalessentials.world.effect;
+package survivalistessentials.world.effect;
 
 import net.minecraft.world.effect.MobEffect;
 
 import net.minecraftforge.registries.RegistryObject;
 
-import survivalessentials.common.SurvivalEssentialsModule;
-import survivalessentials.world.effect.StopBleeding;
-import survivalessentials.world.effect.ZombieEssence;
+import survivalistessentials.common.SurvivalistEssentialsModule;
+import survivalistessentials.world.effect.StopBleeding;
+import survivalistessentials.world.effect.ZombieEssence;
 
-public final class SurvivalEssentialsEffects extends SurvivalEssentialsModule {
+public final class SurvivalistEssentialsEffects extends SurvivalistEssentialsModule {
 
     public static final RegistryObject<MobEffect> STOP_BLEEDING = MOBEFFECT_REGISTRY.register(
         "stop_bleeding", () -> new StopBleeding()

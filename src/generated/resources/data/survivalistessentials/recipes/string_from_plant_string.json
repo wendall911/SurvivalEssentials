@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "survivalessentials:plant_string"
+    "item": "survivalistessentials:plant_string"
   },
   "result": "minecraft:string",
   "experience": 0.1,

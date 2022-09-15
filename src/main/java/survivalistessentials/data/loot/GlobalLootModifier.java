@@ -1,4 +1,4 @@
-package survivalessentials.data.loot;
+package survivalistessentials.data.loot;
 
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
@@ -21,21 +21,21 @@ import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 
-import survivalessentials.common.loot.LootItemBlockIsTagCondition;
-import survivalessentials.items.SurvivalEssentialsItems;
-import survivalessentials.loot.SurvivalEssentialsLootTables;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.common.TagManager;
+import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
+import survivalistessentials.items.SurvivalistEssentialsItems;
+import survivalistessentials.loot.SurvivalistEssentialsLootTables;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.common.TagManager;
 
 public class GlobalLootModifier extends GlobalLootModifierProvider {
 
     public GlobalLootModifier(DataGenerator dataGeneratorIn) {
-        super(dataGeneratorIn, SurvivalEssentials.MODID);
+        super(dataGeneratorIn, SurvivalistEssentials.MODID);
     }
 
     @Override
     public String getName() {
-        return "SurvivalEssentials - Global Loot Modifier";
+        return "SurvivalistEssentials - Global Loot Modifier";
     }
 
     @Override
@@ -46,37 +46,37 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
         addToolLoot(
             BuiltInLootTables.VILLAGE_TOOLSMITH,
             "village_toolsmith_crude_knife",
-            SurvivalEssentialsItems.CRUDE_KNIFE
+            SurvivalistEssentialsItems.CRUDE_KNIFE
         );
         addToolLoot(
             BuiltInLootTables.VILLAGE_TOOLSMITH,
             "village_toolsmith_crude_hatchet",
-            SurvivalEssentialsItems.CRUDE_HATCHET
+            SurvivalistEssentialsItems.CRUDE_HATCHET
         );
         addToolLoot(
             BuiltInLootTables.VILLAGE_TOOLSMITH,
             "village_toolsmith_crude_saw",
-            SurvivalEssentialsItems.CRUDE_SAW
+            SurvivalistEssentialsItems.CRUDE_SAW
         );
         addRareLoot(
             BuiltInLootTables.VILLAGE_TOOLSMITH,
             "village_fisher_wooden_cup",
-            SurvivalEssentialsItems.WOODEN_CUP
+            SurvivalistEssentialsItems.WOODEN_CUP
         );
         addRareLoot(
             BuiltInLootTables.BURIED_TREASURE,
             "buried_treasure_wooden_cup",
-            SurvivalEssentialsItems.WOODEN_CUP
+            SurvivalistEssentialsItems.WOODEN_CUP
         );
         addRareLoot(
             BuiltInLootTables.SHIPWRECK_TREASURE,
             "shipwreck_treasure_wooden_cup",
-            SurvivalEssentialsItems.WOODEN_CUP
+            SurvivalistEssentialsItems.WOODEN_CUP
         );
         addRareLoot(
             BuiltInLootTables.FISHING_TREASURE,
             "fishing_treasure_wooden_cup",
-            SurvivalEssentialsItems.WOODEN_CUP
+            SurvivalistEssentialsItems.WOODEN_CUP
         );
 
     }
@@ -84,10 +84,10 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public void addPlantFiberDrops(TagKey<Block> tag, String name) {
         this.add(
             "plant_fiber_from_" + name,
-            SurvivalEssentialsLootTables.PLANT_FIBER_DROPS.get(),
-            new SurvivalEssentialsLootTables.LootTableModifier(
+            SurvivalistEssentialsLootTables.PLANT_FIBER_DROPS.get(),
+            new SurvivalistEssentialsLootTables.LootTableModifier(
                 createKnifeChanceCondition(0.16F, tag),
-                new ItemStack(SurvivalEssentialsItems.PLANT_FIBER)
+                new ItemStack(SurvivalistEssentialsItems.PLANT_FIBER)
             )
         );
     }
@@ -95,8 +95,8 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public void addStickDrops(TagKey<Block> tag, String name) {
         this.add(
             "stick_drops_from_" + name,
-            SurvivalEssentialsLootTables.STICK_DROPS.get(),
-            new SurvivalEssentialsLootTables.LootTableModifier(
+            SurvivalistEssentialsLootTables.STICK_DROPS.get(),
+            new SurvivalistEssentialsLootTables.LootTableModifier(
                 createKnifeChanceCondition(0.16F, tag),
                 new ItemStack(Items.STICK)
             )
@@ -104,8 +104,8 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
 
         this.add(
                 "extra_stick_drops_from_" + name,
-                SurvivalEssentialsLootTables.STICK_DROPS.get(),
-                new SurvivalEssentialsLootTables.LootTableModifier(
+                SurvivalistEssentialsLootTables.STICK_DROPS.get(),
+                new SurvivalistEssentialsLootTables.LootTableModifier(
                     createExtraStickDropConditions(0.16F, tag),
                     new ItemStack(Items.STICK)
                 )
@@ -115,8 +115,8 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public void addToolLoot(ResourceLocation loc, String name, Item item) {
         this.add(
             "tool_loot_" + name,
-            SurvivalEssentialsLootTables.TOOL_LOOT.get(),
-            new SurvivalEssentialsLootTables.LootTableModifier(
+            SurvivalistEssentialsLootTables.TOOL_LOOT.get(),
+            new SurvivalistEssentialsLootTables.LootTableModifier(
                 createResourceChanceCondition(0.05F, loc),
                 new ItemStack(item)
             )
@@ -126,8 +126,8 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public void addRareLoot(ResourceLocation loc, String name, Item item) {
         this.add(
             "rare_loot_" + name,
-            SurvivalEssentialsLootTables.RARE_LOOT.get(),
-            new SurvivalEssentialsLootTables.LootTableModifier(
+            SurvivalistEssentialsLootTables.RARE_LOOT.get(),
+            new SurvivalistEssentialsLootTables.LootTableModifier(
                 createResourceChanceCondition(0.01F, loc),
                 new ItemStack(item)
             )

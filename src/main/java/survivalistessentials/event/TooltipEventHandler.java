@@ -1,4 +1,4 @@
-package survivalessentials.event;
+package survivalistessentials.event;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -11,10 +11,10 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.util.ItemUse;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.util.ItemUse;
 
-@Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID)
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class TooltipEventHandler {
 
     @SubscribeEvent

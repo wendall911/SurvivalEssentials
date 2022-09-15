@@ -1,4 +1,4 @@
-package survivalessentials.data;
+package survivalistessentials.data;
 
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -8,19 +8,19 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import survivalessentials.data.integration.ModIntegration;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.common.TagManager;
-import survivalessentials.world.SurvivalEssentialsWorld;
+import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.common.TagManager;
+import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
     public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
-        super(generatorIn, SurvivalEssentials.MODID, existingFileHelper);
+        super(generatorIn, SurvivalistEssentials.MODID, existingFileHelper);
     }
 
     @Override
     public String getName() {
-        return "SurvivalEssentials - Block Tags";
+        return "SurvivalistEssentials - Block Tags";
     }
 
     @Override 
@@ -72,12 +72,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             .addTag(BlockTags.TERRACOTTA);
 
         this.tag(TagManager.Blocks.LOOSE_ROCKS)
-            .add(SurvivalEssentialsWorld.ANDESITE_LOOSE_ROCK)
-            .add(SurvivalEssentialsWorld.DIORITE_LOOSE_ROCK)
-            .add(SurvivalEssentialsWorld.GRANITE_LOOSE_ROCK)
-            .add(SurvivalEssentialsWorld.STONE_LOOSE_ROCK)
-            .add(SurvivalEssentialsWorld.SANDSTONE_LOOSE_ROCK)
-            .add(SurvivalEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
+            .add(SurvivalistEssentialsWorld.ANDESITE_LOOSE_ROCK)
+            .add(SurvivalistEssentialsWorld.DIORITE_LOOSE_ROCK)
+            .add(SurvivalistEssentialsWorld.GRANITE_LOOSE_ROCK)
+            .add(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK)
+            .add(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK)
+            .add(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
 
         this.tag(TagManager.Blocks.FIBER_PLANTS)
             .addTag(BlockTags.LEAVES)

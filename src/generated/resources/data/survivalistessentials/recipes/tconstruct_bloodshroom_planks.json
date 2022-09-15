@@ -3,10 +3,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalessentials:bloodshroom_logs"
+      "tag": "survivalistessentials:bloodshroom_logs"
     },
     {
-      "tag": "survivalessentials:advanced_saw_tools"
+      "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {

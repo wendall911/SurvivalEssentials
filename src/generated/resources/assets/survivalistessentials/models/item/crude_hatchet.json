@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "survivalessentials:item/crude_hatchet"
+    "layer0": "survivalistessentials:item/crude_hatchet"
   }
 }

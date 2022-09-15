@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:leather_from_cooked_meat_smoking"
+      "survivalistessentials:leather_from_cooked_meat_smoking"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalessentials:cooked_meat"
+            "tag": "survivalistessentials:cooked_meat"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:leather_from_cooked_meat_smoking"
+        "recipe": "survivalistessentials:leather_from_cooked_meat_smoking"
       }
     }
   },

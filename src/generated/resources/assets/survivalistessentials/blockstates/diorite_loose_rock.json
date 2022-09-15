@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "survivalessentials:block/diorite_loose_rock"
+      "model": "survivalistessentials:block/diorite_loose_rock"
     }
   }
 }

@@ -1,111 +1,111 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
-issueTrackerURL="https://github.com/wendall911/SurvivalEssentials/issues"
+issueTrackerURL="https://github.com/wendall911/SurvivalistEssentials/issues"
 license="MIT"
 
 [[mods]]
-  modId="survivalessentials"
-  displayName="Survival Essentials"
+  modId="survivalistessentials"
+  displayName="Survivalist Essentials"
   description="A small mod to make the first day or two of play more believable. New early game tools, no tree punching, saws, and more!"
   version="${version}"
-  displayURL="https://github.com/wendall911/SurvivalEssentials"
-  updateJSONURL="https://raw.githubusercontent.com/wendall911/SurvivalEssentials/1.18.2/files/updates.json"
+  displayURL="https://github.com/wendall911/SurvivalistEssentials"
+  updateJSONURL="https://raw.githubusercontent.com/wendall911/SurvivalistEssentials/1.18.2/files/updates.json"
   authors="wendall911"
   credits="ashar42 billyzekat"
-  itemIcon="survivalessentials:rock_stone"
+  itemIcon="survivalistessentials:rock_stone"
   logoFile="logo.png"
 
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="forge"
     mandatory=true
     versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="minecraft"
     mandatory=true
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="fruittrees"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="quark"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="biomesoplenty"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="allyoucaneat"
     mandatory=false
     versionRange="[0,]"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="watersource"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="sushigocrafting"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="botania"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="immersiveengineering"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="ars_nouveau"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="geckolib3"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="undergarden"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="byg"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="twilightforest"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.survivalessentials]]
+[[dependencies.survivalistessentials]]
     modId="ecologics"
     mandatory=false
     versionRange="[0,)"

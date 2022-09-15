@@ -6,16 +6,16 @@
   ],
   "key": {
     "H": {
-      "item": "survivalessentials:saw_handle"
+      "item": "survivalistessentials:saw_handle"
     },
     "B": {
-      "item": "survivalessentials:crude_saw_blade"
+      "item": "survivalistessentials:crude_saw_blade"
     },
     "S": {
-      "item": "survivalessentials:plant_string"
+      "item": "survivalistessentials:plant_string"
     }
   },
   "result": {
-    "item": "survivalessentials:crude_saw"
+    "item": "survivalistessentials:crude_saw"
   }
 }

@@ -1,4 +1,4 @@
-package survivalessentials.world.feature;
+package survivalistessentials.world.feature;
 
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -9,13 +9,13 @@ import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 
-import survivalessentials.config.ConfigHandler;
+import survivalistessentials.config.ConfigHandler;
 
 public class LooseRockFeatureHolders {
 
     public static final Holder<ConfiguredFeature<NoneFeatureConfiguration, ?>> LOOSE_ROCKS_CONFIGURED = FeatureUtils.register(
         "loose_rocks",
-        SurvivalEssentialsFeatures.LOOSE_ROCKS_FEATURE.get()
+        SurvivalistEssentialsFeatures.LOOSE_ROCKS_FEATURE.get()
     );
 
     public static final Holder<PlacedFeature> LOOSE_ROCKS_PLACEMENT = PlacementUtils.register("loose_rocks",

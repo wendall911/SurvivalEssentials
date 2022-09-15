@@ -2,40 +2,40 @@
   "knapping": {
     "category": "block",
     "sounds": [
-      "survivalessentials:knapping_1",
-      "survivalessentials:knapping_2",
-      "survivalessentials:knapping_3",
-      "survivalessentials:knapping_4"
+      "survivalistessentials:knapping_1",
+      "survivalistessentials:knapping_2",
+      "survivalistessentials:knapping_3",
+      "survivalistessentials:knapping_4"
     ]
   },
   "armor_fail": {
     "category": "player",
     "sounds": [
-        "survivalessentials:armor_fail"
+        "survivalistessentials:armor_fail"
     ]
   },
   "bow_fail": {
     "category": "player",
     "sounds": [
-        "survivalessentials:bow_fail"
+        "survivalistessentials:bow_fail"
     ]
   },
   "hoe_fail": {
     "category": "player",
     "sounds": [
-        "survivalessentials:hoe_fail"
+        "survivalistessentials:hoe_fail"
     ]
   },
   "sword_fail": {
     "category": "player",
     "sounds": [
-        "survivalessentials:sword_fail"
+        "survivalistessentials:sword_fail"
     ]
   },
   "tool_fail": {
     "category": "player",
     "sounds": [
-        "survivalessentials:tool_fail"
+        "survivalistessentials:tool_fail"
     ]
   }
 }

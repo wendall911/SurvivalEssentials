@@ -1,4 +1,4 @@
-package survivalessentials.world;
+package survivalistessentials.world;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -7,12 +7,12 @@ import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.registries.IForgeRegistry;
 
-import survivalessentials.common.CreativeTabs;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.world.block.LooseRockBlock;
-import survivalessentials.world.item.RockStone;
+import survivalistessentials.common.CreativeTabs;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.world.block.LooseRockBlock;
+import survivalistessentials.world.item.RockStone;
 
-public final class SurvivalEssentialsWorld {
+public final class SurvivalistEssentialsWorld {
 
     private static IForgeRegistry<Block> BLOCK_REGISTRY;
     private static IForgeRegistry<Item> ITEM_REGISTRY;
@@ -54,7 +54,7 @@ public final class SurvivalEssentialsWorld {
     }
 
     private static Block registerBlock(String name) {
-        Block blockConfigured = (new LooseRockBlock()).setRegistryName(new ResourceLocation(SurvivalEssentials.MODID, name));
+        Block blockConfigured = (new LooseRockBlock()).setRegistryName(new ResourceLocation(SurvivalistEssentials.MODID, name));
 
         BLOCK_REGISTRY.register(blockConfigured);
 
@@ -70,7 +70,7 @@ public final class SurvivalEssentialsWorld {
     }
 
     private static Item registerItem(String name, Item item) {
-        Item itemConfigured = item.setRegistryName(new ResourceLocation(SurvivalEssentials.MODID, name));
+        Item itemConfigured = item.setRegistryName(new ResourceLocation(SurvivalistEssentials.MODID, name));
 
         ITEM_REGISTRY.register(itemConfigured);
 

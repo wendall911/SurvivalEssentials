@@ -1,6 +1,6 @@
 {
-  "parent": "survivalessentials:block/diorite_loose_rock",
+  "parent": "survivalistessentials:block/diorite_loose_rock",
   "textures": {
-    "all": "survivalessentials:block/loose/9p_loose_diorite"
+    "all": "survivalistessentials:block/loose/9p_loose_diorite"
   }
 }

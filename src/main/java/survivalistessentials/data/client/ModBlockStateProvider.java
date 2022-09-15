@@ -1,4 +1,4 @@
-package survivalessentials.data.client;
+package survivalistessentials.data.client;
 
 import java.util.Objects;
 
@@ -13,31 +13,31 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.world.SurvivalEssentialsWorld;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, SurvivalEssentials.MODID, exFileHelper);
+        super(gen, SurvivalistEssentials.MODID, exFileHelper);
     }
 
     @Override
     public String getName() {
-        return "SurvivalEssentials - Block State and Models";
+        return "SurvivalistEssentials - Block State and Models";
     }
 
     @Override
     protected void registerStatesAndModels() {
         generateLooseRockBaseModel();
 
-        generateLooseRockVariants(SurvivalEssentialsWorld.ANDESITE_LOOSE_ROCK);
-        generateLooseRockVariants(SurvivalEssentialsWorld.DIORITE_LOOSE_ROCK);
-        generateLooseRockVariants(SurvivalEssentialsWorld.GRANITE_LOOSE_ROCK);
-        generateLooseRockVariants(SurvivalEssentialsWorld.STONE_LOOSE_ROCK);
-        generateLooseRockVariants(SurvivalEssentialsWorld.SANDSTONE_LOOSE_ROCK);
-        generateLooseRockVariants(SurvivalEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
-        generateLooseRockVariants(SurvivalEssentialsWorld.ROCK_STONE_BLOCK);
+        generateLooseRockVariants(SurvivalistEssentialsWorld.ANDESITE_LOOSE_ROCK);
+        generateLooseRockVariants(SurvivalistEssentialsWorld.DIORITE_LOOSE_ROCK);
+        generateLooseRockVariants(SurvivalistEssentialsWorld.GRANITE_LOOSE_ROCK);
+        generateLooseRockVariants(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK);
+        generateLooseRockVariants(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK);
+        generateLooseRockVariants(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
+        generateLooseRockVariants(SurvivalistEssentialsWorld.ROCK_STONE_BLOCK);
     }
 
     private void generateLooseRockBaseModel() {

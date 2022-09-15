@@ -9,10 +9,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalessentials:ether_logs"
+      "tag": "survivalistessentials:ether_logs"
     },
     {
-      "tag": "survivalessentials:advanced_saw_tools"
+      "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {

@@ -9,10 +9,10 @@
       "item": "minecraft:iron_ingot"
     },
     "K": {
-      "item": "survivalessentials:crude_knife"
+      "item": "survivalistessentials:crude_knife"
     }
   },
   "result": {
-    "item": "survivalessentials:basic_knife"
+    "item": "survivalistessentials:basic_knife"
   }
 }

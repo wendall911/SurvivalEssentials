@@ -1,4 +1,4 @@
-package survivalessentials.mixin;
+package survivalistessentials.mixin;
 
 import net.minecraft.client.tutorial.CraftPlanksTutorialStep;
 

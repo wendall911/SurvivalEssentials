@@ -13,10 +13,10 @@
       "tag": "minecraft:planks"
     },
     "R": {
-      "item": "survivalessentials:rock_stone"
+      "item": "survivalistessentials:rock_stone"
     }
   },
   "result": {
-    "item": "survivalessentials:mortar_and_pestle"
+    "item": "survivalistessentials:mortar_and_pestle"
   }
 }

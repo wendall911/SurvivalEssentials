@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "survivalessentials:item/rock_stone"
+    "layer0": "survivalistessentials:item/rock_stone"
   }
 }

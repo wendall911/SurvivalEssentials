@@ -1,4 +1,4 @@
-package survivalessentials;
+package survivalistessentials;
 
 import java.util.Random;
 
@@ -8,19 +8,19 @@ import net.minecraftforge.fml.DistExecutor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import survivalessentials.proxy.ClientProxy;
-import survivalessentials.proxy.CommonProxy;
+import survivalistessentials.proxy.ClientProxy;
+import survivalistessentials.proxy.CommonProxy;
 
-@Mod(SurvivalEssentials.MODID)
-public class SurvivalEssentials {
+@Mod(SurvivalistEssentials.MODID)
+public class SurvivalistEssentials {
 
-    public static final String MODID = "survivalessentials";
-    public static final Logger LOGGER = LogManager.getFormatterLogger(SurvivalEssentials.MODID);
+    public static final String MODID = "survivalistessentials";
+    public static final Logger LOGGER = LogManager.getFormatterLogger(SurvivalistEssentials.MODID);
     public static final Random RANDOM = new Random();
 
     public static CommonProxy PROXY;
 
-    public SurvivalEssentials() {
+    public SurvivalistEssentials() {
         PROXY = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
         PROXY.start();
     }

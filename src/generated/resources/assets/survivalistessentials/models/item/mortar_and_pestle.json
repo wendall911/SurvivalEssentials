@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "survivalessentials:item/mortar_and_pestle"
+    "layer0": "survivalistessentials:item/mortar_and_pestle"
   }
 }

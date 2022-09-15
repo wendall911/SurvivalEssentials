@@ -6,16 +6,16 @@
   ],
   "key": {
     "R": {
-      "item": "survivalessentials:rock_stone"
+      "item": "survivalistessentials:rock_stone"
     },
     "S": {
-      "item": "survivalessentials:plant_string"
+      "item": "survivalistessentials:plant_string"
     },
     "I": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "survivalessentials:crude_hatchet"
+    "item": "survivalistessentials:crude_hatchet"
   }
 }

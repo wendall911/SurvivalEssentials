@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#survivalessentials:loose_rocks",
+    "#survivalistessentials:loose_rocks",
     "#minecraft:beds",
     "minecraft:gravel",
     "#forge:gravel",

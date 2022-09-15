@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smoking",
   "ingredient": {
-    "tag": "survivalessentials:cooked_meat"
+    "tag": "survivalistessentials:cooked_meat"
   },
   "result": "minecraft:leather",
   "experience": 0.35,

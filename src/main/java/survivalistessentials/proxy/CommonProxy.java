@@ -1,4 +1,4 @@
-package survivalessentials.proxy;
+package survivalistessentials.proxy;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffect;
@@ -22,21 +22,21 @@ import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import survivalessentials.common.HarvestBlock;
-import survivalessentials.common.SurvivalEssentialsModule;
-import survivalessentials.common.loot.SurvivalEssentialsLootItemConditions;
-import survivalessentials.config.ConfigHandler;
-import survivalessentials.data.integration.ModIntegration;
-import survivalessentials.items.SurvivalEssentialsItems;
-import survivalessentials.loot.SurvivalEssentialsLootTables;
-import survivalessentials.sound.Sounds;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.world.effect.SurvivalEssentialsEffects;
-import survivalessentials.world.feature.SurvivalEssentialsFeatures;
-import survivalessentials.world.feature.LooseRockFeatureHolders;
-import survivalessentials.world.SurvivalEssentialsWorld;
+import survivalistessentials.common.HarvestBlock;
+import survivalistessentials.common.SurvivalistEssentialsModule;
+import survivalistessentials.common.loot.SurvivalistEssentialsLootItemConditions;
+import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.items.SurvivalistEssentialsItems;
+import survivalistessentials.loot.SurvivalistEssentialsLootTables;
+import survivalistessentials.sound.Sounds;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
+import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
+import survivalistessentials.world.feature.LooseRockFeatureHolders;
+import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-@Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID)
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class CommonProxy {
 
     public CommonProxy() {}
@@ -75,38 +75,38 @@ public class CommonProxy {
         public static void registerItems(RegistryEvent.Register<Item> event) {
             IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-            SurvivalEssentialsItems.init(event.getRegistry());
+            SurvivalistEssentialsItems.init(event.getRegistry());
             ModIntegration.init(event.getRegistry());
-            SurvivalEssentialsWorld.initItems(event.getRegistry());
-            SurvivalEssentialsLootItemConditions.init(bus);
+            SurvivalistEssentialsWorld.initItems(event.getRegistry());
+            SurvivalistEssentialsLootItemConditions.init(bus);
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerLootModifiers(RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
             IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-            bus.register(new SurvivalEssentialsLootTables());
+            bus.register(new SurvivalistEssentialsLootTables());
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerBlocks(RegistryEvent.Register<Block> event) {
             BLOCK_REGISTRY = event.getRegistry();
 
-            SurvivalEssentialsWorld.initBlocks(event.getRegistry());
+            SurvivalistEssentialsWorld.initBlocks(event.getRegistry());
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
             IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-            bus.register(new SurvivalEssentialsFeatures());
+            bus.register(new SurvivalistEssentialsFeatures());
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerMobEffects(RegistryEvent.Register<MobEffect> event) {
             IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-            bus.register(new SurvivalEssentialsEffects());
+            bus.register(new SurvivalistEssentialsEffects());
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -118,7 +118,7 @@ public class CommonProxy {
             }
             setupDone = true;
 
-            SurvivalEssentialsModule.initRegistries(bus);
+            SurvivalistEssentialsModule.initRegistries(bus);
         }
 
         @SubscribeEvent
@@ -133,22 +133,22 @@ public class CommonProxy {
         if (ConfigHandler.Common.logModpackData()) {
             RegistryListener.BLOCK_REGISTRY.getValues().forEach((block) -> {
                 if (block.defaultBlockState().is(Tags.Blocks.NEEDS_WOOD_TOOL)) {
-                    SurvivalEssentials.LOGGER.warn("needs_wood_tool - level 0: %s", block);
+                    SurvivalistEssentials.LOGGER.warn("needs_wood_tool - level 0: %s", block);
                 }
                 if (block.defaultBlockState().is(Tags.Blocks.NEEDS_GOLD_TOOL)) {
-                    SurvivalEssentials.LOGGER.warn("needs_gold_tool - level 0.1: %s", block);
+                    SurvivalistEssentials.LOGGER.warn("needs_gold_tool - level 0.1: %s", block);
                 }
                 if (block.defaultBlockState().is(BlockTags.NEEDS_STONE_TOOL)) {
-                    SurvivalEssentials.LOGGER.warn("needs_stone_tool - level 1: %s", block);
+                    SurvivalistEssentials.LOGGER.warn("needs_stone_tool - level 1: %s", block);
                 }
                 if (block.defaultBlockState().is(BlockTags.NEEDS_IRON_TOOL)) {
-                    SurvivalEssentials.LOGGER.warn("needs_iron_tool - level 2: %s", block);
+                    SurvivalistEssentials.LOGGER.warn("needs_iron_tool - level 2: %s", block);
                 }
                 if (block.defaultBlockState().is(BlockTags.NEEDS_DIAMOND_TOOL)) {
-                    SurvivalEssentials.LOGGER.warn("needs_diamond_tool - level 3: %s", block);
+                    SurvivalistEssentials.LOGGER.warn("needs_diamond_tool - level 3: %s", block);
                 }
                 if (block.defaultBlockState().is(Tags.Blocks.NEEDS_NETHERITE_TOOL)) {
-                    SurvivalEssentials.LOGGER.warn("needs_netherite_tool - level 4: %s", block);
+                    SurvivalistEssentials.LOGGER.warn("needs_netherite_tool - level 4: %s", block);
                 }
             });
         }

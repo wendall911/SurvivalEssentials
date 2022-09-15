@@ -9,6 +9,6 @@
       "loot_table_id": "minecraft:chests/shipwreck_treasure"
     }
   ],
-  "item": "survivalessentials:wooden_cup",
-  "type": "survivalessentials:rare_loot"
+  "item": "survivalistessentials:wooden_cup",
+  "type": "survivalistessentials:rare_loot"
 }

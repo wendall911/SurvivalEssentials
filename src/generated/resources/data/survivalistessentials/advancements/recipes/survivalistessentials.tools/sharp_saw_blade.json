@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:sharp_saw_blade"
+      "survivalistessentials:sharp_saw_blade"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:sharp_saw_blade"
+        "recipe": "survivalistessentials:sharp_saw_blade"
       }
     }
   },

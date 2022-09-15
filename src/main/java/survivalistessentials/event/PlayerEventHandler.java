@@ -1,4 +1,4 @@
-package survivalessentials.event;
+package survivalistessentials.event;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -8,10 +8,10 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import survivalessentials.config.ConfigHandler;
-import survivalessentials.SurvivalEssentials;
+import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.SurvivalistEssentials;
 
-@Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID)
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class PlayerEventHandler {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)

@@ -1,4 +1,4 @@
-package survivalessentials.world.feature;
+package survivalistessentials.world.feature;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -17,21 +17,21 @@ import net.minecraft.world.level.WorldGenLevel;
 
 import net.minecraftforge.common.util.Lazy;
 
-import survivalessentials.common.TagManager;
-import survivalessentials.world.SurvivalEssentialsWorld;
+import survivalistessentials.common.TagManager;
+import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class LooseRocks extends Feature<NoneFeatureConfiguration> {
 
     private static final Lazy<Map<Block, Block>> LOOSE_ROCK_SUPPLIER = Lazy.of(() -> new ImmutableMap.Builder<Block, Block>()
-        .put(Blocks.STONE, SurvivalEssentialsWorld.STONE_LOOSE_ROCK)
-        .put(Blocks.ANDESITE, SurvivalEssentialsWorld.ANDESITE_LOOSE_ROCK)
-        .put(Blocks.DIORITE, SurvivalEssentialsWorld.DIORITE_LOOSE_ROCK)
-        .put(Blocks.GRANITE, SurvivalEssentialsWorld.GRANITE_LOOSE_ROCK)
-        .put(Blocks.SANDSTONE, SurvivalEssentialsWorld.SANDSTONE_LOOSE_ROCK)
-        .put(Blocks.RED_SANDSTONE, SurvivalEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK)
-        .put(Blocks.TERRACOTTA, SurvivalEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK)
-        .put(Blocks.SAND, SurvivalEssentialsWorld.SANDSTONE_LOOSE_ROCK)
-        .put(Blocks.RED_SAND, SurvivalEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK)
+        .put(Blocks.STONE, SurvivalistEssentialsWorld.STONE_LOOSE_ROCK)
+        .put(Blocks.ANDESITE, SurvivalistEssentialsWorld.ANDESITE_LOOSE_ROCK)
+        .put(Blocks.DIORITE, SurvivalistEssentialsWorld.DIORITE_LOOSE_ROCK)
+        .put(Blocks.GRANITE, SurvivalistEssentialsWorld.GRANITE_LOOSE_ROCK)
+        .put(Blocks.SANDSTONE, SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK)
+        .put(Blocks.RED_SANDSTONE, SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK)
+        .put(Blocks.TERRACOTTA, SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK)
+        .put(Blocks.SAND, SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK)
+        .put(Blocks.RED_SAND, SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK)
         .build()
     );
 

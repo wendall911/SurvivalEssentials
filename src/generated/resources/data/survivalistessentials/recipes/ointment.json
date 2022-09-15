@@ -6,10 +6,10 @@
   ],
   "key": {
     "P": {
-      "item": "survivalessentials:plant_paste"
+      "item": "survivalistessentials:plant_paste"
     }
   },
   "result": {
-    "item": "survivalessentials:ointment"
+    "item": "survivalistessentials:ointment"
   }
 }

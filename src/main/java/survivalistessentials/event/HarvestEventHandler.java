@@ -1,4 +1,4 @@
-package survivalessentials.event;
+package survivalistessentials.event;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,17 +19,17 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.ModList;
 
-import survivalessentials.common.HarvestBlock;
-import survivalessentials.common.TagManager;
-import survivalessentials.config.ConfigHandler;
-import survivalessentials.mixin.AbstractBlockStateAccessor;
-import survivalessentials.sound.Sounds;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.util.Chat;
-import survivalessentials.util.ItemUse;
-import survivalessentials.util.ToolType;
+import survivalistessentials.common.HarvestBlock;
+import survivalistessentials.common.TagManager;
+import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.mixin.AbstractBlockStateAccessor;
+import survivalistessentials.sound.Sounds;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.util.Chat;
+import survivalistessentials.util.ItemUse;
+import survivalistessentials.util.ToolType;
 
-@Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID)
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class HarvestEventHandler {
 
     public static final Map<Player, BlockPos> harvestAttempts = new HashMap<>();

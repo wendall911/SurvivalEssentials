@@ -1,11 +1,11 @@
-package survivalessentials.data.integration;
+package survivalistessentials.data.integration;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 import net.minecraftforge.registries.IForgeRegistry;
 
-import survivalessentials.common.CreativeTabs;
+import survivalistessentials.common.CreativeTabs;
 
 public final class ModIntegration {
 

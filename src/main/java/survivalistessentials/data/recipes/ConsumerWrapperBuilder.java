@@ -1,4 +1,4 @@
-package survivalessentials.data.recipes;
+package survivalistessentials.data.recipes;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;

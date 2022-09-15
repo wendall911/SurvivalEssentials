@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:twilightforest_dark_from_wood_planks"
+      "survivalistessentials:twilightforest_dark_from_wood_planks"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalessentials:advanced_saw_tools"
+            "tag": "survivalistessentials:advanced_saw_tools"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:twilightforest_dark_from_wood_planks"
+        "recipe": "survivalistessentials:twilightforest_dark_from_wood_planks"
       }
     }
   },

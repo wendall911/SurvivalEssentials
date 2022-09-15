@@ -1,4 +1,4 @@
-package survivalessentials.config;
+package survivalistessentials.config;
 
 import java.util.Arrays;
 import java.util.function.Predicate;
@@ -18,10 +18,10 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.util.ItemUse;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.util.ItemUse;
 
-@Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ConfigHandler {
 
     private ConfigHandler() {}
@@ -141,7 +141,7 @@ public final class ConfigHandler {
                         + "[\"" + String.join("\", \"", itemsStrings) + "\"]")
                 .defineListAllowEmpty(ITEMS_LIST, getFields(itemsStrings), itemidValidator);
             LOG_MODPACK_DATA = builder
-                .comment("Used to dump log info for Survival Essentials Modpack. Ignore.")
+                .comment("Used to dump log info for Survivalist Essentials Modpack. Ignore.")
                 .define("LOG_MODPACK_DATA", false);
             BLOCK_MODS = builder
                 .comment("List of mods that have blocks that are generally decorative in nature and require no tool for harvesting blocks. Default: "
@@ -275,8 +275,8 @@ public final class ConfigHandler {
 
     @SubscribeEvent
     public static void onFileChange(final ModConfigEvent.Reloading event) {
-        SurvivalEssentials.LOGGER.warn("Reloading config");
-        SurvivalEssentials.LOGGER.warn(Common.getMods());
+        SurvivalistEssentials.LOGGER.warn("Reloading config");
+        SurvivalistEssentials.LOGGER.warn(Common.getMods());
         ItemUse.init();
     }
 

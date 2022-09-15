@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "survivalessentials:item/ointment"
+    "layer0": "survivalistessentials:item/ointment"
   }
 }

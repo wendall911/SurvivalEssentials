@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "survivalessentials:basic_knife",
-    "survivalessentials:sharp_knife"
+    "survivalistessentials:basic_knife",
+    "survivalistessentials:sharp_knife"
   ]
 }

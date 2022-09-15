@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:minecraft_birch_planks"
+      "survivalistessentials:minecraft_birch_planks"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalessentials:advanced_saw_tools"
+            "tag": "survivalistessentials:advanced_saw_tools"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:minecraft_birch_planks"
+        "recipe": "survivalistessentials:minecraft_birch_planks"
       }
     }
   },

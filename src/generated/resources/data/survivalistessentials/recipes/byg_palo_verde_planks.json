@@ -9,10 +9,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalessentials:palo_verde_logs"
+      "tag": "survivalistessentials:palo_verde_logs"
     },
     {
-      "tag": "survivalessentials:advanced_saw_tools"
+      "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {

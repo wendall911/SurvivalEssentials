@@ -3,10 +3,10 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalessentials:skyroot_logs"
+      "tag": "survivalistessentials:skyroot_logs"
     },
     {
-      "tag": "survivalessentials:advanced_saw_tools"
+      "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {

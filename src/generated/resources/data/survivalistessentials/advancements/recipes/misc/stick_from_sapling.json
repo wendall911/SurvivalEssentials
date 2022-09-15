@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "survivalessentials:stick_from_sapling"
+      "survivalistessentials:stick_from_sapling"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "survivalessentials:stick_from_sapling"
+        "recipe": "survivalistessentials:stick_from_sapling"
       }
     }
   },

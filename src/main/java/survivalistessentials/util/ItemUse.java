@@ -1,4 +1,4 @@
-package survivalessentials.util;
+package survivalistessentials.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,11 +17,11 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import net.minecraftforge.fml.ModList;
 
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.common.HarvestBlock;
-import survivalessentials.common.TagManager;
-import survivalessentials.config.ConfigHandler;
-import survivalessentials.mixin.AbstractBlockStateAccessor;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.common.HarvestBlock;
+import survivalistessentials.common.TagManager;
+import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.mixin.AbstractBlockStateAccessor;
 
 public class ItemUse {
 

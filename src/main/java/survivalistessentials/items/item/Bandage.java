@@ -1,4 +1,4 @@
-package survivalessentials.items.item;
+package survivalistessentials.items.item;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.UseAnim;

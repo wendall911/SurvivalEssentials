@@ -7,14 +7,14 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "tag": "survivalessentials:knife_tools"
+        "tag": "survivalistessentials:knife_tools"
       }
     },
     {
-      "condition": "survivalessentials:is_tag",
+      "condition": "survivalistessentials:is_tag",
       "tag": "minecraft:leaves"
     }
   ],
   "item": "minecraft:stick",
-  "type": "survivalessentials:stick_drops"
+  "type": "survivalistessentials:stick_drops"
 }

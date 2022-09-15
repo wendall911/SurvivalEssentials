@@ -1,4 +1,4 @@
 [submodule "wiki"]
 	path = wiki
-	url = git@github.com:wendall911/SurvivalEssentials.wiki.git
+	url = git@github.com:wendall911/SurvivalistEssentials.wiki.git
 	branch = master

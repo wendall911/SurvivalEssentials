@@ -6,13 +6,13 @@
   ],
   "key": {
     "F": {
-      "item": "survivalessentials:plant_fiber"
+      "item": "survivalistessentials:plant_fiber"
     },
     "U": {
-      "item": "survivalessentials:mortar_and_pestle"
+      "item": "survivalistessentials:mortar_and_pestle"
     }
   },
   "result": {
-    "item": "survivalessentials:plant_paste"
+    "item": "survivalistessentials:plant_paste"
   }
 }

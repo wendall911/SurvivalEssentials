@@ -1,4 +1,4 @@
-# Survival Essentials [![Project](http://cf.way2muchnoise.eu/full_294667_downloads.svg)](https://minecraft.curseforge.com/projects/294667)
+# Survivalist Essentials [![Project](http://cf.way2muchnoise.eu/full_294667_downloads.svg)](https://minecraft.curseforge.com/projects/294667)
 ![Minecraft](http://cf.way2muchnoise.eu/versions/For%20MC_294667_all.svg)
 ![Forge](https://img.shields.io/badge/Forge-39.0.+-green.svg?longCache=true&style=flat)
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=flat)
@@ -15,5 +15,5 @@ All Downloads:
 
 ## Links of Interest
 
-+ [Survival Essentials Wiki](https://github.com/wendall911/SurvivalEssentials/wiki)
-+ [Survival Essentials Curseforge Page](https://minecraft.curseforge.com/projects/survivalessentials)
++ [Survivalist Essentials Wiki](https://github.com/wendall911/SurvivalistEssentials/wiki)
++ [Survivalist Essentials Curseforge Page](https://minecraft.curseforge.com/projects/survivalist-essentials)

@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "survivalessentials:andesite_loose_rock",
-    "survivalessentials:diorite_loose_rock",
-    "survivalessentials:granite_loose_rock",
-    "survivalessentials:stone_loose_rock",
-    "survivalessentials:sandstone_loose_rock",
-    "survivalessentials:red_sandstone_loose_rock"
+    "survivalistessentials:andesite_loose_rock",
+    "survivalistessentials:diorite_loose_rock",
+    "survivalistessentials:granite_loose_rock",
+    "survivalistessentials:stone_loose_rock",
+    "survivalistessentials:sandstone_loose_rock",
+    "survivalistessentials:red_sandstone_loose_rock"
   ]
 }

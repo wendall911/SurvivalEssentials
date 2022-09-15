@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "survivalessentials:item/crude_bandage"
+    "layer0": "survivalistessentials:item/crude_bandage"
   }
 }

@@ -1,4 +1,4 @@
-package survivalessentials.items.item;
+package survivalistessentials.items.item;
 
 import javax.annotation.Nonnull;
 

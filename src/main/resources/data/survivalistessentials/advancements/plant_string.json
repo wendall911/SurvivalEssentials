@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "translate": "advancements.survivalessentials.plant_string.title"
+            "translate": "advancements.survivalistessentials.plant_string.title"
         },
         "description": {
-            "translate": "advancements.survivalessentials.plant_string.desc"
+            "translate": "advancements.survivalistessentials.plant_string.desc"
         },
         "icon": {
-            "item": "survivalessentials:plant_string"
+            "item": "survivalistessentials:plant_string"
         },
         "frame": "task",
         "show_toast": true,
@@ -20,7 +20,7 @@
             "conditions": {
                 "items": [
                     {
-                        "items": ["survivalessentials:plant_string"]
+                        "items": ["survivalistessentials:plant_string"]
                     }
                 ]
             }
@@ -33,11 +33,11 @@
     ],
     "rewards": {
         "recipes": [
-            "survivalessentials:crude_hatchet",
-            "survivalessentials:crude_saw_handle",
-            "survivalessentials:crude_saw_blade",
-            "survivalessentials:crude_saw"
+            "survivalistessentials:crude_hatchet",
+            "survivalistessentials:crude_saw_handle",
+            "survivalistessentials:crude_saw_blade",
+            "survivalistessentials:crude_saw"
         ]
     },
-    "parent": "survivalessentials:crude_knife"
+    "parent": "survivalistessentials:crude_knife"
 }

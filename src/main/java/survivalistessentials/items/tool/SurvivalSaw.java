@@ -1,4 +1,4 @@
-package survivalessentials.items.tool;
+package survivalistessentials.items.tool;
 
 import java.util.Random;
 
@@ -23,16 +23,16 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-import survivalessentials.common.TagManager;
-import survivalessentials.items.SurvivalEssentialsItems;
+import survivalistessentials.common.TagManager;
+import survivalistessentials.items.SurvivalistEssentialsItems;
 
-public class SurvivalSaw extends TieredItem {
+public class SurvivalistSaw extends TieredItem {
 
     public String name;
     private final float speed;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-    public SurvivalSaw(String name, Tier tier, float speed, Item.Properties tabGroup) {
+    public SurvivalistSaw(String name, Tier tier, float speed, Item.Properties tabGroup) {
         super(tier, tabGroup);
 
         this.speed = speed;
@@ -56,7 +56,7 @@ public class SurvivalSaw extends TieredItem {
             return container;
         }
         else {
-            return new ItemStack(SurvivalEssentialsItems.SAW_HANDLE);
+            return new ItemStack(SurvivalistEssentialsItems.SAW_HANDLE);
         }
     }
 

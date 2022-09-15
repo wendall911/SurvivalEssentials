@@ -6,13 +6,13 @@
   ],
   "key": {
     "S": {
-      "item": "survivalessentials:plant_string"
+      "item": "survivalistessentials:plant_string"
     },
     "I": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "survivalessentials:saw_handle"
+    "item": "survivalistessentials:saw_handle"
   }
 }

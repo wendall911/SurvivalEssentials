@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "survivalessentials:item/cloth"
+    "layer0": "survivalistessentials:item/cloth"
   }
 }

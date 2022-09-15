@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "survivalessentials:item/wooden_cup"
+    "layer0": "survivalistessentials:item/wooden_cup"
   }
 }

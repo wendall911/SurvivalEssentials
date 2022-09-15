@@ -1,4 +1,4 @@
-package survivalessentials.data.client;
+package survivalistessentials.data.client;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -13,55 +13,55 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import survivalessentials.items.SurvivalEssentialsItems;
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.world.SurvivalEssentialsWorld;
+import survivalistessentials.items.SurvivalistEssentialsItems;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, SurvivalEssentials.MODID, existingFileHelper);
+        super(generator, SurvivalistEssentials.MODID, existingFileHelper);
     }
 
     @Override
     public String getName() {
-        return "SurvivalEssentials - Item Models";
+        return "SurvivalistEssentials - Item Models";
     }
 
     @Override
     protected void registerModels() {
-        blockItem(SurvivalEssentialsWorld.ANDESITE_LOOSE_ROCK);
-        blockItem(SurvivalEssentialsWorld.DIORITE_LOOSE_ROCK);
-        blockItem(SurvivalEssentialsWorld.GRANITE_LOOSE_ROCK);
-        blockItem(SurvivalEssentialsWorld.STONE_LOOSE_ROCK);
-        blockItem(SurvivalEssentialsWorld.SANDSTONE_LOOSE_ROCK);
-        blockItem(SurvivalEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
+        blockItem(SurvivalistEssentialsWorld.ANDESITE_LOOSE_ROCK);
+        blockItem(SurvivalistEssentialsWorld.DIORITE_LOOSE_ROCK);
+        blockItem(SurvivalistEssentialsWorld.GRANITE_LOOSE_ROCK);
+        blockItem(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK);
+        blockItem(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK);
+        blockItem(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         ModelFile itemHandheld = getExistingFile(mcLoc("item/handheld"));
 
-        build(itemGenerated, SurvivalEssentialsWorld.ROCK_STONE);
-        build(itemGenerated, SurvivalEssentialsItems.FLINT_SHARD);
-        build(itemGenerated, SurvivalEssentialsItems.PLANT_FIBER);
-        build(itemGenerated, SurvivalEssentialsItems.PLANT_STRING);
-        build(itemGenerated, SurvivalEssentialsItems.OINTMENT);
-        build(itemGenerated, SurvivalEssentialsItems.PLANT_PASTE);
-        build(itemGenerated, SurvivalEssentialsItems.CLOTH);
-        build(itemGenerated, SurvivalEssentialsItems.CRUDE_SAW_BLADE);
-        build(itemGenerated, SurvivalEssentialsItems.BASIC_SAW_BLADE);
-        build(itemGenerated, SurvivalEssentialsItems.SHARP_SAW_BLADE);
-        build(itemHandheld, SurvivalEssentialsItems.CRUDE_KNIFE);
-        build(itemHandheld, SurvivalEssentialsItems.BASIC_KNIFE);
-        build(itemHandheld, SurvivalEssentialsItems.SHARP_KNIFE);
-        build(itemHandheld, SurvivalEssentialsItems.CRUDE_HATCHET);
-        build(itemHandheld, SurvivalEssentialsItems.SAW_HANDLE);
-        build(itemHandheld, SurvivalEssentialsItems.CRUDE_SAW);
-        build(itemHandheld, SurvivalEssentialsItems.BASIC_SAW);
-        build(itemHandheld, SurvivalEssentialsItems.SHARP_SAW);
-        build(itemGenerated, SurvivalEssentialsItems.MORTAR_AND_PESTLE);
-        build(itemGenerated, SurvivalEssentialsItems.CRUDE_BANDAGE);
-        build(itemGenerated, SurvivalEssentialsItems.BANDAGE);
-        build(itemGenerated, SurvivalEssentialsItems.WOODEN_CUP);
+        build(itemGenerated, SurvivalistEssentialsWorld.ROCK_STONE);
+        build(itemGenerated, SurvivalistEssentialsItems.FLINT_SHARD);
+        build(itemGenerated, SurvivalistEssentialsItems.PLANT_FIBER);
+        build(itemGenerated, SurvivalistEssentialsItems.PLANT_STRING);
+        build(itemGenerated, SurvivalistEssentialsItems.OINTMENT);
+        build(itemGenerated, SurvivalistEssentialsItems.PLANT_PASTE);
+        build(itemGenerated, SurvivalistEssentialsItems.CLOTH);
+        build(itemGenerated, SurvivalistEssentialsItems.CRUDE_SAW_BLADE);
+        build(itemGenerated, SurvivalistEssentialsItems.BASIC_SAW_BLADE);
+        build(itemGenerated, SurvivalistEssentialsItems.SHARP_SAW_BLADE);
+        build(itemHandheld, SurvivalistEssentialsItems.CRUDE_KNIFE);
+        build(itemHandheld, SurvivalistEssentialsItems.BASIC_KNIFE);
+        build(itemHandheld, SurvivalistEssentialsItems.SHARP_KNIFE);
+        build(itemHandheld, SurvivalistEssentialsItems.CRUDE_HATCHET);
+        build(itemHandheld, SurvivalistEssentialsItems.SAW_HANDLE);
+        build(itemHandheld, SurvivalistEssentialsItems.CRUDE_SAW);
+        build(itemHandheld, SurvivalistEssentialsItems.BASIC_SAW);
+        build(itemHandheld, SurvivalistEssentialsItems.SHARP_SAW);
+        build(itemGenerated, SurvivalistEssentialsItems.MORTAR_AND_PESTLE);
+        build(itemGenerated, SurvivalistEssentialsItems.CRUDE_BANDAGE);
+        build(itemGenerated, SurvivalistEssentialsItems.BANDAGE);
+        build(itemGenerated, SurvivalistEssentialsItems.WOODEN_CUP);
     }
 
     private void build(ModelFile itemGenerated, Item item) {

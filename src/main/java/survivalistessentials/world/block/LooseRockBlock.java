@@ -1,4 +1,4 @@
-package survivalessentials.world.block;
+package survivalistessentials.world.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

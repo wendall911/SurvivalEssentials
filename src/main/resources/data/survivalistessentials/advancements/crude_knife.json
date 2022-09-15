@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "translate": "advancements.survivalessentials.crude_knife.title"
+            "translate": "advancements.survivalistessentials.crude_knife.title"
         },
         "description": {
-            "translate": "advancements.survivalessentials.crude_knife.desc"
+            "translate": "advancements.survivalistessentials.crude_knife.desc"
         },
         "icon": {
-            "item": "survivalessentials:crude_knife"
+            "item": "survivalistessentials:crude_knife"
         },
         "frame": "task",
         "show_toast": true,
@@ -20,7 +20,7 @@
             "conditions": {
                 "items": [
                     {
-                        "items": ["survivalessentials:crude_knife"]
+                        "items": ["survivalistessentials:crude_knife"]
                     }
                 ]
             }
@@ -33,9 +33,9 @@
     ],
     "rewards": {
         "recipes": [
-            "survivalessentials:crude_hatchet",
-            "survivalessentials:crude_saw"
+            "survivalistessentials:crude_hatchet",
+            "survivalistessentials:crude_saw"
         ]
     },
-    "parent": "survivalessentials:flint_shard"
+    "parent": "survivalistessentials:flint_shard"
 }

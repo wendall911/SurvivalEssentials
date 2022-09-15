@@ -1,4 +1,4 @@
-package survivalessentials.items.item;
+package survivalistessentials.items.item;
 
 import java.util.Objects;
 
@@ -20,8 +20,8 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 
-import survivalessentials.SurvivalEssentials;
-import survivalessentials.world.effect.SurvivalEssentialsEffects;
+import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 
 public class ItemBase extends Item {
 
@@ -51,11 +51,11 @@ public class ItemBase extends Item {
                     amplifier = 1;
                 }
 
-                MobEffect effect = SurvivalEssentialsEffects.STOP_BLEEDING.get();
+                MobEffect effect = SurvivalistEssentialsEffects.STOP_BLEEDING.get();
                 entity.addEffect(new MobEffectInstance(effect, 600, amplifier));
             }
             else if (name.contains("cup")) {
-                MobEffect effect = SurvivalEssentialsEffects.ZOMBIE_ESSENCE.get();
+                MobEffect effect = SurvivalistEssentialsEffects.ZOMBIE_ESSENCE.get();
                 entity.addEffect(new MobEffectInstance(effect, 3600, 1));
             }
 
@@ -79,8 +79,8 @@ public class ItemBase extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         String name = Objects.requireNonNull(stack.getItem().getRegistryName()).getPath();
-        boolean stopBleeding = player.hasEffect(SurvivalEssentialsEffects.STOP_BLEEDING.get());
-        boolean zombieEssence = player.hasEffect(SurvivalEssentialsEffects.ZOMBIE_ESSENCE.get());
+        boolean stopBleeding = player.hasEffect(SurvivalistEssentialsEffects.STOP_BLEEDING.get());
+        boolean zombieEssence = player.hasEffect(SurvivalistEssentialsEffects.ZOMBIE_ESSENCE.get());
 
         if (name.contains("bandage")) {
             if (stopBleeding || player.getHealth() >= player.getMaxHealth()) {

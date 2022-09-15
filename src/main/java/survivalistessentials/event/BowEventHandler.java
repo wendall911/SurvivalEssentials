@@ -1,4 +1,4 @@
-package survivalessentials.event;
+package survivalistessentials.event;
 
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
@@ -8,9 +8,9 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import survivalessentials.config.ConfigHandler;
-import survivalessentials.sound.Sounds;
-import survivalessentials.util.ItemUse;
+import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.sound.Sounds;
+import survivalistessentials.util.ItemUse;
 
 public class BowEventHandler {
 

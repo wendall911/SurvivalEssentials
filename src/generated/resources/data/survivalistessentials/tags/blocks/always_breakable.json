@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#survivalessentials:loose_rocks",
+    "#survivalistessentials:loose_rocks",
     "#minecraft:beds",
     "minecraft:gravel",
     "#forge:gravel",
@@ -21,6 +21,6 @@
     "#minecraft:dirt",
     "#forge:sand",
     "#minecraft:sand",
-    "#survivalessentials:fiber_plants"
+    "#survivalistessentials:fiber_plants"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "survivalessentials:item/saw_handle"
+    "layer0": "survivalistessentials:item/saw_handle"
   }
 }
