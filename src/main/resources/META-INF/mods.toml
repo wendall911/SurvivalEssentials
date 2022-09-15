@@ -5,8 +5,8 @@ license="MIT"
 
 [[mods]]
   modId="survivalessentials"
-  displayName="Tinkers' Survival"
-  description="A small mod to make the first day or two of play more believable. New early game tools, Tinkers' Construct tools, and more!"
+  displayName="Survival Essentials"
+  description="A small mod to make the first day or two of play more believable. New early game tools, no tree punching, saws, and more!"
   version="${version}"
   displayURL="https://github.com/wendall911/SurvivalEssentials"
   updateJSONURL="https://raw.githubusercontent.com/wendall911/SurvivalEssentials/1.18.2/files/updates.json"
