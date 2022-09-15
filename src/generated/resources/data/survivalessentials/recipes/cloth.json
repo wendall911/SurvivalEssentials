@@ -5,7 +5,7 @@
   ],
   "key": {
     "S": {
-      "item": "minecraft:string"
+      "tag": "forge:string"
     }
   },
   "result": {

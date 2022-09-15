@@ -9,7 +9,7 @@
       "item": "minecraft:diamond"
     },
     "S": {
-      "item": "minecraft:string"
+      "tag": "forge:string"
     },
     "I": {
       "item": "minecraft:stick"

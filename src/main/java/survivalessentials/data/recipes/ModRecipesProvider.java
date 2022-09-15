@@ -15,10 +15,10 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.ItemLike;
 
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
@@ -37,7 +37,7 @@ public class ModRecipesProvider extends RecipeProvider {
 
     @Override
     public String getName() {
-        return "SurvivalEssentials - Recipies";
+        return "SurvivalEssentials - Recipes";
     }
 
     @Override
@@ -91,9 +91,9 @@ public class ModRecipesProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(cloth)
-                .define('S', Items.STRING)
+                .define('S', Tags.Items.STRING)
                 .pattern("SSS")
-                .unlockedBy("has_string", has(Items.STRING))
+                .unlockedBy("has_string", has(Tags.Items.STRING))
                 .save(consumer);
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(plantString), Items.STRING, 0.1F, 50)
@@ -113,7 +113,7 @@ public class ModRecipesProvider extends RecipeProvider {
 
         ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.BASIC_SAW_BLADE)
                 .define('D', Items.IRON_INGOT)
-                .define('S', Items.STRING)
+                .define('S', Tags.Items.STRING)
                 .define('I', Items.STICK)
                 .pattern("ID")
                 .pattern("SD")
@@ -122,7 +122,7 @@ public class ModRecipesProvider extends RecipeProvider {
 
         ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.SHARP_SAW_BLADE)
                 .define('D', Items.DIAMOND)
-                .define('S', Items.STRING)
+                .define('S', Tags.Items.STRING)
                 .define('I', Items.STICK)
                 .pattern("ID")
                 .pattern("SD")
@@ -183,7 +183,7 @@ public class ModRecipesProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.BASIC_SAW)
                 .define('H', SurvivalEssentialsItems.SAW_HANDLE)
                 .define('B', SurvivalEssentialsItems.BASIC_SAW_BLADE)
-                .define('S', Items.STRING)
+                .define('S', Tags.Items.STRING)
                 .pattern("BS")
                 .pattern(" H")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
@@ -192,7 +192,7 @@ public class ModRecipesProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(SurvivalEssentialsItems.SHARP_SAW)
                 .define('H', SurvivalEssentialsItems.SAW_HANDLE)
                 .define('B', SurvivalEssentialsItems.SHARP_SAW_BLADE)
-                .define('S', Items.STRING)
+                .define('S', Tags.Items.STRING)
                 .pattern("BS")
                 .pattern(" H")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))

@@ -9,7 +9,7 @@
       "item": "minecraft:iron_ingot"
     },
     "S": {
-      "item": "minecraft:string"
+      "tag": "forge:string"
     },
     "I": {
       "item": "minecraft:stick"
