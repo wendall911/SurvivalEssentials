@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import net.minecraftforge.fml.ModList;
 
+import survivalessentials.SurvivalEssentials;
 import survivalessentials.common.HarvestBlock;
 import survivalessentials.common.TagManager;
 import survivalessentials.config.ConfigHandler;
@@ -24,12 +25,14 @@ import survivalessentials.mixin.AbstractBlockStateAccessor;
 
 public class ItemUse {
 
-    private static final Map<String, String> whitelistToolsMap = new HashMap<>();
+    private static final Map<String, String> toolsMap = new HashMap<>();
 
     private static final List<String> TOOL_TYPES = new ArrayList<>(
         Arrays.asList(
             "pickaxe",
             "pickadze",
+            "bow",
+            "crossbow",
             "axe",
             "hoe",
             "mattock",
@@ -51,34 +54,32 @@ public class ItemUse {
     );
     
     public static void init() {
-        if (ModList.get().isLoaded("tinkersarchery")) {
-            if (!TOOL_TYPES.contains("crossbow")) {
-                TOOL_TYPES.add("crossbow");
-            }
-            if (!TOOL_TYPES.contains("bow")) {
-                TOOL_TYPES.add("bow");
-            }
-        }
+        toolsMap.clear();
 
-        whitelistToolsMap.clear();
-
-        for (String item : ConfigHandler.Common.whitelistItems()) {
+        for (String item : ConfigHandler.Common.getItems()) {
             String[] nameParts = item.split("-");
             String toolType = nameParts[0];
 
             if (TOOL_TYPES.contains(toolType)) {
-                whitelistToolsMap.put(nameParts[1], nameParts[0]);
+                toolsMap.put(nameParts[1], nameParts[0]);
             }
         }
     }
 
-    public static boolean isWhitelistItem(ItemStack stack) {
+    public static boolean isAllowedTool(ItemStack stack) {
         String itemName = Objects.requireNonNull(stack.getItem().getRegistryName()).toString();
         String modid = getModId(itemName);
-        boolean hasTag = hasWhitelistTag(stack);
+        boolean hasTag = hasTag(stack);
 
-        return hasTag || ConfigHandler.Common.whitelistMods().contains(modid)
-                || whitelistToolsMap.get(itemName) != null;
+        if (ConfigHandler.Common.invertListToWhitelist()) {
+            // Whitelisted
+            return hasTag || ConfigHandler.Common.getMods().contains(modid)
+                    || toolsMap.get(itemName) != null;
+        }
+        else {
+            // Blacklisted
+            return !hasTag && !ConfigHandler.Common.getMods().contains(modid) && toolsMap.get(itemName) == null;
+        }
     }
 
     public static String getModId(Block block) {
@@ -110,7 +111,7 @@ public class ItemUse {
 
     public static String getToolClass(ItemStack stack) {
         String itemName = Objects.requireNonNull(stack.getItem().getRegistryName()).toString();
-        String type = whitelistToolsMap.get(itemName);
+        String type = toolsMap.get(itemName);
 
         if (type == null) {
             String[] nameParts = itemName.split("[^a-z]+");
@@ -216,20 +217,28 @@ public class ItemUse {
         return stack.getItem() instanceof ArmorItem;
     }
 
-    public static boolean isWhitelistArmor(ItemStack stack) {
+    public static boolean isAllowedArmor(ItemStack stack) {
         String itemName = Objects.requireNonNull(stack.getItem().getRegistryName()).toString();
         String modid = getModId(itemName);
-        boolean hasTag = hasWhitelistTag(stack);
+        boolean hasTag = hasTag(stack);
 
-        return hasTag || ConfigHandler.Common.armorWhitelistMods().contains(modid) || ConfigHandler.Common.armorWhitelistItems().contains(itemName);
+        if (ConfigHandler.Common.invertListToWhitelist()) {
+            // Whitelisted
+            return hasTag || ConfigHandler.Common.armorMods().contains(modid)
+                || ConfigHandler.Common.armorItems().contains(itemName);
+        }
+        else {
+            // Blacklisted
+            return !hasTag && !ConfigHandler.Common.armorMods().contains(modid) && !ConfigHandler.Common.armorItems().contains(itemName);
+        }
     }
 
-    public static boolean hasWhitelistTag(ItemStack stack) {
+    public static boolean hasTag(ItemStack stack) {
         CompoundTag tags = stack.getTag();
         boolean hasTag = false;
 
         if (tags != null) {
-            hasTag = ConfigHandler.Common.tagWhitelist().stream().anyMatch(tags::contains);
+            hasTag = ConfigHandler.Common.tagList().stream().anyMatch(tags::contains);
         }
 
         return hasTag;

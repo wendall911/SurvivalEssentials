@@ -10,13 +10,16 @@ import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 
 import org.apache.commons.lang3.tuple.Pair;
 
 import survivalessentials.SurvivalEssentials;
+import survivalessentials.util.ItemUse;
 
 @Mod.EventBusSubscriber(modid = SurvivalEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ConfigHandler {
@@ -30,10 +33,9 @@ public final class ConfigHandler {
 
     public static final class Client {
 
-        public static final ForgeConfigSpec CONFIG_SPEC;
+        private static final ForgeConfigSpec CONFIG_SPEC;
         private static final Client CONFIG;
-
-        private static BooleanValue ENABLE_FAIL_SOUND;
+        private BooleanValue ENABLE_FAIL_SOUND;
 
         static {
             Pair<Client, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Client::new);
@@ -49,75 +51,60 @@ public final class ConfigHandler {
         }
 
         public static boolean enableFailSound() {
-            return ENABLE_FAIL_SOUND.get();
+            return CONFIG.ENABLE_FAIL_SOUND.get();
         }
 
     }
 
     public static final class Common {
 
-        public static final ForgeConfigSpec CONFIG_SPEC;
+        private static final ForgeConfigSpec CONFIG_SPEC;
         private static final Common CONFIG;
-
-        private static BooleanValue ENABLE_ROCK_GEN;
-        private static IntValue ROCK_GEN_FREQUENCY;
-        private static DoubleValue FLINT_CHANCE;
-        private static DoubleValue HEAL_RATE;
-        private static DoubleValue SLOW_DOWN_MULTIPLIER;
-        private static BooleanValue ENABLE_HUNGER_PENALTY;
-        private static IntValue HUNGER;
-        private static IntValue SATURATION;
-        private static BooleanValue ENABLE_HEALTH_PENALTY;
-        private static DoubleValue HEALTH;
-        private static IntValue GENERIC_DAMAGE;
+        private BooleanValue ENABLE_ROCK_GEN;
+        private IntValue ROCK_GEN_FREQUENCY;
+        private DoubleValue FLINT_CHANCE;
+        private DoubleValue HEAL_RATE;
+        private DoubleValue SLOW_DOWN_SPEED;
+        private BooleanValue ENABLE_HUNGER_PENALTY;
+        private IntValue HUNGER;
+        private IntValue SATURATION;
+        private BooleanValue ENABLE_HEALTH_PENALTY;
+        private DoubleValue HEALTH;
+        private IntValue GENERIC_DAMAGE;
+        private BooleanValue INVERT_LIST_TO_WHITELIST;
 
         private static final List<String> MODS_LIST = List.of("mods");
-        private static final String[] modsStrings = new String[] {
-            "tconstruct",
-            "survivalessentials"
-        };
+        private static final String[] modsStrings = new String[] {};
         // See: https://github.com/MinecraftForge/MinecraftForge/blob/1.18.x/fmlloader/src/main/java/net/minecraftforge/fml/loading/moddiscovery/ModInfo.java
         private static final Predicate<Object> modidValidator = s -> s instanceof String
                 && ((String) s).matches("^[a-z][a-z0-9_]{1,63}$");
-        private final ConfigValue<List<? extends String>> MODS;
+        private static ConfigValue<List<? extends String>> MODS;
 
         private static final List<String> ITEMS_LIST = List.of("items");
-        private static final String[] itemsStrings = new String[] {
-            "hammer-immersiveengineering:hammer",
-            "wirecutter-immersiveengineering:wirecutter",
-        };
+        private static final String[] itemsStrings = new String[] {};
         private static final Predicate<Object> itemidValidator = s -> s instanceof String
-                && ((String) s).matches("[a-z]+[-]{1}[a-z]+[:]{1}[a-z_]+");
-        private final ConfigValue<List<? extends String>> ITEMS;
+                && ((String) s).matches("[a-z]+[-]{1}[a-z][a-z0-9_]{1,63}+[:]{1}[a-z_]+");
+        private static ConfigValue<List<? extends String>> ITEMS;
 
         private static BooleanValue LOG_MODPACK_DATA;
 
         private static final List<String> BLOCK_MODS_LIST = List.of("blockmods");
-        private static final String[] blockModsStrings = new String[] {
-            "cfm",
-            "furnish"
-        };
-        private final ConfigValue<List<? extends String>> BLOCK_MODS;
+        private static final String[] blockModsStrings = new String[] {};
+        private static ConfigValue<List<? extends String>> BLOCK_MODS;
 
-        private static BooleanValue ENFORCE_WHITELIST_ARMOR;
         private static final List<String> ARMOR_MODS_LIST = List.of("armormods");
-        private static final String[] armorModsStrings = new String[] {
-                "immersiveengineering",
-                "tconstruct"
-        };
-        private final ConfigValue<List<? extends String>> ARMOR_MODS;
+        private static final String[] armorModsStrings = new String[] {};
+        private static ConfigValue<List<? extends String>> ARMOR_MODS;
         private static final List<String> ARMOR_LIST = List.of("armor");
-        private static final String[] armorStrings = new String[] {
-                "tconstruct:piggybackpack"
-        };
+        private static final String[] armorStrings = new String[] {};
         private static final Predicate<Object> armoridValidator = s -> s instanceof String
                 && ((String) s).matches("[a-z]+[:]{1}[a-z_]+");
-        private final ConfigValue<List<? extends String>> ARMOR_WHITELIST;
+        private static ConfigValue<List<? extends String>> ARMORS;
         private static final List<String> TAG_LIST = List.of("tag");
         private static final String[] tagStrings = new String[] {
-                "whitelist_tools"
+            "blacklist_tools"
         };
-        private final ConfigValue<List<? extends String>> TAG_WHITELIST;
+        private static ConfigValue<List<? extends String>> TAGS;
 
         static {
             Pair<Common,ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
@@ -128,22 +115,25 @@ public final class ConfigHandler {
 
         Common(ForgeConfigSpec.Builder builder) {
             ENABLE_ROCK_GEN = builder
-                    .comment("Enables the generation of rock piles on the surface.")
-                    .define("ENABLE_ROCK_GEN", true);
+                .comment("Enables the generation of rock piles on the surface.")
+                .define("ENABLE_ROCK_GEN", true);
             ROCK_GEN_FREQUENCY = builder
-                    .comment("RockGeneration frequency. (1 = low, 5 = all over)")
-                    .defineInRange("ROCK_GEN_FREQUENCY", 2, 1, 5);
+                .comment("RockGeneration frequency. (1 = low, 5 = all over)")
+                .defineInRange("ROCK_GEN_FREQUENCY", 2, 1, 5);
             FLINT_CHANCE = builder
                 .comment("Chance for a successful flint knapping. (1.0 = 100%, 0.4 = 40%, etc.)")
                 .defineInRange("FLINT_CHANCE", 0.6, 0.1, 1.0);
             HEAL_RATE = builder
                 .comment("Heal rate for bandages. Crude bandages are 50% less effective. (1.0 = 100%, 0.4 = 40%, etc.)")
                 .defineInRange("HEAL_RATE", 0.14, 0.1, 1.0);
-            SLOW_DOWN_MULTIPLIER = builder
-                .comment("Option to adjust slow down on wrong tool usage. (1.0 = 100%, 2.0 = 200%, etc.)")
-                .defineInRange("SLOW_DOWN_MULTIPLIER", 1.0, 1.0, 5.0);
+            SLOW_DOWN_SPEED = builder
+                .comment("Slowdown speed when using incorrect tool.")
+                .defineInRange("SLOW_DOWN_SPEED", 0.4, 0.1, 1.0);
+            INVERT_LIST_TO_WHITELIST = builder
+                .comment("Inverts blacklist to be whitelist. This allows for immersion mods/modpacks to only allow tools or armor for specific mods. Default: false")
+                .define("INVERT_LIST_TO_WHITELIST", false);
             MODS = builder
-                .comment("List of mods that tools will always work for. All other mod tools will become wet noodles. Default: "
+                .comment("List of mods that tools will become wet noodles. If inverted, acts as a whitelist. Default: "
                         + "[\"" + String.join("\", \"", modsStrings) + "\"]")
                 .defineListAllowEmpty(MODS_LIST, getFields(modsStrings), modidValidator);
             ITEMS = builder
@@ -173,56 +163,59 @@ public final class ConfigHandler {
                 .comment("Health value after death in half hearts.")
                 .defineInRange("HEALTH", 6.0, 0.5, 100.0);
             GENERIC_DAMAGE = builder
-                .comment("The amount of generic damage in half hearts a non-whitelisted tool, or bare hand should do. Default 0")
+                .comment("The amount of generic damage in half hearts a disabled tool, or bare hand should do. Default 0")
                 .defineInRange("GENERIC_DAMAGE", 0, 0, 4);
-            ENFORCE_WHITELIST_ARMOR = builder
-                    .comment("Enforce use of armor whitelist. All other armor will not be equipable.")
-                    .define("ENFORCE_WHITELIST_ARMOR", false);
             ARMOR_MODS = builder
-                    .comment("List of mods that armor will be equipable for. Must enable ENFORCE_WHITELIST_ARMOR to be effective. Default: "
-                            + "[\"" + String.join("\", \"", armorModsStrings) + "\"]")
-                    .defineListAllowEmpty(ARMOR_MODS_LIST, getFields(armorModsStrings), modidValidator);
-            ARMOR_WHITELIST = builder
-                    .comment("List of individual armor items that will always work. Format modid:item Default: "
-                            + "[\"" + String.join("\", \"", armorStrings) + "\"]")
-                    .defineListAllowEmpty(ARMOR_LIST, getFields(armorStrings), armoridValidator);
-            TAG_WHITELIST = builder
-                    .comment("List of tags when added to tools or armor will always work."
-                            + "[\"" + String.join("\", \"", tagStrings) + "\"]")
-                    .defineListAllowEmpty(TAG_LIST, getFields(tagStrings), s -> (s instanceof String));
+                .comment("List of mods that armor will not be equipable for. If inverted, acts as a whitelist. Default: "
+                        + "[\"" + String.join("\", \"", armorModsStrings) + "\"]")
+                .defineListAllowEmpty(ARMOR_MODS_LIST, getFields(armorModsStrings), modidValidator);
+            ARMORS = builder
+                .comment("List of individual armor items that will be disabled. If inverted, acts as a whitelist. Format modid:item Default: "
+                        + "[\"" + String.join("\", \"", armorStrings) + "\"]")
+                .defineListAllowEmpty(ARMOR_LIST, getFields(armorStrings), armoridValidator);
+            TAGS = builder
+                .comment("List of tags when added to tools or armor will be disabled. If inverted, acts as a whitelist."
+                        + "[\"" + String.join("\", \"", tagStrings) + "\"]")
+                .defineListAllowEmpty(TAG_LIST, getFields(tagStrings), s -> (s instanceof String));
         }
 
         public static boolean enableRockGen() {
-            return ENABLE_ROCK_GEN.get();
+            return CONFIG.ENABLE_ROCK_GEN.get();
         }
 
         public static int rockGenFrequency() {
-            return ROCK_GEN_FREQUENCY.get();
+            return CONFIG.ROCK_GEN_FREQUENCY.get();
         }
 
         public static double flintChance() {
-            return FLINT_CHANCE.get();
+            return CONFIG.FLINT_CHANCE.get();
         }
 
         public static double healRate() {
-            return HEAL_RATE.get();
+            return CONFIG.HEAL_RATE.get();
         }
 
-        public static double slowDownMultiplier() {
-            return SLOW_DOWN_MULTIPLIER.get();
+        public static boolean invertListToWhitelist() {
+            return CONFIG.INVERT_LIST_TO_WHITELIST.get();
+        }
+
+        public static float slowDownSpeed() {
+            double slowDownSpeed = CONFIG.SLOW_DOWN_SPEED.get();
+
+            return (float) slowDownSpeed;
         }
 
         private static Supplier<List<? extends String>> getFields(String[] strings) {
             return () -> Arrays.asList(strings);
         }
 
-        public static List<String> whitelistMods() {
+        public static List<String> getMods() {
             List<String> mods = (List<String>) CONFIG.MODS.get();
 
             return mods;
         }
 
-        public static List<String> whitelistItems() {
+        public static List<String> getItems() {
             List<String> items = (List<String>) CONFIG.ITEMS.get();
 
             return items;
@@ -233,7 +226,7 @@ public final class ConfigHandler {
         }
 
         public static List<String> blockWhitelistMods() {
-            List<String> mods = (List<String>) CONFIG.BLOCK_MODS.get();
+            List<String> mods = (List<String>) BLOCK_MODS.get();
 
             return mods;
         }
@@ -266,22 +259,25 @@ public final class ConfigHandler {
             return (float) damage;
         }
 
-        public static boolean enforceWhitelistArmor() {
-            return CONFIG.ENFORCE_WHITELIST_ARMOR.get();
-        }
-
-        public static List<String> armorWhitelistMods() {
+        public static List<String> armorMods() {
             return (List<String>) CONFIG.ARMOR_MODS.get();
         }
 
-        public static List<String> armorWhitelistItems() {
-            return (List<String>) CONFIG.ARMOR_WHITELIST.get();
+        public static List<String> armorItems() {
+            return (List<String>) CONFIG.ARMORS.get();
         }
 
-        public static List<String> tagWhitelist() {
-            return (List<String>) CONFIG.TAG_WHITELIST.get();
+        public static List<String> tagList() {
+            return (List<String>) CONFIG.TAGS.get();
         }
 
+    }
+
+    @SubscribeEvent
+    public static void onFileChange(final ModConfigEvent.Reloading event) {
+        SurvivalEssentials.LOGGER.warn("Reloading config");
+        SurvivalEssentials.LOGGER.warn(Common.getMods());
+        ItemUse.init();
     }
 
 }

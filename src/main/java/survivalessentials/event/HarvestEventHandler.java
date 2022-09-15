@@ -61,16 +61,16 @@ public class HarvestEventHandler {
             if (expectedToolType != ToolType.NONE) {
                 final ItemStack handStack = player.getMainHandItem();
                 boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
-                boolean isWhitelisted = ItemUse.isWhitelistItem(handStack);
+                boolean isAllowedItem = ItemUse.isAllowedTool(handStack);
 
-                if (!isWhitelisted) {
+                if (!isAllowedItem) {
                     cancel = true;
                     if (!player.getLevel().isClientSide && ConfigHandler.Client.enableFailSound()) {
                         level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL.get(), SoundSource.BLOCKS, 0.6F, 1.0F);
                     }
                 }
 
-                if (isWhitelisted && !correctTool) {
+                if (isAllowedItem && !correctTool) {
                     cancel = true;
 
                     if (harvestAttempts.containsKey(player)
@@ -140,22 +140,22 @@ public class HarvestEventHandler {
             ItemStack handStack = player.getMainHandItem();
             boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE);
-            boolean isWhitelisted = ItemUse.isWhitelistItem(handStack);
+            boolean isAllowedItem = ItemUse.isAllowedTool(handStack);
 
             if (!alwaysBreakable) {
-                if (!isWhitelisted) {
-                    slowdown = 0.2F;
+                if (!isAllowedItem) {
+                    slowdown = ConfigHandler.Common.slowDownSpeed() / 2;
                 }
                 else if (!correctTool) {
-                    slowdown = 0.33F;
+                    slowdown = ConfigHandler.Common.slowDownSpeed();
                 }
             }
             else {
                 if (!correctTool) {
-                    slowdown = 0.33F;
+                    slowdown = ConfigHandler.Common.slowDownSpeed();
                 }
-                else if (!isWhitelisted) {
-                    slowdown = 0.2F;
+                else if (!isAllowedItem) {
+                    slowdown = ConfigHandler.Common.slowDownSpeed() / 2;
                 }
             }
         }

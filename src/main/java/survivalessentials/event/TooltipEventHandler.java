@@ -23,7 +23,7 @@ public class TooltipEventHandler {
         ItemStack stack = event.getItemStack();
         Component message;
 
-        if (!ItemUse.isWhitelistItem(stack)) {
+        if (!ItemUse.isAllowedTool(stack)) {
             String type = ItemUse.getToolClass(stack);
             String tooltip = "tooltip.uselessTool2";
 

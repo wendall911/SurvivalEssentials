@@ -26,7 +26,7 @@ public class HoeEventHandler {
             final ItemStack handStack = player.getMainHandItem();
             final Level level = player.getLevel();
 
-            if (!ItemUse.isWhitelistItem(handStack)) {
+            if (!ItemUse.isAllowedTool(handStack)) {
                 if (!level.isClientSide && ConfigHandler.Client.enableFailSound()) {
                     level.playSound(null, player.getOnPos(), Sounds.HOE_FAIL.get(), SoundSource.BLOCKS, 0.2F, 1.0F);
                 }

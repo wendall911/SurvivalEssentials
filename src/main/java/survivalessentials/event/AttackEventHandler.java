@@ -23,13 +23,13 @@ public class AttackEventHandler {
             if (!player.isCreative()) {
                 final ItemStack handStack = player.getMainHandItem();
                 final Level level = player.getLevel();
-                boolean checkWhitelist = event.getSource().msgId.contains("player");
+                boolean checkAllowed = event.getSource().msgId.contains("player");
 
                 if (event.getSource().isBypassArmor()) {
-                    checkWhitelist = false;
+                    checkAllowed = false;
                 }
 
-                if (checkWhitelist && !ItemUse.isWhitelistItem(handStack)) {
+                if (checkAllowed && !ItemUse.isAllowedTool(handStack)) {
                     if (!level.isClientSide && ConfigHandler.Client.enableFailSound() && ConfigHandler.Common.genericDamage() == 0.0F) {
                         level.playSound(null, player.getOnPos(), Sounds.SWORD_FAIL.get(), SoundSource.BLOCKS, 0.4F, 1.0F);
                     }
