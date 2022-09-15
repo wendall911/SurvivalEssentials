@@ -24,7 +24,6 @@ import net.minecraft.world.level.material.Material;
 import survivalessentials.config.ConfigHandler;
 import survivalessentials.items.SurvivalEssentialsItems;
 import survivalessentials.sound.Sounds;
-import survivalessentials.SurvivalEssentials;
 
 public class RockStone extends BlockItem {
 
@@ -47,7 +46,7 @@ public class RockStone extends BlockItem {
             else {
                 if (!level.isClientSide) {
                     if (level.random.nextFloat() < 0.5) {
-                        if (level.random.nextFloat() < ConfigHandler.Server.flintChance()) {
+                        if (level.random.nextFloat() < ConfigHandler.Common.flintChance()) {
                             NonNullList<ItemStack> dropStack =
                                 NonNullList.withSize(1, new ItemStack(SurvivalEssentialsItems.FLINT_SHARD, 2));
 

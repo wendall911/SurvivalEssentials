@@ -8,7 +8,7 @@ import survivalessentials.config.ConfigHandler;
 
 public class StopBleeding extends MobEffect {
 
-    static final float HEAL_RATE = (float)ConfigHandler.Server.healRate();
+    static final float HEAL_RATE = (float) ConfigHandler.Common.healRate();
 
     public StopBleeding() {
         super(MobEffectCategory.BENEFICIAL, 0xf7b7ad);

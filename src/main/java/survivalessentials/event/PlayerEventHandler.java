@@ -1,10 +1,7 @@
 package survivalessentials.event;
 
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -28,12 +25,12 @@ public class PlayerEventHandler {
                 && event.isWasDeath()) {
             ServerPlayer sp = (ServerPlayer) player;
 
-            if (ConfigHandler.Server.enableHungerPenalty()) {
-                sp.getFoodData().setFoodLevel(ConfigHandler.Server.hunger());
-                sp.getFoodData().setSaturation(ConfigHandler.Server.saturation());
+            if (ConfigHandler.Common.enableHungerPenalty()) {
+                sp.getFoodData().setFoodLevel(ConfigHandler.Common.hunger());
+                sp.getFoodData().setSaturation(ConfigHandler.Common.saturation());
             }
-            if (ConfigHandler.Server.enableHealthPenalty()) {
-                sp.setHealth(ConfigHandler.Server.health());
+            if (ConfigHandler.Common.enableHealthPenalty()) {
+                sp.setHealth(ConfigHandler.Common.health());
             }
         }
     }

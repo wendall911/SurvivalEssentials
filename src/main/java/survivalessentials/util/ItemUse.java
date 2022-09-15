@@ -21,7 +21,6 @@ import survivalessentials.common.HarvestBlock;
 import survivalessentials.common.TagManager;
 import survivalessentials.config.ConfigHandler;
 import survivalessentials.mixin.AbstractBlockStateAccessor;
-import survivalessentials.SurvivalEssentials;
 
 public class ItemUse {
 
@@ -63,7 +62,7 @@ public class ItemUse {
 
         whitelistToolsMap.clear();
 
-        for (String item : ConfigHandler.Server.whitelistItems()) {
+        for (String item : ConfigHandler.Common.whitelistItems()) {
             String[] nameParts = item.split("-");
             String toolType = nameParts[0];
 
@@ -78,7 +77,7 @@ public class ItemUse {
         String modid = getModId(itemName);
         boolean hasTag = hasWhitelistTag(stack);
 
-        return hasTag || ConfigHandler.Server.whitelistMods().contains(modid)
+        return hasTag || ConfigHandler.Common.whitelistMods().contains(modid)
                 || whitelistToolsMap.get(itemName) != null;
     }
 
@@ -222,7 +221,7 @@ public class ItemUse {
         String modid = getModId(itemName);
         boolean hasTag = hasWhitelistTag(stack);
 
-        return hasTag || ConfigHandler.Server.armorWhitelistMods().contains(modid) || ConfigHandler.Server.armorWhitelistItems().contains(itemName);
+        return hasTag || ConfigHandler.Common.armorWhitelistMods().contains(modid) || ConfigHandler.Common.armorWhitelistItems().contains(itemName);
     }
 
     public static boolean hasWhitelistTag(ItemStack stack) {
@@ -230,7 +229,7 @@ public class ItemUse {
         boolean hasTag = false;
 
         if (tags != null) {
-            hasTag = ConfigHandler.Server.tagWhitelist().stream().anyMatch(tags::contains);
+            hasTag = ConfigHandler.Common.tagWhitelist().stream().anyMatch(tags::contains);
         }
 
         return hasTag;

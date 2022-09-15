@@ -27,7 +27,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import survivalessentials.common.TagManager;
 import survivalessentials.config.ConfigHandler;
 import survivalessentials.mixin.AbstractBlockAccessor;
 import survivalessentials.mixin.AbstractBlockStateAccessor;
@@ -61,7 +60,7 @@ public final class HarvestBlock {
         final Map<Material, List<Block>> unknownMaterialBlocks = new HashMap<>();
 
         for (Block block : ForgeRegistries.BLOCKS.getValues()) {
-            if (ConfigHandler.Server.blockWhitelistMods().contains(ItemUse.getModId(block))) {
+            if (ConfigHandler.Common.blockWhitelistMods().contains(ItemUse.getModId(block))) {
                 BLOCK_TOOL_TYPES.put(block, ToolType.NONE);
 
                 continue;

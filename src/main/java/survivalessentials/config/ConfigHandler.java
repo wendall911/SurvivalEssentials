@@ -26,7 +26,6 @@ public final class ConfigHandler {
     public static void init() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Client.CONFIG_SPEC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Common.CONFIG_SPEC);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Server.CONFIG_SPEC);
     }
 
     public static final class Client {
@@ -62,38 +61,6 @@ public final class ConfigHandler {
 
         private static BooleanValue ENABLE_ROCK_GEN;
         private static IntValue ROCK_GEN_FREQUENCY;
-
-        static {
-            Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
-
-            CONFIG_SPEC = specPair.getRight();
-            CONFIG = specPair.getLeft();
-        }
-
-        Common(ForgeConfigSpec.Builder builder) {
-            ENABLE_ROCK_GEN = builder
-                    .comment("Enables the generation of rock piles on the surface.")
-                    .define("ENABLE_ROCK_GEN", true);
-            ROCK_GEN_FREQUENCY = builder
-                    .comment("RockGeneration frequency. (1 = low, 5 = all over)")
-                    .defineInRange("ROCK_GEN_FREQUENCY", 2, 1, 5);
-        }
-
-        public static boolean enableRockGen() {
-            return ENABLE_ROCK_GEN.get();
-        }
-
-        public static int rockGenFrequency() {
-            return ROCK_GEN_FREQUENCY.get();
-        }
-
-    }
-
-    public static final class Server {
-
-        public static final ForgeConfigSpec CONFIG_SPEC;
-        private static final Server CONFIG;
-
         private static DoubleValue FLINT_CHANCE;
         private static DoubleValue HEAL_RATE;
         private static DoubleValue SLOW_DOWN_MULTIPLIER;
@@ -153,13 +120,19 @@ public final class ConfigHandler {
         private final ConfigValue<List<? extends String>> TAG_WHITELIST;
 
         static {
-            Pair<Server,ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Server::new);
+            Pair<Common,ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
 
             CONFIG_SPEC = specPair.getRight();
             CONFIG = specPair.getLeft();
         }
 
-        Server(ForgeConfigSpec.Builder builder) {
+        Common(ForgeConfigSpec.Builder builder) {
+            ENABLE_ROCK_GEN = builder
+                    .comment("Enables the generation of rock piles on the surface.")
+                    .define("ENABLE_ROCK_GEN", true);
+            ROCK_GEN_FREQUENCY = builder
+                    .comment("RockGeneration frequency. (1 = low, 5 = all over)")
+                    .defineInRange("ROCK_GEN_FREQUENCY", 2, 1, 5);
             FLINT_CHANCE = builder
                 .comment("Chance for a successful flint knapping. (1.0 = 100%, 0.4 = 40%, etc.)")
                 .defineInRange("FLINT_CHANCE", 0.6, 0.1, 1.0);
@@ -217,6 +190,14 @@ public final class ConfigHandler {
                     .comment("List of tags when added to tools or armor will always work."
                             + "[\"" + String.join("\", \"", tagStrings) + "\"]")
                     .defineListAllowEmpty(TAG_LIST, getFields(tagStrings), s -> (s instanceof String));
+        }
+
+        public static boolean enableRockGen() {
+            return ENABLE_ROCK_GEN.get();
+        }
+
+        public static int rockGenFrequency() {
+            return ROCK_GEN_FREQUENCY.get();
         }
 
         public static double flintChance() {

@@ -130,7 +130,7 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void onWorldLoad(WorldEvent.Load event) {
-        if (ConfigHandler.Server.logModpackData()) {
+        if (ConfigHandler.Common.logModpackData()) {
             RegistryListener.BLOCK_REGISTRY.getValues().forEach((block) -> {
                 if (block.defaultBlockState().is(Tags.Blocks.NEEDS_WOOD_TOOL)) {
                     SurvivalEssentials.LOGGER.warn("needs_wood_tool - level 0: %s", block);

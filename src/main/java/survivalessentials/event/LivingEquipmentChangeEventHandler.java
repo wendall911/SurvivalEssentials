@@ -23,7 +23,7 @@ public class LivingEquipmentChangeEventHandler {
 
     @SubscribeEvent
     public static void onChange(LivingEquipmentChangeEvent event) {
-        if (ConfigHandler.Server.enforceWhitelistArmor() && event.getEntityLiving() instanceof Player player) {
+        if (ConfigHandler.Common.enforceWhitelistArmor() && event.getEntityLiving() instanceof Player player) {
             EquipmentSlot slot = event.getSlot();
 
             SurvivalEssentials.LOGGER.warn("Armor is of type: %s", event.getTo().getItem().getClass());
