@@ -258,10 +258,10 @@ publishing {
 }
 
 curseforge {
-    if (project.hasProperty('tscurseApiKey')) {
-        apiKey = project.tscurseApiKey
+    if (project.hasProperty('securseApiKey')) {
+        apiKey = project.securseApiKey
         project {
-            id = project.tscurseId
+            id = project.securseId
             changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
             releaseType = cf_release_type
             addGameVersion(minecraft_version)
