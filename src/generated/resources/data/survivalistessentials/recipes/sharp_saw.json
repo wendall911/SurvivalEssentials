@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BS",
-    " H"
-  ],
   "key": {
-    "H": {
-      "item": "survivalistessentials:saw_handle"
-    },
     "B": {
       "item": "survivalistessentials:sharp_saw_blade"
+    },
+    "H": {
+      "item": "survivalistessentials:saw_handle"
     },
     "S": {
       "tag": "forge:string"
     }
   },
+  "pattern": [
+    "BS",
+    " H"
+  ],
   "result": {
     "item": "survivalistessentials:sharp_saw"
   }

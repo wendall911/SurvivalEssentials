@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "K": {
+      "item": "survivalistessentials:crude_knife"
+    },
+    "M": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
   "pattern": [
     "M",
     "K"
   ],
-  "key": {
-    "M": {
-      "item": "minecraft:iron_ingot"
-    },
-    "K": {
-      "item": "survivalistessentials:crude_knife"
-    }
-  },
   "result": {
     "item": "survivalistessentials:basic_knife"
   }

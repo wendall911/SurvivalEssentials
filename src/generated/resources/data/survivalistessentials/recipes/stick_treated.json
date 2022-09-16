@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "modid": "immersiveengineering",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "immersiveengineering"
     }
   ],
   "group": "treated_sticks",
@@ -16,7 +16,7 @@
     }
   ],
   "result": {
-    "item": "immersiveengineering:stick_treated",
-    "count": 2
+    "count": 2,
+    "item": "immersiveengineering:stick_treated"
   }
 }

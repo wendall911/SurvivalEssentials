@@ -2,7 +2,6 @@ package survivalistessentials.event;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,7 +37,7 @@ public class TooltipEventHandler {
                     }
                 }
 
-                message = (new TranslatableComponent(tooltip)).withStyle(ChatFormatting.DARK_RED);
+                message = Component.translatable(tooltip).withStyle(ChatFormatting.DARK_RED);
 
                 event.getToolTip().add(message);
             }

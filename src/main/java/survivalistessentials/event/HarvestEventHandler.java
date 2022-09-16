@@ -2,6 +2,7 @@ package survivalistessentials.event;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
@@ -14,7 +15,7 @@ import net.minecraft.world.level.LevelAccessor;
 
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.ModList;
@@ -36,7 +37,7 @@ public class HarvestEventHandler {
 
     @SubscribeEvent
     public static void breakBlock(BlockEvent.BreakEvent event) {
-        final LevelAccessor level = event.getWorld();
+        final LevelAccessor level = event.getLevel();
         final BlockPos pos = event.getPos();
         final BlockState state = level.getBlockState(pos);
         final Player player = event.getPlayer() != null ? event.getPlayer() : null;
@@ -96,7 +97,7 @@ public class HarvestEventHandler {
 
     @SubscribeEvent
     public static void harvestCheckEvent(PlayerEvent.HarvestCheck event) {
-        final Player player = event.getPlayer() != null ? event.getPlayer() : null;
+        final Player player = event.getEntity() != null ? event.getEntity() : null;
         final BlockState state = event.getTargetBlock();
 
         if (player != null && !player.isCreative()) {
@@ -125,13 +126,13 @@ public class HarvestEventHandler {
     // Controls the slow mining speed of blocks that aren't the right tool
     @SubscribeEvent
     public static void slowMining(PlayerEvent.BreakSpeed event) {
-        final Player player = event.getPlayer() != null ? event.getPlayer() : null;
+        final Player player = event.getEntity() != null ? event.getEntity() : null;
+        final Optional<BlockPos> pos = event.getPosition();
 
-        if (player == null) return;
+        if (player == null || pos.isEmpty()) return;
 
         final Level level = player.getLevel();
-        final BlockPos pos = event.getPos();
-        final BlockState state = level.getBlockState(pos);
+        final BlockState state = level.getBlockState(pos.get());
         final float destroySpeed = ((AbstractBlockStateAccessor) state).getDestroySpeed();
         float slowdown = destroySpeed;
         final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);

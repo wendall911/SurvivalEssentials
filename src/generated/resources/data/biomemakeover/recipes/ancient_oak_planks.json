@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "modid": "biomemakeover",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "biomemakeover"
     }
   ],
   "group": "planks",
@@ -16,7 +16,7 @@
     }
   ],
   "result": {
-    "item": "biomemakeover:ancient_oak_planks",
-    "count": 2
+    "count": 2,
+    "item": "biomemakeover:ancient_oak_planks"
   }
 }

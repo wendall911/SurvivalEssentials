@@ -2,7 +2,7 @@ package survivalistessentials.jei;
 
 import java.util.Objects;
 
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -13,6 +13,7 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
@@ -32,16 +33,15 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
         addIngredientInfo(registry, SurvivalistEssentialsItems.PLANT_FIBER);
         addIngredientInfo(registry, SurvivalistEssentialsItems.FLINT_SHARD);
         addIngredientInfo(registry, Items.STICK);
-
     }
 
     private void addIngredientInfo(IRecipeRegistration registry, Item item) {
-        String name = Objects.requireNonNull(item.getRegistryName()).getPath();
+        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
 
         registry.addIngredientInfo(
             new ItemStack(item),
             VanillaTypes.ITEM_STACK,
-            new TranslatableComponent("jei." + SurvivalistEssentials.MODID + ".description." + name)
+            Component.translatable("jei." + SurvivalistEssentials.MODID + ".description." + name)
         );
     }
 

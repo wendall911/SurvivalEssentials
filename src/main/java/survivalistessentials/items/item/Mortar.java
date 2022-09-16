@@ -13,13 +13,13 @@ public class Mortar extends Item {
 
 
     @Override
-    public boolean hasContainerItem(@Nonnull ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack) {
         return true;
     }
 
     @Nonnull
     @Override
-    public ItemStack getContainerItem(@Nonnull ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(@Nonnull ItemStack stack) {
         return stack.copy();
     }
 

@@ -1,10 +1,9 @@
 package survivalistessentials.items.tool;
 
-import java.util.Random;
-
 import javax.annotation.Nonnull;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -24,10 +23,10 @@ public class SurvivalKnife extends SwordItem {
 
     @Nonnull
     @Override
-    public ItemStack getContainerItem(@Nonnull ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(@Nonnull ItemStack stack) {
         ItemStack container = stack.copy();
         
-        if (!container.hurt(1, new Random(), null)) {
+        if (!container.hurt(1, RandomSource.create(), null)) {
             return container;
         }
         else {
@@ -36,7 +35,7 @@ public class SurvivalKnife extends SwordItem {
     }
 
     @Override
-    public boolean hasContainerItem(@Nonnull ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack) {
         return true;
     }
 

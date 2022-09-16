@@ -1,18 +1,12 @@
 package survivalistessentials.proxy;
 
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.GenerationStep;
 
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.event.world.WorldEvent;
+import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,9 +16,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import net.minecraftforge.registries.RegisterEvent;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.SurvivalistEssentialsModule;
-import survivalistessentials.common.loot.SurvivalistEssentialsLootItemConditions;
+import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
@@ -33,8 +28,8 @@ import survivalistessentials.sound.Sounds;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
-import survivalistessentials.world.feature.LooseRockFeatureHolders;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
+import survivalistessentials.world.modifier.SurvivalistEssentialsBiomeModifiers;
 
 @Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class CommonProxy {
@@ -51,18 +46,10 @@ public class CommonProxy {
 
     public void registerListeners(IEventBus bus) {
         bus.register(RegistryListener.class);
-    }
-
-    @SubscribeEvent
-    public static void onBiomeLoading(BiomeLoadingEvent event) {
-        BiomeGenerationSettingsBuilder generator = event.getGeneration();
-
-        if (ConfigHandler.Common.enableRockGen()) {
-            generator.addFeature(
-                GenerationStep.Decoration.VEGETAL_DECORATION,
-                LooseRockFeatureHolders.LOOSE_ROCKS_PLACEMENT
-            );
-        }
+        bus.register(new SurvivalistEssentialsLootTables());
+        bus.register(new SurvivalistEssentialsFeatures());
+        bus.register(new SurvivalistEssentialsBiomeModifiers());
+        bus.register(new SurvivalistEssentialsEffects());
     }
 
     public static final class RegistryListener {
@@ -72,41 +59,12 @@ public class CommonProxy {
         public static IForgeRegistry<Block> BLOCK_REGISTRY;
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
-        public static void registerItems(RegistryEvent.Register<Item> event) {
-            IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-            SurvivalistEssentialsItems.init(event.getRegistry());
-            ModIntegration.init(event.getRegistry());
-            SurvivalistEssentialsWorld.initItems(event.getRegistry());
-            SurvivalistEssentialsLootItemConditions.init(bus);
-        }
-
-        @SubscribeEvent(priority = EventPriority.HIGHEST)
-        public static void registerLootModifiers(RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
-            IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-            bus.register(new SurvivalistEssentialsLootTables());
-        }
-
-        @SubscribeEvent(priority = EventPriority.HIGHEST)
-        public static void registerBlocks(RegistryEvent.Register<Block> event) {
-            BLOCK_REGISTRY = event.getRegistry();
-
-            SurvivalistEssentialsWorld.initBlocks(event.getRegistry());
-        }
-
-        @SubscribeEvent(priority = EventPriority.HIGHEST)
-        public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
-            IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-            bus.register(new SurvivalistEssentialsFeatures());
-        }
-
-        @SubscribeEvent(priority = EventPriority.HIGHEST)
-        public static void registerMobEffects(RegistryEvent.Register<MobEffect> event) {
-            IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-            bus.register(new SurvivalistEssentialsEffects());
+        public static void registerEvent(RegisterEvent event) {
+            event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsItems::init);
+            event.register(Registry.ITEM_REGISTRY, ModIntegration::init);
+            event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsWorld::initItems);
+            event.register(Registry.BLOCK_REGISTRY, SurvivalistEssentialsWorld::initBlocks);
+            event.register(Registry.LOOT_ITEM_REGISTRY, new ResourceLocation("is_tag", SurvivalistEssentials.MODID), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -129,7 +87,7 @@ public class CommonProxy {
     }
 
     @SubscribeEvent
-    public static void onWorldLoad(WorldEvent.Load event) {
+    public static void serverStart(ServerStartedEvent event) {
         if (ConfigHandler.Common.logModpackData()) {
             RegistryListener.BLOCK_REGISTRY.getValues().forEach((block) -> {
                 if (block.defaultBlockState().is(Tags.Blocks.NEEDS_WOOD_TOOL)) {

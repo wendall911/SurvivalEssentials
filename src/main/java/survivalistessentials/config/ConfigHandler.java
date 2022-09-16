@@ -275,8 +275,6 @@ public final class ConfigHandler {
 
     @SubscribeEvent
     public static void onFileChange(final ModConfigEvent.Reloading event) {
-        SurvivalistEssentials.LOGGER.warn("Reloading config");
-        SurvivalistEssentials.LOGGER.warn(Common.getMods());
         ItemUse.init();
     }
 

@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "entries": [
     "survivalistessentials:rare_loot_buried_treasure_wooden_cup",
     "survivalistessentials:extra_stick_drops_from_leaves",
@@ -11,5 +10,6 @@
     "survivalistessentials:plant_fiber_from_fiber_plants",
     "survivalistessentials:rare_loot_fishing_treasure_wooden_cup",
     "survivalistessentials:stick_drops_from_leaves"
-  ]
+  ],
+  "replace": false
 }

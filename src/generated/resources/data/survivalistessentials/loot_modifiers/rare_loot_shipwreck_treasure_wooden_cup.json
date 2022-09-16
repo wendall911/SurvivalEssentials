@@ -1,14 +1,17 @@
 {
+  "type": "survivalistessentials:add_loot",
+  "additional": {
+    "Count": 1,
+    "id": "survivalistessentials:wooden_cup"
+  },
   "conditions": [
     {
-      "condition": "minecraft:random_chance",
-      "chance": 0.01
+      "chance": 0.01,
+      "condition": "minecraft:random_chance"
     },
     {
       "condition": "forge:loot_table_id",
       "loot_table_id": "minecraft:chests/shipwreck_treasure"
     }
-  ],
-  "item": "survivalistessentials:wooden_cup",
-  "type": "survivalistessentials:rare_loot"
+  ]
 }

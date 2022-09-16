@@ -16,7 +16,7 @@ public class PlayerEventHandler {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onPlayerClone(PlayerEvent.Clone event) {
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
 
         if ((player != null)
                 && !player.isCreative()

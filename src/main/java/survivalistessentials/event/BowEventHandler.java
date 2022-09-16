@@ -16,7 +16,7 @@ public class BowEventHandler {
 
     @SubscribeEvent
     public static void onArrowLoose(ArrowLooseEvent event) {
-        final Player player = event.getPlayer() != null ? event.getPlayer() : null;
+        final Player player = event.getEntity() != null ? event.getEntity() : null;
 
         if (player != null && !player.isCreative()) {
             final ItemStack handStack = player.getMainHandItem();

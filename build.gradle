@@ -25,7 +25,6 @@ buildscript {
         classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
         classpath 'se.bjurr.gitchangelog:git-changelog-gradle-plugin:1.71.8'
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-        classpath 'io.freefair.gradle:lombok-plugin:6.3.0'
         classpath group: 'org.parchmentmc', name: 'librarian', version: '1.+'
     }
 }
@@ -35,7 +34,6 @@ apply plugin: 'maven-publish'
 apply plugin: 'se.bjurr.gitchangelog.git-changelog-gradle-plugin'
 apply plugin: 'com.matthewprenger.cursegradle'
 apply plugin: 'org.spongepowered.mixin'
-apply plugin: 'io.freefair.lombok'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 repositories {
@@ -61,7 +59,7 @@ repositories {
 }
 
 group = 'com.github.wendall911.survivalistessentials'
-version = "${minecraft_version}-${mod_version}"
+version = "${minecraft_short_version}-${mod_version}"
 archivesBaseName = "${mod_name}"
 def mcversion = "${minecraft_version}"
 def modid = "${modid}"
@@ -69,7 +67,7 @@ def modid = "${modid}"
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '17'
 
 minecraft {
-    mappings channel: "${mappings_channel}", version: mappings_version
+    mappings channel: "${mappings_channel}", version: "${mappings_version}-${minecraft_version}"
 
     runs {
         client {
@@ -107,7 +105,7 @@ minecraft {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
-            args '--mod', 'survivalistessentials',
+            args '--mod', "${modid}",
                     '--all',
                     '--output', file('src/generated/resources/'),
                     '--existing', file('src/main/resources/'),
@@ -131,13 +129,14 @@ dependencies {
 
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
-    runtimeOnly fg.deobf("curse.maven:jei_integration-265917:3812175")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
     runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_short_version}-${probe_version}") {
         transitive = false
     }
+
+    //implementation fg.deobf("curse.maven:this_rocks-558126:3873021")
 
     compileOnly fg.deobf("curse.maven:carryon-274259:3674344")
 
@@ -152,9 +151,9 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:betteranimalsplus-303557:3680864")
     //runtimeOnly fg.deobf("curse.maven:sushigocrafting-452500:3758195")
     //runtimeOnly fg.deobf("curse.maven:titanium-287342:3707558")
-    //runtimeOnly fg.deobf("curse.maven:patchouli-306770:3846086")
-    //runtimeOnly fg.deobf("curse.maven:curios-309927:3841948")
-    //runtimeOnly fg.deobf("curse.maven:botania-225643:3936568")
+    //runtimeOnly fg.deobf("curse.maven:patchouli-306770:3936481")
+    //runtimeOnly fg.deobf("curse.maven:curios-309927:3924518")
+    //runtimeOnly fg.deobf("curse.maven:botania-225643:???")
     //runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:3755665")
     //runtimeOnly fg.deobf("curse.maven:buildinggadgets-298187:3725903")
     //runtimeOnly fg.deobf("curse.maven:homeostatic-634466:3845248")
@@ -166,8 +165,8 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:electrodynamics-316867:3784685")
     //runtimeOnly fg.deobf("curse.maven:valhesia_core-416935:3768769")
     //runtimeOnly fg.deobf("curse.maven:valhesia_structures-347488:3708292")
-    //runtimeOnly fg.deobf("curse.maven:geckolib-388172:3989823")
-    //runtimeOnly fg.deobf("curse.maven:ars_nouveau-401955:3950802")
+    //runtimeOnly fg.deobf("curse.maven:geckolib-388172:3950255")
+    //runtimeOnly fg.deobf("curse.maven:arsnouveau-401955:3950796")
     //runtimeOnly fg.deobf("curse.maven:exnihilo-400012:3874541")
     //runtimeOnly fg.deobf("curse.maven:undergarden-379849:3810810")
     //runtimeOnly fg.deobf("curse.maven:dynamictrees-252818:3831578")
@@ -262,9 +261,12 @@ curseforge {
         apiKey = project.securseApiKey
         project {
             id = project.securseId
-            changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
+            changelog = file('build/libs/' + project.getName() + '-' + version + '-changelog.txt')
             releaseType = cf_release_type
-            addGameVersion(minecraft_version)
+            addGameVersion('Forge')
+            "${cf_versions}".split(',').each {
+                addGameVersion "${it}"
+            }
             mainArtifact(jar) {
                 relations {
                     optionalLibrary 'configured'
@@ -345,4 +347,3 @@ task signJar(type: SignJar, dependsOn: jar) {
     inputFile = jar.archiveFile
     outputFile = jar.archiveFile
 }
-

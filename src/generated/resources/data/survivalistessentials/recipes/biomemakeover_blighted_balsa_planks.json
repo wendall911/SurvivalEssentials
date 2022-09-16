@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "modid": "biomemakeover",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "biomemakeover"
     }
   ],
   "group": "planks",
@@ -16,7 +16,7 @@
     }
   ],
   "result": {
-    "item": "biomemakeover:blighted_balsa_planks",
-    "count": 4
+    "count": 4,
+    "item": "biomemakeover:blighted_balsa_planks"
   }
 }

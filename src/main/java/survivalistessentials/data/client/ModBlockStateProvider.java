@@ -13,6 +13,7 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
@@ -68,8 +69,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void generateLooseRockVariants(Block block) {
-        ResourceLocation name = block.getRegistryName();
-        String type = Objects.requireNonNull(name).getPath().toString().replace("_loose_rock", "");
+        ResourceLocation name = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block));
+        String type = Objects.requireNonNull(name).getPath().replace("_loose_rock", "");
 
         if (type.contains("rock_stone")) {
             type = "stone";

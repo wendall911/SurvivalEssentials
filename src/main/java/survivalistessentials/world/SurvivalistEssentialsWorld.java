@@ -1,21 +1,19 @@
 package survivalistessentials.world;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegisterEvent;
 
 import survivalistessentials.common.CreativeTabs;
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.block.LooseRockBlock;
 import survivalistessentials.world.item.RockStone;
 
 public final class SurvivalistEssentialsWorld {
 
-    private static IForgeRegistry<Block> BLOCK_REGISTRY;
-    private static IForgeRegistry<Item> ITEM_REGISTRY;
+    private static RegisterEvent.RegisterHelper<Block> BLOCK_REGISTRY;
+    private static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
 
     // Blocks
     public static Block ANDESITE_LOOSE_ROCK;
@@ -29,7 +27,7 @@ public final class SurvivalistEssentialsWorld {
     // Items
     public static Item ROCK_STONE;
 
-    public static void initBlocks(IForgeRegistry<Block> registry) {
+    public static void initBlocks(RegisterEvent.RegisterHelper<Block> registry) {
         BLOCK_REGISTRY = registry;
 
         ANDESITE_LOOSE_ROCK = registerBlock("andesite_loose_rock");
@@ -41,7 +39,7 @@ public final class SurvivalistEssentialsWorld {
         ROCK_STONE_BLOCK = registerBlock("rock_stone_block");
     }
 
-    public static void initItems(IForgeRegistry<Item> registry) {
+    public static void initItems(RegisterEvent.RegisterHelper<Item> registry) {
         ITEM_REGISTRY = registry;
 
         registerItem("andesite_loose_rock", ANDESITE_LOOSE_ROCK);
@@ -54,11 +52,11 @@ public final class SurvivalistEssentialsWorld {
     }
 
     private static Block registerBlock(String name) {
-        Block blockConfigured = (new LooseRockBlock()).setRegistryName(new ResourceLocation(SurvivalistEssentials.MODID, name));
+        Block block = new LooseRockBlock();
 
-        BLOCK_REGISTRY.register(blockConfigured);
+        BLOCK_REGISTRY.register(name, block);
 
-        return blockConfigured;
+        return block;
     }
 
     private static void registerItem(String name, Block block) {
@@ -70,9 +68,7 @@ public final class SurvivalistEssentialsWorld {
     }
 
     private static Item registerItem(String name, Item item) {
-        Item itemConfigured = item.setRegistryName(new ResourceLocation(SurvivalistEssentials.MODID, name));
-
-        ITEM_REGISTRY.register(itemConfigured);
+        ITEM_REGISTRY.register(name, item);
 
         return item;
     }

@@ -1,28 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "twilightforest:wood/twilight_oak_planks"
-    ]
-  },
   "criteria": {
     "has_logs": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:twilight_oak_log"
-            ]
+            "tag": "survivalistessentials:twilight_oak_log"
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "twilightforest:wood/twilight_oak_planks"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
@@ -30,5 +23,10 @@
       "has_logs",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "twilightforest:wood/twilight_oak_planks"
+    ]
+  }
 }

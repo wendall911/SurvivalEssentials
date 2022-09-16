@@ -2,21 +2,21 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "modid": "twilightforest",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
     }
   ],
   "group": "planks",
   "ingredients": [
     {
-      "item": "twilightforest:twilight_oak_log"
+      "tag": "survivalistessentials:twilight_oak_log"
     },
     {
       "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {
-    "item": "twilightforest:twilight_oak_planks",
-    "count": 4
+    "count": 4,
+    "item": "twilightforest:twilight_oak_planks"
   }
 }

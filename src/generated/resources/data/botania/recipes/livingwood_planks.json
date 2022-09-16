@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
   "group": "planks",
@@ -16,7 +16,7 @@
     }
   ],
   "result": {
-    "item": "botania:livingwood_planks",
-    "count": 2
+    "count": 2,
+    "item": "botania:livingwood_planks"
   }
 }

@@ -15,6 +15,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.registries.ForgeRegistries;
 
 /**
  * MIT License
@@ -145,7 +146,8 @@ public class ConsumerWrapperBuilder {
                 json.addProperty("type", overrideName.toString());
             }
             else {
-                json.addProperty("type", Objects.requireNonNull(getType().getRegistryName()).toString());
+                json.addProperty("type", Objects.requireNonNull(ForgeRegistries.RECIPE_SERIALIZERS.getKey(getType())).toString());
+                //json.addProperty("type", Objects.requireNonNull(getType().getRegistryName()).toString());
             }
 
             this.serializeRecipeData(json);

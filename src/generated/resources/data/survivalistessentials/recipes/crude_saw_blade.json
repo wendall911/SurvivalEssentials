@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ID",
-    "SD"
-  ],
   "key": {
     "D": {
       "item": "survivalistessentials:flint_shard"
     },
-    "S": {
-      "item": "survivalistessentials:plant_string"
-    },
     "I": {
       "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "survivalistessentials:plant_string"
     }
   },
+  "pattern": [
+    "ID",
+    "SD"
+  ],
   "result": {
     "item": "survivalistessentials:crude_saw_blade"
   }

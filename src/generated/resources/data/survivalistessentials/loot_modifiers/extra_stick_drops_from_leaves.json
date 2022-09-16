@@ -1,18 +1,23 @@
 {
+  "type": "survivalistessentials:add_loot",
+  "additional": {
+    "Count": 1,
+    "id": "minecraft:stick"
+  },
   "conditions": [
     {
-      "condition": "minecraft:random_chance",
-      "chance": 0.16
+      "chance": 0.16,
+      "condition": "minecraft:random_chance"
     },
     {
       "condition": "minecraft:entity_properties",
+      "entity": "this",
       "predicate": {
         "type": "minecraft:player"
-      },
-      "entity": "this"
+      }
     },
     {
-      "condition": "survivalistessentials:is_tag",
+      "condition": "survivalistessentials:is_survivalist_tag",
       "tag": "minecraft:leaves"
     },
     {
@@ -40,7 +45,5 @@
         }
       }
     }
-  ],
-  "item": "minecraft:stick",
-  "type": "survivalistessentials:stick_drops"
+  ]
 }

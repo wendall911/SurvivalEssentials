@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "RR",
-    "RR"
-  ],
   "key": {
     "R": {
       "item": "survivalistessentials:rock_stone"
     }
   },
+  "pattern": [
+    "RR",
+    "RR"
+  ],
   "result": {
     "item": "minecraft:cobblestone"
   }

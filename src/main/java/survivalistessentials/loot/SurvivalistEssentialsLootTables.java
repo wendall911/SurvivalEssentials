@@ -1,52 +1,36 @@
 package survivalistessentials.loot;
 
-import com.google.gson.JsonObject;
-
-import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
+import com.google.common.base.Suppliers;
+
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
-import net.minecraftforge.registries.RegistryObject;
 
+import net.minecraftforge.registries.RegistryObject;
 import survivalistessentials.common.SurvivalistEssentialsModule;
 
 public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule {
 
-    public static RegistryObject<LootTableSerializer> PLANT_FIBER_DROPS = LOOT_MODIFIER_REGISTRY.register("plant_fiber_drops", LootTableSerializer::new);
-    public static RegistryObject<LootTableSerializer> STICK_DROPS = LOOT_MODIFIER_REGISTRY.register("stick_drops", LootTableSerializer::new);
-    public static RegistryObject<LootTableSerializer> TOOL_LOOT = LOOT_MODIFIER_REGISTRY.register("tool_loot", LootTableSerializer::new);
-    public static RegistryObject<LootTableSerializer> RARE_LOOT = LOOT_MODIFIER_REGISTRY.register("rare_loot", LootTableSerializer::new);
-
-    public static class LootTableSerializer extends GlobalLootModifierSerializer<LootTableModifier> {
-
-        @Override
-        public LootTableModifier read(ResourceLocation location, JsonObject json, LootItemCondition[] lootCondition) {
-            return new LootTableModifier(
-                lootCondition,
-                new ItemStack(GsonHelper.getAsItem(json, "item"))
-            );
-        }
-
-        @Override
-        public JsonObject write(LootTableModifier instance) {
-            JsonObject jsonObject = makeConditions(instance.getConditions());
-
-            jsonObject.addProperty("item", instance.getStack().getItem().getRegistryName().toString());
-
-            return jsonObject;
-        }
-
-    }
+    public static RegistryObject<Codec<LootTableModifier>> ADD_LOOT = LOOT_MODIFIER_REGISTRY.register("add_loot", LootTableModifier.CODEC_SUPPLIER);
 
     public static class LootTableModifier extends LootModifier {
+
+        public static final Supplier<Codec<LootTableModifier>> CODEC_SUPPLIER = Suppliers.memoize(() -> RecordCodecBuilder.create(inst ->
+                codecStart(inst)
+                        .and(ItemStack.CODEC.fieldOf("additional").forGetter(LootTableModifier::getStack))
+                        .apply(inst, LootTableModifier::new)));
 
         private final ItemStack stack;
 
@@ -64,12 +48,17 @@ public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule
             return stack;
         }
 
-        @Nonnull
         @Override
-        protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+        @Nonnull
+        protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
             generatedLoot.add(stack.copy());
-            
+
             return generatedLoot;
+        }
+
+        @Override
+        public Codec<? extends IGlobalLootModifier> codec() {
+            return CODEC_SUPPLIER.get();
         }
 
     }

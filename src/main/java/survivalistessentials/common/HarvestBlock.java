@@ -122,7 +122,7 @@ public final class HarvestBlock {
 
             SurvivalistEssentials.LOGGER.warn("Material: [isLiquid=%s, isSolid=%s, blocksMotion=%s, isFlammable=%s, isReplaceable=%s, isSolidBlocking=%s, getPushReaction=%s, getColor=[id=%s, col=%s]] | Blocks: %s",
                 material.isLiquid(), material.isSolid(), material.blocksMotion(), material.isFlammable(), material.isReplaceable(), material.isSolidBlocking(), material.getPushReaction(), material.getColor().id, new Color(material.getColor().col),
-                blocks.stream().map(b -> b.getRegistryName().toString()).collect(Collectors.joining(", ")));
+                blocks.stream().map(Block::toString).collect(Collectors.joining(", ")));
         }
     }
 

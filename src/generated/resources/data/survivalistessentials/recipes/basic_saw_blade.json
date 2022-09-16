@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ID",
-    "SD"
-  ],
   "key": {
     "D": {
       "item": "minecraft:iron_ingot"
     },
-    "S": {
-      "tag": "forge:string"
-    },
     "I": {
       "item": "minecraft:stick"
+    },
+    "S": {
+      "tag": "forge:string"
     }
   },
+  "pattern": [
+    "ID",
+    "SD"
+  ],
   "result": {
     "item": "survivalistessentials:basic_saw_blade"
   }

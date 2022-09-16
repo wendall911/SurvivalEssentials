@@ -31,8 +31,8 @@ public class ModBlockLootTables extends BlockLoot {
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getValues().stream()
-                .filter(block -> SurvivalistEssentials.MODID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace()))
-                .collect(Collectors.toSet());
+            .filter(block -> SurvivalistEssentials.MODID.equals(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getNamespace()))
+            .collect(Collectors.toSet());
     }
 
     private static LootTable.Builder createLooseRockDrops(Block block) {

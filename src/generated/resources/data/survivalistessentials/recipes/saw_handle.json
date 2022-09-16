@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "survivalistessentials:plant_string"
+    }
+  },
   "pattern": [
     "IS",
     " I"
   ],
-  "key": {
-    "S": {
-      "item": "survivalistessentials:plant_string"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
-  },
   "result": {
     "item": "survivalistessentials:saw_handle"
   }

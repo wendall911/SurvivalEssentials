@@ -13,6 +13,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
@@ -65,16 +66,16 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private void build(ModelFile itemGenerated, Item item) {
-        String name = Objects.requireNonNull(item.getRegistryName()).getPath();
+        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
 
         getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
     }
 
     protected void blockItem(Block block) {
-        String type = Objects.requireNonNull(block.getRegistryName()).getPath().replace("_loose_rock", "");
+        String type = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath().replace("_loose_rock", "");
 
         ItemModelBuilder builder = Optional.ofNullable(block)
-            .map(Block::getRegistryName)
+            .map(ForgeRegistries.BLOCKS::getKey)
             .map(ResourceLocation::getPath)
             .map(path -> {
                 return withExistingParent(path, modLoc("block/" + path));

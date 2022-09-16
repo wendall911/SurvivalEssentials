@@ -22,7 +22,7 @@ public class LivingEquipmentChangeEventHandler {
 
     @SubscribeEvent
     public static void onChange(LivingEquipmentChangeEvent event) {
-        if (event.getEntityLiving() instanceof Player player) {
+        if (event.getEntity() instanceof Player player) {
             EquipmentSlot slot = event.getSlot();
 
             if (slot.getType() == EquipmentSlot.Type.ARMOR

@@ -11,11 +11,11 @@ import survivalistessentials.world.effect.ZombieEssence;
 public final class SurvivalistEssentialsEffects extends SurvivalistEssentialsModule {
 
     public static final RegistryObject<MobEffect> STOP_BLEEDING = MOBEFFECT_REGISTRY.register(
-        "stop_bleeding", () -> new StopBleeding()
+        "stop_bleeding", StopBleeding::new
     );
 
     public static final RegistryObject<MobEffect> ZOMBIE_ESSENCE = MOBEFFECT_REGISTRY.register(
-        "zombie_essence", () -> new ZombieEssence()
+        "zombie_essence", ZombieEssence::new
     );
 
 }

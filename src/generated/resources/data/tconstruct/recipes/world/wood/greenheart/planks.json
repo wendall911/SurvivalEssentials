@@ -1,5 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tconstruct"
+    }
+  ],
   "group": "planks",
   "ingredients": [
     {
@@ -10,7 +16,7 @@
     }
   ],
   "result": {
-    "item": "tconstruct:greenheart_planks",
-    "count": 2
+    "count": 2,
+    "item": "tconstruct:greenheart_planks"
   }
 }

@@ -5,6 +5,7 @@ import net.minecraft.world.item.Item;
 
 import net.minecraftforge.registries.IForgeRegistry;
 
+import net.minecraftforge.registries.RegisterEvent;
 import survivalistessentials.common.CreativeTabs;
 
 public final class ModIntegration {
@@ -90,54 +91,56 @@ public final class ModIntegration {
     public static Item BYG_WILLOW_PLANKS;
     public static Item BYG_WITCH_HAZEL_PLANKS;
     public static Item BYG_ZELKOVA_PLANKS;
-    public static Item TF_CANOPY_PLANKS;
-    public static Item TF_CANOPY_LOG;
-    public static Item TF_CANOPY_STRIPPED_LOG;
-    public static Item TF_CANOPY_WOOD;
-    public static Item TF_CANOPY_STRIPPED_WOOD;
-    public static Item TF_DARK_PLANKS;
-    public static Item TF_DARK_LOG;
-    public static Item TF_DARK_STRIPPED_LOG;
-    public static Item TF_DARK_WOOD;
-    public static Item TF_DARK_STRIPPED_WOOD;
-    public static Item TF_MANGROVE_PLANKS;
-    public static Item TF_MANGROVE_LOG;
-    public static Item TF_MANGROVE_STRIPPED_LOG;
-    public static Item TF_MANGROVE_WOOD;
-    public static Item TF_MANGROVE_STRIPPED_WOOD;
-    public static Item TF_MINING_PLANKS;
-    public static Item TF_MINING_LOG;
-    public static Item TF_MINING_STRIPPED_LOG;
-    public static Item TF_MINING_WOOD;
-    public static Item TF_MINING_STRIPPED_WOOD;
-    public static Item TF_SORTING_PLANKS;
-    public static Item TF_SORTING_LOG;
-    public static Item TF_SORTING_STRIPPED_LOG;
-    public static Item TF_SORTING_WOOD;
-    public static Item TF_SORTING_STRIPPED_WOOD;
-    public static Item TF_TIME_PLANKS;
-    public static Item TF_TIME_LOG;
-    public static Item TF_TIME_STRIPPED_LOG;
-    public static Item TF_TIME_WOOD;
-    public static Item TF_TIME_STRIPPED_WOOD;
-    public static Item TF_TRANSFORMATION_PLANKS;
-    public static Item TF_TRANSFORMATION_LOG;
-    public static Item TF_TRANSFORMATION_STRIPPED_LOG;
-    public static Item TF_TRANSFORMATION_WOOD;
-    public static Item TF_TRANSFORMATION_STRIPPED_WOOD;
-    public static Item TF_TWILIGHT_OAK_PLANKS;
-    public static Item TF_TWILIGHT_OAK_LOG;
-    public static Item TF_TWILIGHT_OAK_STRIPPED_LOG;
-    public static Item TF_TWILIGHT_OAK_WOOD;
-    public static Item TF_TWILIGHT_OAK_STRIPPED_WOOD;
     public static Item ECO_COCONUT_PLANKS;
     public static Item ECO_WALNUT_PLANKS;
     public static Item ECO_AZALEA_PLANKS;
     public static Item ECO_FLOWERING_AZALEA_PLANKS;
+    public static Item TF_CANOPY_PLANKS;
+    public static Item TF_DARK_PLANKS;
+    public static Item TF_MANGROVE_PLANKS;
+    public static Item TF_MINING_PLANKS;
+    public static Item TF_SORTING_PLANKS;
+    public static Item TF_TIME_PLANKS;
+    public static Item TF_TRANSFORMATION_PLANKS;
+    public static Item TF_TWILIGHT_OAK_PLANKS;
 
-    public static IForgeRegistry<Item> ITEM_REGISTRY;
+    // TF Messed up log/wood crap
+    public static ResourceLocation TF_CANOPY_LOG;
+    public static ResourceLocation TF_CANOPY_STRIPPED_LOG;
+    public static ResourceLocation TF_CANOPY_WOOD;
+    public static ResourceLocation TF_CANOPY_STRIPPED_WOOD;
+    public static ResourceLocation TF_DARK_LOG;
+    public static ResourceLocation TF_DARK_STRIPPED_LOG;
+    public static ResourceLocation TF_DARK_WOOD;
+    public static ResourceLocation TF_DARK_STRIPPED_WOOD;
+    public static ResourceLocation TF_MANGROVE_LOG;
+    public static ResourceLocation TF_MANGROVE_STRIPPED_LOG;
+    public static ResourceLocation TF_MANGROVE_WOOD;
+    public static ResourceLocation TF_MANGROVE_STRIPPED_WOOD;
+    public static ResourceLocation TF_MINING_LOG;
+    public static ResourceLocation TF_MINING_STRIPPED_LOG;
+    public static ResourceLocation TF_MINING_WOOD;
+    public static ResourceLocation TF_MINING_STRIPPED_WOOD;
+    public static ResourceLocation TF_SORTING_LOG;
+    public static ResourceLocation TF_SORTING_STRIPPED_LOG;
+    public static ResourceLocation TF_SORTING_WOOD;
+    public static ResourceLocation TF_SORTING_STRIPPED_WOOD;
+    public static ResourceLocation TF_TIME_LOG;
+    public static ResourceLocation TF_TIME_STRIPPED_LOG;
+    public static ResourceLocation TF_TIME_WOOD;
+    public static ResourceLocation TF_TIME_STRIPPED_WOOD;
+    public static ResourceLocation TF_TRANSFORMATION_LOG;
+    public static ResourceLocation TF_TRANSFORMATION_STRIPPED_LOG;
+    public static ResourceLocation TF_TRANSFORMATION_WOOD;
+    public static ResourceLocation TF_TRANSFORMATION_STRIPPED_WOOD;
+    public static ResourceLocation TF_TWILIGHT_OAK_LOG;
+    public static ResourceLocation TF_TWILIGHT_OAK_STRIPPED_LOG;
+    public static ResourceLocation TF_TWILIGHT_OAK_WOOD;
+    public static ResourceLocation TF_TWILIGHT_OAK_STRIPPED_WOOD;
 
-    public static void init(IForgeRegistry<Item> registry) {
+    public static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
+
+    public static void init(RegisterEvent.RegisterHelper<Item> registry) {
         ITEM_REGISTRY = registry;
 
         String dataGen = System.getenv("DATA_GEN");
@@ -203,56 +206,58 @@ public final class ModIntegration {
             BYG_WITCH_HAZEL_PLANKS = registerItem(bygLoc("witch_hazel_planks"));
             BYG_ZELKOVA_PLANKS = registerItem(bygLoc("zelkova_planks"));
             TF_CANOPY_PLANKS = registerItem(tfLoc("canopy_planks"));
-            TF_CANOPY_LOG = registerItem(tfLoc("canopy_log"));
-            TF_CANOPY_STRIPPED_LOG = registerItem(tfLoc("stripped_canopy_log"));
-            TF_CANOPY_WOOD = registerItem(tfLoc("canopy_wood"));
-            TF_CANOPY_STRIPPED_WOOD = registerItem(tfLoc("stripped_canopy_wood"));
             TF_DARK_PLANKS = registerItem(tfLoc("dark_planks"));
-            TF_DARK_LOG = registerItem(tfLoc("dark_log"));
-            TF_DARK_STRIPPED_LOG = registerItem(tfLoc("stripped_dark_log"));
-            TF_DARK_WOOD = registerItem(tfLoc("dark_wood"));
-            TF_DARK_STRIPPED_WOOD = registerItem(tfLoc("stripped_dark_wood"));
             TF_MANGROVE_PLANKS = registerItem(tfLoc("mangrove_planks"));
-            TF_MANGROVE_LOG = registerItem(tfLoc("mangrove_log"));
-            TF_MANGROVE_STRIPPED_LOG = registerItem(tfLoc("stripped_mangrove_log"));
-            TF_MANGROVE_WOOD = registerItem(tfLoc("mangrove_wood"));
-            TF_MANGROVE_STRIPPED_WOOD = registerItem(tfLoc("stripped_mangrove_wood"));
             TF_MINING_PLANKS = registerItem(tfLoc("mining_planks"));
-            TF_MINING_LOG = registerItem(tfLoc("mining_log"));
-            TF_MINING_STRIPPED_LOG = registerItem(tfLoc("stripped_mining_log"));
-            TF_MINING_WOOD = registerItem(tfLoc("mining_wood"));
-            TF_MINING_STRIPPED_WOOD = registerItem(tfLoc("stripped_mining_wood"));
             TF_SORTING_PLANKS = registerItem(tfLoc("sorting_planks"));
-            TF_SORTING_LOG = registerItem(tfLoc("sorting_log"));
-            TF_SORTING_STRIPPED_LOG = registerItem(tfLoc("stripped_sorting_log"));
-            TF_SORTING_WOOD = registerItem(tfLoc("sorting_wood"));
-            TF_SORTING_STRIPPED_WOOD = registerItem(tfLoc("stripped_sorting_wood"));
             TF_TIME_PLANKS = registerItem(tfLoc("time_planks"));
-            TF_TIME_LOG = registerItem(tfLoc("time_log"));
-            TF_TIME_STRIPPED_LOG = registerItem(tfLoc("stripped_time_log"));
-            TF_TIME_WOOD = registerItem(tfLoc("time_wood"));
-            TF_TIME_STRIPPED_WOOD = registerItem(tfLoc("stripped_time_wood"));
             TF_TRANSFORMATION_PLANKS = registerItem(tfLoc("transformation_planks"));
-            TF_TRANSFORMATION_LOG = registerItem(tfLoc("transformation_log"));
-            TF_TRANSFORMATION_STRIPPED_LOG = registerItem(tfLoc("stripped_transformation_log"));
-            TF_TRANSFORMATION_WOOD = registerItem(tfLoc("transformation_wood"));
-            TF_TRANSFORMATION_STRIPPED_WOOD = registerItem(tfLoc("stripped_transformation_wood"));
             TF_TWILIGHT_OAK_PLANKS = registerItem(tfLoc("twilight_oak_planks"));
-            TF_TWILIGHT_OAK_LOG = registerItem(tfLoc("twilight_oak_log"));
-            TF_TWILIGHT_OAK_STRIPPED_LOG = registerItem(tfLoc("stripped_twilight_oak_log"));
-            TF_TWILIGHT_OAK_WOOD = registerItem(tfLoc("twilight_oak_wood"));
-            TF_TWILIGHT_OAK_STRIPPED_WOOD = registerItem(tfLoc("stripped_twilight_oak_wood"));
             ECO_COCONUT_PLANKS = registerItem(ecoLoc("coconut_planks"));
             ECO_WALNUT_PLANKS = registerItem(ecoLoc("walnut_planks"));
             ECO_AZALEA_PLANKS = registerItem(ecoLoc("azalea_planks"));
             ECO_FLOWERING_AZALEA_PLANKS = registerItem(ecoLoc("flowering_azalea_planks"));
+
+            // TF Messed up log/wood crap
+            TF_CANOPY_LOG = tfLoc("canopy_log");
+            TF_CANOPY_STRIPPED_LOG = tfLoc("stripped_canopy_log");
+            TF_CANOPY_WOOD = tfLoc("canopy_wood");
+            TF_CANOPY_STRIPPED_WOOD = tfLoc("stripped_canopy_wood");
+            TF_DARK_LOG = tfLoc("dark_log");
+            TF_DARK_STRIPPED_LOG = tfLoc("stripped_dark_log");
+            TF_DARK_WOOD = tfLoc("dark_wood");
+            TF_DARK_STRIPPED_WOOD = tfLoc("stripped_dark_wood");
+            TF_MANGROVE_LOG = tfLoc("mangrove_log");
+            TF_MANGROVE_STRIPPED_LOG = tfLoc("stripped_mangrove_log");
+            TF_MANGROVE_WOOD = tfLoc("mangrove_wood");
+            TF_MANGROVE_STRIPPED_WOOD = tfLoc("stripped_mangrove_wood");
+            TF_MINING_LOG = tfLoc("mining_log");
+            TF_MINING_STRIPPED_LOG = tfLoc("stripped_mining_log");
+            TF_MINING_WOOD = tfLoc("mining_wood");
+            TF_MINING_STRIPPED_WOOD = tfLoc("stripped_mining_wood");
+            TF_SORTING_LOG = tfLoc("sorting_log");
+            TF_SORTING_STRIPPED_LOG = tfLoc("stripped_sorting_log");
+            TF_SORTING_WOOD = tfLoc("sorting_wood");
+            TF_SORTING_STRIPPED_WOOD = tfLoc("stripped_sorting_wood");
+            TF_TIME_LOG = tfLoc("time_log");
+            TF_TIME_STRIPPED_LOG = tfLoc("stripped_time_log");
+            TF_TIME_WOOD = tfLoc("time_wood");
+            TF_TIME_STRIPPED_WOOD = tfLoc("stripped_time_wood");
+            TF_TRANSFORMATION_LOG = tfLoc("transformation_log");
+            TF_TRANSFORMATION_STRIPPED_LOG = tfLoc("stripped_transformation_log");
+            TF_TRANSFORMATION_WOOD = tfLoc("transformation_wood");
+            TF_TRANSFORMATION_STRIPPED_WOOD = tfLoc("stripped_transformation_wood");
+            TF_TWILIGHT_OAK_LOG = tfLoc("twilight_oak_log");
+            TF_TWILIGHT_OAK_STRIPPED_LOG = tfLoc("stripped_twilight_oak_log");
+            TF_TWILIGHT_OAK_WOOD = tfLoc("twilight_oak_wood");
+            TF_TWILIGHT_OAK_STRIPPED_WOOD = tfLoc("stripped_twilight_oak_wood");
         }
     }
 
     private static Item registerItem(ResourceLocation loc) {
-        Item item = (new Item(new Item.Properties().tab(CreativeTabs.INTEGRATION_TAB_GROUP))).setRegistryName(loc);
+        Item item = (new Item(new Item.Properties().tab(CreativeTabs.INTEGRATION_TAB_GROUP)));
 
-        ITEM_REGISTRY.register(item);
+        ITEM_REGISTRY.register(loc, item);
 
         return item;
     }

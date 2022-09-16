@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "FF",
-    "F "
-  ],
   "key": {
     "F": {
       "item": "survivalistessentials:plant_fiber"
     }
   },
+  "pattern": [
+    "FF",
+    "F "
+  ],
   "result": {
     "item": "survivalistessentials:plant_string"
   }

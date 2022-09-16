@@ -1,5 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tconstruct"
+    }
+  ],
   "group": "planks",
   "ingredients": [
     {
@@ -10,7 +16,7 @@
     }
   ],
   "result": {
-    "item": "tconstruct:skyroot_planks",
-    "count": 4
+    "count": 4,
+    "item": "tconstruct:skyroot_planks"
   }
 }

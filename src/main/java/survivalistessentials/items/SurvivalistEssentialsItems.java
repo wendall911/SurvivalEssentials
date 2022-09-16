@@ -1,10 +1,9 @@
 package survivalistessentials.items;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegisterEvent;
 
 import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.items.item.Bandage;
@@ -14,11 +13,10 @@ import survivalistessentials.items.item.WoodenCup;
 import survivalistessentials.items.tool.CrudeHatchet;
 import survivalistessentials.items.tool.SurvivalKnife;
 import survivalistessentials.items.tool.SurvivalSaw;
-import survivalistessentials.SurvivalistEssentials;
 
 public final class SurvivalistEssentialsItems {
 
-    private static IForgeRegistry<Item> ITEM_REGISTRY;
+    private static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
 
     // Items
     public static Item FLINT_SHARD;
@@ -49,7 +47,7 @@ public final class SurvivalistEssentialsItems {
     // Zombie Jesus
     public static Item WOODEN_CUP;
 
-    public static void init(IForgeRegistry<Item> registry) {
+    public static void init(RegisterEvent.RegisterHelper<Item> registry) {
         ITEM_REGISTRY = registry;
 
         FLINT_SHARD = registerItem("flint_shard");
@@ -100,9 +98,7 @@ public final class SurvivalistEssentialsItems {
     }
 
     private static Item registerItem(String name, Item item) {
-        Item itemConfigured = item.setRegistryName(new ResourceLocation(SurvivalistEssentials.MODID, name));
-
-        ITEM_REGISTRY.register(itemConfigured);
+        ITEM_REGISTRY.register(name, item);
 
         return item;
     }

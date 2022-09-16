@@ -116,6 +116,38 @@ public final class TagManager {
 
         // Twilight Forest
         public static final TagKey<Item> TF_GIANT_LOGS = create("giant_logs");
+        public static final TagKey<Item> TF_CANOPY_LOG = create("canopy_log");
+        public static final TagKey<Item> TF_CANOPY_STRIPPED_LOG = create("canopy_stripped_log");
+        public static final TagKey<Item> TF_CANOPY_WOOD = create("canopy_wood");
+        public static final TagKey<Item> TF_CANOPY_STRIPPED_WOOD = create("canopy_stripped_wood");
+        public static final TagKey<Item> TF_DARK_LOG = create("dark_log");
+        public static final TagKey<Item> TF_DARK_STRIPPED_LOG = create("dark_stripped_log");
+        public static final TagKey<Item> TF_DARK_WOOD = create("dark_wood");
+        public static final TagKey<Item> TF_DARK_STRIPPED_WOOD = create("dark_stripped_wood");
+        public static final TagKey<Item> TF_MANGROVE_LOG = create("mangrove_log");
+        public static final TagKey<Item> TF_MANGROVE_STRIPPED_LOG = create("mangrove_stripped_log");
+        public static final TagKey<Item> TF_MANGROVE_WOOD = create("mangrove_wood");
+        public static final TagKey<Item> TF_MANGROVE_STRIPPED_WOOD = create("mangrove_stripped_wood");
+        public static final TagKey<Item> TF_MINING_LOG = create("mining_log");
+        public static final TagKey<Item> TF_MINING_STRIPPED_LOG = create("mining_stripped_log");
+        public static final TagKey<Item> TF_MINING_WOOD = create("mining_wood");
+        public static final TagKey<Item> TF_MINING_STRIPPED_WOOD = create("mining_stripped_wood");
+        public static final TagKey<Item> TF_SORTING_LOG = create("sorting_log");
+        public static final TagKey<Item> TF_SORTING_STRIPPED_LOG = create("sorting_stripped_log");
+        public static final TagKey<Item> TF_SORTING_WOOD = create("sorting_wood");
+        public static final TagKey<Item> TF_SORTING_STRIPPED_WOOD = create("sorting_stripped_wood");
+        public static final TagKey<Item> TF_TIME_LOG = create("time_log");
+        public static final TagKey<Item> TF_TIME_STRIPPED_LOG = create("time_stripped_log");
+        public static final TagKey<Item> TF_TIME_WOOD = create("time_wood");
+        public static final TagKey<Item> TF_TIME_STRIPPED_WOOD = create("time_stripped_wood");
+        public static final TagKey<Item> TF_TRANSFORMATION_LOG = create("transformation_log");
+        public static final TagKey<Item> TF_TRANSFORMATION_STRIPPED_LOG = create("transformation_stripped_log");
+        public static final TagKey<Item> TF_TRANSFORMATION_WOOD = create("transformation_wood");
+        public static final TagKey<Item> TF_TRANSFORMATION_STRIPPED_WOOD = create("transformation_stripped_wood");
+        public static final TagKey<Item> TF_TWILIGHT_OAK_LOG = create("twilight_oak_log");
+        public static final TagKey<Item> TF_TWILIGHT_OAK_STRIPPED_LOG = create("twilight_oak_stripped_log");
+        public static final TagKey<Item> TF_TWILIGHT_OAK_WOOD = create("twilight_oak_wood");
+        public static final TagKey<Item> TF_TWILIGHT_OAK_STRIPPED_WOOD = create("twilight_oak_stripped_wood");
 
         // Ecologics
         public static TagKey<Item> ECO_COCONUT_LOGS = create("coconut_logs");

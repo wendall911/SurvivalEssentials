@@ -1,13 +1,12 @@
 package survivalistessentials.items.tool;
 
-import java.util.Random;
-
 import javax.annotation.Nonnull;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -46,13 +45,13 @@ public class SurvivalSaw extends TieredItem {
 
     @Nonnull
     @Override
-    public ItemStack getContainerItem(@Nonnull ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(@Nonnull ItemStack stack) {
         ItemStack container = stack.copy();
         
         if (this.name == "saw_handle") {
             return ItemStack.EMPTY;
         }
-        else if (!container.hurt(1, new Random(), null)) {
+        else if (!container.hurt(1, RandomSource.create(), null)) {
             return container;
         }
         else {
@@ -61,7 +60,7 @@ public class SurvivalSaw extends TieredItem {
     }
 
     @Override
-    public boolean hasContainerItem(@Nonnull ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack) {
         return true;
     }
 

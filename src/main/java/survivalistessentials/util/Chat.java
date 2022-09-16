@@ -6,8 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,17 +19,17 @@ public class Chat {
     public static final String SARCASTIC_WRONG_TOOL = "message.wrong_tool2";
 
     public static void sendMessage(Player player, String title) {
-        Component message = (new TranslatableComponent(title)).withStyle(ChatFormatting.RED);
+        Component message = Component.translatable(title).withStyle(ChatFormatting.RED);
 
         if (title.contains(NOTICE)) {
-            message = (new TranslatableComponent(title)).withStyle(ChatFormatting.YELLOW);
+            message = Component.translatable(title).withStyle(ChatFormatting.YELLOW);
         }
 
         sendMessage(player, message, false);
     }
 
     public static void sendMessage(Player player, String title, String replace, boolean delayed) {
-        sendMessage(player, title, new TextComponent(replace), delayed);
+        sendMessage(player, title, Component.translatable(replace), delayed);
     }
 
     public static void sendMessage(Player player, String title, ItemStack stack, boolean delayed) {
@@ -45,7 +43,7 @@ public class Chat {
     }
 
     public static void sendMessage(Player player, String title, Component replace, boolean delayed) {
-        Component message = new TranslatableComponent(title, replace, delayed);
+        Component message = Component.translatable(title, replace, delayed);
 
         sendMessage(player, message, delayed);
     }

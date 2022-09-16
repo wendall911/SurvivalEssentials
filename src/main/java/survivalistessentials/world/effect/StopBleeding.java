@@ -8,19 +8,19 @@ import survivalistessentials.config.ConfigHandler;
 
 public class StopBleeding extends MobEffect {
 
-    static final float HEAL_RATE = (float) ConfigHandler.Common.healRate();
-
     public StopBleeding() {
         super(MobEffectCategory.BENEFICIAL, 0xf7b7ad);
     }
 
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
+        float healRate = (float) ConfigHandler.Common.healRate();
+
         if (entity.getHealth() >= entity.getMaxHealth()) {
             entity.removeEffect(this);
         }
 
-        entity.heal(HEAL_RATE * (float)(amplifier + 1));
+        entity.heal(healRate * (float)(amplifier + 1));
     }
 
     @Override

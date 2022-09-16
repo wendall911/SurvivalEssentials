@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import net.minecraftforge.common.ToolActions;
-import net.minecraftforge.event.world.BlockEvent.BlockToolModificationEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -19,7 +19,7 @@ import survivalistessentials.util.ItemUse;
 public class HoeEventHandler {
 
     @SubscribeEvent
-    public static void onHoeBlock(BlockToolModificationEvent event) {
+    public static void onHoeBlock(BlockEvent.BlockToolModificationEvent event) {
         final Player player = event.getPlayer() != null ? event.getPlayer() : null;
 
         if (player != null && !player.isCreative() && event.getToolAction() == ToolActions.HOE_TILL) {

@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SR",
-    "I "
-  ],
   "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
     "R": {
       "item": "survivalistessentials:rock_stone"
     },
     "S": {
       "item": "survivalistessentials:plant_string"
-    },
-    "I": {
-      "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "SR",
+    "I "
+  ],
   "result": {
     "item": "survivalistessentials:crude_hatchet"
   }

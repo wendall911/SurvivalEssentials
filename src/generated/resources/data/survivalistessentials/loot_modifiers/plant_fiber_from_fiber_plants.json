@@ -1,8 +1,13 @@
 {
+  "type": "survivalistessentials:add_loot",
+  "additional": {
+    "Count": 1,
+    "id": "survivalistessentials:plant_fiber"
+  },
   "conditions": [
     {
-      "condition": "minecraft:random_chance",
-      "chance": 0.16
+      "chance": 0.16,
+      "condition": "minecraft:random_chance"
     },
     {
       "condition": "minecraft:match_tool",
@@ -11,10 +16,8 @@
       }
     },
     {
-      "condition": "survivalistessentials:is_tag",
+      "condition": "survivalistessentials:is_survivalist_tag",
       "tag": "survivalistessentials:fiber_plants"
     }
-  ],
-  "item": "survivalistessentials:plant_fiber",
-  "type": "survivalistessentials:plant_fiber_drops"
+  ]
 }

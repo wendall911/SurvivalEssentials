@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SSS"
-  ],
   "key": {
     "S": {
       "tag": "forge:string"
     }
   },
+  "pattern": [
+    "SSS"
+  ],
   "result": {
     "item": "survivalistessentials:cloth"
   }

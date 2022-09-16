@@ -1,15 +1,12 @@
 package survivalistessentials.items.tool;
 
-import java.util.Random;
-
 import javax.annotation.Nonnull;
 
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
-
-import survivalistessentials.SurvivalistEssentials;
 
 public class CrudeHatchet extends AxeItem {
 
@@ -19,10 +16,10 @@ public class CrudeHatchet extends AxeItem {
 
     @Nonnull
     @Override
-    public ItemStack getContainerItem(@Nonnull ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(@Nonnull ItemStack stack) {
         ItemStack container = stack.copy();
         
-        if (!container.hurt(1, new Random(), null)) {
+        if (!container.hurt(1, RandomSource.create(), null)) {
             return container;
         }
         else {
@@ -31,7 +28,7 @@ public class CrudeHatchet extends AxeItem {
     }
 
     @Override
-    public boolean hasContainerItem(@Nonnull ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack) {
         return true;
     }
 

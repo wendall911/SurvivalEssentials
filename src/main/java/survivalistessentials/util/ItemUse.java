@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import net.minecraftforge.fml.ModList;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
@@ -67,7 +68,7 @@ public class ItemUse {
     }
 
     public static boolean isAllowedTool(ItemStack stack) {
-        String itemName = Objects.requireNonNull(stack.getItem().getRegistryName()).toString();
+        String itemName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).getPath();
         String modid = getModId(itemName);
         boolean hasTag = hasTag(stack);
 
@@ -83,11 +84,11 @@ public class ItemUse {
     }
 
     public static String getModId(Block block) {
-        return getModId(Objects.requireNonNull(block.getRegistryName()).toString());
+        return getModId(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).toString());
     }
 
     public static String getModId(ItemStack stack) {
-        return getModId(Objects.requireNonNull(stack.getItem().getRegistryName()).toString());
+        return getModId(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).toString());
     }
 
     public static String getModId(String name) {
@@ -110,7 +111,7 @@ public class ItemUse {
     }
 
     public static String getToolClass(ItemStack stack) {
-        String itemName = Objects.requireNonNull(stack.getItem().getRegistryName()).toString();
+        String itemName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).toString();
         String type = toolsMap.get(itemName);
 
         if (type == null) {
@@ -218,7 +219,7 @@ public class ItemUse {
     }
 
     public static boolean isAllowedArmor(ItemStack stack) {
-        String itemName = Objects.requireNonNull(stack.getItem().getRegistryName()).toString();
+        String itemName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).toString();
         String modid = getModId(itemName);
         boolean hasTag = hasTag(stack);
 

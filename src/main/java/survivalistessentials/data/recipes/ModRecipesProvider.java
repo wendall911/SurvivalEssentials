@@ -22,6 +22,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
@@ -311,9 +312,10 @@ public class ModRecipesProvider extends RecipeProvider {
         plankRecipeBuilder(wrapped, ModIntegration.AYCE_HAZEL_PLANKS, TagManager.Items.AYCE_HAZEL_LOGS, "has_logs");
 
         // Tinkers' Construct
-        plankRecipeBuilder(consumer, ModIntegration.TCON_BLOODSHROOM_PLANKS, TagManager.Items.TCON_BLOODSHROOM_LOGS, "has_logs");
-        plankRecipeBuilder(consumer, ModIntegration.TCON_GREENHEART_PLANKS, TagManager.Items.TCON_GREENHEART_LOGS, "has_logs");
-        plankRecipeBuilder(consumer, ModIntegration.TCON_SKYROOT_PLANKS, TagManager.Items.TCON_SKYROOT_LOGS, "has_logs");
+        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.TCON_MODID));
+        plankRecipeBuilder(wrapped, ModIntegration.TCON_BLOODSHROOM_PLANKS, TagManager.Items.TCON_BLOODSHROOM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, ModIntegration.TCON_GREENHEART_PLANKS, TagManager.Items.TCON_GREENHEART_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, ModIntegration.TCON_SKYROOT_PLANKS, TagManager.Items.TCON_SKYROOT_LOGS, "has_logs");
 
         // Water Source
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.WS_MODID));
@@ -368,38 +370,38 @@ public class ModRecipesProvider extends RecipeProvider {
 
         // Twilight Forest
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.TF_MODID));
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, ModIntegration.TF_CANOPY_LOG, "has_logs", "wood/", "canopy_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, ModIntegration.TF_CANOPY_STRIPPED_LOG, "has_logs", "wood/", "canopy_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, ModIntegration.TF_CANOPY_WOOD, "has_logs", "wood/", "canopy_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, ModIntegration.TF_CANOPY_STRIPPED_WOOD, "has_logs", "wood/", "canopy_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, ModIntegration.TF_DARK_LOG, "has_logs", "wood/", "dark_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, ModIntegration.TF_DARK_STRIPPED_LOG, "has_logs", "wood/", "dark_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, ModIntegration.TF_DARK_WOOD, "has_logs", "wood/", "dark_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, ModIntegration.TF_DARK_STRIPPED_WOOD, "has_logs", "wood/", "dark_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, ModIntegration.TF_MANGROVE_LOG, "has_logs", "wood/", "mangrove_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, ModIntegration.TF_MANGROVE_STRIPPED_LOG, "has_logs", "wood/", "mangrove_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, ModIntegration.TF_MANGROVE_WOOD, "has_logs", "wood/", "mangrove_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, ModIntegration.TF_MANGROVE_STRIPPED_WOOD, "has_logs", "wood/", "mangrove_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, ModIntegration.TF_MINING_LOG, "has_logs", "wood/", "mining_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, ModIntegration.TF_MINING_STRIPPED_LOG, "has_logs", "wood/", "mining_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, ModIntegration.TF_MINING_WOOD, "has_logs", "wood/", "mining_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, ModIntegration.TF_MINING_STRIPPED_WOOD, "has_logs", "wood/", "mining_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, ModIntegration.TF_SORTING_LOG, "has_logs", "wood/", "sorting_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, ModIntegration.TF_SORTING_STRIPPED_LOG, "has_logs", "wood/", "sorting_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, ModIntegration.TF_SORTING_WOOD, "has_logs", "wood/", "sorting_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, ModIntegration.TF_SORTING_STRIPPED_WOOD, "has_logs", "wood/", "sorting_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, ModIntegration.TF_TIME_LOG, "has_logs", "wood/", "time_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, ModIntegration.TF_TIME_STRIPPED_LOG, "has_logs", "wood/", "time_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, ModIntegration.TF_TIME_WOOD, "has_logs", "wood/", "time_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, ModIntegration.TF_TIME_STRIPPED_WOOD, "has_logs", "wood/", "time_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, ModIntegration.TF_TRANSFORMATION_LOG, "has_logs", "wood/", "transformation_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, ModIntegration.TF_TRANSFORMATION_STRIPPED_LOG, "has_logs", "wood/", "transformation_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, ModIntegration.TF_TRANSFORMATION_WOOD, "has_logs", "wood/", "transformation_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, ModIntegration.TF_TRANSFORMATION_STRIPPED_WOOD, "has_logs", "wood/", "transformation_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, ModIntegration.TF_TWILIGHT_OAK_LOG, "has_logs", "wood/", "twilight_oak_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, ModIntegration.TF_TWILIGHT_OAK_STRIPPED_LOG, "has_logs", "wood/", "twilight_oak_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, ModIntegration.TF_TWILIGHT_OAK_WOOD, "has_logs", "wood/", "twilight_oak_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, ModIntegration.TF_TWILIGHT_OAK_STRIPPED_WOOD, "has_logs", "wood/", "twilight_oak_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_LOG, "has_logs", "wood/", "canopy_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_LOG, "has_logs", "wood/", "canopy_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_WOOD, "has_logs", "wood/", "canopy_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_WOOD, "has_logs", "wood/", "canopy_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_LOG, "has_logs", "wood/", "dark_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_LOG, "has_logs", "wood/", "dark_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_WOOD, "has_logs", "wood/", "dark_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_WOOD, "has_logs", "wood/", "dark_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_LOG, "has_logs", "wood/", "mangrove_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_STRIPPED_LOG, "has_logs", "wood/", "mangrove_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_WOOD, "has_logs", "wood/", "mangrove_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_STRIPPED_WOOD, "has_logs", "wood/", "mangrove_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_LOG, "has_logs", "wood/", "mining_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_STRIPPED_LOG, "has_logs", "wood/", "mining_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_WOOD, "has_logs", "wood/", "mining_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_STRIPPED_WOOD, "has_logs", "wood/", "mining_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_LOG, "has_logs", "wood/", "sorting_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_STRIPPED_LOG, "has_logs", "wood/", "sorting_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_WOOD, "has_logs", "wood/", "sorting_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_STRIPPED_WOOD, "has_logs", "wood/", "sorting_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_LOG, "has_logs", "wood/", "time_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_STRIPPED_LOG, "has_logs", "wood/", "time_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_WOOD, "has_logs", "wood/", "time_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_STRIPPED_WOOD, "has_logs", "wood/", "time_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_LOG, "has_logs", "wood/", "transformation_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_STRIPPED_LOG, "has_logs", "wood/", "transformation_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_WOOD, "has_logs", "wood/", "transformation_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_STRIPPED_WOOD, "has_logs", "wood/", "transformation_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_LOG, "has_logs", "wood/", "twilight_oak_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_LOG, "has_logs", "wood/", "twilight_oak_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_WOOD, "has_logs", "wood/", "twilight_oak_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_WOOD, "has_logs", "wood/", "twilight_oak_from_stripped_wood_planks", ModIntegration.TF_MODID);
 
         ShapelessRecipeBuilder.shapeless(Items.OAK_PLANKS, 64)
                 .requires(TagManager.Items.TF_GIANT_LOGS)
@@ -448,8 +450,8 @@ public class ModRecipesProvider extends RecipeProvider {
                 .group("planks")
                 .unlockedBy(label, has(itemTag));
 
-        String name = item.asItem().getRegistryName().getPath();
-        String modid = ItemUse.getModId(Objects.requireNonNull(item.asItem().getRegistryName()).toString());
+        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).getPath();
+        String modid = ItemUse.getModId(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).toString());
 
         if (modid.contains(ModIntegration.TCON_MODID)) {
             plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));
@@ -466,7 +468,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, modid + "_" + name));
     }
 
-    private static void itemPlankRecipeBuilder(Consumer<FinishedRecipe> consumer, ItemLike output, ItemLike input, String label, String path, String name, String modid) {
+    private static void itemPlankRecipeBuilder(Consumer<FinishedRecipe> consumer, ItemLike output, TagKey<Item> input, String label, String path, String name, String modid) {
         ShapelessRecipeBuilder plankOverrideRecipe = ShapelessRecipeBuilder.shapeless(output, 2)
                 .requires(input)
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)

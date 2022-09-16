@@ -84,7 +84,6 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public void addPlantFiberDrops(TagKey<Block> tag, String name) {
         this.add(
             "plant_fiber_from_" + name,
-            SurvivalistEssentialsLootTables.PLANT_FIBER_DROPS.get(),
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 createKnifeChanceCondition(0.16F, tag),
                 new ItemStack(SurvivalistEssentialsItems.PLANT_FIBER)
@@ -95,7 +94,6 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public void addStickDrops(TagKey<Block> tag, String name) {
         this.add(
             "stick_drops_from_" + name,
-            SurvivalistEssentialsLootTables.STICK_DROPS.get(),
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 createKnifeChanceCondition(0.16F, tag),
                 new ItemStack(Items.STICK)
@@ -104,7 +102,6 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
 
         this.add(
                 "extra_stick_drops_from_" + name,
-                SurvivalistEssentialsLootTables.STICK_DROPS.get(),
                 new SurvivalistEssentialsLootTables.LootTableModifier(
                     createExtraStickDropConditions(0.16F, tag),
                     new ItemStack(Items.STICK)
@@ -115,7 +112,6 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public void addToolLoot(ResourceLocation loc, String name, Item item) {
         this.add(
             "tool_loot_" + name,
-            SurvivalistEssentialsLootTables.TOOL_LOOT.get(),
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 createResourceChanceCondition(0.05F, loc),
                 new ItemStack(item)
@@ -126,7 +122,6 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public void addRareLoot(ResourceLocation loc, String name, Item item) {
         this.add(
             "rare_loot_" + name,
-            SurvivalistEssentialsLootTables.RARE_LOOT.get(),
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 createResourceChanceCondition(0.01F, loc),
                 new ItemStack(item)

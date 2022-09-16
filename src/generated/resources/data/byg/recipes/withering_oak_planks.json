@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "byg"
     }
   ],
   "group": "planks",
@@ -16,7 +16,7 @@
     }
   ],
   "result": {
-    "item": "byg:withering_oak_planks",
-    "count": 2
+    "count": 2,
+    "item": "byg:withering_oak_planks"
   }
 }

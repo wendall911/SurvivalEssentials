@@ -2,21 +2,21 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "modid": "twilightforest",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
     }
   ],
   "group": "planks",
   "ingredients": [
     {
-      "item": "twilightforest:stripped_mining_wood"
+      "tag": "survivalistessentials:mining_stripped_wood"
     },
     {
       "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {
-    "item": "twilightforest:mining_planks",
-    "count": 4
+    "count": 4,
+    "item": "twilightforest:mining_planks"
   }
 }

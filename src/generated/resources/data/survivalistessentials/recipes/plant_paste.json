@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "F",
-    "U"
-  ],
   "key": {
     "F": {
       "item": "survivalistessentials:plant_fiber"
@@ -12,6 +8,10 @@
       "item": "survivalistessentials:mortar_and_pestle"
     }
   },
+  "pattern": [
+    "F",
+    "U"
+  ],
   "result": {
     "item": "survivalistessentials:plant_paste"
   }

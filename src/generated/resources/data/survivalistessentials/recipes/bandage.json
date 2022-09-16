@@ -1,23 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SC",
-    "PO"
-  ],
   "key": {
-    "P": {
-      "item": "survivalistessentials:plant_string"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    },
     "C": {
       "item": "survivalistessentials:cloth"
     },
     "O": {
       "item": "survivalistessentials:ointment"
+    },
+    "P": {
+      "item": "survivalistessentials:plant_string"
+    },
+    "S": {
+      "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "SC",
+    "PO"
+  ],
   "result": {
     "item": "survivalistessentials:bandage"
   }

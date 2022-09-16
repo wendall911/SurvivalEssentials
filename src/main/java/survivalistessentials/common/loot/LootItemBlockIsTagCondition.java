@@ -6,11 +6,8 @@ import com.google.gson.JsonSerializationContext;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -20,6 +17,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 
 public class LootItemBlockIsTagCondition implements LootItemCondition {
 
+    public static final LootItemConditionType LOOT_ITEM_BLOCK_IS_TAG = new LootItemConditionType(new LootItemBlockIsTagCondition.Serializer());
     final TagKey<Block> tag;
 
     LootItemBlockIsTagCondition(TagKey<Block> tag) {
@@ -32,7 +30,7 @@ public class LootItemBlockIsTagCondition implements LootItemCondition {
 
     @Override
     public LootItemConditionType getType() {
-        return SurvivalistEssentialsLootItemConditions.IS_TAG.get();
+        return LOOT_ITEM_BLOCK_IS_TAG;
     }
 
     @Override
