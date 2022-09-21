@@ -31,6 +31,7 @@ public final class ModIntegration {
     public static final String BAP_MODID = "betteranimalsplus";
     public static final String ALEX_MODID = "alexsmobs";
 
+    public static Item AQUA_DRIFTWOOD;
     public static Item CHERRY_PLANKS;
     public static Item CITRUS_PLANKS;
     public static Item BMO_ANCIENT_OAK_PLANKS;
@@ -145,6 +146,7 @@ public final class ModIntegration {
 
         String dataGen = System.getenv("DATA_GEN");
         if (dataGen != null && dataGen.contains("all")) {
+            AQUA_DRIFTWOOD = registerItem(aquaLoc("driftwood"));
             CHERRY_PLANKS = registerItem(ftLoc("cherry_planks"));
             CITRUS_PLANKS = registerItem(ftLoc("citrus_planks"));
             BMO_ANCIENT_OAK_PLANKS = registerItem(bmoLoc("ancient_oak_planks"));

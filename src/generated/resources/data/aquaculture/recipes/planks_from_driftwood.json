@@ -3,20 +3,20 @@
   "conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "twilightforest"
+      "modid": "aquaculture"
     }
   ],
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalistessentials:giant_logs"
+      "item": "aquaculture:driftwood"
     },
     {
-      "tag": "survivalistessentials:advanced_saw_tools"
+      "item": "survivalistessentials:crude_saw"
     }
   ],
   "result": {
-    "count": 64,
+    "count": 2,
     "item": "minecraft:oak_planks"
   }
 }

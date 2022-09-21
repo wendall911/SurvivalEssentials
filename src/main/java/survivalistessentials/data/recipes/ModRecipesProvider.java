@@ -408,7 +408,23 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy("has_advanced_saw", has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(consumer, new ResourceLocation(ModIntegration.TF_MODID, "giant_log_to_oak_planks"));
+                .save(wrapped, new ResourceLocation(ModIntegration.TF_MODID, "giant_log_to_oak_planks"));
+
+        // Aquaculture
+        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.AQUA_MODID));
+        ShapelessRecipeBuilder.shapeless(Items.OAK_PLANKS, 2)
+                .requires(ModIntegration.AQUA_DRIFTWOOD)
+                .requires(SurvivalistEssentialsItems.CRUDE_SAW)
+                .group("planks")
+                .unlockedBy("has_driftwood", has(ModIntegration.AQUA_DRIFTWOOD))
+                .save(wrapped, new ResourceLocation(ModIntegration.AQUA_MODID, "planks_from_driftwood"));
+
+        ShapelessRecipeBuilder.shapeless(Items.OAK_PLANKS, 4)
+                .requires(ModIntegration.AQUA_DRIFTWOOD)
+                .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
+                .group("planks")
+                .unlockedBy("has_driftwood", has(ModIntegration.AQUA_DRIFTWOOD))
+                .save(wrapped, new ResourceLocation(SurvivalistEssentials.MODID, "planks_from_driftwood"));
 
         // Immersive Engineering
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.IE_MODID));
