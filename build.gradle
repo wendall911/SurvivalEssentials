@@ -59,7 +59,7 @@ repositories {
 }
 
 group = 'com.github.wendall911.survivalistessentials'
-version = "${minecraft_short_version}-${mod_version}"
+version = "${minecraft_short_version}+-${mod_version}"
 archivesBaseName = "${mod_name}"
 def mcversion = "${minecraft_version}"
 def modid = "${modid}"
