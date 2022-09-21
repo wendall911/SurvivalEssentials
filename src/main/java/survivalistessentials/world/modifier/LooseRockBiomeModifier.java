@@ -10,7 +10,6 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.feature.LooseRockFeatureHolders;
 
 public class LooseRockBiomeModifier implements BiomeModifier {
@@ -19,7 +18,6 @@ public class LooseRockBiomeModifier implements BiomeModifier {
 
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        SurvivalistEssentials.LOGGER.warn("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ %s", phase.toString());
         if (phase.equals(Phase.AFTER_EVERYTHING)) {
             if (biome.is(BiomeTags.IS_OVERWORLD)) {
                 builder.getGenerationSettings().addFeature(

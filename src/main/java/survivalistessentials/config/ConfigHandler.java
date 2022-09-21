@@ -60,7 +60,6 @@ public final class ConfigHandler {
 
         private static final ForgeConfigSpec CONFIG_SPEC;
         private static final Common CONFIG;
-        private BooleanValue ENABLE_ROCK_GEN;
         private IntValue ROCK_GEN_FREQUENCY;
         private DoubleValue FLINT_CHANCE;
         private DoubleValue HEAL_RATE;
@@ -114,9 +113,6 @@ public final class ConfigHandler {
         }
 
         Common(ForgeConfigSpec.Builder builder) {
-            ENABLE_ROCK_GEN = builder
-                .comment("Enables the generation of rock piles on the surface.")
-                .define("ENABLE_ROCK_GEN", true);
             ROCK_GEN_FREQUENCY = builder
                 .comment("RockGeneration frequency. (1 = low, 5 = all over)")
                 .defineInRange("ROCK_GEN_FREQUENCY", 2, 1, 5);
@@ -177,10 +173,6 @@ public final class ConfigHandler {
                 .comment("List of tags when added to tools or armor will be disabled. If inverted, acts as a whitelist."
                         + "[\"" + String.join("\", \"", tagStrings) + "\"]")
                 .defineListAllowEmpty(TAG_LIST, getFields(tagStrings), s -> (s instanceof String));
-        }
-
-        public static boolean enableRockGen() {
-            return CONFIG.ENABLE_ROCK_GEN.get();
         }
 
         public static int rockGenFrequency() {

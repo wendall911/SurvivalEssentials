@@ -64,7 +64,7 @@ public class CommonProxy {
             event.register(Registry.ITEM_REGISTRY, ModIntegration::init);
             event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsWorld::initItems);
             event.register(Registry.BLOCK_REGISTRY, SurvivalistEssentialsWorld::initBlocks);
-            event.register(Registry.LOOT_ITEM_REGISTRY, new ResourceLocation("is_tag", SurvivalistEssentials.MODID), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
+            event.register(Registry.LOOT_ITEM_REGISTRY, new ResourceLocation(SurvivalistEssentials.MODID, "is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)

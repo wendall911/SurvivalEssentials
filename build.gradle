@@ -136,7 +136,7 @@ dependencies {
         transitive = false
     }
 
-    //implementation fg.deobf("curse.maven:this_rocks-558126:3873021")
+    implementation fg.deobf("curse.maven:cyanide-541676:3832812")
 
     compileOnly fg.deobf("curse.maven:carryon-274259:3674344")
 
