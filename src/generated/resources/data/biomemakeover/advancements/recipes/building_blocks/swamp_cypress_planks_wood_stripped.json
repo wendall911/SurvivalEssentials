@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalistessentials:advanced_saw_tools"
+            "tag": "survivalistessentials:stripped_swamp_cypress_wood"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "survivalistessentials:twilightforest_dark_from_wood_planks"
+        "recipe": "biomemakeover:swamp_cypress_planks_wood_stripped"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "survivalistessentials:twilightforest_dark_from_wood_planks"
+      "biomemakeover:swamp_cypress_planks_wood_stripped"
     ]
   }
 }

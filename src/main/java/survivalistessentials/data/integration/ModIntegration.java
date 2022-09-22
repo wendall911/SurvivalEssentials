@@ -137,6 +137,24 @@ public final class ModIntegration {
     public static ResourceLocation TF_TWILIGHT_OAK_WOOD;
     public static ResourceLocation TF_TWILIGHT_OAK_STRIPPED_WOOD;
 
+    // And now Biome Makeover messed up crap
+    public static ResourceLocation BMO_ANCIENT_OAK_LOG;
+    public static ResourceLocation BMO_STRIPPED_ANCIENT_OAK_LOG;
+    public static ResourceLocation BMO_ANCIENT_OAK_WOOD;
+    public static ResourceLocation BMO_STRIPPED_ANCIENT_OAK_WOOD;
+    public static ResourceLocation BMO_BLIGHTED_BALSA_LOG;
+    public static ResourceLocation BMO_STRIPPED_BLIGHTED_BALSA_LOG;
+    public static ResourceLocation BMO_BLIGHTED_BALSA_WOOD;
+    public static ResourceLocation BMO_STRIPPED_BLIGHTED_BALSA_WOOD;
+    public static ResourceLocation BMO_SWAMP_CYPRESS_LOG;
+    public static ResourceLocation BMO_STRIPPED_SWAMP_CYPRESS_LOG;
+    public static ResourceLocation BMO_SWAMP_CYPRESS_WOOD;
+    public static ResourceLocation BMO_STRIPPED_SWAMP_CYPRESS_WOOD;
+    public static ResourceLocation BMO_WILLOW_LOG;
+    public static ResourceLocation BMO_STRIPPED_WILLOW_LOG;
+    public static ResourceLocation BMO_WILLOW_WOOD;
+    public static ResourceLocation BMO_STRIPPED_WILLOW_WOOD;
+
     public static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
 
     public static void init(RegisterEvent.RegisterHelper<Item> registry) {
@@ -251,6 +269,29 @@ public final class ModIntegration {
             TF_TWILIGHT_OAK_STRIPPED_LOG = tfLoc("stripped_twilight_oak_log");
             TF_TWILIGHT_OAK_WOOD = tfLoc("twilight_oak_wood");
             TF_TWILIGHT_OAK_STRIPPED_WOOD = tfLoc("stripped_twilight_oak_wood");
+
+            /*
+             * And now Biome Makeover is doing stupid things ... tags were
+             * added for a reason, this is a pattern with multiloader mods that
+             * is just getting stupid. Either quit supporting Fabric loader, or
+             * figure this shit out, it is going back to 1.12 stupidity.
+             */
+            BMO_ANCIENT_OAK_LOG = bmoLoc("ancient_oak_log");
+            BMO_STRIPPED_ANCIENT_OAK_LOG = bmoLoc("stripped_ancient_oak_log");
+            BMO_ANCIENT_OAK_WOOD = bmoLoc("ancient_oak_wood");
+            BMO_STRIPPED_ANCIENT_OAK_WOOD = bmoLoc("stripped_ancient_oak_wood");
+            BMO_BLIGHTED_BALSA_LOG = bmoLoc("blighted_balsa_log");
+            BMO_STRIPPED_BLIGHTED_BALSA_LOG = bmoLoc("stripped_blighted_balsa_log");
+            BMO_BLIGHTED_BALSA_WOOD = bmoLoc("blighted_balsa_wood");
+            BMO_STRIPPED_BLIGHTED_BALSA_WOOD = bmoLoc("stripped_blighted_balsa_wood");
+            BMO_SWAMP_CYPRESS_LOG = bmoLoc("swamp_cypress_log");
+            BMO_STRIPPED_SWAMP_CYPRESS_LOG = bmoLoc("stripped_swamp_cypress_log");
+            BMO_SWAMP_CYPRESS_WOOD = bmoLoc("swamp_cypress_wood");
+            BMO_STRIPPED_SWAMP_CYPRESS_WOOD = bmoLoc("stripped_swamp_cypress_wood");
+            BMO_WILLOW_LOG = bmoLoc("willow_log");
+            BMO_STRIPPED_WILLOW_LOG = bmoLoc("stripped_willow_log");
+            BMO_WILLOW_WOOD = bmoLoc("willow_wood");
+            BMO_STRIPPED_WILLOW_WOOD = bmoLoc("stripped_willow_wood");
         }
     }
 

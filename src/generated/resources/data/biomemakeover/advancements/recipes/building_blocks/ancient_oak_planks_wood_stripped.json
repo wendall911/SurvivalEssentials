@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalistessentials:dark_wood"
+            "tag": "survivalistessentials:stripped_ancient_oak_wood"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "twilightforest:wood/dark_from_wood_planks"
+        "recipe": "biomemakeover:ancient_oak_planks_wood_stripped"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "twilightforest:wood/dark_from_wood_planks"
+      "biomemakeover:ancient_oak_planks_wood_stripped"
     ]
   }
 }

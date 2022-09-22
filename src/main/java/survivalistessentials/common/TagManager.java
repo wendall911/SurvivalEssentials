@@ -38,10 +38,22 @@ public final class TagManager {
         public static final TagKey<Item> CITRUS_LOGS = create("citrus_logs");
 
         // Biome Makeover
-        public static final TagKey<Item> BMO_ANCIENT_OAK_LOGS = create("ancient_oak_logs");
-        public static final TagKey<Item> BMO_BLIGHTED_BALSA_LOGS = create("blighted_balsa_logs");
-        public static final TagKey<Item> BMO_SWAMP_CYPRESS_LOGS = create("swamp_cypress_logs");
-        public static final TagKey<Item> BMO_WILLOW_LOGS = create("bmo_willow_logs");
+        public static final TagKey<Item> BMO_ANCIENT_OAK_LOG = create("ancient_oak_log");
+        public static final TagKey<Item> BMO_STRIPPED_ANCIENT_OAK_LOG = create("stripped_ancient_oak_log");
+        public static final TagKey<Item> BMO_ANCIENT_OAK_WOOD = create("ancient_oak_wood");
+        public static final TagKey<Item> BMO_STRIPPED_ANCIENT_OAK_WOOD = create("stripped_ancient_oak_wood");
+        public static final TagKey<Item> BMO_BLIGHTED_BALSA_LOG = create("blighted_balsa_log");
+        public static final TagKey<Item> BMO_STRIPPED_BLIGHTED_BALSA_LOG = create("stripped_blighted_balsa_log");
+        public static final TagKey<Item> BMO_BLIGHTED_BALSA_WOOD = create("blighted_balsa_wood");
+        public static final TagKey<Item> BMO_STRIPPED_BLIGHTED_BALSA_WOOD = create("stripped_blighted_balsa_wood");
+        public static final TagKey<Item> BMO_SWAMP_CYPRESS_LOG = create("swamp_cypress_log");
+        public static final TagKey<Item> BMO_STRIPPED_SWAMP_CYPRESS_LOG = create("stripped_swamp_cypress_log");
+        public static final TagKey<Item> BMO_SWAMP_CYPRESS_WOOD = create("swamp_cypress_wood");
+        public static final TagKey<Item> BMO_STRIPPED_SWAMP_CYPRESS_WOOD = create("stripped_swamp_cypress_wood");
+        public static final TagKey<Item> BMO_WILLOW_LOG = create("willow_log");
+        public static final TagKey<Item> BMO_STRIPPED_WILLOW_LOG = create("stripped_willow_log");
+        public static final TagKey<Item> BMO_WILLOW_WOOD = create("willow_wood");
+        public static final TagKey<Item> BMO_STRIPPED_WILLOW_WOOD = create("stripped_willow_wood");
 
         // Biomes O' Plenty
         public static final TagKey<Item> BOP_CHERRY_LOGS = create("bop_cherry_logs");

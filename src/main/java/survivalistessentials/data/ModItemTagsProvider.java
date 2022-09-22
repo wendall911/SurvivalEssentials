@@ -118,10 +118,38 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addLogVariants(TagManager.Items.CITRUS_LOGS, "citrus", ModIntegration::ftLoc);
 
         // Biome Makeover
-        addLogVariants(TagManager.Items.BMO_ANCIENT_OAK_LOGS, "ancient_oak", ModIntegration::bmoLoc);
-        addLogVariants(TagManager.Items.BMO_BLIGHTED_BALSA_LOGS, "blighted_balsa", ModIntegration::bmoLoc);
-        addLogVariants(TagManager.Items.BMO_SWAMP_CYPRESS_LOGS, "swamp_cypress", ModIntegration::bmoLoc);
-        addLogVariants(TagManager.Items.BMO_WILLOW_LOGS, "willow", ModIntegration::bmoLoc);
+        getBuilder(TagManager.Items.BMO_ANCIENT_OAK_LOG)
+            .addOptional(ModIntegration.BMO_ANCIENT_OAK_LOG);
+        getBuilder(TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_LOG)
+            .addOptional(ModIntegration.BMO_STRIPPED_ANCIENT_OAK_LOG);
+        getBuilder(TagManager.Items.BMO_ANCIENT_OAK_WOOD)
+            .addOptional(ModIntegration.BMO_ANCIENT_OAK_WOOD);
+        getBuilder(TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_WOOD)
+            .addOptional(ModIntegration.BMO_STRIPPED_ANCIENT_OAK_WOOD);
+        getBuilder(TagManager.Items.BMO_BLIGHTED_BALSA_LOG)
+            .addOptional(ModIntegration.BMO_BLIGHTED_BALSA_LOG);
+        getBuilder(TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_LOG)
+            .addOptional(ModIntegration.BMO_STRIPPED_BLIGHTED_BALSA_LOG);
+        getBuilder(TagManager.Items.BMO_BLIGHTED_BALSA_WOOD)
+            .addOptional(ModIntegration.BMO_BLIGHTED_BALSA_WOOD);
+        getBuilder(TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_WOOD)
+            .addOptional(ModIntegration.BMO_STRIPPED_BLIGHTED_BALSA_WOOD);
+        getBuilder(TagManager.Items.BMO_SWAMP_CYPRESS_LOG)
+            .addOptional(ModIntegration.BMO_SWAMP_CYPRESS_LOG);
+        getBuilder(TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_LOG)
+            .addOptional(ModIntegration.BMO_STRIPPED_SWAMP_CYPRESS_LOG);
+        getBuilder(TagManager.Items.BMO_SWAMP_CYPRESS_WOOD)
+            .addOptional(ModIntegration.BMO_SWAMP_CYPRESS_WOOD);
+        getBuilder(TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_WOOD)
+            .addOptional(ModIntegration.BMO_STRIPPED_SWAMP_CYPRESS_WOOD);
+        getBuilder(TagManager.Items.BMO_WILLOW_LOG)
+            .addOptional(ModIntegration.BMO_WILLOW_LOG);
+        getBuilder(TagManager.Items.BMO_STRIPPED_WILLOW_LOG)
+            .addOptional(ModIntegration.BMO_STRIPPED_WILLOW_LOG);
+        getBuilder(TagManager.Items.BMO_WILLOW_WOOD)
+            .addOptional(ModIntegration.BMO_WILLOW_WOOD);
+        getBuilder(TagManager.Items.BMO_STRIPPED_WILLOW_WOOD)
+            .addOptional(ModIntegration.BMO_STRIPPED_WILLOW_WOOD);
 
         // Biomes O' Plenty
         addLogVariants(TagManager.Items.BOP_CHERRY_LOGS, "cherry", ModIntegration::bopLoc);

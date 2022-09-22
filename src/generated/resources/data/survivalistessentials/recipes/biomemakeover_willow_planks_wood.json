@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "biomemakeover"
+    }
+  ],
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalistessentials:willow_wood"
+    },
+    {
+      "tag": "survivalistessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "biomemakeover:willow_planks"
+  }
+}

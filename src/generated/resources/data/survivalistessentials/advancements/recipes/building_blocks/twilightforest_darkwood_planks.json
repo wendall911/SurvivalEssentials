@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "survivalistessentials:twilightforest_dark_planks"
+        "recipe": "survivalistessentials:twilightforest_darkwood_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "survivalistessentials:twilightforest_dark_planks"
+      "survivalistessentials:twilightforest_darkwood_planks"
     ]
   }
 }

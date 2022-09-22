@@ -9,7 +9,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalistessentials:bmo_willow_logs"
+      "tag": "survivalistessentials:willow_log"
     },
     {
       "item": "survivalistessentials:crude_saw"

@@ -283,10 +283,22 @@ public class ModRecipesProvider extends RecipeProvider {
 
         // Biome Makeover
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.BMO_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_BLIGHTED_BALSA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_SWAMP_CYPRESS_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_WILLOW_LOGS, "has_logs");
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_LOG, "has_logs", "", "ancient_oak_planks", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_LOG, "has_logs", "", "ancient_oak_planks_stripped", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_WOOD, "has_logs", "", "ancient_oak_planks_wood", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_WOOD, "has_logs", "", "ancient_oak_planks_wood_stripped", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_BLIGHTED_BALSA_LOG, "has_logs", "", "blighted_balsa_planks", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_LOG, "has_logs", "", "blighted_balsa_planks_stripped", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_BLIGHTED_BALSA_WOOD, "has_logs", "", "blighted_balsa_planks_wood", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_WOOD, "has_logs", "", "blighted_balsa_planks_wood_stipped", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_SWAMP_CYPRESS_LOG, "has_logs", "", "swamp_cypress_planks", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_LOG, "has_logs", "", "swamp_cypress_planks_stripped", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_SWAMP_CYPRESS_WOOD, "has_logs", "", "swamp_cypress_planks_wood", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_WOOD, "has_logs", "", "swamp_cypress_planks_wood_stripped", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_WILLOW_LOG, "has_logs", "", "willow_planks", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_STRIPPED_WILLOW_LOG, "has_logs", "", "willow_planks_stripped", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_WILLOW_WOOD, "has_logs", "", "willow_planks_wood", ModIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_STRIPPED_WILLOW_WOOD, "has_logs", "", "willow_planks_wood_stripped", ModIntegration.BMO_MODID);
 
         //Biomes O' Plenty
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.BOP_MODID));
@@ -374,10 +386,10 @@ public class ModRecipesProvider extends RecipeProvider {
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_LOG, "has_logs", "wood/", "canopy_from_stripped_planks", ModIntegration.TF_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_WOOD, "has_logs", "wood/", "canopy_from_wood_planks", ModIntegration.TF_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_WOOD, "has_logs", "wood/", "canopy_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_LOG, "has_logs", "wood/", "dark_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_LOG, "has_logs", "wood/", "dark_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_WOOD, "has_logs", "wood/", "dark_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_WOOD, "has_logs", "wood/", "dark_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_LOG, "has_logs", "wood/", "darkwood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_LOG, "has_logs", "wood/", "darkwood_from_stripped_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_WOOD, "has_logs", "wood/", "darkwood_from_wood_planks", ModIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_WOOD, "has_logs", "wood/", "darkwood_from_stripped_wood_planks", ModIntegration.TF_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_LOG, "has_logs", "wood/", "mangrove_planks", ModIntegration.TF_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_STRIPPED_LOG, "has_logs", "wood/", "mangrove_from_stripped_planks", ModIntegration.TF_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_WOOD, "has_logs", "wood/", "mangrove_from_wood_planks", ModIntegration.TF_MODID);
