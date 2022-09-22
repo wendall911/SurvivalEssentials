@@ -145,6 +145,7 @@ dependencies {
     //Include some examples here for testing other mods
     //runtimeOnly fg.deobf("curse.maven:terrablender-563928:${terrablender_version}")
     //runtimeOnly fg.deobf("curse.maven:byg-247560:${byg_version}")
+    //runtimeOnly fg.deobf("curse.maven:bop-220318:${bop_version}")
     //runtimeOnly fg.deobf("curse.maven:citadel-331936:3783096")
     //runtimeOnly fg.deobf("curse.maven:alexs_mobs-426558:3853078")
     //runtimeOnly fg.deobf("curse.maven:architectury-419699:3983970")
