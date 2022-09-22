@@ -484,6 +484,9 @@ public class ModRecipesProvider extends RecipeProvider {
         if (modid.contains(ModIntegration.TCON_MODID)) {
             plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));
         }
+        else if (modid.contains(ModIntegration.QUARK_MODID)) {
+            plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.QUARK_MODID, "world/crafting/woodsets/" + name.split("_")[0] + "/planks"));
+        }
         else {
             plankOverrideRecipe.save(consumer);
         }

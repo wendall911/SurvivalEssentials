@@ -1,4 +1,4 @@
-// 1.19.2	2022-09-22T14:05:12.790503371	SurvivalistEssentials - Recipes
+// 1.19.2	2022-09-22T14:42:14.184082472	SurvivalistEssentials - Recipes
 ec54d42ceecf1ed7fdddc0644412c4667d861aa1 data/allyoucaneat/advancements/recipes/building_blocks/hazel_planks.json
 3115cb92414752ee0e8d06ca1f9c02187bba3d6f data/allyoucaneat/recipes/hazel_planks.json
 8db33f708e5629a9f49d67da7f8624a95dec0196 data/aquaculture/advancements/recipes/building_blocks/planks_from_driftwood.json
@@ -153,10 +153,10 @@ efb6e6d3c602f3cd2702f9b6b949e10b1d2fe14b data/minecraft/recipes/jungle_planks.js
 2016c3a0c796668491799015f52fea1dcdfdcb92 data/minecraft/recipes/spruce_planks.json
 5bf9a23dff97f3d884584cddac1c9a0bd468cb90 data/minecraft/recipes/stick.json
 da60e2d4aa1963d49db9910eea30e604be09844b data/minecraft/recipes/warped_planks.json
-8bd7d0ad7d556571b7def2835b893b4ecb05403d data/quark/advancements/recipes/building_blocks/azalea_planks.json
-399f89d776b20994b7a4cf732e5046bf5feadc91 data/quark/advancements/recipes/building_blocks/blossom_planks.json
-5209666112a75ef40c71ee4574d3369456caabcd data/quark/recipes/azalea_planks.json
-10a669895300244eb965d71a944be4d8f0acd70b data/quark/recipes/blossom_planks.json
+037f5d19b9e9bcb80a7b95b04573eeedc2a8420d data/quark/advancements/recipes/building_blocks/world/crafting/woodsets/azalea/planks.json
+9887bc9e599c3b852f907c44b88bbe0ef7f587f8 data/quark/advancements/recipes/building_blocks/world/crafting/woodsets/blossom/planks.json
+5209666112a75ef40c71ee4574d3369456caabcd data/quark/recipes/world/crafting/woodsets/azalea/planks.json
+10a669895300244eb965d71a944be4d8f0acd70b data/quark/recipes/world/crafting/woodsets/blossom/planks.json
 0341f365709ff94fec7a0b26fb31be97f29ea06b data/survivalistessentials/advancements/recipes/building_blocks/allyoucaneat_hazel_planks.json
 4c0aee773e89d3a94b2f9ef7ee88b2daa2b805fa data/survivalistessentials/advancements/recipes/building_blocks/ars_nouveau_archwood_planks.json
 eaf5e7cf2f09ad9efb2aa96d65558c99fdc5a530 data/survivalistessentials/advancements/recipes/building_blocks/biomemakeover_ancient_oak_planks.json
