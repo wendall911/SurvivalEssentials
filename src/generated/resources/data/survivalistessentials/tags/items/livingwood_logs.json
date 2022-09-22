@@ -9,11 +9,11 @@
       "required": false
     },
     {
-      "id": "botania:livingwood",
+      "id": "botania:livingwood_wood",
       "required": false
     },
     {
-      "id": "botania:stripped_livingwood",
+      "id": "botania:stripped_livingwood_wood",
       "required": false
     }
   ]

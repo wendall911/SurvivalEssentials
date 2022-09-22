@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalistessentials:palo_verde_logs"
+            "tag": "survivalistessentials:white_mangrove_logs"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "byg:palo_verde_planks"
+        "recipe": "byg:white_mangrove_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "byg:palo_verde_planks"
+      "byg:white_mangrove_planks"
     ]
   }
 }

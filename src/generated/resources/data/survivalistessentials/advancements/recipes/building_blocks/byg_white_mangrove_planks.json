@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "survivalistessentials:byg_skyroot_planks"
+        "recipe": "survivalistessentials:byg_white_mangrove_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "survivalistessentials:byg_skyroot_planks"
+      "survivalistessentials:byg_white_mangrove_planks"
     ]
   }
 }

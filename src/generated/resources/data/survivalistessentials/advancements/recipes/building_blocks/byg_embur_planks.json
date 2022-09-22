@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "survivalistessentials:byg_mangrove_planks"
+        "recipe": "survivalistessentials:byg_embur_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "survivalistessentials:byg_mangrove_planks"
+      "survivalistessentials:byg_embur_planks"
     ]
   }
 }

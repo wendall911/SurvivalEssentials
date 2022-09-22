@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalistessentials:withering_oak_logs"
+            "tag": "survivalistessentials:advanced_saw_tools"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "byg:withering_oak_planks"
+        "recipe": "survivalistessentials:byg_bulbis_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "byg:withering_oak_planks"
+      "survivalistessentials:byg_bulbis_planks"
     ]
   }
 }

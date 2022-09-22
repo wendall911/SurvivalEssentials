@@ -9,14 +9,14 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalistessentials:imbued_nightshade_logs"
+      "tag": "survivalistessentials:sythian_logs"
     },
     {
-      "tag": "survivalistessentials:advanced_saw_tools"
+      "item": "survivalistessentials:crude_saw"
     }
   ],
   "result": {
-    "count": 4,
-    "item": "byg:imbued_nightshade_planks"
+    "count": 2,
+    "item": "byg:sythian_planks"
   }
 }

@@ -9,7 +9,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalistessentials:skyroot_logs"
+      "tag": "survivalistessentials:imparius_logs"
     },
     {
       "tag": "survivalistessentials:advanced_saw_tools"
@@ -17,6 +17,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "byg:skyroot_planks"
+    "item": "byg:imparius_planks"
   }
 }

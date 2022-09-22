@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalistessentials:imbued_nightshade_logs"
+            "tag": "survivalistessentials:advanced_saw_tools"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "byg:imbued_nightshade_planks"
+        "recipe": "survivalistessentials:byg_imparius_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "byg:imbued_nightshade_planks"
+      "survivalistessentials:byg_imparius_planks"
     ]
   }
 }

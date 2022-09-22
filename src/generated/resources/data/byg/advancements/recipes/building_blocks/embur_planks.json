@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalistessentials:skyroot_logs"
+            "tag": "survivalistessentials:embur_logs"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "byg:skyroot_planks"
+        "recipe": "byg:embur_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "byg:skyroot_planks"
+      "byg:embur_planks"
     ]
   }
 }

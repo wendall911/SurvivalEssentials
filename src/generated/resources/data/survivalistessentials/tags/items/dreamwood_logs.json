@@ -9,11 +9,11 @@
       "required": false
     },
     {
-      "id": "botania:dreamwood",
+      "id": "botania:dreamwood_wood",
       "required": false
     },
     {
-      "id": "botania:stripped_dreamwood",
+      "id": "botania:stripped_dreamwood_wood",
       "required": false
     }
   ]

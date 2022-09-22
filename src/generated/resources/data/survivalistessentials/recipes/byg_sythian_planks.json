@@ -9,14 +9,14 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalistessentials:palo_verde_logs"
+      "tag": "survivalistessentials:sythian_logs"
     },
     {
-      "item": "survivalistessentials:crude_saw"
+      "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {
-    "count": 2,
-    "item": "byg:palo_verde_planks"
+    "count": 4,
+    "item": "byg:sythian_planks"
   }
 }

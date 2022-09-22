@@ -9,14 +9,14 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "survivalistessentials:withering_oak_logs"
+      "tag": "survivalistessentials:bulbis_logs"
     },
     {
-      "item": "survivalistessentials:crude_saw"
+      "tag": "survivalistessentials:advanced_saw_tools"
     }
   ],
   "result": {
-    "count": 2,
-    "item": "byg:withering_oak_planks"
+    "count": 4,
+    "item": "byg:bulbis_planks"
   }
 }
