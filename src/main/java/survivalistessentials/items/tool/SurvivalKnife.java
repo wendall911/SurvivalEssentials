@@ -13,6 +13,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 
+import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.TagManager;
 
 public class SurvivalKnife extends SwordItem {

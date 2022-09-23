@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "K": {
-      "item": "survivalistessentials:crude_knife"
-    },
-    "M": {
+    "I": {
       "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "M",
-    "K"
+    "I ",
+    " S"
   ],
   "result": {
     "item": "survivalistessentials:basic_knife"

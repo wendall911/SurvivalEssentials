@@ -62,6 +62,11 @@ public class ModRecipesProvider extends RecipeProvider {
                 .unlockedBy("has_loose_rock", has(rockStone))
                 .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "cobblestone_from_rocks"));
 
+        ShapelessRecipeBuilder.shapeless(rockStone, 4)
+                .requires(Blocks.COBBLESTONE)
+                .unlockedBy("has_cobblestone", has(Blocks.COBBLESTONE))
+                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "rocks_from_cobblestone"));
+
         ShapedRecipeBuilder.shaped(Items.FLINT)
                 .define('S', flintShard)
                 .pattern("SS")
@@ -140,18 +145,18 @@ public class ModRecipesProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(SurvivalistEssentialsItems.BASIC_KNIFE)
-                .define('M', Items.IRON_INGOT)
-                .define('K', crudeKnife)
-                .pattern("M")
-                .pattern("K")
+                .define('I', Items.IRON_INGOT)
+                .define('S', Items.STICK)
+                .pattern("I ")
+                .pattern(" S")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(SurvivalistEssentialsItems.SHARP_KNIFE)
-                .define('M', Items.DIAMOND)
-                .define('K', SurvivalistEssentialsItems.BASIC_KNIFE)
-                .pattern("M")
-                .pattern("K")
+                .define('D', Items.DIAMOND)
+                .define('S', Items.STICK)
+                .pattern("D ")
+                .pattern(" S")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(consumer);
 
