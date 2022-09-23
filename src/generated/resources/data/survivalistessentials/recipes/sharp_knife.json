@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "M",
-    "K"
+    "D ",
+    " S"
   ],
   "key": {
-    "M": {
+    "D": {
       "item": "minecraft:diamond"
     },
-    "K": {
-      "item": "survivalistessentials:basic_knife"
+    "S": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
