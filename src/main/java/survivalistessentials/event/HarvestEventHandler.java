@@ -7,13 +7,20 @@ import java.util.Optional;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,6 +30,7 @@ import net.minecraftforge.fml.ModList;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
 import survivalistessentials.sound.Sounds;
 import survivalistessentials.SurvivalistEssentials;
@@ -34,6 +42,8 @@ import survivalistessentials.util.ToolType;
 public class HarvestEventHandler {
 
     public static final Map<Player, BlockPos> harvestAttempts = new HashMap<>();
+    private static Block spellHitBlock = null;
+    private static int breakBlockStep = 0;
 
     @SubscribeEvent
     public static void breakBlock(BlockEvent.BreakEvent event) {
@@ -60,7 +70,7 @@ public class HarvestEventHandler {
 
         if (!alwaysBreakable && !player.isCreative()) {
             if (expectedToolType != ToolType.NONE) {
-                final ItemStack handStack = player.getMainHandItem();
+                final ItemStack handStack = getHandStack(player, state);
                 boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
                 boolean isAllowedItem = ItemUse.isAllowedTool(handStack);
 
@@ -88,6 +98,16 @@ public class HarvestEventHandler {
                         player.hurt(DamageSource.GENERIC, 0.1f);
                     }
                 }
+                else {
+                    // Reset spell hit
+                    if (ModList.get().isLoaded(ModIntegration.AN_MODID)) {
+                        if (breakBlockStep == 1) {
+                            breakBlockStep = -1;
+                            spellHitBlock = null;
+                        }
+                        breakBlockStep++;
+                    }
+                }
 
             }
         }
@@ -96,12 +116,27 @@ public class HarvestEventHandler {
     }
 
     @SubscribeEvent
+    public static void onProjectileImpact(ProjectileImpactEvent event) {
+        Entity projectile = event.getEntity();
+
+        if (projectile.toString().contains("Spell")) {
+            Vec3 position = projectile.position();
+            Vec3 nextPosition = position.add(projectile.getDeltaMovement());
+
+            HitResult hitresult = projectile.level.clip(new ClipContext(position, nextPosition, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, projectile));
+            BlockPos pos = ((BlockHitResult)hitresult).getBlockPos();
+
+            spellHitBlock = projectile.getLevel().getBlockState(new BlockPos(pos)).getBlock();
+        }
+    }
+
+    @SubscribeEvent
     public static void harvestCheckEvent(PlayerEvent.HarvestCheck event) {
         final Player player = event.getEntity() != null ? event.getEntity() : null;
         final BlockState state = event.getTargetBlock();
 
         if (player != null && !player.isCreative()) {
-            final ItemStack handStack = player.getMainHandItem();
+            final ItemStack handStack = getHandStack(player, state);
             final boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
             boolean canHarvest = event.canHarvest()
@@ -138,7 +173,7 @@ public class HarvestEventHandler {
         final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
 
         if (!player.isCreative() && expectedToolType != ToolType.NONE) {
-            ItemStack handStack = player.getMainHandItem();
+            ItemStack handStack = getHandStack(player, state);
             boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE);
             boolean isAllowedItem = ItemUse.isAllowedTool(handStack);
@@ -164,6 +199,20 @@ public class HarvestEventHandler {
         if (slowdown != destroySpeed) {
             event.setNewSpeed(slowdown);
         }
+    }
+
+    private static ItemStack getHandStack(Player player, BlockState blockState) {
+        ItemStack stack = player.getMainHandItem();
+
+        if (ModList.get().isLoaded(ModIntegration.AN_MODID)) {
+            if (spellHitBlock != null && spellHitBlock.equals(blockState.getBlock())) {
+                if (ItemUse.getToolClass(stack) != "spell") {
+                    stack = player.getOffhandItem();
+                }
+            }
+        }
+
+        return stack;
     }
 
 }
