@@ -24,24 +24,11 @@
                     }
                 ]
             }
-        },
-        "has_pattens": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "tag": "tconstruct:pattern"
-                    }
-                ]
-            }
         }
     },
     "requirements": [
         [
             "has_planks"
-        ],
-        [
-            "has_pattens"
         ]
     ],
     "parent": "survivalistessentials:crude_saw"
