@@ -56,6 +56,11 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        // Patchouli && Provider
+        name = "Blame Jared"
+        url = "https://maven.blamejared.com"
+    }
 }
 
 group = 'com.github.wendall911.survivalistessentials'
@@ -137,6 +142,8 @@ dependencies {
     }
 
     implementation fg.deobf("curse.maven:cyanide-541676:${cyanide_version}")
+    implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+    implementation fg.deobf("xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}")
 
     compileOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")
 
