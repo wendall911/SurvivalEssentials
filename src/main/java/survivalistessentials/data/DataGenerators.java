@@ -9,6 +9,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 import survivalistessentials.data.client.ModBlockStateProvider;
 import survivalistessentials.data.client.ModItemModelProvider;
+import survivalistessentials.data.client.patchouli.ModBookProvider;
 import survivalistessentials.data.loot.ModLootTables;
 import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
@@ -34,6 +35,7 @@ public final class DataGenerators {
         gen.addProvider(new ModRecipesProvider(gen));
         gen.addProvider(new ModLootTables(gen));
         gen.addProvider(new GlobalLootModifier(gen));
+        gen.addProvider(new ModBookProvider(gen));
 
         if (modpackOverrides != null && modpackOverrides.contains("all")) {
             gen.addProvider(new BlockTagsOverrideProvider(gen, event.getExistingFileHelper()));

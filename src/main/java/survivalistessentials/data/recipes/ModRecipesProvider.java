@@ -268,6 +268,19 @@ public class ModRecipesProvider extends RecipeProvider {
             .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "leather_from_cooked_meat_smoking"));
 
         // Book
+        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.PATCHOULI_MODID));
+        ShapelessRecipeBuilder.shapeless(SurvivalistEssentialsItems.BOOK)
+            .requires(Items.DIRT)
+            .requires(Items.DIRT)
+            .group("books")
+            .unlockedBy("has_loose_rock", has(rockStone))
+            .save(wrapped, new ResourceLocation(SurvivalistEssentials.MODID, "book_from_dirt"));
+
+        ShapelessRecipeBuilder.shapeless(Items.DIRT, 2)
+            .requires(SurvivalistEssentialsItems.BOOK)
+            .group("books")
+            .unlockedBy("has_intro_book", has(SurvivalistEssentialsItems.BOOK))
+            .save(wrapped, new ResourceLocation(SurvivalistEssentials.MODID, "dirt_from_book"));
 
         // Saw Recipes
         // Minecraft

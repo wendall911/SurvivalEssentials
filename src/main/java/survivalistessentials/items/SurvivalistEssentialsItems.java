@@ -10,6 +10,7 @@ import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.items.item.Bandage;
 import survivalistessentials.items.item.CrudeBandage;
 import survivalistessentials.items.item.Mortar;
+import survivalistessentials.items.item.SurvivalistEssentialsBook;
 import survivalistessentials.items.item.WoodenCup;
 import survivalistessentials.items.tool.CrudeHatchet;
 import survivalistessentials.items.tool.SurvivalKnife;
@@ -27,6 +28,10 @@ public final class SurvivalistEssentialsItems {
     public static Item OINTMENT;
     public static Item PLANT_PASTE;
     public static Item CLOTH;
+
+    // Books
+    public static Item BOOK;
+    public static Item MODPACK_BOOK;
 
     // Tools
     public static Item CRUDE_KNIFE;
@@ -58,6 +63,8 @@ public final class SurvivalistEssentialsItems {
         OINTMENT = registerItem("ointment");
         PLANT_PASTE = registerItem("plant_paste");
         CLOTH = registerItem("cloth");
+        BOOK = registerBook("book");
+        MODPACK_BOOK = registerBook("modpack_book");
 
         // Tools
         CRUDE_KNIFE = registerKnifeTool("crude_knife", ItemTiers.FLINT_TIER);
@@ -127,6 +134,13 @@ public final class SurvivalistEssentialsItems {
 
     private static Item registerMortar(String name) {
         return registerItem(name, new Mortar(new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair()));
+    }
+
+    public static Item registerBook(String name) {
+        return registerItem(name, new SurvivalistEssentialsBook(
+                new Item.Properties().tab(CreativeTabs.ITEM_TAB_GROUP),
+                name
+        ));
     }
 
 }
