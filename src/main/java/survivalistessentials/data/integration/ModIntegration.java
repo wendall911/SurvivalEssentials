@@ -28,6 +28,7 @@ public final class ModIntegration {
     public static final String AQUA_MODID = "aquaculture";
     public static final String BAP_MODID = "betteranimalsplus";
     public static final String ALEX_MODID = "alexsmobs";
+    public static final String PATCHOULI_MODID = "patchouli";
 
     public static Item AQUA_DRIFTWOOD;
     public static Item CHERRY_PLANKS;

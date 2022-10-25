@@ -20,6 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import survivalistessentials.data.client.ModBlockStateProvider;
 import survivalistessentials.data.client.ModItemModelProvider;
+import survivalistessentials.data.client.patchouli.ModBookProvider;
 import survivalistessentials.data.loot.ModLootTables;
 import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
@@ -62,6 +63,8 @@ public final class DataGenerators {
             ForgeRegistries.Keys.BIOME_MODIFIERS,
             getBiomeModifiers()
         ));
+
+        gen.addProvider(true, new ModBookProvider(gen));
     }
 
     public static Map<ResourceLocation, BiomeModifier> getBiomeModifiers() {

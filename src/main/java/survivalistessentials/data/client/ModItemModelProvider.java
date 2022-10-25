@@ -63,6 +63,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         build(itemGenerated, SurvivalistEssentialsItems.CRUDE_BANDAGE);
         build(itemGenerated, SurvivalistEssentialsItems.BANDAGE);
         build(itemGenerated, SurvivalistEssentialsItems.WOODEN_CUP);
+        build(itemGenerated, SurvivalistEssentialsItems.BOOK);
+        build(itemGenerated, SurvivalistEssentialsItems.MODPACK_BOOK);
     }
 
     private void build(ModelFile itemGenerated, Item item) {
