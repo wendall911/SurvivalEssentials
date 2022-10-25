@@ -1,9 +1,10 @@
-// 1.19.2	2022-09-20T13:52:08.754610304	SurvivalistEssentials - Item Models
+// 1.19.2	2022-10-24T11:09:07.277378112	SurvivalistEssentials - Item Models
 e42e6be644fb2b4e348f0fba09254b2f6def8366 assets/survivalistessentials/models/item/andesite_loose_rock.json
 e2368e9c5e2eafca1dd105b920d5fd86326da37e assets/survivalistessentials/models/item/bandage.json
 a094298ca0c8324409b0c0c9c021323fb510380c assets/survivalistessentials/models/item/basic_knife.json
 2461eaa45eb6dd18358b994700d2548cdf0f1ccf assets/survivalistessentials/models/item/basic_saw.json
 f7f76219e6409bb3fe9746e77bcddf8babb6fe5c assets/survivalistessentials/models/item/basic_saw_blade.json
+107af4409fa9feae5b73246948fafd8e5402917a assets/survivalistessentials/models/item/book.json
 a0854cb39862b0e7786ce58cbb7cbef44b634c18 assets/survivalistessentials/models/item/cloth.json
 6a4a81fed34baebb30b9b1eddd58994fb5fed618 assets/survivalistessentials/models/item/crude_bandage.json
 f49e7f1010012504548cd23d89fb4edaba0e0902 assets/survivalistessentials/models/item/crude_hatchet.json
@@ -13,6 +14,7 @@ abff9b11818cfbe5d7633c1755e230933ecaba08 assets/survivalistessentials/models/ite
 e872f50450af1fd546c3f70811e7a41535060e42 assets/survivalistessentials/models/item/diorite_loose_rock.json
 70f5cae5398a06a877739d9170dc28f682bcb710 assets/survivalistessentials/models/item/flint_shard.json
 3f8d43ec51deddd192d0ee503ebab22b985d1aba assets/survivalistessentials/models/item/granite_loose_rock.json
+737154670da7f0acd6f5b5e7e3bd1651de7cd973 assets/survivalistessentials/models/item/modpack_book.json
 8589b46400bf980facac7548300310f4fba9981c assets/survivalistessentials/models/item/mortar_and_pestle.json
 f8588a63d76fec2a0b9388065354670057362061 assets/survivalistessentials/models/item/ointment.json
 c6a309b89ef7b67641422e7ed312968d2e525731 assets/survivalistessentials/models/item/plant_fiber.json

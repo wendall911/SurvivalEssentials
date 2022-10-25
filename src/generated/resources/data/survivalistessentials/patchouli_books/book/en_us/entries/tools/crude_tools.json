@@ -1,0 +1,55 @@
+{
+  "category": "survivalistessentials:tools",
+  "icon": "survivalistessentials:crude_saw{\"Damage\":0}",
+  "name": "info.survivalistessentials.book.tools.crude_tools.name",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:crude_knife",
+      "text": "info.survivalistessentials.book.tools.crude_tools.knife.desc",
+      "title": "item.survivalistessentials.crude_knife"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:flint_shard",
+      "text": "info.survivalistessentials.book.tools.crude_tools.knife_recipes.desc",
+      "title": "info.survivalistessentials.book.tools.crude_tools.knife_recipes.name"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:crude_hatchet",
+      "text": "info.survivalistessentials.book.tools.crude_tools.hatchet.desc",
+      "title": "item.survivalistessentials.crude_hatchet"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:crude_saw_blade",
+      "text": "info.survivalistessentials.book.tools.crude_tools.crude_saw_blade.desc",
+      "title": "item.survivalistessentials.crude_saw_blade"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:saw_handle",
+      "text": "info.survivalistessentials.book.tools.crude_tools.saw_handle.desc",
+      "title": "item.survivalistessentials.saw_handle"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:crude_saw",
+      "text": "info.survivalistessentials.book.tools.crude_tools.crude_saw.desc",
+      "title": "item.survivalistessentials.crude_saw"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "minecraft:oak_planks",
+      "text": "info.survivalistessentials.book.tools.crude_tools.planks.desc",
+      "title": "info.survivalistessentials.book.tools.crude_tools.planks.name"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "minecraft:stick",
+      "text": "info.survivalistessentials.book.tools.crude_tools.sticks.desc",
+      "title": "info.survivalistessentials.book.tools.crude_tools.sticks.name"
+    }
+  ]
+}
