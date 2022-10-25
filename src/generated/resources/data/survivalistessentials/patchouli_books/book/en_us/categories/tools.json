@@ -1,0 +1,6 @@
+{
+  "name": "info.survivalistessentials.book.tools.name",
+  "description": "info.survivalistessentials.book.tools.desc",
+  "icon": "survivalistessentials:sharp_saw{\"Damage\":0}",
+  "sortnum": 1
+}

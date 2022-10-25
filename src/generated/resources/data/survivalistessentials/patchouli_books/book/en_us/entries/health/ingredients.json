@@ -1,0 +1,37 @@
+{
+  "name": "info.survivalistessentials.book.health.ingredients.name",
+  "category": "survivalistessentials:health",
+  "icon": "survivalistessentials:cloth",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "survivalistessentials:cloth",
+      "title": "info.survivalistessentials.book.health.ingredients.subtitle",
+      "text": "info.survivalistessentials.book.health.ingredients.desc"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:cloth",
+      "title": "item.survivalistessentials.cloth",
+      "text": "info.survivalistessentials.book.health.ingredients.cloth.desc"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:mortar_and_pestle",
+      "title": "item.survivalistessentials.mortar_and_pestle",
+      "text": "info.survivalistessentials.book.health.ingredients.mortar_and_pestle.desc"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:plant_paste",
+      "title": "item.survivalistessentials.plant_paste",
+      "text": "info.survivalistessentials.book.health.ingredients.plant_paste.desc"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:ointment",
+      "title": "item.survivalistessentials.ointment",
+      "text": "info.survivalistessentials.book.health.ingredients.ointment.desc"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "info.survivalistessentials.book.getting_started.materials.name",
+  "category": "survivalistessentials:getting_started",
+  "icon": "survivalistessentials:rock_stone",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "survivalistessentials:stone_loose_rock",
+      "title": "info.survivalistessentials.book.getting_started.materials.gather_stones.title",
+      "text": "info.survivalistessentials.book.getting_started.materials.gather_stones.desc"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:oak_leaves",
+      "title": "info.survivalistessentials.book.getting_started.materials.gather_sticks.title",
+      "text": "info.survivalistessentials.book.getting_started.materials.gather_sticks.desc"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "survivalistessentials:flint_shard",
+      "title": "info.survivalistessentials.book.getting_started.materials.flint_shards.title",
+      "text": "info.survivalistessentials.book.getting_started.materials.flint_shards.desc"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "survivalistessentials:plant_fiber",
+      "title": "info.survivalistessentials.book.getting_started.materials.plant_fiber.title",
+      "text": "info.survivalistessentials.book.getting_started.materials.plant_fiber.desc"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:plant_string",
+      "title": "info.survivalistessentials.book.getting_started.materials.plant_string.title",
+      "text": "info.survivalistessentials.book.getting_started.materials.plant_string.desc"
+    }
+  ]
+}

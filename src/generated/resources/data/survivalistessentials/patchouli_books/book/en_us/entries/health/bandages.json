@@ -1,0 +1,26 @@
+{
+  "name": "info.survivalistessentials.book.health.bandages.name",
+  "category": "survivalistessentials:health",
+  "icon": "survivalistessentials:bandage",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "survivalistessentials:bandage",
+      "title": "info.survivalistessentials.book.health.bandages.subtitle",
+      "text": "info.survivalistessentials.book.health.bandages.desc"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:crude_bandage",
+      "title": "item.survivalistessentials.crude_bandage",
+      "text": "info.survivalistessentials.book.health.bandages.crude_bandage.desc"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "survivalistessentials:bandage",
+      "title": "item.survivalistessentials.bandage",
+      "text": "info.survivalistessentials.book.health.bandages.bandage.desc"
+    }
+  ],
+  "sortnum": 1
+}

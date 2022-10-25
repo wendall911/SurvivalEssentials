@@ -1,0 +1,12 @@
+{
+  "name": "item.survivalistessentials.book",
+  "landing_text": "info.survivalistessentials.book.intro",
+  "model": "survivalistessentials:book",
+  "show_progress": false,
+  "subtitle": "info.survivalistessentials.book.subtitle",
+  "creative_tab": "survivalistessentials.items",
+  "dont_generate_book": true,
+  "custom_book_item": "survivalistessentials:book",
+  "use_blocky_font": true,
+  "i18n": true
+}
