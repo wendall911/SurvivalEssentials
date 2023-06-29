@@ -2,19 +2,17 @@ package survivalistessentials.data;
 
 import java.util.Set;
 
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.registries.VanillaRegistries;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,7 +27,6 @@ import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
 import survivalistessentials.data.recipes.ModRecipesProvider;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
-import survivalistessentials.world.modifier.LooseRockBiomeModifier;
 import survivalistessentials.world.modifier.SurvivalistEssentialsBiomeModifiers;
 
 @Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -39,9 +36,10 @@ public final class DataGenerators {
         .add(Registries.CONFIGURED_FEATURE, SurvivalistEssentialsFeatures::configuredBootstrap)
         .add(Registries.PLACED_FEATURE, SurvivalistEssentialsFeatures::placementBootstrap)
         .add(ForgeRegistries.Keys.BIOME_MODIFIERS, context -> {
-            context.register(SurvivalistEssentialsBiomeModifiers.LOOSE_ROCKS_MODIFIER, new LooseRockBiomeModifier(
-                    HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS)),
-                    GenerationStep.Decoration.TOP_LAYER_MODIFICATION
+            context.register(SurvivalistEssentialsBiomeModifiers.LOOSE_ROCKS_MODIFIER, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                context.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
             ));
         });
 
