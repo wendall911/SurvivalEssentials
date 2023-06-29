@@ -1,18 +1,21 @@
 package survivalistessentials.data;
 
-import com.google.common.collect.Maps;
-import com.google.gson.JsonElement;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
-import com.mojang.serialization.JsonOps;
-
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.RegistryOps;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.registries.VanillaRegistries;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
+import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.data.JsonCodecProvider;
-import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -26,58 +29,56 @@ import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
 import survivalistessentials.data.recipes.ModRecipesProvider;
 import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
 import survivalistessentials.world.modifier.LooseRockBiomeModifier;
-
-import java.util.Map;
+import survivalistessentials.world.modifier.SurvivalistEssentialsBiomeModifiers;
 
 @Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class DataGenerators {
 
-    private DataGenerators() {}
+    private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
+        .add(Registries.CONFIGURED_FEATURE, SurvivalistEssentialsFeatures::configuredBootstrap)
+        .add(Registries.PLACED_FEATURE, SurvivalistEssentialsFeatures::placementBootstrap)
+        .add(ForgeRegistries.Keys.BIOME_MODIFIERS, context -> {
+            context.register(SurvivalistEssentialsBiomeModifiers.LOOSE_ROCKS_MODIFIER, new LooseRockBiomeModifier(
+                    HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS)),
+                    GenerationStep.Decoration.TOP_LAYER_MODIFICATION
+            ));
+        });
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
-        final RegistryOps<JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, RegistryAccess.builtinCopy());
         DataGenerator gen = event.getGenerator();
+        PackOutput packOutput = gen.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
+        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper());
         String modpackOverrides = System.getenv("MOD_OVERRIDES");
 
-        gen.addProvider(true, new ModItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(true, new ModBlockStateProvider(gen, existingFileHelper));
-        gen.addProvider(true, blockTags);
-        gen.addProvider(true, new ModItemTagsProvider(gen, blockTags, existingFileHelper));
-        gen.addProvider(true, new ModRecipesProvider(gen));
-        gen.addProvider(true, new ModLootTables(gen));
-        gen.addProvider(true, new GlobalLootModifier(gen));
+        gen.addProvider(event.includeServer(), new ModItemModelProvider(packOutput, existingFileHelper));
+        gen.addProvider(event.includeServer(), new ModBlockStateProvider(packOutput, existingFileHelper));
+        gen.addProvider(event.includeServer(), blockTags);
+        gen.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, event.getLookupProvider(), blockTags, existingFileHelper));
+        gen.addProvider(event.includeServer(), new ModRecipesProvider(packOutput));
+        gen.addProvider(event.includeServer(), ModLootTables.create(packOutput));
+        gen.addProvider(event.includeServer(), new GlobalLootModifier(packOutput));
 
         if (modpackOverrides != null && modpackOverrides.contains("all")) {
-            gen.addProvider(true, new BlockTagsOverrideProvider(gen, event.getExistingFileHelper()));
+            gen.addProvider(event.includeServer(), new BlockTagsOverrideProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper()));
         }
 
-        gen.addProvider(true, JsonCodecProvider.forDatapackRegistry(
-            gen,
-            existingFileHelper,
-            SurvivalistEssentials.MODID,
-            ops,
-            ForgeRegistries.Keys.BIOME_MODIFIERS,
-            getBiomeModifiers()
+        gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
+                packOutput,
+                CompletableFuture.supplyAsync(DataGenerators::getProvider),
+                Set.of("loose_rocks")
         ));
 
-        gen.addProvider(true, new ModBookProvider(gen));
+        gen.addProvider(event.includeServer(), new ModBookProvider(packOutput));
     }
 
-    public static Map<ResourceLocation, BiomeModifier> getBiomeModifiers() {
-        Map<ResourceLocation, BiomeModifier> map = Maps.newHashMap();
+    private static HolderLookup.Provider getProvider() {
+        RegistryAccess.Frozen registryAccess = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY);
 
-        map.putAll(generateBiomeModifier(new ResourceLocation(SurvivalistEssentials.MODID, "loose_rocks")));
-
-        return map;
-    }
-
-    private static Map<ResourceLocation, BiomeModifier> generateBiomeModifier(ResourceLocation location) {
-        final BiomeModifier addFeature = new LooseRockBiomeModifier();
-        return Map.of(location, addFeature);
+        return BUILDER.buildPatch(registryAccess, VanillaRegistries.createLookup());
     }
 
 }

@@ -4,7 +4,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 import net.minecraftforge.registries.RegisterEvent;
-import survivalistessentials.common.CreativeTabs;
 
 public final class ModIntegration {
 
@@ -297,7 +296,7 @@ public final class ModIntegration {
     }
 
     private static Item registerItem(ResourceLocation loc) {
-        Item item = (new Item(new Item.Properties().tab(CreativeTabs.INTEGRATION_TAB_GROUP)));
+        Item item = (new Item(new Item.Properties()));
 
         ITEM_REGISTRY.register(loc, item);
 

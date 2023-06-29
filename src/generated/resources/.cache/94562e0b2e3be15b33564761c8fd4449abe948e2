@@ -1,4 +1,4 @@
-// 1.19.2	2022-09-20T13:54:00.378969771	SurvivalistEssentials - Global Loot Modifier
+// 1.19.3	2023-06-29T12:47:18.526297426	SurvivalistEssentials - Global Loot Modifier
 3981851e4d0e55bc41e00528a2383d9f551fc3bd data/forge/loot_modifiers/global_loot_modifiers.json
 fd9939ef18cce811d163d3a081c20f30d79ba989 data/survivalistessentials/loot_modifiers/extra_stick_drops_from_leaves.json
 22c1097ac574e9d31ff64d3a6837fb534fe1ee43 data/survivalistessentials/loot_modifiers/plant_fiber_from_fiber_plants.json

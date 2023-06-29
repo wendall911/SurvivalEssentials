@@ -1,12 +1,16 @@
 package survivalistessentials.world;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.registries.RegisterEvent;
 
-import survivalistessentials.common.CreativeTabs;
+import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.block.LooseRockBlock;
 import survivalistessentials.world.item.RockStone;
 
@@ -14,6 +18,7 @@ public final class SurvivalistEssentialsWorld {
 
     private static RegisterEvent.RegisterHelper<Block> BLOCK_REGISTRY;
     private static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
+    private static final Map<ResourceLocation, Item> ALL = new LinkedHashMap<>();
 
     // Blocks
     public static Block ANDESITE_LOOSE_ROCK;
@@ -60,17 +65,24 @@ public final class SurvivalistEssentialsWorld {
     }
 
     private static void registerItem(String name, Block block) {
-        registerItem(name, new BlockItem(block, new Item.Properties().tab(CreativeTabs.WORLD_TAB_GROUP)));
+        registerItem(name, new BlockItem(block, new Item.Properties()));
 
         if (name.contains("rock_stone_block")) {
-            ROCK_STONE = registerItem("rock_stone", new RockStone(block, new Item.Properties().tab(CreativeTabs.WORLD_TAB_GROUP)));
+            ROCK_STONE = registerItem("rock_stone", new RockStone(block, new Item.Properties()));
         }
     }
 
     private static Item registerItem(String name, Item item) {
-        ITEM_REGISTRY.register(name, item);
+        ResourceLocation loc = new ResourceLocation(SurvivalistEssentials.MODID, name);
+
+        ITEM_REGISTRY.register(loc, item);
+        ALL.put(loc, item);
 
         return item;
+    }
+
+    public static Map<ResourceLocation, Item> getAll() {
+        return ALL;
     }
 
 }

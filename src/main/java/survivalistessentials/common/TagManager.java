@@ -3,7 +3,7 @@ package survivalistessentials.common;
 import java.util.Collections;
 import java.util.Objects;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -176,7 +176,7 @@ public final class TagManager {
         }
 
         private static TagKey<Item> getItemTag(String modid, String name) {
-            return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(modid, name));
+            return TagKey.create(Registries.ITEM, new ResourceLocation(modid, name));
         }
     }
 

@@ -1,11 +1,14 @@
 package survivalistessentials.items;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 
 import net.minecraftforge.registries.RegisterEvent;
 
-import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.items.item.Bandage;
 import survivalistessentials.items.item.CrudeBandage;
 import survivalistessentials.items.item.Mortar;
@@ -14,9 +17,13 @@ import survivalistessentials.items.item.WoodenCup;
 import survivalistessentials.items.tool.CrudeHatchet;
 import survivalistessentials.items.tool.SurvivalKnife;
 import survivalistessentials.items.tool.SurvivalSaw;
+import survivalistessentials.SurvivalistEssentials;
 
 public final class SurvivalistEssentialsItems {
 
+    private static final Map<ResourceLocation, Item> MISC_ITEMS = new LinkedHashMap<>();
+    private static final Map<ResourceLocation, Item> TOOLS_AND_UTILITIES = new LinkedHashMap<>();
+    private static final Map<ResourceLocation, Item> ALL = new LinkedHashMap<>();
     private static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
 
     // Items
@@ -80,63 +87,86 @@ public final class SurvivalistEssentialsItems {
 
         // Bandages
         CRUDE_BANDAGE = registerItem("crude_bandage", new CrudeBandage(
-            (new Item.Properties()).stacksTo(8).tab(CreativeTabs.ITEM_TAB_GROUP)
-        ));
+            (new Item.Properties()).stacksTo(8)
+        ), false, true);
         BANDAGE = registerItem("bandage", new Bandage(
-            (new Item.Properties()).stacksTo(16).tab(CreativeTabs.ITEM_TAB_GROUP)
-        ));
+            (new Item.Properties()).stacksTo(16)
+        ), false, true);
 
         // Zombie Jesus
         WOODEN_CUP = registerItem("wooden_cup", new WoodenCup(
-            (new Item.Properties()).stacksTo(1).tab(CreativeTabs.ITEM_TAB_GROUP)
-        ));
+            (new Item.Properties()).stacksTo(1)
+        ), false, false);
     }
 
     public static Item registerSawBlade(String name) {
         return registerItem(name, new Item(
-            new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP)
-        ));
+            new Item.Properties()
+        ), true, false);
     }
 
     private static Item registerItem(String name) {
-        Item item = new Item(new Item.Properties().tab(CreativeTabs.ITEM_TAB_GROUP));
+        Item item = new Item(new Item.Properties());
 
-        return registerItem(name, item);
+        return registerItem(name, item, false, false);
     }
 
-    private static Item registerItem(String name, Item item) {
-        ITEM_REGISTRY.register(name, item);
+    private static Item registerItem(String name, Item item, boolean isTool, boolean noCategory) {
+        ResourceLocation loc = new ResourceLocation(SurvivalistEssentials.MODID, name);
+
+        ITEM_REGISTRY.register(loc, item);
+
+        if (isTool) {
+            TOOLS_AND_UTILITIES.put(loc, item);
+        }
+        else if (!noCategory) {
+            MISC_ITEMS.put(loc, item);
+        }
+
+        ALL.put(loc, item);
 
         return item;
     }
 
     private static Item registerKnifeTool(String name, Tier tier) {
-        Item knifeTool = new SurvivalKnife(tier, 1, -1.4F, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item knifeTool = new SurvivalKnife(tier, 1, -1.4F, new Item.Properties().setNoRepair());
 
-        return registerItem(name, knifeTool);
+        return registerItem(name, knifeTool, true, false);
     }
 
     private static Item registerHatchetTool(String name, Tier tier) {
-        Item hatchetTool = new CrudeHatchet(tier, 4, -3.0F, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item hatchetTool = new CrudeHatchet(tier, 4, -3.0F, new Item.Properties().setNoRepair());
 
-        return registerItem(name, hatchetTool);
+        return registerItem(name, hatchetTool, true, false);
     }
 
     private static Item registerSawTool(String name, Tier tier, float speed) {
-        Item sawTool = new SurvivalSaw(name, tier, speed, new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair());
+        Item sawTool = new SurvivalSaw(name, tier, speed, new Item.Properties().setNoRepair());
 
-        return registerItem(name, sawTool);
+        return registerItem(name, sawTool, true, false);
     }
 
     private static Item registerMortar(String name) {
-        return registerItem(name, new Mortar(new Item.Properties().tab(CreativeTabs.TOOL_TAB_GROUP).setNoRepair()));
+        return registerItem(name, new Mortar(new Item.Properties().setNoRepair()), false, false);
     }
 
     public static Item registerBook(String name) {
         return registerItem(name, new SurvivalistEssentialsBook(
-                new Item.Properties().tab(CreativeTabs.ITEM_TAB_GROUP),
+                new Item.Properties(),
                 name
-        ));
+        ), false, true);
+    }
+
+    public static Map<ResourceLocation, Item> getAllIngredients() {
+        return MISC_ITEMS;
+    }
+
+    public static Map<ResourceLocation, Item> getToolsAndUtilities() {
+        return TOOLS_AND_UTILITIES;
+    }
+
+    public static Map<ResourceLocation, Item> getAll() {
+        return ALL;
     }
 
 }

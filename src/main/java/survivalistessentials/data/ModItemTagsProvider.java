@@ -1,12 +1,12 @@
 package survivalistessentials.data;
 
 import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -24,8 +24,8 @@ import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    public ModItemTagsProvider(DataGenerator dataGenerator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagsProvider, SurvivalistEssentials.MODID, existingFileHelper);
+    public ModItemTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ModBlockTagsProvider blockTagsProvider, ExistingFileHelper helper) {
+        super(packOutput, lookupProvider, blockTagsProvider, SurvivalistEssentials.MODID, helper);
     }
 
     @Override
@@ -34,19 +34,22 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider provider) {
         builder(
             TagManager.Items.FLINT_KNAPPABLE,
             Items.FLINT,
             SurvivalistEssentialsWorld.ROCK_STONE
         );
-        getBuilder(TagManager.Items.PICKAXE_TOOLS)
+        this.tag(TagManager.Items.PICKAXE_TOOLS)
             .addOptional(ModIntegration.ieLoc("buzzsaw"))
             .addOptional(ModIntegration.ieLoc("drill"))
             .addOptional(ModIntegration.ieLoc("hammer"));
-        getBuilder(TagManager.Items.AXE_TOOLS)
-            .addOptional(ModIntegration.ieLoc("buzzsaw"))
-            .add(SurvivalistEssentialsItems.CRUDE_HATCHET);
+        this.tag(TagManager.Items.AXE_TOOLS)
+            .addOptional(ModIntegration.ieLoc("buzzsaw"));
+        builder(
+            TagManager.Items.AXE_TOOLS,
+            SurvivalistEssentialsItems.CRUDE_HATCHET
+        );
         builder(
             TagManager.Items.SAW_TOOLS,
             SurvivalistEssentialsItems.CRUDE_SAW,
@@ -58,7 +61,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             SurvivalistEssentialsItems.BASIC_SAW,
             SurvivalistEssentialsItems.SHARP_SAW
         );
-        getBuilder(TagManager.Items.SHOVEL_TOOLS)
+        this.tag(TagManager.Items.SHOVEL_TOOLS)
             .addOptional(ModIntegration.ieLoc("drill"));
         builder(
             TagManager.Items.HOE_TOOLS
@@ -74,11 +77,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             SurvivalistEssentialsItems.BASIC_KNIFE,
             SurvivalistEssentialsItems.SHARP_KNIFE
         );
-        getBuilder(TagManager.Items.SHARP_TOOLS)
+        this.tag(TagManager.Items.SHARP_TOOLS)
             .addOptional(ModIntegration.ieLoc("revolver"))
             .addTag(TagManager.Items.KNIFE_TOOLS)
             .addTag(TagManager.Items.AXE_TOOLS);
-        getBuilder(TagManager.Items.SHEAR_TOOLS)
+        this.tag(TagManager.Items.SHEAR_TOOLS)
             .addTag(Tags.Items.SHEARS);
         builder(TagManager.Items.ROCK, SurvivalistEssentialsWorld.ROCK_STONE);
         builder(
@@ -91,7 +94,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             SurvivalistEssentialsItems.CRUDE_BANDAGE,
             SurvivalistEssentialsItems.BANDAGE
         );
-        getBuilder(TagManager.Items.COOKED_MEAT)
+        this.tag(TagManager.Items.COOKED_MEAT)
             .add(Items.COOKED_BEEF)
             .add(Items.COOKED_CHICKEN)
             .add(Items.COOKED_COD)
@@ -118,37 +121,37 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addLogVariants(TagManager.Items.CITRUS_LOGS, "citrus", ModIntegration::ftLoc);
 
         // Biome Makeover
-        getBuilder(TagManager.Items.BMO_ANCIENT_OAK_LOG)
+        this.tag(TagManager.Items.BMO_ANCIENT_OAK_LOG)
             .addOptional(ModIntegration.BMO_ANCIENT_OAK_LOG);
-        getBuilder(TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_LOG)
+        this.tag(TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_LOG)
             .addOptional(ModIntegration.BMO_STRIPPED_ANCIENT_OAK_LOG);
-        getBuilder(TagManager.Items.BMO_ANCIENT_OAK_WOOD)
+        this.tag(TagManager.Items.BMO_ANCIENT_OAK_WOOD)
             .addOptional(ModIntegration.BMO_ANCIENT_OAK_WOOD);
-        getBuilder(TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_WOOD)
+        this.tag(TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_WOOD)
             .addOptional(ModIntegration.BMO_STRIPPED_ANCIENT_OAK_WOOD);
-        getBuilder(TagManager.Items.BMO_BLIGHTED_BALSA_LOG)
+        this.tag(TagManager.Items.BMO_BLIGHTED_BALSA_LOG)
             .addOptional(ModIntegration.BMO_BLIGHTED_BALSA_LOG);
-        getBuilder(TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_LOG)
+        this.tag(TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_LOG)
             .addOptional(ModIntegration.BMO_STRIPPED_BLIGHTED_BALSA_LOG);
-        getBuilder(TagManager.Items.BMO_BLIGHTED_BALSA_WOOD)
+        this.tag(TagManager.Items.BMO_BLIGHTED_BALSA_WOOD)
             .addOptional(ModIntegration.BMO_BLIGHTED_BALSA_WOOD);
-        getBuilder(TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_WOOD)
+        this.tag(TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_WOOD)
             .addOptional(ModIntegration.BMO_STRIPPED_BLIGHTED_BALSA_WOOD);
-        getBuilder(TagManager.Items.BMO_SWAMP_CYPRESS_LOG)
+        this.tag(TagManager.Items.BMO_SWAMP_CYPRESS_LOG)
             .addOptional(ModIntegration.BMO_SWAMP_CYPRESS_LOG);
-        getBuilder(TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_LOG)
+        this.tag(TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_LOG)
             .addOptional(ModIntegration.BMO_STRIPPED_SWAMP_CYPRESS_LOG);
-        getBuilder(TagManager.Items.BMO_SWAMP_CYPRESS_WOOD)
+        this.tag(TagManager.Items.BMO_SWAMP_CYPRESS_WOOD)
             .addOptional(ModIntegration.BMO_SWAMP_CYPRESS_WOOD);
-        getBuilder(TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_WOOD)
+        this.tag(TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_WOOD)
             .addOptional(ModIntegration.BMO_STRIPPED_SWAMP_CYPRESS_WOOD);
-        getBuilder(TagManager.Items.BMO_WILLOW_LOG)
+        this.tag(TagManager.Items.BMO_WILLOW_LOG)
             .addOptional(ModIntegration.BMO_WILLOW_LOG);
-        getBuilder(TagManager.Items.BMO_STRIPPED_WILLOW_LOG)
+        this.tag(TagManager.Items.BMO_STRIPPED_WILLOW_LOG)
             .addOptional(ModIntegration.BMO_STRIPPED_WILLOW_LOG);
-        getBuilder(TagManager.Items.BMO_WILLOW_WOOD)
+        this.tag(TagManager.Items.BMO_WILLOW_WOOD)
             .addOptional(ModIntegration.BMO_WILLOW_WOOD);
-        getBuilder(TagManager.Items.BMO_STRIPPED_WILLOW_WOOD)
+        this.tag(TagManager.Items.BMO_STRIPPED_WILLOW_WOOD)
             .addOptional(ModIntegration.BMO_STRIPPED_WILLOW_WOOD);
 
         // Biomes O' Plenty
@@ -214,81 +217,81 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addLogVariants(TagManager.Items.BYG_WILLOW_LOGS, "willow", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_WITCH_HAZEL_LOGS, "witch_hazel", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_ZELKOVA_LOGS, "zelkova", ModIntegration::bygLoc);
-        getBuilder(TagManager.Items.BYG_EMBUR_LOGS)
+        this.tag(TagManager.Items.BYG_EMBUR_LOGS)
             .addOptionalTag(ModIntegration.bygLoc("embur_logs"));
-        getBuilder(TagManager.Items.BYG_SYTHIAN_LOGS)
+        this.tag(TagManager.Items.BYG_SYTHIAN_LOGS)
             .addOptionalTag(ModIntegration.bygLoc("sythian_logs"));
-        getBuilder(TagManager.Items.BYG_IMPARIUS_LOGS)
+        this.tag(TagManager.Items.BYG_IMPARIUS_LOGS)
             .addOptionalTag(ModIntegration.bygLoc("imparius_logs"));
-        getBuilder(TagManager.Items.BYG_BULBIS_LOGS)
+        this.tag(TagManager.Items.BYG_BULBIS_LOGS)
             .addOptionalTag(ModIntegration.bygLoc("bulbis_logs"));
 
         // Twilight Forest
-        getBuilder(TagManager.Items.TF_GIANT_LOGS)
+        this.tag(TagManager.Items.TF_GIANT_LOGS)
             .addOptional(ModIntegration.tfLoc("giant_log"));
-        getBuilder(TagManager.Items.TF_CANOPY_LOG)
+        this.tag(TagManager.Items.TF_CANOPY_LOG)
             .addOptional(ModIntegration.TF_CANOPY_LOG);
-        getBuilder(TagManager.Items.TF_CANOPY_STRIPPED_LOG)
+        this.tag(TagManager.Items.TF_CANOPY_STRIPPED_LOG)
             .addOptional(ModIntegration.TF_CANOPY_STRIPPED_LOG);
-        getBuilder(TagManager.Items.TF_CANOPY_WOOD)
+        this.tag(TagManager.Items.TF_CANOPY_WOOD)
             .addOptional(ModIntegration.TF_CANOPY_WOOD);
-        getBuilder(TagManager.Items.TF_CANOPY_STRIPPED_WOOD)
+        this.tag(TagManager.Items.TF_CANOPY_STRIPPED_WOOD)
             .addOptional(ModIntegration.TF_CANOPY_STRIPPED_WOOD);
-        getBuilder(TagManager.Items.TF_DARK_LOG)
+        this.tag(TagManager.Items.TF_DARK_LOG)
             .addOptional(ModIntegration.TF_DARK_LOG);
-        getBuilder(TagManager.Items.TF_DARK_STRIPPED_LOG)
+        this.tag(TagManager.Items.TF_DARK_STRIPPED_LOG)
             .addOptional(ModIntegration.TF_DARK_STRIPPED_LOG);
-        getBuilder(TagManager.Items.TF_DARK_WOOD)
+        this.tag(TagManager.Items.TF_DARK_WOOD)
             .addOptional(ModIntegration.TF_DARK_WOOD);
-        getBuilder(TagManager.Items.TF_DARK_STRIPPED_WOOD)
+        this.tag(TagManager.Items.TF_DARK_STRIPPED_WOOD)
             .addOptional(ModIntegration.TF_DARK_STRIPPED_WOOD);
-        getBuilder(TagManager.Items.TF_MANGROVE_LOG)
+        this.tag(TagManager.Items.TF_MANGROVE_LOG)
             .addOptional(ModIntegration.TF_MANGROVE_LOG);
-        getBuilder(TagManager.Items.TF_MANGROVE_STRIPPED_LOG)
+        this.tag(TagManager.Items.TF_MANGROVE_STRIPPED_LOG)
             .addOptional(ModIntegration.TF_MANGROVE_STRIPPED_LOG);
-        getBuilder(TagManager.Items.TF_MANGROVE_WOOD)
+        this.tag(TagManager.Items.TF_MANGROVE_WOOD)
             .addOptional(ModIntegration.TF_MANGROVE_WOOD);
-        getBuilder(TagManager.Items.TF_MANGROVE_STRIPPED_WOOD)
+        this.tag(TagManager.Items.TF_MANGROVE_STRIPPED_WOOD)
             .addOptional(ModIntegration.TF_MANGROVE_STRIPPED_WOOD);
-        getBuilder(TagManager.Items.TF_MINING_LOG)
+        this.tag(TagManager.Items.TF_MINING_LOG)
             .addOptional(ModIntegration.TF_MINING_LOG);
-        getBuilder(TagManager.Items.TF_MINING_STRIPPED_LOG)
+        this.tag(TagManager.Items.TF_MINING_STRIPPED_LOG)
             .addOptional(ModIntegration.TF_MINING_STRIPPED_LOG);
-        getBuilder(TagManager.Items.TF_MINING_WOOD)
+        this.tag(TagManager.Items.TF_MINING_WOOD)
             .addOptional(ModIntegration.TF_MINING_WOOD);
-        getBuilder(TagManager.Items.TF_MINING_STRIPPED_WOOD)
+        this.tag(TagManager.Items.TF_MINING_STRIPPED_WOOD)
             .addOptional(ModIntegration.TF_MINING_STRIPPED_WOOD);
-        getBuilder(TagManager.Items.TF_SORTING_LOG)
+        this.tag(TagManager.Items.TF_SORTING_LOG)
             .addOptional(ModIntegration.TF_SORTING_LOG);
-        getBuilder(TagManager.Items.TF_SORTING_STRIPPED_LOG)
+        this.tag(TagManager.Items.TF_SORTING_STRIPPED_LOG)
             .addOptional(ModIntegration.TF_SORTING_STRIPPED_LOG);
-        getBuilder(TagManager.Items.TF_SORTING_WOOD)
+        this.tag(TagManager.Items.TF_SORTING_WOOD)
             .addOptional(ModIntegration.TF_SORTING_WOOD);
-        getBuilder(TagManager.Items.TF_SORTING_STRIPPED_WOOD)
+        this.tag(TagManager.Items.TF_SORTING_STRIPPED_WOOD)
             .addOptional(ModIntegration.TF_SORTING_STRIPPED_WOOD);
-        getBuilder(TagManager.Items.TF_TIME_LOG)
+        this.tag(TagManager.Items.TF_TIME_LOG)
             .addOptional(ModIntegration.TF_TIME_LOG);
-        getBuilder(TagManager.Items.TF_TIME_STRIPPED_LOG)
+        this.tag(TagManager.Items.TF_TIME_STRIPPED_LOG)
             .addOptional(ModIntegration.TF_TIME_STRIPPED_LOG);
-        getBuilder(TagManager.Items.TF_TIME_WOOD)
+        this.tag(TagManager.Items.TF_TIME_WOOD)
             .addOptional(ModIntegration.TF_TIME_WOOD);
-        getBuilder(TagManager.Items.TF_TIME_STRIPPED_WOOD)
+        this.tag(TagManager.Items.TF_TIME_STRIPPED_WOOD)
             .addOptional(ModIntegration.TF_TIME_STRIPPED_WOOD);
-        getBuilder(TagManager.Items.TF_TRANSFORMATION_LOG)
+        this.tag(TagManager.Items.TF_TRANSFORMATION_LOG)
             .addOptional(ModIntegration.TF_TRANSFORMATION_LOG);
-        getBuilder(TagManager.Items.TF_TRANSFORMATION_STRIPPED_LOG)
+        this.tag(TagManager.Items.TF_TRANSFORMATION_STRIPPED_LOG)
             .addOptional(ModIntegration.TF_TRANSFORMATION_STRIPPED_LOG);
-        getBuilder(TagManager.Items.TF_TRANSFORMATION_WOOD)
+        this.tag(TagManager.Items.TF_TRANSFORMATION_WOOD)
             .addOptional(ModIntegration.TF_TRANSFORMATION_WOOD);
-        getBuilder(TagManager.Items.TF_TRANSFORMATION_STRIPPED_WOOD)
+        this.tag(TagManager.Items.TF_TRANSFORMATION_STRIPPED_WOOD)
             .addOptional(ModIntegration.TF_TRANSFORMATION_STRIPPED_WOOD);
-        getBuilder(TagManager.Items.TF_TWILIGHT_OAK_LOG)
+        this.tag(TagManager.Items.TF_TWILIGHT_OAK_LOG)
             .addOptional(ModIntegration.TF_TWILIGHT_OAK_LOG);
-        getBuilder(TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_LOG)
+        this.tag(TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_LOG)
             .addOptional(ModIntegration.TF_TWILIGHT_OAK_STRIPPED_LOG);
-        getBuilder(TagManager.Items.TF_TWILIGHT_OAK_WOOD)
+        this.tag(TagManager.Items.TF_TWILIGHT_OAK_WOOD)
             .addOptional(ModIntegration.TF_TWILIGHT_OAK_WOOD);
-        getBuilder(TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_WOOD)
+        this.tag(TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_WOOD)
             .addOptional(ModIntegration.TF_TWILIGHT_OAK_STRIPPED_WOOD);
 
         // Ecologics
@@ -299,25 +302,21 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     }
 
     private void addWsLogVariants(TagKey<Item> tag, String type) {
-        getBuilder(tag)
+        this.tag(tag)
             .addOptional(ModIntegration.wsLoc(type + "_log"))
             .addOptional(ModIntegration.wsLoc("stripped_" + type + "_log"));
     }
 
     private void addLogVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
-        getBuilder(tag)
+        this.tag(tag)
             .addOptional(modLoc.apply(type + "_log"))
             .addOptional(modLoc.apply("stripped_" + type + "_log"))
             .addOptional(modLoc.apply(type + "_wood"))
             .addOptional(modLoc.apply("stripped_" + type + "_wood"));
     }
 
-    protected TagsProvider.TagAppender<Item> getBuilder(TagKey<Item> tag) {
-        return tag(tag);
-    }
-
     private void builder(TagKey<Item> tag, ItemLike... items) {
-        getBuilder(tag).add(Arrays.stream(items).map(ItemLike::asItem).toArray(Item[]::new));
+        this.tag(tag).add(Arrays.stream(items).map(ItemLike::asItem).toArray(Item[]::new));
     }
 
 }

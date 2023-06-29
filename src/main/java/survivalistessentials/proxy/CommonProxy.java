@@ -1,11 +1,18 @@
 package survivalistessentials.proxy;
 
-import net.minecraft.core.Registry;
+import java.util.Map;
+
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -15,8 +22,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
-
 import net.minecraftforge.registries.RegisterEvent;
+
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.SurvivalistEssentialsModule;
 import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
@@ -60,11 +67,11 @@ public class CommonProxy {
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerEvent(RegisterEvent event) {
-            event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsItems::init);
-            event.register(Registry.ITEM_REGISTRY, ModIntegration::init);
-            event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsWorld::initItems);
-            event.register(Registry.BLOCK_REGISTRY, SurvivalistEssentialsWorld::initBlocks);
-            event.register(Registry.LOOT_ITEM_REGISTRY, new ResourceLocation(SurvivalistEssentials.MODID, "is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
+            event.register(Registries.ITEM, SurvivalistEssentialsItems::init);
+            event.register(Registries.ITEM, ModIntegration::init);
+            event.register(Registries.ITEM, SurvivalistEssentialsWorld::initItems);
+            event.register(Registries.BLOCK, SurvivalistEssentialsWorld::initBlocks);
+            event.register(Registries.LOOT_CONDITION_TYPE, new ResourceLocation(SurvivalistEssentials.MODID, "is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -82,6 +89,47 @@ public class CommonProxy {
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {
             HarvestBlock.setup();
+        }
+
+        @SubscribeEvent(priority = EventPriority.LOWEST)
+        public static void registerCreativeTab(CreativeModeTabEvent.Register event) {
+            event.registerCreativeModeTab(new ResourceLocation(SurvivalistEssentials.MODID, "items"), builder -> builder.icon(() -> new ItemStack(SurvivalistEssentialsItems.BANDAGE))
+                    .title(Component.translatable(SurvivalistEssentials.MODID + ".items"))
+                    .displayItems((features, output, tab) -> {
+                        for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getAll().entrySet()) {
+                            Item item = entry.getValue();
+
+                            output.accept(new ItemStack(item));
+                        }
+                        for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsWorld.getAll().entrySet()) {
+                            Item item = entry.getValue();
+
+                            output.accept(new ItemStack(item));
+                        }
+                    }));
+        }
+
+        @SubscribeEvent(priority = EventPriority.LOWEST)
+        public static void registerCreativeTab(CreativeModeTabEvent.BuildContents event) {
+            if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+                for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getToolsAndUtilities().entrySet()) {
+                    Item item = entry.getValue();
+
+                    event.accept(new ItemStack(item));
+                }
+            }
+            if (event.getTab() == CreativeModeTabs.INGREDIENTS) {
+                for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getAllIngredients().entrySet()) {
+                    Item item = entry.getValue();
+
+                    event.accept(new ItemStack(item));
+                }
+                for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsWorld.getAll().entrySet()) {
+                    Item item = entry.getValue();
+
+                    event.accept(new ItemStack(item));
+                }
+            }
         }
 
     }

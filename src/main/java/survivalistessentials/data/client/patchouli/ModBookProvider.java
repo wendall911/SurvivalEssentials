@@ -2,7 +2,9 @@ package survivalistessentials.data.client.patchouli;
 
 import java.util.function.Consumer;
 
-import net.minecraft.data.DataGenerator;
+import org.jetbrains.annotations.NotNull;
+
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -16,8 +18,8 @@ import survivalistessentials.SurvivalistEssentials;
 
 public class ModBookProvider extends PatchouliBookProvider {
 
-    public ModBookProvider(DataGenerator gen) {
-        super(gen, SurvivalistEssentials.MODID, "en_us");
+    public ModBookProvider(@NotNull final PackOutput packOutput) {
+        super(packOutput, SurvivalistEssentials.MODID, "en_us");
     }
 
     @Override

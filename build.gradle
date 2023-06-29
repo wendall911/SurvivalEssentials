@@ -64,7 +64,7 @@ repositories {
 }
 
 group = 'com.github.wendall911.survivalistessentials'
-version = "${minecraft_short_version}+-${mod_version}"
+version = "${minecraft_version}-${mod_version}"
 archivesBaseName = "${mod_name}"
 def mcversion = "${minecraft_version}"
 def modid = "${modid}"
@@ -134,10 +134,9 @@ dependencies {
 
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
-    runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_short_version}-${probe_version}") {
+    runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_version}-${probe_version}") {
         transitive = false
     }
 
@@ -145,7 +144,9 @@ dependencies {
     implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
     implementation fg.deobf("xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}")
 
-    compileOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")
+    //compileOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")
+
+    runtimeOnly fg.deobf("curse.maven:configured-457570:4462839")
 
     //runtimeOnly fg.deobf("curse.maven:crafttweaker-239197:3918220")
 
@@ -162,7 +163,6 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:botania-225643:???")
     //runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:3963698")
     //runtimeOnly fg.deobf("curse.maven:twilightforest-227639:3995805")
-    //runtimeOnly fg.deobf("curse.maven:configured-457570:3947885")
     //runtimeOnly fg.deobf("curse.maven:catalogue-459701:3873264")
     //runtimeOnly fg.deobf("curse.maven:autoreglib-250363:3857246")
     //runtimeOnly fg.deobf("curse.maven:quark-243121:3961436")
@@ -224,7 +224,7 @@ def updates = tasks.register("generateUpdates", Copy) {
 
     it.from("./files/templates/") {
         include 'updates.json'
-        expand 'mod_version': mod_version
+        expand 'version': version
     }
 
     it.into 'files/'

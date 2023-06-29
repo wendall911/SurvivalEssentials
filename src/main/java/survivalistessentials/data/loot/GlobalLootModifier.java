@@ -4,7 +4,7 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -29,8 +29,8 @@ import survivalistessentials.common.TagManager;
 
 public class GlobalLootModifier extends GlobalLootModifierProvider {
 
-    public GlobalLootModifier(DataGenerator dataGeneratorIn) {
-        super(dataGeneratorIn, SurvivalistEssentials.MODID);
+    public GlobalLootModifier(PackOutput packOutput) {
+        super(packOutput, SurvivalistEssentials.MODID);
     }
 
     @Override

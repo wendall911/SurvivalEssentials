@@ -35,7 +35,7 @@ public class Sounds {
     }
 
     private static RegistryObject<SoundEvent> registerSound(String name) {
-        return SOUND_REGISTRY.register(name, () -> new SoundEvent(new ResourceLocation(SurvivalistEssentials.MODID, name)));
+        return SOUND_REGISTRY.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(SurvivalistEssentials.MODID, name)));
     }
 
 }

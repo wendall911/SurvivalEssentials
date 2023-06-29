@@ -1,8 +1,13 @@
 package survivalistessentials.data;
 
-import net.minecraft.data.tags.BlockTagsProvider;
-import net.minecraft.data.DataGenerator;
+import java.util.concurrent.CompletableFuture;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import net.minecraftforge.common.Tags;
@@ -13,9 +18,10 @@ import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-public class ModBlockTagsProvider extends BlockTagsProvider {
-    public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
-        super(generatorIn, SurvivalistEssentials.MODID, existingFileHelper);
+public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
+
+    public ModBlockTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper helper) {
+        super(packOutput, Registries.BLOCK, lookupProvider, (block) -> block.builtInRegistryHolder().key(), SurvivalistEssentials.MODID, helper);
     }
 
     @Override
@@ -23,8 +29,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         return "SurvivalistEssentials - Block Tags";
     }
 
-    @Override 
-    protected void addTags() {
+    @Override
+    protected void addTags(HolderLookup.Provider provider) {
         this.tag(TagManager.Blocks.ALWAYS_BREAKABLE)
             .addTag(TagManager.Blocks.LOOSE_ROCKS)
             .addTag(BlockTags.BEDS)

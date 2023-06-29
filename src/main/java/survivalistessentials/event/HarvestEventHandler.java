@@ -63,7 +63,7 @@ public class HarvestEventHandler {
             final ItemStack offhandStack = player.getOffhandItem();
 
             if (handStack.isEmpty() && offhandStack.isEmpty()
-                    && tschipp.carryon.client.keybinds.CarryOnKeybinds.isKeyPressed(player)) {
+                    /*&& tschipp.carryon.client.keybinds.CarryOnKeybinds.isKeyPressed(player)*/) {
                 alwaysBreakable = true;
             }
         }
