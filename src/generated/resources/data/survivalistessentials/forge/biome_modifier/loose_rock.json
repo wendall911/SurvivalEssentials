@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "survivalistessentials:loose_rocks",
+  "step": "vegetal_decoration"
+}

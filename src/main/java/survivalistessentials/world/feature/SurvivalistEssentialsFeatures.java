@@ -9,11 +9,11 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -41,7 +41,7 @@ public final class SurvivalistEssentialsFeatures extends SurvivalistEssentialsMo
                 SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS,
                 LOOSE_ROCKS_HOLDER,
                 // TODO: ConfigHandler.Common.rockGenFrequency()
-                List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE)
+                List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome())
         );
     }
 
@@ -52,11 +52,11 @@ public final class SurvivalistEssentialsFeatures extends SurvivalistEssentialsMo
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration) {
-        context.register(configuredFeatureKey, new ConfiguredFeature<>(feature, configuration));
+        FeatureUtils.register(context, configuredFeatureKey, (Feature<NoneFeatureConfiguration>) feature);
     }
 
     private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> modifiers) {
-        context.register(placedFeatureKey, new PlacedFeature(configuredFeature, modifiers));
+        PlacementUtils.register(context, placedFeatureKey, configuredFeature, modifiers);
     }
 
 }

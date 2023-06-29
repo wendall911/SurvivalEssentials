@@ -36,7 +36,6 @@ import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
-import survivalistessentials.world.modifier.SurvivalistEssentialsBiomeModifiers;
 
 @Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class CommonProxy {
@@ -55,7 +54,6 @@ public class CommonProxy {
         bus.register(RegistryListener.class);
         bus.register(new SurvivalistEssentialsLootTables());
         bus.register(new SurvivalistEssentialsFeatures());
-        bus.register(new SurvivalistEssentialsBiomeModifiers());
         bus.register(new SurvivalistEssentialsEffects());
     }
 

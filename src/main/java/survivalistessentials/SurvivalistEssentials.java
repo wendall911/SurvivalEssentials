@@ -1,7 +1,5 @@
 package survivalistessentials;
 
-import java.util.Random;
-
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.DistExecutor;
 
@@ -16,7 +14,6 @@ public class SurvivalistEssentials {
 
     public static final String MODID = "survivalistessentials";
     public static final Logger LOGGER = LogManager.getFormatterLogger(SurvivalistEssentials.MODID);
-    public static final Random RANDOM = new Random();
 
     public static CommonProxy PROXY;
 
