@@ -25,7 +25,7 @@ import survivalistessentials.world.SurvivalistEssentialsWorld;
 public class ModItemTagsProvider extends ItemTagsProvider {
 
     public ModItemTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ModBlockTagsProvider blockTagsProvider, ExistingFileHelper helper) {
-        super(packOutput, lookupProvider, blockTagsProvider, SurvivalistEssentials.MODID, helper);
+        super(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), SurvivalistEssentials.MODID, helper);
     }
 
     @Override

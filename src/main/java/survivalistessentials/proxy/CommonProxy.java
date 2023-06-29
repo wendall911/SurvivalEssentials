@@ -95,7 +95,7 @@ public class CommonProxy {
         public static void registerCreativeTab(CreativeModeTabEvent.Register event) {
             event.registerCreativeModeTab(new ResourceLocation(SurvivalistEssentials.MODID, "items"), builder -> builder.icon(() -> new ItemStack(SurvivalistEssentialsItems.BANDAGE))
                     .title(Component.translatable(SurvivalistEssentials.MODID + ".items"))
-                    .displayItems((features, output, tab) -> {
+                    .displayItems((features, output) -> {
                         for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getAll().entrySet()) {
                             Item item = entry.getValue();
 

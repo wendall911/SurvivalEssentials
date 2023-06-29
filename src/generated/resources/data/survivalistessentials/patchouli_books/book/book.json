@@ -8,5 +8,6 @@
   "name": "item.survivalistessentials.book",
   "show_progress": false,
   "subtitle": "info.survivalistessentials.book.subtitle",
-  "use_blocky_font": true
+  "use_blocky_font": true,
+  "use_resource_pack": true
 }

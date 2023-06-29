@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "P": {
       "item": "survivalistessentials:plant_paste"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "survivalistessentials:ointment"
-  }
+  },
+  "show_notification": true
 }

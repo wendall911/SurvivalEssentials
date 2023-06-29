@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "S": {
       "item": "survivalistessentials:flint_shard"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "survivalistessentials:crude_knife"
-  }
+  },
+  "show_notification": true
 }

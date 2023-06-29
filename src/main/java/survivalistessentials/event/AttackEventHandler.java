@@ -1,6 +1,7 @@
 package survivalistessentials.event;
 
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -23,9 +24,9 @@ public class AttackEventHandler {
             if (!player.isCreative()) {
                 final ItemStack handStack = player.getMainHandItem();
                 final Level level = player.getLevel();
-                boolean checkAllowed = event.getSource().msgId.contains("player");
+                boolean checkAllowed = event.getSource().getMsgId().contains("player");
 
-                if (event.getSource().isBypassArmor()) {
+                if (event.getSource().is(DamageTypeTags.BYPASSES_ARMOR)) {
                     checkAllowed = false;
                 }
 

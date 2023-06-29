@@ -1,7 +1,6 @@
 package survivalistessentials.data;
 
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
@@ -68,17 +67,12 @@ public final class DataGenerators {
 
         gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
                 packOutput,
-                CompletableFuture.supplyAsync(DataGenerators::getProvider),
-                Set.of("loose_rocks")
+                event.getLookupProvider(),
+                BUILDER,
+                Set.of(SurvivalistEssentials.MODID)
         ));
 
         gen.addProvider(event.includeServer(), new ModBookProvider(packOutput));
-    }
-
-    private static HolderLookup.Provider getProvider() {
-        RegistryAccess.Frozen registryAccess = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY);
-
-        return BUILDER.buildPatch(registryAccess, VanillaRegistries.createLookup());
     }
 
 }

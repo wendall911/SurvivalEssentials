@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "F": {
       "item": "survivalistessentials:plant_fiber"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "survivalistessentials:plant_string"
-  }
+  },
+  "show_notification": true
 }

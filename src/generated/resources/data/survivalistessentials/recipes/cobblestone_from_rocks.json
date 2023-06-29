@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "R": {
       "item": "survivalistessentials:rock_stone"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "minecraft:cobblestone"
-  }
+  },
+  "show_notification": true
 }

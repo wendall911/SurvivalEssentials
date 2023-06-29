@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "D": {
       "item": "minecraft:diamond"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "survivalistessentials:sharp_knife"
-  }
+  },
+  "show_notification": true
 }

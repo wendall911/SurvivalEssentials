@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "F": {
       "item": "survivalistessentials:plant_fiber"
@@ -17,5 +18,6 @@
   ],
   "result": {
     "item": "survivalistessentials:crude_bandage"
-  }
+  },
+  "show_notification": true
 }

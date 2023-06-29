@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "item": "survivalistessentials:cloth"
@@ -20,5 +21,6 @@
   ],
   "result": {
     "item": "survivalistessentials:bandage"
-  }
+  },
+  "show_notification": true
 }

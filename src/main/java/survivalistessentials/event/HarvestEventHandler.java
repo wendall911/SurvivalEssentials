@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -63,7 +62,7 @@ public class HarvestEventHandler {
             final ItemStack offhandStack = player.getOffhandItem();
 
             if (handStack.isEmpty() && offhandStack.isEmpty()
-                    /*&& tschipp.carryon.client.keybinds.CarryOnKeybinds.isKeyPressed(player)*/) {
+                    && tschipp.carryon.client.keybinds.CarryOnKeybinds.carryKey.isDown()) {
                 alwaysBreakable = true;
             }
         }
@@ -95,7 +94,7 @@ public class HarvestEventHandler {
                     else {
                         Chat.sendMessage(player, Chat.WARNING);
                         Chat.sendMessage(player, Chat.SARCASTIC_WRONG_TOOL, expectedToolType.toString().toLowerCase(), true);
-                        player.hurt(DamageSource.GENERIC, 0.1f);
+                        player.hurt(player.damageSources().generic(), 0.1f);
                     }
                 }
                 else {
