@@ -9,6 +9,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -73,14 +74,7 @@ public class HarvestEventHandler {
                 boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
                 boolean isAllowedItem = ItemUse.isAllowedTool(handStack);
 
-                if (!isAllowedItem) {
-                    cancel = true;
-                    if (!player.getLevel().isClientSide && ConfigHandler.Client.enableFailSound()) {
-                        level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL.get(), SoundSource.BLOCKS, 0.6F, 1.0F);
-                    }
-                }
-
-                if (isAllowedItem && !correctTool) {
+                if (!handStack.is(Items.AIR) && isAllowedItem && !correctTool) {
                     cancel = true;
 
                     if (harvestAttempts.containsKey(player)
@@ -95,6 +89,10 @@ public class HarvestEventHandler {
                         Chat.sendMessage(player, Chat.WARNING);
                         Chat.sendMessage(player, Chat.SARCASTIC_WRONG_TOOL, expectedToolType.toString().toLowerCase(), true);
                         player.hurt(player.damageSources().generic(), 0.1f);
+                    }
+
+                    if (!player.getLevel().isClientSide && ConfigHandler.Client.enableFailSound()) {
+                        level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL.get(), SoundSource.PLAYERS, 0.6F, 1.0F);
                     }
                 }
                 else {

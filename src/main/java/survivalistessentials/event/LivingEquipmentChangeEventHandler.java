@@ -32,7 +32,7 @@ public class LivingEquipmentChangeEventHandler {
                 final ItemStack itemstack = player.getItemBySlot(slot);
                 final Level level = player.getLevel();
 
-                level.playSound(null, player.getOnPos(), Sounds.ARMOR_FAIL.get(), SoundSource.BLOCKS, 0.4F, 1.0F);
+                level.playSound(null, player.getOnPos(), Sounds.ARMOR_FAIL.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
 
                 if (!player.addItem(itemstack)) {
                     NonNullList<ItemStack> dropStack = NonNullList.withSize(1, itemstack);
