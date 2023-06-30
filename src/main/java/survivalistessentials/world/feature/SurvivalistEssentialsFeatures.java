@@ -40,7 +40,6 @@ public final class SurvivalistEssentialsFeatures extends SurvivalistEssentialsMo
                 context,
                 SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS,
                 LOOSE_ROCKS_HOLDER,
-                // TODO: ConfigHandler.Common.rockGenFrequency()
                 List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome())
         );
     }

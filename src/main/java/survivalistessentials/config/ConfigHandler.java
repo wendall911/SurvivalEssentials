@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.List;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
@@ -15,8 +17,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
-
-import org.apache.commons.lang3.tuple.Pair;
 
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.ItemUse;
@@ -60,7 +60,6 @@ public final class ConfigHandler {
 
         private static final ForgeConfigSpec CONFIG_SPEC;
         private static final Common CONFIG;
-        private IntValue ROCK_GEN_FREQUENCY;
         private DoubleValue FLINT_CHANCE;
         private DoubleValue HEAL_RATE;
         private DoubleValue SLOW_DOWN_SPEED;
@@ -113,9 +112,6 @@ public final class ConfigHandler {
         }
 
         Common(ForgeConfigSpec.Builder builder) {
-            ROCK_GEN_FREQUENCY = builder
-                .comment("RockGeneration frequency. (1 = low, 5 = all over)")
-                .defineInRange("ROCK_GEN_FREQUENCY", 2, 1, 5);
             FLINT_CHANCE = builder
                 .comment("Chance for a successful flint knapping. (1.0 = 100%, 0.4 = 40%, etc.)")
                 .defineInRange("FLINT_CHANCE", 0.6, 0.1, 1.0);
@@ -173,10 +169,6 @@ public final class ConfigHandler {
                 .comment("List of tags when added to tools or armor will be disabled. If inverted, acts as a whitelist."
                         + "[\"" + String.join("\", \"", tagStrings) + "\"]")
                 .defineListAllowEmpty(TAG_LIST, getFields(tagStrings), s -> (s instanceof String));
-        }
-
-        public static int rockGenFrequency() {
-            return CONFIG.ROCK_GEN_FREQUENCY.get();
         }
 
         public static double flintChance() {
@@ -267,7 +259,11 @@ public final class ConfigHandler {
 
     @SubscribeEvent
     public static void onFileChange(final ModConfigEvent.Reloading event) {
-        ItemUse.init();
+        ModConfig config = event.getConfig();
+
+        if (config.getType() == ModConfig.Type.COMMON && config.getModId().equals(SurvivalistEssentials.MODID)) {
+            ItemUse.init();
+        }
     }
 
 }
