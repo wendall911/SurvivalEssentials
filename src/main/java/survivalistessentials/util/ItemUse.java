@@ -97,10 +97,6 @@ public class ItemUse {
         return nameParts.length == 2 ? nameParts[0] : name;
     }
 
-    public static boolean hasTinkerBow() {
-        return ItemUse.TOOL_TYPES.contains("bow");
-    }
-
     public static boolean alwaysDrops(BlockState state) {
         if (((AbstractBlockStateAccessor) state).getDestroySpeed() == 0) {
             return true;
