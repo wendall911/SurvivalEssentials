@@ -9,10 +9,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.common.SurvivalistEssentialsModule;
 
-public class Sounds {
-
-    public static DeferredRegister<SoundEvent> SOUND_REGISTRY;
+public class Sounds extends SurvivalistEssentialsModule {
 
     public static RegistryObject<SoundEvent> ARMOR_FAIL;
     public static RegistryObject<SoundEvent> BOW_FAIL;
@@ -22,10 +21,6 @@ public class Sounds {
     public static RegistryObject<SoundEvent> TOOL_FAIL;
 
     public static void init(IEventBus bus) {
-        SOUND_REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, SurvivalistEssentials.MODID);
-
-        SOUND_REGISTRY.register(bus);
-
         ARMOR_FAIL = registerSound("armor_fail");
         BOW_FAIL = registerSound("bow_fail");
         FLINT_KNAPPING = registerSound("knapping");

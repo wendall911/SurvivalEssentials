@@ -2,6 +2,7 @@ package survivalistessentials.common;
 
 import com.mojang.serialization.Codec;
 
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.levelgen.feature.Feature;
 
@@ -17,6 +18,7 @@ public abstract class SurvivalistEssentialsModule {
     protected static final DeferredRegister<Feature<?>> FEATURE_REGISTRY = DeferredRegister.create(ForgeRegistries.FEATURES, SurvivalistEssentials.MODID);
     protected static final DeferredRegister<MobEffect> MOBEFFECT_REGISTRY = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, SurvivalistEssentials.MODID);
     protected static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIER_REGISTRY = DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, SurvivalistEssentials.MODID);
+    protected static DeferredRegister<SoundEvent> SOUND_REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, SurvivalistEssentials.MODID);
 
     protected SurvivalistEssentialsModule() {}
 
@@ -24,6 +26,7 @@ public abstract class SurvivalistEssentialsModule {
         MOBEFFECT_REGISTRY.register(bus);
         LOOT_MODIFIER_REGISTRY.register(bus);
         FEATURE_REGISTRY.register(bus);
+        SOUND_REGISTRY.register(bus);
     }
 
 }
