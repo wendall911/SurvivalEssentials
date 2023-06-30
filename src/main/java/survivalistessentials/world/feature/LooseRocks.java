@@ -17,7 +17,6 @@ import net.minecraft.world.level.WorldGenLevel;
 
 import net.minecraftforge.common.util.Lazy;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
@@ -48,8 +47,6 @@ public class LooseRocks extends Feature<NoneFeatureConfiguration> {
 
         final BlockState stateAt = level.getBlockState(pos);
         final BlockState stateDown = level.getBlockState(pos.below());
-
-        SurvivalistEssentials.LOGGER.warn("Attempting to place");
 
         if (stateAt.isAir() && stateDown.is(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)) {
             for (int y = 1; y <= 8; y++) {
