@@ -3,7 +3,6 @@ package survivalistessentials.proxy;
 import java.util.Map;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -12,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -21,9 +20,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegisterEvent;
 
+import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.SurvivalistEssentialsModule;
 import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
@@ -47,6 +48,7 @@ public class CommonProxy {
 
         ConfigHandler.init();
         Sounds.init(bus);
+        CreativeTabs.init(bus);
         registerListeners(bus);
     }
 
@@ -60,8 +62,6 @@ public class CommonProxy {
     public static final class RegistryListener {
 
         private static boolean setupDone = false;
-
-        public static IForgeRegistry<Block> BLOCK_REGISTRY;
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerEvent(RegisterEvent event) {
@@ -86,37 +86,19 @@ public class CommonProxy {
 
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {
-            HarvestBlock.setup();
+            HarvestBlock.init();
         }
 
         @SubscribeEvent(priority = EventPriority.LOWEST)
-        public static void registerCreativeTab(CreativeModeTabEvent.Register event) {
-            event.registerCreativeModeTab(new ResourceLocation(SurvivalistEssentials.MODID, "items"), builder -> builder.icon(() -> new ItemStack(SurvivalistEssentialsItems.BANDAGE))
-                    .title(Component.translatable(SurvivalistEssentials.MODID + ".items"))
-                    .displayItems((features, output) -> {
-                        for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getAll().entrySet()) {
-                            Item item = entry.getValue();
-
-                            output.accept(new ItemStack(item));
-                        }
-                        for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsWorld.getAll().entrySet()) {
-                            Item item = entry.getValue();
-
-                            output.accept(new ItemStack(item));
-                        }
-                    }));
-        }
-
-        @SubscribeEvent(priority = EventPriority.LOWEST)
-        public static void registerCreativeTab(CreativeModeTabEvent.BuildContents event) {
-            if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+        public static void registerCreativeTab(BuildCreativeModeTabContentsEvent event) {
+            if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
                 for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getToolsAndUtilities().entrySet()) {
                     Item item = entry.getValue();
 
                     event.accept(new ItemStack(item));
                 }
             }
-            if (event.getTab() == CreativeModeTabs.INGREDIENTS) {
+            if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
                 for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getAllIngredients().entrySet()) {
                     Item item = entry.getValue();
 
@@ -134,8 +116,10 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void serverStart(ServerStartedEvent event) {
+        HarvestBlock.setup();
+
         if (ConfigHandler.Common.logModpackData()) {
-            RegistryListener.BLOCK_REGISTRY.getValues().forEach((block) -> {
+            ForgeRegistries.BLOCKS.getValues().forEach((block) -> {
                 if (block.defaultBlockState().is(Tags.Blocks.NEEDS_WOOD_TOOL)) {
                     SurvivalistEssentials.LOGGER.warn("needs_wood_tool - level 0: %s", block);
                 }

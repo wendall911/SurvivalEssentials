@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:minecraft_jungle_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

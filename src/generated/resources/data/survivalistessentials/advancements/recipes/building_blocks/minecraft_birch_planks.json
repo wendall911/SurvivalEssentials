@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:minecraft_birch_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

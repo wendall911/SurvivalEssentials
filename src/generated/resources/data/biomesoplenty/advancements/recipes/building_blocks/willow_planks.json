@@ -28,5 +28,6 @@
     "recipes": [
       "biomesoplenty:willow_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

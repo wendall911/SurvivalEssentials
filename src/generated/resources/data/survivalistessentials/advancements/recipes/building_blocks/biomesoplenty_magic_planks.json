@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:biomesoplenty_magic_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

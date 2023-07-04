@@ -28,5 +28,6 @@
     "recipes": [
       "watersource:palm_tree_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

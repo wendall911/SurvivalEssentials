@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:biomesoplenty_umbran_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

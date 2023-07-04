@@ -28,5 +28,6 @@
     "recipes": [
       "ecologics:walnut_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:cloth"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

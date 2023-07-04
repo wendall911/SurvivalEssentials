@@ -28,5 +28,6 @@
     "recipes": [
       "tconstruct:world/wood/greenheart/planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -28,5 +28,6 @@
     "recipes": [
       "quark:world/crafting/woodsets/blossom/planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:ars_nouveau_archwood_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

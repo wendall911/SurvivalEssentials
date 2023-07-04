@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:undergarden_grongle_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

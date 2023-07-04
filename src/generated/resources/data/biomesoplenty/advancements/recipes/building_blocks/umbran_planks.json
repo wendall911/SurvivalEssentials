@@ -28,5 +28,6 @@
     "recipes": [
       "biomesoplenty:umbran_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

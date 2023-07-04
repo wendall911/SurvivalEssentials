@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:fruittrees_citrus_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

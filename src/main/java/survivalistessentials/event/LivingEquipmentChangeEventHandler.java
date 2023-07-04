@@ -30,7 +30,7 @@ public class LivingEquipmentChangeEventHandler {
                     && ItemUse.isArmor(event.getTo())
                     && !ItemUse.isAllowedArmor(event.getTo())) {
                 final ItemStack itemstack = player.getItemBySlot(slot);
-                final Level level = player.getLevel();
+                final Level level = player.level();
 
                 level.playSound(null, player.getOnPos(), Sounds.ARMOR_FAIL.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
 
@@ -38,7 +38,7 @@ public class LivingEquipmentChangeEventHandler {
                     NonNullList<ItemStack> dropStack = NonNullList.withSize(1, itemstack);
                     Vec3 pos = player.getEyePosition(1.0F);
 
-                    Containers.dropContents(player.getLevel(), new BlockPos((int)pos.x(), (int)pos.y(), (int)pos.z()), dropStack);
+                    Containers.dropContents(player.level(), new BlockPos((int)pos.x(), (int)pos.y(), (int)pos.z()), dropStack);
                 }
 
                 player.setItemSlot(slot, ItemStack.EMPTY);

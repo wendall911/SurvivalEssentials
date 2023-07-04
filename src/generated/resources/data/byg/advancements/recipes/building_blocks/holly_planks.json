@@ -28,5 +28,6 @@
     "recipes": [
       "byg:holly_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

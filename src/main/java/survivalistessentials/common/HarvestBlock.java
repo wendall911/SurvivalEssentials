@@ -6,14 +6,12 @@
 
 package survivalistessentials.common;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -24,7 +22,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import survivalistessentials.config.ConfigHandler;
@@ -37,39 +35,13 @@ import survivalistessentials.util.ToolType;
 
 public final class HarvestBlock {
 
-    public static final Map<Material, ToolType> PRIMARY_TOOL_TYPES = new HashMap<>();
     public static final Map<Block, ToolType> BLOCK_TOOL_TYPES = new HashMap<>();
     public static final Map<Item, ToolType> ITEM_TOOL_TYPES = new HashMap<>();
 
-    static {
-        add(ToolType.PICKAXE, Material.STONE, Material.METAL, Material.HEAVY_METAL, Material.PISTON, Material.AMETHYST);
-        add(ToolType.AXE, Material.WOOD, Material.NETHER_WOOD, Material.BAMBOO, Material.CACTUS, Material.MOSS, Material.VEGETABLE);
-        add(ToolType.SHOVEL, Material.TOP_SNOW, Material.CLAY, Material.DIRT, Material.GRASS, Material.SAND, Material.SNOW, Material.POWDER_SNOW);
-        add(ToolType.HOE, Material.PLANT, Material.WATER_PLANT, Material.REPLACEABLE_PLANT, Material.REPLACEABLE_WATER_PLANT, Material.REPLACEABLE_FIREPROOF_PLANT, Material.SCULK, Material.SPONGE, Material.BAMBOO_SAPLING, Material.LEAVES, Material.GRASS);
-        add(ToolType.SHARP, Material.CLOTH_DECORATION, Material.WEB, Material.WOOL, Material.CAKE);
-        add(ToolType.NONE, Material.AIR, Material.STRUCTURAL_AIR, Material.DECORATION, Material.BUILDABLE_GLASS, Material.ICE_SOLID, Material.SHULKER_SHELL, Material.GLASS, Material.ICE, Material.PORTAL, Material.WATER, Material.BUBBLE_COLUMN, Material.LAVA, Material.FIRE, Material.EXPLOSIVE, Material.BARRIER, Material.EGG, Material.FROGLIGHT);
-    }
-
-    private static void add(ToolType value, Material... keys) {
-        Stream.of(keys).forEach(key -> PRIMARY_TOOL_TYPES.put(key, value));
-    }
-
-    public static void setup() {
-        BLOCK_TOOL_TYPES.clear();
-
-        final Map<Material, List<Block>> unknownMaterialBlocks = new HashMap<>();
-
+    public static void init() {
         for (Block block : ForgeRegistries.BLOCKS.getValues()) {
-            if (ConfigHandler.Common.blockWhitelistMods().contains(ItemUse.getModId(block))) {
-                BLOCK_TOOL_TYPES.put(block, ToolType.NONE);
-
-                continue;
-            }
             final AbstractBlockAccessor blockAccess = (AbstractBlockAccessor) block;
             final BlockBehaviour.Properties settings = blockAccess.getProperties();
-
-            // Infer a primary tool type for the block.
-            ToolType primary = PRIMARY_TOOL_TYPES.get(blockAccess.getMaterial());
 
             // Forcefully set everything to require a tool
             // Need to do both the block settings and the block state since the value is copied there for every state
@@ -79,9 +51,49 @@ public final class HarvestBlock {
                 AbstractBlockStateAccessor abstractState = (AbstractBlockStateAccessor) state;
 
                 abstractState.setRequiresCorrectToolForDrops(true);
+            }
+        }
 
-                if (abstractState.getDestroySpeed() == 0 && primary == null) {
-                    primary = ToolType.NONE;
+    }
+
+    public static void setup() {
+        BLOCK_TOOL_TYPES.clear();
+
+        final Map<ToolType, List<Block>> unknownToolTypeBlocks = new HashMap<>();
+
+        for (Block block : ForgeRegistries.BLOCKS.getValues()) {
+            if (ConfigHandler.Common.blockWhitelistMods().contains(ItemUse.getModId(block))) {
+                BLOCK_TOOL_TYPES.put(block, ToolType.NONE);
+
+                continue;
+            }
+
+            // Infer a primary tool type for the block.
+            ToolType primary = null;
+
+            if (block.defaultBlockState().is(BlockTags.MINEABLE_WITH_PICKAXE)) {
+                primary = ToolType.PICKAXE;
+            }
+            else if (block.defaultBlockState().is(BlockTags.MINEABLE_WITH_AXE)) {
+                primary = ToolType.AXE;
+            }
+            else if (block.defaultBlockState().is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                primary = ToolType.SHOVEL;
+            }
+            else if (block.defaultBlockState().is(BlockTags.MINEABLE_WITH_HOE)) {
+                primary = ToolType.HOE;
+            }
+            else if (block.defaultBlockState().is(TagManager.Blocks.MINEABLE_WITH_SHARP)) {
+                primary = ToolType.SHARP;
+            }
+
+            for (BlockState state : block.getStateDefinition().getPossibleStates()) {
+                AbstractBlockStateAccessor abstractState = (AbstractBlockStateAccessor) state;
+
+                if (primary == null) {
+                    if (abstractState.getDestroySpeed() <= 0 || abstractState.getPushReaction() == PushReaction.DESTROY) {
+                        primary = ToolType.NONE;
+                    }
                 }
             }
 
@@ -91,7 +103,7 @@ public final class HarvestBlock {
 
             if (primary == null) {
                 // Unknown tool type. Collect and log it later
-                unknownMaterialBlocks.computeIfAbsent(blockAccess.getMaterial(), k -> new ArrayList<>()).add(block);
+                unknownToolTypeBlocks.computeIfAbsent(ToolType.NONE, k -> new ArrayList<>()).add(block);
             }
         }
 
@@ -108,21 +120,15 @@ public final class HarvestBlock {
             }
         }
 
-        if (!unknownMaterialBlocks.isEmpty()) {
-            SurvivalistEssentials.LOGGER.error("Unable to infer primary tools for %s blocks with unknown materials. These blocks will not be enforce correct tool.", unknownMaterialBlocks.values().stream().mapToInt(Collection::size).sum());
-            unknownMaterialBlocks
-                .forEach((mat, blocks) -> {
-                    blocks.forEach(SurvivalistEssentials.LOGGER::warn);
+        if (!unknownToolTypeBlocks.isEmpty()) {
+            SurvivalistEssentials.LOGGER.debug("Unable to infer primary tools for %s blocks with unknown ToolType. These blocks will not enforce correct tool.", unknownToolTypeBlocks.values().stream().mapToInt(Collection::size).sum());
+            unknownToolTypeBlocks
+                .forEach((toolType, blocks) -> {
+                    blocks.forEach((block) -> {
+                        SurvivalistEssentials.LOGGER.debug("%s, %s", toolType, block);
+                        BLOCK_TOOL_TYPES.put(block, toolType);
+                    });
                 });
-        }
-
-        for (Map.Entry<Material, List<Block>> entry : unknownMaterialBlocks.entrySet()) {
-            final Material material = entry.getKey();
-            final List<Block> blocks = entry.getValue();
-
-            SurvivalistEssentials.LOGGER.warn("Material: [isLiquid=%s, isSolid=%s, blocksMotion=%s, isFlammable=%s, isReplaceable=%s, isSolidBlocking=%s, getPushReaction=%s, getColor=[id=%s, col=%s]] | Blocks: %s",
-                material.isLiquid(), material.isSolid(), material.blocksMotion(), material.isFlammable(), material.isReplaceable(), material.isSolidBlocking(), material.getPushReaction(), material.getColor().id, new Color(material.getColor().col),
-                blocks.stream().map(Block::toString).collect(Collectors.joining(", ")));
         }
     }
 
@@ -130,17 +136,17 @@ public final class HarvestBlock {
         if (tag == BlockTags.MINEABLE_WITH_PICKAXE) {
             return ToolType.PICKAXE;
         }
-
-        if (tag == BlockTags.MINEABLE_WITH_AXE) {
+        else if (tag == BlockTags.MINEABLE_WITH_AXE) {
             return ToolType.AXE;
         }
-
-        if (tag == BlockTags.MINEABLE_WITH_SHOVEL) {
+        else if (tag == BlockTags.MINEABLE_WITH_SHOVEL) {
             return ToolType.SHOVEL;
         }
-
-        if (tag == BlockTags.MINEABLE_WITH_HOE) {
+        else if (tag == BlockTags.MINEABLE_WITH_HOE) {
             return ToolType.HOE;
+        }
+        else if (tag == TagManager.Blocks.MINEABLE_WITH_SHARP) {
+            return ToolType.SHARP;
         }
 
         return ToolType.NONE;

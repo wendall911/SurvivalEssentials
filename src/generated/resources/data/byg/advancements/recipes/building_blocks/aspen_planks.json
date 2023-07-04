@@ -28,5 +28,6 @@
     "recipes": [
       "byg:aspen_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

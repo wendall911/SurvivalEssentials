@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:twilightforest_mining_from_wood_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

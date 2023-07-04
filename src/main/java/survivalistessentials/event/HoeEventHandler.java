@@ -24,7 +24,7 @@ public class HoeEventHandler {
 
         if (player != null && !player.isCreative() && event.getToolAction() == ToolActions.HOE_TILL) {
             final ItemStack handStack = player.getMainHandItem();
-            final Level level = player.getLevel();
+            final Level level = player.level();
 
             if (!ItemUse.isAllowedTool(handStack)) {
                 if (!level.isClientSide && ConfigHandler.Client.enableFailSound()) {

@@ -28,5 +28,6 @@
     "recipes": [
       "byg:redwood_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

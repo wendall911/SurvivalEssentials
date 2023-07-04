@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:leather_from_cooked_meat_smoking"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

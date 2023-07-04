@@ -30,5 +30,6 @@
     "recipes": [
       "survivalistessentials:bandage"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

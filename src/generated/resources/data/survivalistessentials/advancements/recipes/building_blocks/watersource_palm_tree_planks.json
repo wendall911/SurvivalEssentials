@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:watersource_palm_tree_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

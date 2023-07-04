@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:twilightforest_canopy_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

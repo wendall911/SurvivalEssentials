@@ -28,5 +28,6 @@
     "recipes": [
       "allyoucaneat:hazel_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

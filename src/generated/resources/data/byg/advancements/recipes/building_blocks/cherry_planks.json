@@ -28,5 +28,6 @@
     "recipes": [
       "byg:cherry_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

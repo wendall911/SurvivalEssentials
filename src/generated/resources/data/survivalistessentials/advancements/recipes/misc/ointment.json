@@ -30,5 +30,6 @@
     "recipes": [
       "survivalistessentials:ointment"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

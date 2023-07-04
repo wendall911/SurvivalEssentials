@@ -97,6 +97,12 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
 
         this.tag(TagManager.Blocks.BRANCHES)
             .addOptionalTag(ModIntegration.dynamictreesLoc("branches"));
+
+        this.tag(TagManager.Blocks.MINEABLE_WITH_SHARP)
+            .addTag(BlockTags.WOOL_CARPETS)
+            .add(Blocks.COBWEB)
+            .addTag(BlockTags.WOOL)
+            .addTag(BlockTags.CANDLE_CAKES);
     }
 
 }

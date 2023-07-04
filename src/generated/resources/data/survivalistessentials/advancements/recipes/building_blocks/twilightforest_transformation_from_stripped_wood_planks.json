@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:twilightforest_transformation_from_stripped_wood_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

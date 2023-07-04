@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:byg_blue_enchanted_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "survivalistessentials:book_from_dirt"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

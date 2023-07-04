@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:quark_blossom_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

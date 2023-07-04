@@ -30,5 +30,6 @@
     "recipes": [
       "survivalistessentials:crude_saw_blade"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

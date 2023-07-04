@@ -28,5 +28,6 @@
     "recipes": [
       "ecologics:coconut_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

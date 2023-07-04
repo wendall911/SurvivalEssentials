@@ -30,5 +30,6 @@
     "recipes": [
       "aquaculture:planks_from_driftwood"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

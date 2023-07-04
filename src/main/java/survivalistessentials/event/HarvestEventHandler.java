@@ -58,6 +58,7 @@ public class HarvestEventHandler {
 
         if (player == null) return;
 
+        /* TODO add Carry On support back in when released for 1.20.x
         if (ModList.get().isLoaded("carryon")) {
             final ItemStack handStack = player.getMainHandItem();
             final ItemStack offhandStack = player.getOffhandItem();
@@ -67,6 +68,7 @@ public class HarvestEventHandler {
                 alwaysBreakable = true;
             }
         }
+        */
 
         if (!alwaysBreakable && !player.isCreative()) {
             if (expectedToolType != ToolType.NONE) {
@@ -91,7 +93,7 @@ public class HarvestEventHandler {
                         player.hurt(player.damageSources().generic(), 0.1f);
                     }
 
-                    if (!player.getLevel().isClientSide && ConfigHandler.Client.enableFailSound()) {
+                    if (!player.level().isClientSide && ConfigHandler.Client.enableFailSound()) {
                         level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL.get(), SoundSource.PLAYERS, 0.6F, 1.0F);
                     }
                 }
@@ -120,10 +122,10 @@ public class HarvestEventHandler {
             Vec3 position = projectile.position();
             Vec3 nextPosition = position.add(projectile.getDeltaMovement());
 
-            HitResult hitresult = projectile.level.clip(new ClipContext(position, nextPosition, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, projectile));
+            HitResult hitresult = projectile.level().clip(new ClipContext(position, nextPosition, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, projectile));
             BlockPos pos = ((BlockHitResult)hitresult).getBlockPos();
 
-            spellHitBlock = projectile.getLevel().getBlockState(new BlockPos(pos)).getBlock();
+            spellHitBlock = projectile.level().getBlockState(new BlockPos(pos)).getBlock();
         }
     }
 
@@ -163,7 +165,7 @@ public class HarvestEventHandler {
 
         if (player == null || pos.isEmpty()) return;
 
-        final Level level = player.getLevel();
+        final Level level = player.level();
         final BlockState state = level.getBlockState(pos.get());
         final float destroySpeed = ((AbstractBlockStateAccessor) state).getDestroySpeed();
         float slowdown = destroySpeed;

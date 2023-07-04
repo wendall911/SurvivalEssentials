@@ -30,5 +30,6 @@
     "recipes": [
       "survivalistessentials:string_from_plant_string"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

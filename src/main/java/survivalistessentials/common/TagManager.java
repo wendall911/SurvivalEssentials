@@ -186,6 +186,7 @@ public final class TagManager {
         public static final TagKey<Block> LOOSE_ROCK_PLACEABLE_ON = create("loose_rock_placeable_on");
         public static final TagKey<Block> LOOSE_ROCKS = create("loose_rocks");
         public static final TagKey<Block> FIBER_PLANTS = create("fiber_plants");
+        public static final TagKey<Block> MINEABLE_WITH_SHARP = create("mineable_with_sharp");
 
         // Dynamic Trees
         public static final TagKey<Block> BRANCHES = create("branches");

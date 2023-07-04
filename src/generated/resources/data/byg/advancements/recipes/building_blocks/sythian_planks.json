@@ -28,5 +28,6 @@
     "recipes": [
       "byg:sythian_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

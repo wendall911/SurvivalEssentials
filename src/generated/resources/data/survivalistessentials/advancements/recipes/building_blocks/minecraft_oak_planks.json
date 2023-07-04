@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:minecraft_oak_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

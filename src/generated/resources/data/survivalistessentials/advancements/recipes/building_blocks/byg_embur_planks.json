@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:byg_embur_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

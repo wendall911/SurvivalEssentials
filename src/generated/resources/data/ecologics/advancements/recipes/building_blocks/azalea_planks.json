@@ -28,5 +28,6 @@
     "recipes": [
       "ecologics:azalea_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

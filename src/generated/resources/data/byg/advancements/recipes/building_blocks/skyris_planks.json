@@ -28,5 +28,6 @@
     "recipes": [
       "byg:skyris_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -28,5 +28,6 @@
     "recipes": [
       "byg:white_mangrove_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

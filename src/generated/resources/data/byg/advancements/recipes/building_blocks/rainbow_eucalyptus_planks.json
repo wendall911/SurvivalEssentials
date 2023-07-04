@@ -28,5 +28,6 @@
     "recipes": [
       "byg:rainbow_eucalyptus_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

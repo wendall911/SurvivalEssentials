@@ -30,5 +30,6 @@
     "recipes": [
       "survivalistessentials:flint_from_shards"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

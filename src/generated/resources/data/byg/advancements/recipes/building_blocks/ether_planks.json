@@ -28,5 +28,6 @@
     "recipes": [
       "byg:ether_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -28,5 +28,6 @@
     "recipes": [
       "byg:nightshade_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

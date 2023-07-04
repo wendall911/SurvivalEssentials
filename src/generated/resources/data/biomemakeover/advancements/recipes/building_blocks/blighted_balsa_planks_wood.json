@@ -28,5 +28,6 @@
     "recipes": [
       "biomemakeover:blighted_balsa_planks_wood"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

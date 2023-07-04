@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:minecraft_acacia_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

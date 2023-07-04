@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:byg_lament_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

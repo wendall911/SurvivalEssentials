@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:allyoucaneat_hazel_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

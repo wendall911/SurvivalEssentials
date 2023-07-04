@@ -21,7 +21,7 @@ public class PlayerEventHandler {
         if ((player != null)
                 && !player.isCreative()
                 && !player.isSpectator()
-                && !player.level.isClientSide
+                && !player.level().isClientSide
                 && event.isWasDeath()) {
             ServerPlayer sp = (ServerPlayer) player;
 

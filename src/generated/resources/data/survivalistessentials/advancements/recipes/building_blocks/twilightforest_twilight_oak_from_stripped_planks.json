@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:twilightforest_twilight_oak_from_stripped_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

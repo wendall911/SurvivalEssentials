@@ -24,7 +24,7 @@ public class AttackEventHandler {
         if (event.getSource().getDirectEntity() instanceof Player player) {
             if (!player.isCreative()) {
                 final ItemStack handStack = player.getMainHandItem();
-                final Level level = player.getLevel();
+                final Level level = player.level();
                 boolean checkAllowed = event.getSource().getMsgId().contains("player");
                 boolean bypassArmor = event.getSource().is(DamageTypeTags.BYPASSES_ARMOR);
 

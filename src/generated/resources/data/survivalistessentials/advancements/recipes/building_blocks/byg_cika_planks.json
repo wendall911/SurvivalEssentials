@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:byg_cika_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

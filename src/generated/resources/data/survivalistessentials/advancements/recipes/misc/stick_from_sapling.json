@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:stick_from_sapling"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

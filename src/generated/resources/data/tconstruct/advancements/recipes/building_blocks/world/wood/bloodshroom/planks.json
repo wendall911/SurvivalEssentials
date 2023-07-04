@@ -28,5 +28,6 @@
     "recipes": [
       "tconstruct:world/wood/bloodshroom/planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

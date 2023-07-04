@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:tconstruct_bloodshroom_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

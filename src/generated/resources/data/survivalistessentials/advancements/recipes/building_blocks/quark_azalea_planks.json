@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:quark_azalea_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

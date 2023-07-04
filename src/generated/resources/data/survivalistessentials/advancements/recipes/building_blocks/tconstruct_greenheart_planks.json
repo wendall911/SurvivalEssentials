@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:tconstruct_greenheart_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

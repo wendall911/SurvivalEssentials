@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:biomemakeover_swamp_cypress_planks_stripped"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

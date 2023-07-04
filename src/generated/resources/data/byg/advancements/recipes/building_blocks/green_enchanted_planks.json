@@ -28,5 +28,6 @@
     "recipes": [
       "byg:green_enchanted_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:undergarden_smogstem_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -28,5 +28,6 @@
     "recipes": [
       "survivalistessentials:byg_baobab_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

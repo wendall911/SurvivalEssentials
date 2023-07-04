@@ -28,5 +28,6 @@
     "recipes": [
       "byg:maple_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -28,5 +28,6 @@
     "recipes": [
       "tconstruct:world/wood/skyroot/planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -136,17 +136,17 @@ dependencies {
 
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
-    runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_version}-${probe_version}") {
-        transitive = false
-    }
+    //runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_version}-${probe_version}") {
+    //    transitive = false
+    //}
 
-    //implementation fg.deobf("curse.maven:cyanide-541676:${cyanide_version}")
-    implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE")
+    implementation fg.deobf("curse.maven:cyanide-541676:${cyanide_version}")
+    implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE-SNAPSHOT")
     implementation fg.deobf("xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}")
 
-    compileOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")
+    //compileOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")
 
-    runtimeOnly fg.deobf("curse.maven:configured-457570:4462839")
+    //runtimeOnly fg.deobf("curse.maven:configured-457570:4462839")
 
     //runtimeOnly fg.deobf("curse.maven:crafttweaker-239197:3918220")
 
