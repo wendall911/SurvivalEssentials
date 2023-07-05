@@ -8,7 +8,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -21,7 +20,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegisterEvent;
 
 import survivalistessentials.common.CreativeTabs;
@@ -48,7 +46,6 @@ public class CommonProxy {
 
         ConfigHandler.init();
         Sounds.init(bus);
-        CreativeTabs.init(bus);
         registerListeners(bus);
     }
 
@@ -57,6 +54,7 @@ public class CommonProxy {
         bus.register(new SurvivalistEssentialsLootTables());
         bus.register(new SurvivalistEssentialsFeatures());
         bus.register(new SurvivalistEssentialsEffects());
+        bus.register(new CreativeTabs());
     }
 
     public static final class RegistryListener {

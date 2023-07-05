@@ -10,6 +10,6 @@ import survivalistessentials.SurvivalistEssentials;
 
 public class SurvivalistEssentialsBiomeModifiers {
 
-    public static final ResourceKey<BiomeModifier> LOOSE_ROCKS_MODIFIER = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(SurvivalistEssentials.MODID, "loose_rock"));;
+    public static final ResourceKey<BiomeModifier> LOOSE_ROCKS_MODIFIER_KEY = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(SurvivalistEssentials.MODID, "loose_rock"));;
 
 }

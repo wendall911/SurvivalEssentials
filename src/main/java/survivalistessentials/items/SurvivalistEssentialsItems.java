@@ -9,6 +9,7 @@ import net.minecraft.world.item.Tier;
 
 import net.minecraftforge.registries.RegisterEvent;
 
+import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.items.item.Bandage;
 import survivalistessentials.items.item.CrudeBandage;
 import survivalistessentials.items.item.Mortar;
@@ -97,6 +98,8 @@ public final class SurvivalistEssentialsItems {
         WOODEN_CUP = registerItem("wooden_cup", new WoodenCup(
             (new Item.Properties()).stacksTo(1)
         ), false, false);
+
+        CreativeTabs.init();
     }
 
     public static Item registerSawBlade(String name) {

@@ -1,7 +1,5 @@
 {
-    "itemGroup.survivalistessentials.items": "Survivalist Essentials Items",
-    "itemGroup.survivalistessentials.tools": "Survivalist Essentials Tools",
-    "itemGroup.survivalistessentials.world": "Survivalist Essentials World",
+    "survivalistessentials.items": "Survivalist Essentials Items",
     "item.survivalistessentials.plant_fiber": "植物纤维",
     "item.survivalistessentials.plant_string": "草绳",
     "item.survivalistessentials.flint_shard": "燧石碎片",

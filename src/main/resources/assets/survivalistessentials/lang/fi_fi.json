@@ -1,7 +1,5 @@
 {
-    "itemGroup.survivalistessentials.items": "Survivalist Essentials Items",
-    "itemGroup.survivalistessentials.tools": "Survivalist Essentials Tools",
-    "itemGroup.survivalistessentials.world": "Survivalist Essentials World",
+    "survivalistessentials.items": "Survivalist Essentials Items",
     "item.survivalistessentials.plant_fiber": "Kasvikuidut",
     "item.survivalistessentials.plant_string": "Kasvi lanka",
     "item.survivalistessentials.flint_shard": "Piikiven sirpale",

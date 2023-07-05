@@ -8,7 +8,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.RegistryObject;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.items.SurvivalistEssentialsItems;
@@ -18,8 +17,8 @@ public class CreativeTabs extends SurvivalistEssentialsModule {
 
     public static RegistryObject<CreativeModeTab> ALL_ITEMS_TAB;
 
-    public static void init(IEventBus bus) {
-        ALL_ITEMS_TAB = registerTab("items", SurvivalistEssentialsItems.FLINT_SHARD);
+    public static void init() {
+        ALL_ITEMS_TAB = registerTab("all_items_tab", SurvivalistEssentialsItems.FLINT_SHARD);
     }
 
     private static RegistryObject<CreativeModeTab> registerTab(String name, Item icon) {

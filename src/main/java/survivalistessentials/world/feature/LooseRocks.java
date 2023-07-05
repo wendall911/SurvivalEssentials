@@ -17,6 +17,7 @@ import net.minecraft.world.level.WorldGenLevel;
 
 import net.minecraftforge.common.util.Lazy;
 
+import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
@@ -42,6 +43,7 @@ public class LooseRocks extends Feature<NoneFeatureConfiguration> {
     @Override
     @ParametersAreNonnullByDefault
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+        SurvivalistEssentials.LOGGER.warn("place");
         final WorldGenLevel level = context.level();
         final BlockPos pos = context.origin();
 

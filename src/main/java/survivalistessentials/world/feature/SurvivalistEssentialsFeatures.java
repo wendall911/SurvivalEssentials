@@ -24,21 +24,23 @@ import survivalistessentials.common.SurvivalistEssentialsModule;
 
 public final class SurvivalistEssentialsFeatures extends SurvivalistEssentialsModule {
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LOOSE_ROCKS = FeatureUtils.createKey(SurvivalistEssentials.MODID + ":loose_rocks");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LOOSE_ROCKS_KEY = FeatureUtils.createKey(SurvivalistEssentials.MODID + ":loose_rocks");
     public static final Feature<NoneFeatureConfiguration> LOOSE_ROCKS_FEATURE = register("loose_rocks", new LooseRocks());
-    public static final ResourceKey<PlacedFeature> PLACED_LOOSE_ROCKS = PlacementUtils.createKey(SurvivalistEssentials.MODID + ":loose_rocks");
+    public static final ResourceKey<PlacedFeature> PLACED_LOOSE_ROCKS_KEY = PlacementUtils.createKey(SurvivalistEssentials.MODID + ":loose_rocks");
+
+    public SurvivalistEssentialsFeatures() {}
 
     public static void configuredBootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
-        register(context, SurvivalistEssentialsFeatures.LOOSE_ROCKS, SurvivalistEssentialsFeatures.LOOSE_ROCKS_FEATURE, NoneFeatureConfiguration.INSTANCE);
+        register(context, SurvivalistEssentialsFeatures.LOOSE_ROCKS_KEY, SurvivalistEssentialsFeatures.LOOSE_ROCKS_FEATURE, NoneFeatureConfiguration.INSTANCE);
     }
 
     public static void placementBootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
-        final Holder<ConfiguredFeature<?, ?>> LOOSE_ROCKS_HOLDER = configuredFeatureGetter.getOrThrow(SurvivalistEssentialsFeatures.LOOSE_ROCKS);
+        final Holder<ConfiguredFeature<?, ?>> LOOSE_ROCKS_HOLDER = configuredFeatureGetter.getOrThrow(SurvivalistEssentialsFeatures.LOOSE_ROCKS_KEY);
 
         register(
                 context,
-                SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS,
+                SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS_KEY,
                 LOOSE_ROCKS_HOLDER,
                 List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome())
         );

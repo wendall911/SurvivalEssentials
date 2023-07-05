@@ -36,9 +36,9 @@ public final class DataGenerators {
         .add(Registries.CONFIGURED_FEATURE, SurvivalistEssentialsFeatures::configuredBootstrap)
         .add(Registries.PLACED_FEATURE, SurvivalistEssentialsFeatures::placementBootstrap)
         .add(ForgeRegistries.Keys.BIOME_MODIFIERS, context -> {
-            context.register(SurvivalistEssentialsBiomeModifiers.LOOSE_ROCKS_MODIFIER, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+            context.register(SurvivalistEssentialsBiomeModifiers.LOOSE_ROCKS_MODIFIER_KEY, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 context.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS)),
+                HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION
             ));
         });
