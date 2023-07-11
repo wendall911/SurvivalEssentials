@@ -70,7 +70,7 @@ public class HarvestEventHandler {
         if (ModList.get().isLoaded("carryon")) {
             final ItemStack handStack = player.getMainHandItem();
             final ItemStack offhandStack = player.getOffhandItem();
-            
+
             if (handStack.isEmpty() && offhandStack.isEmpty()) {
                 CarryOnData carry = CarryOnDataManager.getCarryData(player);
                 if (carry.isKeyPressed()) {
