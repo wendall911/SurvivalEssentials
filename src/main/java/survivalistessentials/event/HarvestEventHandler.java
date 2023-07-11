@@ -27,6 +27,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.ModList;
 
+import tschipp.carryon.common.carry.CarryOnData;
+import tschipp.carryon.common.carry.CarryOnDataManager;
+
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -62,9 +65,11 @@ public class HarvestEventHandler {
             final ItemStack handStack = player.getMainHandItem();
             final ItemStack offhandStack = player.getOffhandItem();
 
-            if (handStack.isEmpty() && offhandStack.isEmpty()
-                    && tschipp.carryon.client.keybinds.CarryOnKeybinds.isKeyPressed(player)) {
-                alwaysBreakable = true;
+            if (handStack.isEmpty() && offhandStack.isEmpty()) {
+                CarryOnData carry = CarryOnDataManager.getCarryData(player);
+                if (carry.isKeyPressed()) {
+                    alwaysBreakable = true;
+                }
             }
         }
 
