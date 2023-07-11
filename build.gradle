@@ -33,6 +33,10 @@ repositories {
         name = "Blame Jared"
         url = "https://maven.blamejared.com"
     }
+	maven {
+		name = "C4's Maven"
+		url = "https://maven.theillusivec4.top/"
+	}
 }
 
 group = 'com.github.wendall911.survivalistessentials'
@@ -119,8 +123,10 @@ dependencies {
     //}
 
     implementation fg.deobf("curse.maven:cyanide-541676:${cyanide_version}")
-    implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE-SNAPSHOT")
+    implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE")
     implementation fg.deobf("xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}")
+
+	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${minecraft_version}")
 
     //compileOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")
 
@@ -147,7 +153,7 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:ayce-494854:???")
     //runtimeOnly fg.deobf("curse.maven:water_source-388078:???")
     //runtimeOnly fg.deobf("curse.maven:geckolib-388172:4019767")
-    //runtimeOnly fg.deobf("curse.maven:arsnouveau-401955:4023830")
+    //runtimeOnly fg.deobf("curse.maven:arsnouveau-401955:4631683")
     //runtimeOnly fg.deobf("curse.maven:undergarden-379849:???")
     //runtimeOnly fg.deobf("curse.maven:dynamictrees-252818:???")
     //runtimeOnly fg.deobf("curse.maven:ecologics-570463:3987881")

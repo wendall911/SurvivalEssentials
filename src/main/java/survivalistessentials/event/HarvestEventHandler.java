@@ -23,6 +23,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.TagsUpdatedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.ModList;
@@ -41,9 +42,14 @@ import survivalistessentials.util.ToolType;
 @Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class HarvestEventHandler {
 
-    public static final Map<Player, BlockPos> harvestAttempts = new HashMap<>();
+    private static final Map<Player, BlockPos> harvestAttempts = new HashMap<>();
     private static Block spellHitBlock = null;
     private static int breakBlockStep = 0;
+
+    @SubscribeEvent
+    public static void tagUpdate(TagsUpdatedEvent event) {
+        HarvestBlock.setup();
+    }
 
     @SubscribeEvent
     public static void breakBlock(BlockEvent.BreakEvent event) {
@@ -74,9 +80,17 @@ public class HarvestEventHandler {
             if (expectedToolType != ToolType.NONE) {
                 final ItemStack handStack = getHandStack(player, state);
                 boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
-                boolean isAllowedItem = ItemUse.isAllowedTool(handStack);
+                boolean isAllowedTool = ItemUse.isAllowedTool(handStack);
 
-                if (!handStack.is(Items.AIR) && isAllowedItem && !correctTool) {
+                if (!isAllowedTool) {
+                    cancel = true;
+
+                    if (!player.level().isClientSide && ConfigHandler.Client.enableFailSound()) {
+                        level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL.get(), SoundSource.PLAYERS, 0.6F, 1.0F);
+                    }
+                }
+
+                if (!handStack.is(Items.AIR) && isAllowedTool && !correctTool) {
                     cancel = true;
 
                     if (harvestAttempts.containsKey(player)
@@ -175,10 +189,10 @@ public class HarvestEventHandler {
             ItemStack handStack = getHandStack(player, state);
             boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE);
-            boolean isAllowedItem = ItemUse.isAllowedTool(handStack);
+            boolean isAllowedTool = ItemUse.isAllowedTool(handStack);
 
             if (!alwaysBreakable) {
-                if (!isAllowedItem) {
+                if (!isAllowedTool) {
                     slowdown = ConfigHandler.Common.slowDownSpeed() / 2;
                 }
                 else if (!correctTool) {
@@ -189,7 +203,7 @@ public class HarvestEventHandler {
                 if (!correctTool) {
                     slowdown = ConfigHandler.Common.slowDownSpeed();
                 }
-                else if (!isAllowedItem) {
+                else if (!isAllowedTool) {
                     slowdown = ConfigHandler.Common.slowDownSpeed() / 2;
                 }
             }

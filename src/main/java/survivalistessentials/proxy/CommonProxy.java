@@ -114,8 +114,6 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void serverStart(ServerStartedEvent event) {
-        HarvestBlock.setup();
-
         if (ConfigHandler.Common.logModpackData()) {
             ForgeRegistries.BLOCKS.getValues().forEach((block) -> {
                 if (block.defaultBlockState().is(Tags.Blocks.NEEDS_WOOD_TOOL)) {
