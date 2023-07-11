@@ -28,6 +28,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.ModList;
 
+import tschipp.carryon.common.carry.CarryOnData;
+import tschipp.carryon.common.carry.CarryOnDataManager;
+
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -64,17 +67,17 @@ public class HarvestEventHandler {
 
         if (player == null) return;
 
-        /* TODO add Carry On support back in when released for 1.20.x
         if (ModList.get().isLoaded("carryon")) {
             final ItemStack handStack = player.getMainHandItem();
             final ItemStack offhandStack = player.getOffhandItem();
-
-            if (handStack.isEmpty() && offhandStack.isEmpty()
-                    && tschipp.carryon.client.keybinds.CarryOnKeybinds.carryKey.isDown()) {
-                alwaysBreakable = true;
+            
+            if (handStack.isEmpty() && offhandStack.isEmpty()) {
+                CarryOnData carry = CarryOnDataManager.getCarryData(player);
+                if (carry.isKeyPressed()) {
+                    alwaysBreakable = true;
+                }
             }
         }
-        */
 
         if (!alwaysBreakable && !player.isCreative()) {
             if (expectedToolType != ToolType.NONE) {
