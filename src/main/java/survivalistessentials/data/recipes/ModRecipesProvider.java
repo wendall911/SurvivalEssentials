@@ -317,7 +317,6 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
 
         //Biomes O' Plenty
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.BOP_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_CHERRY_PLANKS, TagManager.Items.BOP_CHERRY_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BOP_DEAD_PLANKS, TagManager.Items.BOP_DEAD_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BOP_FIR_PLANKS, TagManager.Items.BOP_FIR_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BOP_HELLBARK_PLANKS, TagManager.Items.BOP_HELLBARK_LOGS, "has_logs");

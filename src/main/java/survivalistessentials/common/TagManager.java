@@ -56,7 +56,6 @@ public final class TagManager {
         public static final TagKey<Item> BMO_STRIPPED_WILLOW_WOOD = create("stripped_willow_wood");
 
         // Biomes O' Plenty
-        public static final TagKey<Item> BOP_CHERRY_LOGS = create("bop_cherry_logs");
         public static final TagKey<Item> BOP_DEAD_LOGS = create("dead_logs");
         public static final TagKey<Item> BOP_FIR_LOGS = create("fir_logs");
         public static final TagKey<Item> BOP_HELLBARK_LOGS = create("hellbark_logs");

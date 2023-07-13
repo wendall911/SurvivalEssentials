@@ -36,7 +36,6 @@ public final class ModIntegration {
     public static Item BMO_BLIGHTED_BALSA_PLANKS;
     public static Item BMO_SWAMP_CYPRESS_PLANKS;
     public static Item BMO_WILLOW_PLANKS;
-    public static Item BOP_CHERRY_PLANKS;
     public static Item BOP_DEAD_PLANKS;
     public static Item BOP_FIR_PLANKS;
     public static Item BOP_HELLBARK_PLANKS;
@@ -169,7 +168,6 @@ public final class ModIntegration {
             BMO_BLIGHTED_BALSA_PLANKS = registerItem(bmoLoc("blighted_balsa_planks"));
             BMO_SWAMP_CYPRESS_PLANKS = registerItem(bmoLoc("swamp_cypress_planks"));
             BMO_WILLOW_PLANKS = registerItem(bmoLoc("willow_planks"));
-            BOP_CHERRY_PLANKS = registerItem(bopLoc("cherry_planks"));
             BOP_DEAD_PLANKS = registerItem(bopLoc("dead_planks"));
             BOP_FIR_PLANKS = registerItem(bopLoc("fir_planks"));
             BOP_HELLBARK_PLANKS = registerItem(bopLoc("hellbark_planks"));

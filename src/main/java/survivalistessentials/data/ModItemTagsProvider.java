@@ -155,7 +155,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addOptional(ModIntegration.BMO_STRIPPED_WILLOW_WOOD);
 
         // Biomes O' Plenty
-        addLogVariants(TagManager.Items.BOP_CHERRY_LOGS, "cherry", ModIntegration::bopLoc);
         addLogVariants(TagManager.Items.BOP_DEAD_LOGS, "dead", ModIntegration::bopLoc);
         addLogVariants(TagManager.Items.BOP_FIR_LOGS, "fir", ModIntegration::bopLoc);
         addLogVariants(TagManager.Items.BOP_HELLBARK_LOGS, "hellbark", ModIntegration::bopLoc);
