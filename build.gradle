@@ -118,9 +118,9 @@ dependencies {
 
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
-    //runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_version}-${probe_version}") {
-    //    transitive = false
-    //}
+    runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_version}-${probe_version}") {
+        transitive = false
+    }
 
     implementation fg.deobf("curse.maven:cyanide-541676:${cyanide_version}")
     implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE")
@@ -135,9 +135,9 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:crafttweaker-239197:3918220")
 
     //Include some examples here for testing other mods
-    runtimeOnly fg.deobf("curse.maven:terrablender-563928:${terrablender_version}")
+    //runtimeOnly fg.deobf("curse.maven:terrablender-563928:${terrablender_version}")
     //runtimeOnly fg.deobf("curse.maven:byg-247560:${byg_version}")
-    runtimeOnly fg.deobf("curse.maven:bop-220318:${bop_version}")
+    //runtimeOnly fg.deobf("curse.maven:bop-220318:${bop_version}")
     //runtimeOnly fg.deobf("curse.maven:kiwi-303657:3974084")
     //runtimeOnly fg.deobf("curse.maven:fruittrees-355467:3990227")
     //runtimeOnly fg.deobf("curse.maven:biomemakeover-567709:3942516")
