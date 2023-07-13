@@ -290,6 +290,8 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         plankRecipeBuilder(consumer, Blocks.SPRUCE_PLANKS, ItemTags.SPRUCE_LOGS, "has_logs");
         plankRecipeBuilder(consumer, Blocks.WARPED_PLANKS, ItemTags.WARPED_STEMS, "has_logs");
         plankRecipeBuilder(consumer, Blocks.CRIMSON_PLANKS, ItemTags.CRIMSON_STEMS, "has_logs");
+        plankRecipeBuilder(consumer, Blocks.MANGROVE_PLANKS, ItemTags.MANGROVE_LOGS, "has_logs");
+        plankRecipeBuilder(consumer, Blocks.CHERRY_PLANKS, ItemTags.CHERRY_LOGS, "has_logs");
 
         // Fruit Trees
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.FT_MODID));
