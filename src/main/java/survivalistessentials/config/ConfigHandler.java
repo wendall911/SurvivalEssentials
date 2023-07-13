@@ -69,6 +69,7 @@ public final class ConfigHandler {
         private IntValue SATURATION;
         private BooleanValue ENABLE_HEALTH_PENALTY;
         private DoubleValue HEALTH;
+        private DoubleValue STARTING_HEALTH_PENALTY;
         private IntValue GENERIC_DAMAGE;
         private BooleanValue INVERT_LIST_TO_WHITELIST;
 
@@ -158,6 +159,9 @@ public final class ConfigHandler {
             HEALTH = builder
                 .comment("Health value after death in half hearts.")
                 .defineInRange("HEALTH", 6.0, 0.5, 100.0);
+            STARTING_HEALTH_PENALTY = builder
+                    .comment("Health penalty in half hearts player starts with. Reduces total starting health by this amount.")
+                    .defineInRange("STARTING_HEALTH_PENALTY", 0.0, 0.0, 19.0);
             GENERIC_DAMAGE = builder
                 .comment("The amount of generic damage in half hearts a disabled tool, or bare hand should do. Default 0")
                 .defineInRange("GENERIC_DAMAGE", 0, 0, 4);
@@ -241,6 +245,13 @@ public final class ConfigHandler {
 
         public static float health() {
             double health = CONFIG.HEALTH.get();
+
+            return (float) health;
+        }
+
+        public static float startingHealthPenalty() {
+            double health = CONFIG.STARTING_HEALTH_PENALTY.get();
+            health *= -1;
 
             return (float) health;
         }
