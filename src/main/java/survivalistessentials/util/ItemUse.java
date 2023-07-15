@@ -16,8 +16,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import net.minecraftforge.fml.ModList;
-
 import net.minecraftforge.registries.ForgeRegistries;
+
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -109,6 +109,22 @@ public class ItemUse {
     public static String getToolClass(ItemStack stack) {
         String itemName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).toString();
         String type = toolsMap.get(itemName);
+
+        if (ToolType.PICKAXE.is(stack.getItem())) {
+            type = "pickaxe";
+        }
+        else if (ToolType.AXE.is(stack.getItem())) {
+            type = "axe";
+        }
+        else if (ToolType.SHOVEL.is(stack.getItem())) {
+            type = "shovel";
+        }
+        else if (ToolType.HOE.is(stack.getItem())) {
+            type = "hoe";
+        }
+        else if (ToolType.SHARP.is(stack.getItem())) {
+            type = "sharp";
+        }
 
         if (type == null) {
             String[] nameParts = itemName.split("[^a-z]+");
