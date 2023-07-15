@@ -292,6 +292,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         plankRecipeBuilder(consumer, Blocks.CRIMSON_PLANKS, ItemTags.CRIMSON_STEMS, "has_logs");
         plankRecipeBuilder(consumer, Blocks.MANGROVE_PLANKS, ItemTags.MANGROVE_LOGS, "has_logs");
         plankRecipeBuilder(consumer, Blocks.CHERRY_PLANKS, ItemTags.CHERRY_LOGS, "has_logs");
+        bambooRecipeBuilder(consumer, Blocks.BAMBOO_PLANKS, ItemTags.BAMBOO_BLOCKS, "has_bamboo_block");
 
         // Fruit Trees
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.FT_MODID));
@@ -526,6 +527,26 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, output, 4)
                 .requires(input)
+                .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
+                .group("planks")
+                .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
+                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, modid + "_" + name));
+    }
+
+    private static void bambooRecipeBuilder(Consumer<FinishedRecipe> consumer, ItemLike item, TagKey<Item> itemTag, String label) {
+        ShapelessRecipeBuilder plankOverrideRecipe = ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, item, 1)
+                .requires(itemTag)
+                .requires(SurvivalistEssentialsItems.CRUDE_SAW)
+                .group("planks")
+                .unlockedBy(label, has(itemTag));
+
+        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).getPath();
+        String modid = ItemUse.getModId(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).toString());
+
+        plankOverrideRecipe.save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, item, 2)
+                .requires(itemTag)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
