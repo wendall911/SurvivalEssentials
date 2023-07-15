@@ -9,7 +9,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -84,16 +83,9 @@ public class HarvestEventHandler {
                 final ItemStack handStack = getHandStack(player, state);
                 boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
                 boolean isAllowedTool = ItemUse.isAllowedTool(handStack);
+                String toolClass = ItemUse.getToolClass(handStack);
 
-                if (!isAllowedTool) {
-                    cancel = true;
-
-                    if (!player.level().isClientSide && ConfigHandler.Client.enableFailSound()) {
-                        level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL.get(), SoundSource.PLAYERS, 0.6F, 1.0F);
-                    }
-                }
-
-                if (!handStack.is(Items.AIR) && isAllowedTool && !correctTool) {
+                if (toolClass.equals("unknown") || (isAllowedTool && !correctTool)) {
                     cancel = true;
 
                     if (harvestAttempts.containsKey(player)
@@ -110,7 +102,7 @@ public class HarvestEventHandler {
                         player.hurt(player.damageSources().generic(), 0.1f);
                     }
 
-                    if (!player.level().isClientSide && ConfigHandler.Client.enableFailSound()) {
+                    if (!toolClass.equals("unknown") && !player.level().isClientSide && ConfigHandler.Client.enableFailSound()) {
                         level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL.get(), SoundSource.PLAYERS, 0.6F, 1.0F);
                     }
                 }
@@ -222,7 +214,7 @@ public class HarvestEventHandler {
 
         if (ModList.get().isLoaded(ModIntegration.AN_MODID)) {
             if (spellHitBlock != null && spellHitBlock.equals(blockState.getBlock())) {
-                if (ItemUse.getToolClass(stack) != "spell") {
+                if (!ItemUse.getToolClass(stack).equals("spell")) {
                     stack = player.getOffhandItem();
                 }
             }

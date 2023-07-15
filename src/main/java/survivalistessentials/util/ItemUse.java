@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.ModList;
 
 import net.minecraftforge.registries.ForgeRegistries;
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -50,7 +49,8 @@ public class ItemUse {
             "revolver",
             "saw",
             "crook",
-            "spell"
+            "spell",
+            "knife"
         )
     );
     
@@ -154,6 +154,13 @@ public class ItemUse {
                     || toolClass.equals("crook")
                     || toolClass.equals("spell")
                     || ToolType.HOE.is(handStack.getItem());
+            case "sharp" -> isCorrectToolType = toolClass.equals(type)
+                    || toolClass.equals("knife")
+                    || toolClass.equals("mattock")
+                    || toolClass.equals("building")
+                    || toolClass.equals("spell")
+                    || toolClass.equals("axe")
+                    || ToolType.SHARP.is(handStack.getItem());
         }
 
         return isCorrectToolType;
@@ -189,6 +196,9 @@ public class ItemUse {
             return true;
         }
         else if (state.is(BlockTags.MINEABLE_WITH_HOE) && isCorrectToolType("hoe", handStack)) {
+            return true;
+        }
+        else if (state.is(TagManager.Blocks.MINEABLE_WITH_SHARP) && isCorrectToolType("sharp", handStack)) {
             return true;
         }
 
