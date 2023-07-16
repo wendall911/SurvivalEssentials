@@ -144,7 +144,8 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.BASIC_KNIFE)
                 .define('I', Items.IRON_INGOT)
                 .define('S', Items.STICK)
-                .pattern("I ")
+                .define('X', Tags.Items.STRING)
+                .pattern("IX")
                 .pattern(" S")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                 .save(consumer);
@@ -152,7 +153,8 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.SHARP_KNIFE)
                 .define('D', Items.DIAMOND)
                 .define('S', Items.STICK)
-                .pattern("D ")
+                .define('X', Tags.Items.STRING)
+                .pattern("DX")
                 .pattern(" S")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
                 .save(consumer);
