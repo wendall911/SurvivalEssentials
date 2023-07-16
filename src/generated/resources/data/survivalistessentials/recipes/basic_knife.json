@@ -7,10 +7,13 @@
     },
     "S": {
       "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "forge:string"
     }
   },
   "pattern": [
-    "I ",
+    "IX",
     " S"
   ],
   "result": {
