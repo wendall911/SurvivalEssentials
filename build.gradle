@@ -6,6 +6,7 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
     id 'net.darkhax.curseforgegradle' version '1.+'
     id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
+    id 'com.modrinth.minotaur' version '2.+'
 }
 
 repositories {
@@ -170,11 +171,16 @@ jar {
     }
 }
 
+mixin {
+    add sourceSets.main, "${modid}.refmap.json"
+}
+
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta', '*.mixins.json']
 def replaceProperties = [ 'version': version,
-    'minecraft_version_range': minecraft_version_range,
-    'forge_version_range': forge_version_range,
-    "loader_version_range": loader_version_range
+    'issue_tracker': issue_tracker, 'license': license, 'modid': modid, 'display_name': display_name,
+    'description': description, 'display_url': display_url, 'update_url': update_url, 'authors': authors,
+    'credits': credits, 'logo_file': logo_file, 'minecraft_version_range': minecraft_version_range,
+    'forge_version_range': forge_version_range, "loader_version_range": loader_version_range
 ]
 
 processResources {
@@ -189,25 +195,6 @@ processResources {
 
 jar.finalizedBy('reobfJar', 'signJar')
 
-def reobfFile = file("$buildDir/reobfJar/output.jar")
-def reobfArtifact = artifacts.add('default', reobfFile) {
-    type 'jar'
-    builtBy 'reobfJar'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact reobfArtifact
-        }
-    }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
-
 def updates = tasks.register("generateUpdates", Copy) {
     it.outputs.upToDateWhen {
         false
@@ -215,14 +202,16 @@ def updates = tasks.register("generateUpdates", Copy) {
 
     it.from("./files/templates/") {
         include 'updates.json'
-        expand 'version': version
+        expand 'version': version, 'minecraft_version': minecraft_version
     }
 
     it.into 'files/'
 }
 
+def changelogFile = 'build/libs/' + project.getName() + '-' + version + '-changelog.txt'
+
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
-    file = new File('build/libs/' + project.getName() + '-' + version + '-changelog.txt');
+    file = new File(changelogFile);
     templateContent = file('files/templates/changelog.mustache').getText('UTF-8');
     fromRepo = file("$projectDir");
     toRef = "HEAD";
@@ -254,11 +243,11 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
     if (project.hasProperty('securseApiKey')) {
         apiToken = project.securseApiKey
         def mainFile = upload(project.securseId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
-        mainFile.changelog = file('build/libs/' + project.getName() + '-' + version + '-changelog.txt')
+        mainFile.changelog = file(changelogFile)
         mainFile.addJavaVersion('Java 17')
         mainFile.addModLoader('Forge')
-        mainFile.releaseType = "${cf_release_type}"
-        "${cf_versions}".split(',').each {
+        mainFile.releaseType = "${release_type}"
+        "${release_versions}".split(',').each {
             mainFile.addGameVersion("${it}")
         }
         mainFile.addOptional('configured')
@@ -284,3 +273,28 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
 }
 
 tasks.curseforge.dependsOn build
+
+modrinth {
+    if (project.hasProperty('seModrinthId')) {
+        token = project.modrinthKey
+        projectId = project.seModrinthId
+        version = getVersion()
+        versionType = "${release_type}"
+        if (file(changelogFile).exists()) {
+            changelog = file(changelogFile).text
+        }
+        uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
+        gameVersions = "${release_versions}".split(",") as List<String>
+        dependencies {
+            optional.project 'quark'
+            optional.project 'allyoucaneat'
+            optional.project 'botania'
+            optional.project 'ex-nihilo-sequentia'
+            optional.project 'dynamictrees'
+            optional.project 'biomesyougo'
+            optional.project 'ecologics'
+        }
+    }
+}
+
+tasks.modrinth.dependsOn build
