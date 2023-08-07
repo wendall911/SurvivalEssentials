@@ -111,3 +111,9 @@ license="${license}"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
+[[dependencies.survivalistessentials]]
+    modId="malum"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
