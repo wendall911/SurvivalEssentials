@@ -91,6 +91,10 @@ public final class ModIntegration {
     public static Item BYG_WILLOW_PLANKS;
     public static Item BYG_WITCH_HAZEL_PLANKS;
     public static Item BYG_ZELKOVA_PLANKS;
+    public static Item BYG_BULBIS_PLANKS;
+    public static Item BYG_IMPARIUS_PLANKS;
+    public static Item BYG_SYTHIAN_PLANKS;
+    public static Item BYG_EMBUR_PLANKS;
     public static Item TF_CANOPY_PLANKS;
     public static Item TF_CANOPY_LOG;
     public static Item TF_CANOPY_STRIPPED_LOG;
@@ -203,6 +207,10 @@ public final class ModIntegration {
             BYG_WILLOW_PLANKS = registerItem(bygLoc("willow_planks"));
             BYG_WITCH_HAZEL_PLANKS = registerItem(bygLoc("witch_hazel_planks"));
             BYG_ZELKOVA_PLANKS = registerItem(bygLoc("zelkova_planks"));
+            BYG_BULBIS_PLANKS = registerItem(bygLoc("bulbis_planks"));
+            BYG_IMPARIUS_PLANKS = registerItem(bygLoc("imparius_planks"));
+            BYG_SYTHIAN_PLANKS = registerItem(bygLoc("sythian_planks"));
+            BYG_EMBUR_PLANKS = registerItem(bygLoc("embur_planks"));
             TF_CANOPY_PLANKS = registerItem(tfLoc("canopy_planks"));
             TF_CANOPY_LOG = registerItem(tfLoc("canopy_log"));
             TF_CANOPY_STRIPPED_LOG = registerItem(tfLoc("stripped_canopy_log"));
