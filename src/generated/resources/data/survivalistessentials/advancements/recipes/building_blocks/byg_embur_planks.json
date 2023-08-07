@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "survivalistessentials:byg_embur_planks"
+    ]
+  },
+  "criteria": {
+    "has_pedu": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "survivalistessentials:advanced_saw_tools"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "survivalistessentials:byg_embur_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pedu",
+      "has_the_recipe"
+    ]
+  ]
+}

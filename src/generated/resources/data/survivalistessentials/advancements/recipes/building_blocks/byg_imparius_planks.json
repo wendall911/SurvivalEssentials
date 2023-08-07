@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "survivalistessentials:byg_imparius_planks"
+    ]
+  },
+  "criteria": {
+    "has_stems": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "survivalistessentials:advanced_saw_tools"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "survivalistessentials:byg_imparius_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stems",
+      "has_the_recipe"
+    ]
+  ]
+}
