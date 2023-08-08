@@ -29,6 +29,7 @@ public final class ModIntegration {
     public static final String ALEX_MODID = "alexsmobs";
     public static final String PATCHOULI_MODID = "patchouli";
     public static final String MALUM_MODID = "malum";
+    public static final String IFD_MODID = "iceandfire";
 
     public static Item AQUA_DRIFTWOOD;
     public static Item CHERRY_PLANKS;
@@ -104,6 +105,7 @@ public final class ModIntegration {
     public static Item TF_TWILIGHT_OAK_PLANKS;
     public static Item MALUM_RUNEWOOD_PLANKS;
     public static Item MALUM_SOULWOOD_PLANKS;
+    public static Item IFD_DREADWOOD_PLANKS;
 
     // TF Messed up log/wood crap
     public static ResourceLocation TF_CANOPY_LOG;
@@ -295,6 +297,7 @@ public final class ModIntegration {
             BMO_STRIPPED_WILLOW_WOOD = bmoLoc("stripped_willow_wood");
             MALUM_RUNEWOOD_PLANKS = registerItem(malumLoc("runewood_planks"));
             MALUM_SOULWOOD_PLANKS = registerItem(malumLoc("soulwood_planks"));
+            IFD_DREADWOOD_PLANKS = registerItem(ifdLoc("dreadwood_planks"));
         }
     }
 
@@ -388,6 +391,10 @@ public final class ModIntegration {
 
     public static ResourceLocation malumLoc(String name) {
         return getLoc(MALUM_MODID, name);
+    }
+
+    public static ResourceLocation ifdLoc(String name) {
+        return getLoc(IFD_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {
