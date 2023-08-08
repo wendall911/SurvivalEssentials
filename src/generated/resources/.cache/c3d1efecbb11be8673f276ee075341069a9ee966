@@ -1,4 +1,4 @@
-// 1.19.2	2023-08-07T17:25:04.702321415	SurvivalistEssentials - Item Tags
+// 1.19.2	2023-08-07T17:30:22.223134073	SurvivalistEssentials - Item Tags
 762fe73354685b50f7aaba9ffb98f5accf008208 data/survivalistessentials/tags/items/advanced_knife_tools.json
 9c7b91bfe885e957a075e5fb34fa4929277bbdc9 data/survivalistessentials/tags/items/advanced_saw_tools.json
 64667dc2f6cfe646da2832101e1ca1c3a20e4755 data/survivalistessentials/tags/items/ancient_oak_log.json
@@ -30,6 +30,7 @@ ac8a8f8091b6d54a238d52dd678231eb4378c217 data/survivalistessentials/tags/items/c
 8a5853916219f6a8ec0b2656d4967a9a1bc0a666 data/survivalistessentials/tags/items/dark_stripped_wood.json
 14cccb435034e7b85204fd851b4a878a7c8c3388 data/survivalistessentials/tags/items/dark_wood.json
 e7ec139e67e3376d0c4eb52b4c480f1260da48b3 data/survivalistessentials/tags/items/dead_logs.json
+156f757044231c02e05874b735f746fa677c97fe data/survivalistessentials/tags/items/dreadwood_logs.json
 35440285dceed4db66c5d46584c83ba544b649a4 data/survivalistessentials/tags/items/dreamwood_logs.json
 16fce41ad033c42024e2b5f626cefa583ab1d28c data/survivalistessentials/tags/items/ebony_logs.json
 833eb0dc16ddd59cadeeccc7a6a94e0cac4875ed data/survivalistessentials/tags/items/embur_logs.json
