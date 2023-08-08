@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalistessentials:dreadwood_logs"
+    },
+    {
+      "item": "survivalistessentials:crude_saw"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "iceandfire:dreadwood_planks"
+  }
+}
