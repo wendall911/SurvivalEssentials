@@ -117,3 +117,9 @@ license="${license}"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
+[[dependencies.survivalistessentials]]
+    modId="iceandfire"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"

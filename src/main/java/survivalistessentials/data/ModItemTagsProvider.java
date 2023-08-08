@@ -207,6 +207,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         // Malum
         addSoulwoodVariants(TagManager.Items.MALUM_RUNEWOOD_LOGS, "runewood");
         addRunewoodVariants(TagManager.Items.MALUM_SOULWOOD_LOGS, "soulwood");
+
+        // Ice and Fire; Dragons
+        getBuilder(TagManager.Items.IFD_DREADWOOD_LOGS)
+            .addOptional(ModIntegration.ifdLoc("dreadwood_log"));
+
     }
 
     private void addWsLogVariants(TagKey<Item> tag, String type) {
