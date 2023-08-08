@@ -1,4 +1,4 @@
-// 1.19.2	2022-09-22T13:58:34.17245723	SurvivalistEssentials - Item Tags
+// 1.19.2	2023-08-07T17:25:04.702321415	SurvivalistEssentials - Item Tags
 762fe73354685b50f7aaba9ffb98f5accf008208 data/survivalistessentials/tags/items/advanced_knife_tools.json
 9c7b91bfe885e957a075e5fb34fa4929277bbdc9 data/survivalistessentials/tags/items/advanced_saw_tools.json
 64667dc2f6cfe646da2832101e1ca1c3a20e4755 data/survivalistessentials/tags/items/ancient_oak_log.json
@@ -69,6 +69,7 @@ b32a60ee21c57b571235c7c19740f53c2f168ed1 data/survivalistessentials/tags/items/p
 534aca249d850d87c2d668062e8c518abedaa348 data/survivalistessentials/tags/items/rainbow_eucalyptus_logs.json
 f106b8b7017d234e1558d214379a346442604dfd data/survivalistessentials/tags/items/redwood_logs.json
 d9d2ebf3105cd36e67cd3efb4beb5c37ff0d3b42 data/survivalistessentials/tags/items/rock.json
+7c33a0b60b3a1ae0a83e692380f2fd2d4d08fef2 data/survivalistessentials/tags/items/runewood_logs.json
 e0f6538bd47b5b5e76113013d1eae62930aa0de5 data/survivalistessentials/tags/items/saw_parts.json
 a7b2a3baf095c9bbe3de0c9c71f79702228d8eae data/survivalistessentials/tags/items/saw_tools.json
 7f3af85bdffcaba5277b01e0df1b394fda5b1601 data/survivalistessentials/tags/items/sharp_tools.json
@@ -81,6 +82,7 @@ a7b2a3baf095c9bbe3de0c9c71f79702228d8eae data/survivalistessentials/tags/items/s
 0874457d3ae4e484361f4ec0f28945e7f9768fb8 data/survivalistessentials/tags/items/sorting_stripped_log.json
 b3f10230c6ff1c640671329aa3dbc397b2134c80 data/survivalistessentials/tags/items/sorting_stripped_wood.json
 77f5910f8e96f36a1388b9fb1206b4cf83bb3fe8 data/survivalistessentials/tags/items/sorting_wood.json
+e29f56babef3c3452c2e66b84f600b7911c0decb data/survivalistessentials/tags/items/soulwood_logs.json
 37ff9c11874f8c5b3247ee2cac67fe8ffadd81d7 data/survivalistessentials/tags/items/stripped_ancient_oak_log.json
 fa9fde7440ef873e2b5f3c4ebe18bb7f38c74619 data/survivalistessentials/tags/items/stripped_ancient_oak_wood.json
 492ef25ae2d79eb3782d28fd4fbb94efe33bf515 data/survivalistessentials/tags/items/stripped_blighted_balsa_log.json
