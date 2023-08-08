@@ -484,6 +484,11 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .group("sticks")
                 .unlockedBy("has_planks", has(ItemTags.PLANKS))
                 .save(consumer);
+
+        // Malum
+        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.MALUM_MODID));
+        plankRecipeBuilder(wrapped, ModIntegration.MALUM_RUNEWOOD_PLANKS, TagManager.Items.MALUM_RUNEWOOD_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, ModIntegration.MALUM_SOULWOOD_PLANKS, TagManager.Items.MALUM_SOULWOOD_LOGS, "has_logs");
     }
 
     private static void plankRecipeBuilder(Consumer<FinishedRecipe> consumer, ItemLike item, TagKey<Item> itemTag, String label) {
@@ -501,6 +506,9 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         }
         else if (modid.contains(ModIntegration.QUARK_MODID)) {
             plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.QUARK_MODID, "world/crafting/woodsets/" + name.split("_")[0] + "/planks"));
+        }
+        else if (modid.contains(ModIntegration.MALUM_MODID)) {
+            plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.MALUM_MODID, name));
         }
         else {
             plankOverrideRecipe.save(consumer);
