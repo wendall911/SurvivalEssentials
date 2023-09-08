@@ -1,7 +1,7 @@
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'net.neoforged.gradle' version '[6.0.13,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+'
     id 'net.darkhax.curseforgegradle' version '1.+'
@@ -113,7 +113,7 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    minecraft "net.neoforged:forge:${minecraft_version}-${forge_version}"
 
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
@@ -260,6 +260,7 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
         def mainFile = upload(project.securseId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
         mainFile.changelog = file(changelogFile)
         mainFile.addJavaVersion('Java 17')
+        mainFile.addModLoader('NeoForge')
         mainFile.addModLoader('Forge')
         mainFile.releaseType = "${release_type}"
         "${release_versions}".split(',').each {
@@ -302,6 +303,7 @@ modrinth {
         }
         uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
         gameVersions = "${release_versions}".split(",") as List<String>
+        loaders = ['neoforge', 'forge']
         dependencies {
             optional.project 'quark'
             optional.project 'allyoucaneat'
