@@ -236,7 +236,7 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
         mainFile.addOptional('sushigocrafting')
         mainFile.addOptional('botania')
         mainFile.addOptional('ars-nouveau')
-        mainFile.addOptional('ex-nihilo-sequentia')
+        mainFile.addOptional('exnihilosequentia')
         mainFile.addOptional('the-undergarden')
         mainFile.addOptional('dynamictrees')
         mainFile.addOptional('oh-the-biomes-youll-go')
