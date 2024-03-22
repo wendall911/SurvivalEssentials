@@ -3,6 +3,7 @@ package survivalistessentials.event;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -29,7 +30,7 @@ public class AttackEventHandler {
                     checkAllowed = false;
                 }
 
-                if (checkAllowed && !ItemUse.isAllowedTool(handStack)) {
+                if (checkAllowed && (handStack.is(Items.AIR) || !ItemUse.isAllowedTool(handStack))) {
                     if (!level.isClientSide && ConfigHandler.Client.enableFailSound() && ConfigHandler.Common.genericDamage() == 0.0F) {
                         level.playSound(null, player.getOnPos(), Sounds.SWORD_FAIL.get(), SoundSource.BLOCKS, 0.4F, 1.0F);
                     }
