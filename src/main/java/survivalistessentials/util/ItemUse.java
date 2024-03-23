@@ -50,7 +50,8 @@ public class ItemUse {
             "revolver",
             "saw",
             "crook",
-            "spell"
+            "spell",
+            "cad"
         )
     );
     
@@ -139,11 +140,13 @@ public class ItemUse {
                     || toolClass.equals("building")
                     || toolClass.equals("hammer")
                     || toolClass.equals("spell")
+                    || toolClass.equals("cad")
                     || ToolType.PICKAXE.is(handStack.getItem());
             case "axe" -> isCorrectToolType = toolClass.equals(type)
                     || toolClass.equals("mattock")
                     || toolClass.equals("building")
                     || toolClass.equals("spell")
+                    || toolClass.equals("cad")
                     || ToolType.AXE.is(handStack.getItem());
             case "shovel" -> isCorrectToolType = toolClass.equals(type)
                     || toolClass.equals("mattock")
@@ -151,12 +154,14 @@ public class ItemUse {
                     || toolClass.equals("pickadze")
                     || toolClass.equals("building")
                     || toolClass.equals("spell")
+                    || toolClass.equals("cad")
                     || ToolType.SHOVEL.is(handStack.getItem());
             case "hoe" -> isCorrectToolType = toolClass.equals(type)
                     || toolClass.equals("mattock")
                     || toolClass.equals("building")
                     || toolClass.equals("crook")
                     || toolClass.equals("spell")
+                    || toolClass.equals("cad")
                     || ToolType.HOE.is(handStack.getItem());
         }
 
@@ -200,6 +205,10 @@ public class ItemUse {
 
         // No expected tool type, so we have to return true because we don't know otherwise
         if (expectedToolType == ToolType.NONE) {
+            return true;
+        }
+
+        if (isCorrectToolType(expectedToolType.toString().toLowerCase(), handStack)) {
             return true;
         }
 
