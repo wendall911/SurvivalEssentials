@@ -35,6 +35,7 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addTag(TagManager.Blocks.LOOSE_ROCKS)
             .addTag(BlockTags.BEDS)
             .add(Blocks.GRAVEL)
+            .add(Blocks.BAMBOO)
             .addTag(Tags.Blocks.GRAVEL)
             .addTag(BlockTags.LEAVES)
             .addOptional(ModIntegration.sgcLoc("avocado_leaves"))
