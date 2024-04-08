@@ -89,7 +89,9 @@ public final class ConfigHandler {
         private static BooleanValue LOG_MODPACK_DATA;
 
         private static final List<String> BLOCK_MODS_LIST = List.of("blockmods");
-        private static final String[] blockModsStrings = new String[] {};
+        private static final String[] blockModsStrings = new String[] {
+            "comforts"
+        };
         private static ConfigValue<List<? extends String>> BLOCK_MODS;
 
         private static final List<String> ARMOR_MODS_LIST = List.of("armormods");
