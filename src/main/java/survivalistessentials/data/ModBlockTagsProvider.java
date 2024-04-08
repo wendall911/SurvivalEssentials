@@ -37,7 +37,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SAND)
             .addTag(BlockTags.SAND)
-            .addTag(TagManager.Blocks.FIBER_PLANTS);
+            .addTag(TagManager.Blocks.FIBER_PLANTS)
+            .add(Blocks.BAMBOO);
 
         this.tag(TagManager.Blocks.ALWAYS_DROPS)
             .addTag(TagManager.Blocks.LOOSE_ROCKS)
