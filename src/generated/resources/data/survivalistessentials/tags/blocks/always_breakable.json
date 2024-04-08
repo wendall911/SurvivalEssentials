@@ -20,6 +20,7 @@
     "#minecraft:dirt",
     "#forge:sand",
     "#minecraft:sand",
-    "#survivalistessentials:fiber_plants"
+    "#survivalistessentials:fiber_plants",
+    "minecraft:bamboo"
   ]
 }
