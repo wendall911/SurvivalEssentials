@@ -1,5 +1,6 @@
 package survivalistessentials.jei;
 
+import java.util.Collections;
 import java.util.Objects;
 
 import net.minecraft.network.chat.Component;
@@ -13,6 +14,7 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
@@ -33,6 +35,21 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
         addIngredientInfo(registry, SurvivalistEssentialsItems.PLANT_FIBER);
         addIngredientInfo(registry, SurvivalistEssentialsItems.FLINT_SHARD);
         addIngredientInfo(registry, Items.STICK);
+
+        if (ModList.get().isLoaded("tinkersurvival")) {
+            registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
+                Collections.singleton(new ItemStack(SurvivalistEssentialsItems.BASIC_SAW_BLADE)));
+            registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
+                Collections.singleton(new ItemStack(SurvivalistEssentialsItems.SHARP_SAW_BLADE)));
+            registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
+                Collections.singleton(new ItemStack(SurvivalistEssentialsItems.BASIC_SAW)));
+            registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
+                Collections.singleton(new ItemStack(SurvivalistEssentialsItems.SHARP_SAW)));
+            registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
+                Collections.singleton(new ItemStack(SurvivalistEssentialsItems.BASIC_KNIFE)));
+            registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
+                Collections.singleton(new ItemStack(SurvivalistEssentialsItems.SHARP_KNIFE)));
+        }
     }
 
     private void addIngredientInfo(IRecipeRegistration registry, Item item) {
