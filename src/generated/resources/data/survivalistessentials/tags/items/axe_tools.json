@@ -4,10 +4,6 @@
       "id": "immersiveengineering:buzzsaw",
       "required": false
     },
-    {
-      "id": "tinkersurvival:saw",
-      "required": false
-    },
     "survivalistessentials:crude_hatchet"
   ]
 }

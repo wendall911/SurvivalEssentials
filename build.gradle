@@ -128,11 +128,11 @@ dependencies {
 
     compileOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")
 
-	runtimeOnly fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
-	runtimeOnly fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tic_version}")
-	runtimeOnly fg.deobf("com.github.wendall911.tinkersurvival:tinkersurvival:${minecraft_version}-${ts_version}") {
-        transitive = false
-    }
+	//runtimeOnly fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
+	//runtimeOnly fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tic_version}")
+	//runtimeOnly fg.deobf("com.github.wendall911.tinkersurvival:tinkersurvival:${minecraft_version}-${ts_version}") {
+    //    transitive = false
+    //}
 
     //runtimeOnly fg.deobf("curse.maven:crafttweaker-239197:3918220")
 
