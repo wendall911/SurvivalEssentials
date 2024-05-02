@@ -50,12 +50,16 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             TagManager.Items.AXE_TOOLS,
             SurvivalistEssentialsItems.CRUDE_HATCHET
         );
+        this.tag(TagManager.Items.SAW_TOOLS)
+            .addOptional(ModIntegration.tsLoc("saw"));
         builder(
             TagManager.Items.SAW_TOOLS,
             SurvivalistEssentialsItems.CRUDE_SAW,
             SurvivalistEssentialsItems.BASIC_SAW,
             SurvivalistEssentialsItems.SHARP_SAW
         );
+        this.tag(TagManager.Items.ADVANCED_SAW_TOOLS)
+            .addOptional(ModIntegration.tsLoc("saw"));
         builder(
             TagManager.Items.ADVANCED_SAW_TOOLS,
             SurvivalistEssentialsItems.BASIC_SAW,
@@ -66,12 +70,16 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         builder(
             TagManager.Items.HOE_TOOLS
         );
+        this.tag(TagManager.Items.KNIFE_TOOLS)
+            .addOptional(ModIntegration.tsLoc("knife"));
         builder(
             TagManager.Items.KNIFE_TOOLS,
             SurvivalistEssentialsItems.CRUDE_KNIFE,
             SurvivalistEssentialsItems.BASIC_KNIFE,
             SurvivalistEssentialsItems.SHARP_KNIFE
         );
+        this.tag(TagManager.Items.ADVANCED_KNIFE_TOOLS)
+            .addOptional(ModIntegration.tsLoc("knife"));
         builder(
             TagManager.Items.ADVANCED_KNIFE_TOOLS,
             SurvivalistEssentialsItems.BASIC_KNIFE,

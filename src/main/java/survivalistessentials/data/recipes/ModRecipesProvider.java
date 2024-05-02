@@ -23,6 +23,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import survivalistessentials.common.TagManager;
@@ -103,6 +104,8 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .unlockedBy("has_plant_string", has(plantString))
                 .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "string_from_plant_string"));
 
+        // Add condition for recipes to hide stuff if TinkerSurvival is loaded
+        wrapped = withCondition(consumer, new NotCondition(new ModLoadedCondition(ModIntegration.TS_MODID)));
 
         // Saw Blades
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.CRUDE_SAW_BLADE)
@@ -148,7 +151,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("IX")
                 .pattern(" S")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.SHARP_KNIFE)
                 .define('D', Items.DIAMOND)
@@ -157,7 +160,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("DX")
                 .pattern(" S")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.CRUDE_HATCHET)
                 .define('R', rockStone)
@@ -192,7 +195,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("BS")
                 .pattern(" H")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.SHARP_SAW)
                 .define('H', SurvivalistEssentialsItems.SAW_HANDLE)
@@ -201,7 +204,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("BS")
                 .pattern(" H")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, mortar)
                 .define('I', Items.STICK)
