@@ -158,7 +158,7 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:geckolib-388172:4019767")
     //runtimeOnly fg.deobf("curse.maven:arsnouveau-401955:4023830")
     //runtimeOnly fg.deobf("curse.maven:undergarden-379849:???")
-    //runtimeOnly fg.deobf("curse.maven:dynamictrees-252818:???")
+    //runtimeOnly fg.deobf("curse.maven:dynamictrees-252818:4979755")
     //runtimeOnly fg.deobf("curse.maven:ecologics-570463:3987881")
     //runtimeOnly fg.deobf("curse.maven:aquaculture-60028:3990680")
     //runtimeOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")

@@ -46,7 +46,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addOptional(ModIntegration.ieLoc("hammer"));
         getBuilder(TagManager.Items.AXE_TOOLS)
             .addOptional(ModIntegration.ieLoc("buzzsaw"))
-            .addOptional(ModIntegration.tsLoc("saw"))
             .add(SurvivalistEssentialsItems.CRUDE_HATCHET);
         getBuilder(TagManager.Items.SAW_TOOLS)
             .add(SurvivalistEssentialsItems.CRUDE_SAW)
