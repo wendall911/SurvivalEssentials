@@ -102,7 +102,7 @@ public class HarvestEventHandler {
                 }
                 else {
                     // Reset spell hit
-                    if (ModList.get().isLoaded(ModIntegration.AN_MODID)) {
+                    if (spellHitBlock != null) {
                         if (breakBlockStep == 1) {
                             breakBlockStep = -1;
                             spellHitBlock = null;
@@ -121,7 +121,7 @@ public class HarvestEventHandler {
     public static void onProjectileImpact(ProjectileImpactEvent event) {
         Entity projectile = event.getEntity();
 
-        if (projectile.toString().contains("Spell")) {
+        if (projectile.toString().toLowerCase().contains("spell")) {
             Vec3 position = projectile.position();
             Vec3 nextPosition = position.add(projectile.getDeltaMovement());
 
@@ -206,11 +206,10 @@ public class HarvestEventHandler {
     private static ItemStack getHandStack(Player player, BlockState blockState) {
         ItemStack stack = player.getMainHandItem();
 
-        if (ModList.get().isLoaded(ModIntegration.AN_MODID)) {
-            if (spellHitBlock != null && spellHitBlock.equals(blockState.getBlock())) {
-                if (ItemUse.getToolClass(stack) != "spell") {
-                    stack = player.getOffhandItem();
-                }
+        if (spellHitBlock != null && spellHitBlock.equals(blockState.getBlock())) {
+            String toolClass = ItemUse.getToolClass(stack);
+            if (toolClass != "spell" && toolClass != "cad") {
+                stack = player.getOffhandItem();
             }
         }
 
