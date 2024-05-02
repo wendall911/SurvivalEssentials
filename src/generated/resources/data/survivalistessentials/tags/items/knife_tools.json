@@ -1,5 +1,9 @@
 {
   "values": [
+    {
+      "id": "tinkersurvival:knife",
+      "required": false
+    },
     "survivalistessentials:crude_knife",
     "survivalistessentials:basic_knife",
     "survivalistessentials:sharp_knife"

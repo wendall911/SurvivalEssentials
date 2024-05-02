@@ -1,6 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "tinkersurvival"
+      }
+    }
+  ],
   "key": {
     "B": {
       "item": "survivalistessentials:basic_saw_blade"

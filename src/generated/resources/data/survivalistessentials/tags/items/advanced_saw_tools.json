@@ -1,5 +1,9 @@
 {
   "values": [
+    {
+      "id": "tinkersurvival:saw",
+      "required": false
+    },
     "survivalistessentials:basic_saw",
     "survivalistessentials:sharp_saw"
   ]
