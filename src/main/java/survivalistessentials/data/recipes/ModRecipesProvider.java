@@ -21,6 +21,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import survivalistessentials.common.TagManager;
@@ -106,6 +107,8 @@ public class ModRecipesProvider extends RecipeProvider {
                 .unlockedBy("has_plant_string", has(plantString))
                 .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "string_from_plant_string"));
 
+        // Add condition for recipes to hide stuff if TinkerSurvival is loaded
+        wrapped = withCondition(consumer, new NotCondition(new ModLoadedCondition(ModIntegration.TS_MODID)));
 
         // Saw Blades
         ShapedRecipeBuilder.shaped(SurvivalistEssentialsItems.CRUDE_SAW_BLADE)
@@ -124,7 +127,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("ID")
                 .pattern("SD")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(SurvivalistEssentialsItems.SHARP_SAW_BLADE)
                 .define('D', Items.DIAMOND)
@@ -133,7 +136,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("ID")
                 .pattern("SD")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(consumer);
+                .save(wrapped);
         
         // Tool Recipes
         ShapedRecipeBuilder.shaped(crudeKnife)
@@ -150,7 +153,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("I ")
                 .pattern(" S")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(SurvivalistEssentialsItems.SHARP_KNIFE)
                 .define('D', Items.DIAMOND)
@@ -158,7 +161,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("D ")
                 .pattern(" S")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(SurvivalistEssentialsItems.CRUDE_HATCHET)
                 .define('R', rockStone)
@@ -193,7 +196,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("BS")
                 .pattern(" H")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(SurvivalistEssentialsItems.SHARP_SAW)
                 .define('H', SurvivalistEssentialsItems.SAW_HANDLE)
@@ -202,7 +205,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("BS")
                 .pattern(" H")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(consumer);
+                .save(wrapped);
 
         ShapedRecipeBuilder.shaped(mortar)
                 .define('I', Items.STICK)

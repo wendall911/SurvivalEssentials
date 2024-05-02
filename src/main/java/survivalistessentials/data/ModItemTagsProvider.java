@@ -46,34 +46,31 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addOptional(ModIntegration.ieLoc("hammer"));
         getBuilder(TagManager.Items.AXE_TOOLS)
             .addOptional(ModIntegration.ieLoc("buzzsaw"))
+            .addOptional(ModIntegration.tsLoc("saw"))
             .add(SurvivalistEssentialsItems.CRUDE_HATCHET);
-        builder(
-            TagManager.Items.SAW_TOOLS,
-            SurvivalistEssentialsItems.CRUDE_SAW,
-            SurvivalistEssentialsItems.BASIC_SAW,
-            SurvivalistEssentialsItems.SHARP_SAW
-        );
-        builder(
-            TagManager.Items.ADVANCED_SAW_TOOLS,
-            SurvivalistEssentialsItems.BASIC_SAW,
-            SurvivalistEssentialsItems.SHARP_SAW
-        );
+        getBuilder(TagManager.Items.SAW_TOOLS)
+            .add(SurvivalistEssentialsItems.CRUDE_SAW)
+            .add(SurvivalistEssentialsItems.BASIC_SAW)
+            .add(SurvivalistEssentialsItems.SHARP_SAW)
+            .addOptional(ModIntegration.tsLoc("saw"));
+        getBuilder(TagManager.Items.ADVANCED_SAW_TOOLS)
+            .add(SurvivalistEssentialsItems.BASIC_SAW)
+            .add(SurvivalistEssentialsItems.SHARP_SAW)
+            .addOptional(ModIntegration.tsLoc("saw"));
         getBuilder(TagManager.Items.SHOVEL_TOOLS)
             .addOptional(ModIntegration.ieLoc("drill"));
         builder(
             TagManager.Items.HOE_TOOLS
         );
-        builder(
-            TagManager.Items.KNIFE_TOOLS,
-            SurvivalistEssentialsItems.CRUDE_KNIFE,
-            SurvivalistEssentialsItems.BASIC_KNIFE,
-            SurvivalistEssentialsItems.SHARP_KNIFE
-        );
-        builder(
-            TagManager.Items.ADVANCED_KNIFE_TOOLS,
-            SurvivalistEssentialsItems.BASIC_KNIFE,
-            SurvivalistEssentialsItems.SHARP_KNIFE
-        );
+        getBuilder(TagManager.Items.KNIFE_TOOLS)
+            .add(SurvivalistEssentialsItems.CRUDE_KNIFE)
+            .add(SurvivalistEssentialsItems.BASIC_KNIFE)
+            .add(SurvivalistEssentialsItems.SHARP_KNIFE)
+            .addOptional(ModIntegration.tsLoc("knife"));
+        getBuilder(TagManager.Items.ADVANCED_KNIFE_TOOLS)
+            .add(SurvivalistEssentialsItems.BASIC_KNIFE)
+            .add(SurvivalistEssentialsItems.SHARP_KNIFE)
+            .addOptional(ModIntegration.tsLoc("knife"));
         getBuilder(TagManager.Items.SHARP_TOOLS)
             .addOptional(ModIntegration.ieLoc("revolver"))
             .addTag(TagManager.Items.KNIFE_TOOLS)

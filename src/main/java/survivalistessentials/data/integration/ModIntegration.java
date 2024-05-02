@@ -4,6 +4,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 import net.minecraftforge.registries.RegisterEvent;
+
 import survivalistessentials.common.CreativeTabs;
 
 public final class ModIntegration {
@@ -31,6 +32,7 @@ public final class ModIntegration {
     public static final String PATCHOULI_MODID = "patchouli";
     public static final String MALUM_MODID = "malum";
     public static final String IFD_MODID = "iceandfire";
+    public static final String TS_MODID = "tinkersurvival";
 
     public static Item AQUA_DRIFTWOOD;
     public static Item CHERRY_PLANKS;
@@ -398,6 +400,10 @@ public final class ModIntegration {
 
     public static ResourceLocation ifdLoc(String name) {
         return getLoc(IFD_MODID, name);
+    }
+
+    public static ResourceLocation tsLoc(String name) {
+        return getLoc(TS_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {
