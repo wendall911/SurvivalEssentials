@@ -280,7 +280,9 @@ public final class ConfigHandler {
 
     @SubscribeEvent
     public static void onFileChange(final ModConfigEvent.Reloading event) {
-        ItemUse.init();
+        try {
+            ItemUse.init();
+        } catch (Exception ignored) {}
     }
 
 }
