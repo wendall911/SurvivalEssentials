@@ -508,8 +508,9 @@ public class ModRecipesProvider extends RecipeProvider {
                 .group("planks")
                 .unlockedBy(label, has(itemTag));
 
-        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).getPath();
-        String modid = ItemUse.getModId(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).toString());
+        ResourceLocation itemLoc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem()));
+        String name = itemLoc.getPath();
+        String modid = itemLoc.getNamespace();
 
         if (modid.contains(ModIntegration.TCON_MODID)) {
             plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));

@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
@@ -16,9 +17,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import net.minecraftforge.fml.ModList;
-
 import net.minecraftforge.registries.ForgeRegistries;
-import survivalistessentials.SurvivalistEssentials;
+
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -51,7 +51,9 @@ public class ItemUse {
             "saw",
             "crook",
             "spell",
-            "cad"
+            "cad",
+            "spear",
+            "darkstar"
         )
     );
     
@@ -69,8 +71,9 @@ public class ItemUse {
     }
 
     public static boolean isAllowedTool(ItemStack stack) {
-        String itemName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).getPath();
-        String modid = getModId(itemName);
+        ResourceLocation loc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem()));
+        String itemName = loc.getPath();
+        String modid = loc.getNamespace();
         boolean hasTag = hasTag(stack);
 
         if (ConfigHandler.Common.invertListToWhitelist()) {
@@ -85,21 +88,7 @@ public class ItemUse {
     }
 
     public static String getModId(Block block) {
-        return getModId(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).toString());
-    }
-
-    public static String getModId(ItemStack stack) {
-        return getModId(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).toString());
-    }
-
-    public static String getModId(String name) {
-        String[] nameParts = name.split(":");
-
-        return nameParts.length == 2 ? nameParts[0] : name;
-    }
-
-    public static boolean hasTinkerBow() {
-        return ItemUse.TOOL_TYPES.contains("bow");
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getNamespace();
     }
 
     public static boolean alwaysDrops(BlockState state) {
@@ -228,8 +217,9 @@ public class ItemUse {
     }
 
     public static boolean isAllowedArmor(ItemStack stack) {
-        String itemName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).toString();
-        String modid = getModId(itemName);
+        ResourceLocation loc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem()));
+        String itemName = loc.getPath();
+        String modid = loc.getNamespace();
         boolean hasTag = hasTag(stack);
 
         if (ConfigHandler.Common.invertListToWhitelist()) {
