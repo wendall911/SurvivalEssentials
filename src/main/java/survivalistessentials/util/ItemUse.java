@@ -51,6 +51,7 @@ public class ItemUse {
             "saw",
             "crook",
             "spell",
+            "knife",
             "cad",
             "spear",
             "darkstar"
