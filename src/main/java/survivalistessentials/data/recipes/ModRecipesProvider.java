@@ -561,8 +561,9 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .group("planks")
                 .unlockedBy(label, has(itemTag));
 
-        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).getPath();
-        String modid = ItemUse.getModId(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).toString());
+        ResourceLocation itemLoc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem()));
+        String name = itemLoc.getPath();
+        String modid = itemLoc.getNamespace();
 
         plankOverrideRecipe.save(consumer);
 
