@@ -21,27 +21,33 @@ public class TooltipEventHandler {
     public static void onItemToolTip(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
         Component message;
+        String tooltip = "";
 
-        if (!ItemUse.isAllowedTool(stack)) {
+        if (!ItemUse.getToolClass(stack).equals("unknown") && !ItemUse.isAllowedTool(stack)) {
             String type = ItemUse.getToolClass(stack);
-            String tooltip = "tooltip.uselessTool2";
+            tooltip = "tooltip.uselessTool2";
 
             if (!type.equals("unknown")) {
-
                 switch (type) {
-                    case "bow" -> tooltip = "tooltip.uselessBow1";
+                    case "bow", "crossbow" -> tooltip = "tooltip.uselessBow1";
                     case "hoe" -> tooltip = "tooltip.uselessHoe1";
                     case "pickaxe" -> tooltip = "tooltip.uselessTool1";
-                    case "sword" -> tooltip = "tooltip.uselessWeapon1";
+                    case "axe", "darkstar", "spear", "sword", "weapon" -> tooltip = "tooltip.uselessWeapon1";
                     default -> {
                     }
                 }
-
-                message = Component.translatable(tooltip).withStyle(ChatFormatting.DARK_RED);
-
-                event.getToolTip().add(message);
             }
         }
+        else if (ItemUse.isArmor(stack) && !ItemUse.isAllowedArmor(stack)) {
+            tooltip = "tooltip.uselessArmor1";
+        }
+
+        if (!tooltip.equals("")) {
+            message = Component.translatable(tooltip).withStyle(ChatFormatting.DARK_RED);
+
+            event.getToolTip().add(message);
+        }
+
     }
 
 }
