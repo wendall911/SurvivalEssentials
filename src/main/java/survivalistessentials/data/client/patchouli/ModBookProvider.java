@@ -8,6 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 import xyz.brassgoggledcoders.patchouliprovider.BookBuilder;
+import xyz.brassgoggledcoders.patchouliprovider.CategoryBuilder;
 import xyz.brassgoggledcoders.patchouliprovider.PatchouliBookProvider;
 
 import survivalistessentials.items.SurvivalistEssentialsItems;
@@ -36,14 +37,14 @@ public class ModBookProvider extends PatchouliBookProvider {
             .setUseBlockyFont(true)
             .setI18n(true);
 
-        bookBuilder = addGettingStarted(bookBuilder);
-        bookBuilder = addTools(bookBuilder);
-        bookBuilder = addHealth(bookBuilder);
+        bookBuilder = addGettingStarted(bookBuilder).build();
+        bookBuilder = addTools(bookBuilder).build();
+        bookBuilder = addHealth(bookBuilder).build();
 
         bookBuilder.build(consumer);
     }
 
-    public BookBuilder addGettingStarted(BookBuilder bookBuilder) {
+    public CategoryBuilder addGettingStarted(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
             "getting_started",
             "info.survivalistessentials.book.getting_started.name",
@@ -71,10 +72,10 @@ public class ModBookProvider extends PatchouliBookProvider {
         .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "plant_string"))
             .setTitle("info.survivalistessentials.book.getting_started.materials.plant_string.title")
             .setText("info.survivalistessentials.book.getting_started.materials.plant_string.desc").build()
-        .build().build();
+        .build();
     }
 
-    public BookBuilder addTools(BookBuilder bookBuilder) {
+    public CategoryBuilder addTools(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
             "tools",
             "info.survivalistessentials.book.tools.name",
@@ -127,10 +128,10 @@ public class ModBookProvider extends PatchouliBookProvider {
             .setRecipe2(new ResourceLocation(SurvivalistEssentials.MODID, "sharp_saw_blade")).build()
         .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "basic_knife"))
             .setRecipe2(new ResourceLocation(SurvivalistEssentials.MODID, "sharp_knife")).build()
-        .build().build();
+        .build();
     }
 
-    public BookBuilder addHealth(BookBuilder bookBuilder) {
+    public CategoryBuilder addHealth(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
             "health",
             "info.survivalistessentials.book.health.name",
@@ -173,7 +174,7 @@ public class ModBookProvider extends PatchouliBookProvider {
         .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "bandage"))
             .setTitle("item.survivalistessentials.bandage")
             .setText("info.survivalistessentials.book.health.bandages.bandage.desc").build()
-        .build().build();
+        .build();
     }
 
 }
