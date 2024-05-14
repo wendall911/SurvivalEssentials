@@ -33,5 +33,6 @@
       "text": "info.survivalistessentials.book.health.ingredients.ointment.desc",
       "title": "item.survivalistessentials.ointment"
     }
-  ]
+  ],
+  "sortnum": 2
 }

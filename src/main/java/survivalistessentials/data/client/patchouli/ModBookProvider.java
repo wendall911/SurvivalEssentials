@@ -40,9 +40,9 @@ public class ModBookProvider extends PatchouliBookProvider {
             .setUseBlockyFont(true)
             .setI18n(true);
 
-        bookBuilder = addGettingStarted(bookBuilder, categorySortNum++, entrySortNum++).build();
-        bookBuilder = addTools(bookBuilder, categorySortNum++, entrySortNum++).build();
-        bookBuilder = addHealth(bookBuilder, categorySortNum++, entrySortNum++).build();
+        bookBuilder = addGettingStarted(bookBuilder, ++categorySortNum, ++entrySortNum).build();
+        bookBuilder = addTools(bookBuilder, ++categorySortNum, ++entrySortNum).build();
+        bookBuilder = addHealth(bookBuilder, ++categorySortNum, ++entrySortNum).build();
 
         bookBuilder.build(consumer);
     }

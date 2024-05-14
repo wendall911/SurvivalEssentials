@@ -1,10 +1,10 @@
-// 1.19.2	2022-10-25T11:38:13.27609794	Patchouli Book Provider
+// 1.19.2	2024-05-14T12:40:17.543271655	Patchouli Book Provider
 f60a320b1aff33f3fdf335c1fb800179c32cff00 data/survivalistessentials/patchouli_books/book/book.json
 070f1b57afc735d7690dbe117181c8a0360d86e3 data/survivalistessentials/patchouli_books/book/en_us/categories/getting_started.json
 05bc4fdda122de4e011b46b04e635a7669d76950 data/survivalistessentials/patchouli_books/book/en_us/categories/health.json
 da1fc5af95d6e5ea2c65344699fa07d226e8710e data/survivalistessentials/patchouli_books/book/en_us/categories/tools.json
-393cb8c6652713920526a259c8dcb84f0cf4b126 data/survivalistessentials/patchouli_books/book/en_us/entries/getting_started/materials.json
-fb232d7fcf5c3fda58510df2ab232662584490d6 data/survivalistessentials/patchouli_books/book/en_us/entries/health/bandages.json
-e9343fdcd5dfb7c9f5c93c41f35370f25e6b59a8 data/survivalistessentials/patchouli_books/book/en_us/entries/health/ingredients.json
-409df385821752f5c7e8b7776bfb481fded4a26f data/survivalistessentials/patchouli_books/book/en_us/entries/tools/crude_tools.json
+38e3afe1beb0faf40bce5fa721242442b3d6f3f8 data/survivalistessentials/patchouli_books/book/en_us/entries/getting_started/materials.json
+49e8401ba2922fd09a9e33abb9fa799d1bc1e23c data/survivalistessentials/patchouli_books/book/en_us/entries/health/bandages.json
+721ed7657b5a85f580af592861fd097b4154a3dd data/survivalistessentials/patchouli_books/book/en_us/entries/health/ingredients.json
+152e3a970e9264cf8ab8d7b0a655fe4365ac622c data/survivalistessentials/patchouli_books/book/en_us/entries/tools/crude_tools.json
 404e1d7ea07004bf455646825b0494e7b714be04 data/survivalistessentials/patchouli_books/book/en_us/entries/tools/improved_tools.json
