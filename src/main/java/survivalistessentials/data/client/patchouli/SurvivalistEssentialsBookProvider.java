@@ -15,12 +15,12 @@ import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.SurvivalistEssentials;
 
-public class ModBookProvider extends PatchouliBookProvider {
+public class SurvivalistEssentialsBookProvider extends PatchouliBookProvider {
 
     private int categorySortNum = -1;
     private int entrySortNum = -1;
 
-    public ModBookProvider(DataGenerator gen) {
+    public SurvivalistEssentialsBookProvider(DataGenerator gen) {
         super(gen, SurvivalistEssentials.MODID, "en_us");
     }
 

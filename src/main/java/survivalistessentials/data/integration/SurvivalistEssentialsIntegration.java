@@ -7,7 +7,7 @@ import net.minecraftforge.registries.RegisterEvent;
 
 import survivalistessentials.common.CreativeTabs;
 
-public final class ModIntegration {
+public final class SurvivalistEssentialsIntegration {
 
     public static final String AYCE_MODID = "allyoucaneat";
     public static final String BMO_MODID = "biomemakeover";

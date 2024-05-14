@@ -18,13 +18,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import survivalistessentials.data.client.ModBlockStateProvider;
-import survivalistessentials.data.client.ModItemModelProvider;
-import survivalistessentials.data.client.patchouli.ModBookProvider;
-import survivalistessentials.data.loot.ModLootTables;
-import survivalistessentials.data.loot.GlobalLootModifier;
+import survivalistessentials.data.client.SurvivalistEssentialsBlockStateProvider;
+import survivalistessentials.data.client.SurvivalistEssentialsItemModelProvider;
+import survivalistessentials.data.client.patchouli.SurvivalistEssentialsBookProvider;
+import survivalistessentials.data.loot.SurvivalistEssentialsLootTables;
+import survivalistessentials.data.loot.SurvivalistEssentialsGlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
-import survivalistessentials.data.recipes.ModRecipesProvider;
+import survivalistessentials.data.recipes.SurvivalistEssentialsRecipesProvider;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.modifier.LooseRockBiomeModifier;
 
@@ -40,16 +40,16 @@ public final class DataGenerators {
         final RegistryOps<JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, RegistryAccess.builtinCopy());
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
+        SurvivalistEssentialsBlockTagsProvider blockTags = new SurvivalistEssentialsBlockTagsProvider(gen, existingFileHelper);
         String modpackOverrides = System.getenv("MOD_OVERRIDES");
 
-        gen.addProvider(true, new ModItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(true, new ModBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(true, new SurvivalistEssentialsItemModelProvider(gen, existingFileHelper));
+        gen.addProvider(true, new SurvivalistEssentialsBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(true, blockTags);
-        gen.addProvider(true, new ModItemTagsProvider(gen, blockTags, existingFileHelper));
-        gen.addProvider(true, new ModRecipesProvider(gen));
-        gen.addProvider(true, new ModLootTables(gen));
-        gen.addProvider(true, new GlobalLootModifier(gen));
+        gen.addProvider(true, new SurvivalistEssentialsItemTagsProvider(gen, blockTags, existingFileHelper));
+        gen.addProvider(true, new SurvivalistEssentialsRecipesProvider(gen));
+        gen.addProvider(true, new SurvivalistEssentialsLootTables(gen));
+        gen.addProvider(true, new SurvivalistEssentialsGlobalLootModifier(gen));
 
         if (modpackOverrides != null && modpackOverrides.contains("all")) {
             gen.addProvider(true, new BlockTagsOverrideProvider(gen, event.getExistingFileHelper()));
@@ -64,7 +64,7 @@ public final class DataGenerators {
             getBiomeModifiers()
         ));
 
-        gen.addProvider(true, new ModBookProvider(gen));
+        gen.addProvider(true, new SurvivalistEssentialsBookProvider(gen));
     }
 
     public static Map<ResourceLocation, BiomeModifier> getBiomeModifiers() {

@@ -18,9 +18,9 @@ import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-public class ModItemModelProvider extends ItemModelProvider {
+public class SurvivalistEssentialsItemModelProvider extends ItemModelProvider {
 
-    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+    public SurvivalistEssentialsItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, SurvivalistEssentials.MODID, existingFileHelper);
     }
 

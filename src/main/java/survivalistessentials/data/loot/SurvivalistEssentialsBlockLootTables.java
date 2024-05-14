@@ -15,17 +15,17 @@ import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-public class ModBlockLootTables extends BlockLoot {
+public class SurvivalistEssentialsBlockLootTables extends BlockLoot {
 
     @Override
     protected void addTables() {
-        this.add(SurvivalistEssentialsWorld.ANDESITE_LOOSE_ROCK, ModBlockLootTables::createLooseRockDrops);
-        this.add(SurvivalistEssentialsWorld.DIORITE_LOOSE_ROCK, ModBlockLootTables::createLooseRockDrops);
-        this.add(SurvivalistEssentialsWorld.GRANITE_LOOSE_ROCK, ModBlockLootTables::createLooseRockDrops);
-        this.add(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK, ModBlockLootTables::createLooseRockDrops);
-        this.add(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK, ModBlockLootTables::createLooseRockDrops);
-        this.add(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK, ModBlockLootTables::createLooseRockDrops);
-        this.add(SurvivalistEssentialsWorld.ROCK_STONE_BLOCK, ModBlockLootTables::createLooseRockDrops);
+        this.add(SurvivalistEssentialsWorld.ANDESITE_LOOSE_ROCK, SurvivalistEssentialsBlockLootTables::createLooseRockDrops);
+        this.add(SurvivalistEssentialsWorld.DIORITE_LOOSE_ROCK, SurvivalistEssentialsBlockLootTables::createLooseRockDrops);
+        this.add(SurvivalistEssentialsWorld.GRANITE_LOOSE_ROCK, SurvivalistEssentialsBlockLootTables::createLooseRockDrops);
+        this.add(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK, SurvivalistEssentialsBlockLootTables::createLooseRockDrops);
+        this.add(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK, SurvivalistEssentialsBlockLootTables::createLooseRockDrops);
+        this.add(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK, SurvivalistEssentialsBlockLootTables::createLooseRockDrops);
+        this.add(SurvivalistEssentialsWorld.ROCK_STONE_BLOCK, SurvivalistEssentialsBlockLootTables::createLooseRockDrops);
     }
 
     @Override

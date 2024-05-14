@@ -27,9 +27,9 @@ import survivalistessentials.loot.SurvivalistEssentialsLootTables;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.TagManager;
 
-public class GlobalLootModifier extends GlobalLootModifierProvider {
+public class SurvivalistEssentialsGlobalLootModifier extends GlobalLootModifierProvider {
 
-    public GlobalLootModifier(DataGenerator dataGeneratorIn) {
+    public SurvivalistEssentialsGlobalLootModifier(DataGenerator dataGeneratorIn) {
         super(dataGeneratorIn, SurvivalistEssentials.MODID);
     }
 

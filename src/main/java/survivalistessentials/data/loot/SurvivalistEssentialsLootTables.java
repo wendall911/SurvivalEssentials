@@ -19,9 +19,9 @@ import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
-public class ModLootTables extends LootTableProvider {
+public class SurvivalistEssentialsLootTables extends LootTableProvider {
 
-    public ModLootTables(DataGenerator dataGeneratorIn) {
+    public SurvivalistEssentialsLootTables(DataGenerator dataGeneratorIn) {
         super(dataGeneratorIn);
     }
 
@@ -33,7 +33,7 @@ public class ModLootTables extends LootTableProvider {
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
         return ImmutableList.of(
-            Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK)
+            Pair.of(SurvivalistEssentialsBlockLootTables::new, LootContextParamSets.BLOCK)
         );
     }
 

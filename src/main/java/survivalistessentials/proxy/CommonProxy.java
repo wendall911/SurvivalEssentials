@@ -21,7 +21,7 @@ import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.SurvivalistEssentialsModule;
 import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.config.ConfigHandler;
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.loot.SurvivalistEssentialsLootTables;
 import survivalistessentials.sound.Sounds;
@@ -61,7 +61,7 @@ public class CommonProxy {
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerEvent(RegisterEvent event) {
             event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsItems::init);
-            event.register(Registry.ITEM_REGISTRY, ModIntegration::init);
+            event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsIntegration::init);
             event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsWorld::initItems);
             event.register(Registry.BLOCK_REGISTRY, SurvivalistEssentialsWorld::initBlocks);
             event.register(Registry.LOOT_ITEM_REGISTRY, new ResourceLocation(SurvivalistEssentials.MODID, "is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);

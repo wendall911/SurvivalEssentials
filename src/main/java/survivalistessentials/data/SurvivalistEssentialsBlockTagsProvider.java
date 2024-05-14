@@ -8,13 +8,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-public class ModBlockTagsProvider extends BlockTagsProvider {
-    public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
+public class SurvivalistEssentialsBlockTagsProvider extends BlockTagsProvider {
+    public SurvivalistEssentialsBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
         super(generatorIn, SurvivalistEssentials.MODID, existingFileHelper);
     }
 
@@ -31,9 +31,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             .add(Blocks.GRAVEL)
             .addTag(Tags.Blocks.GRAVEL)
             .addTag(BlockTags.LEAVES)
-            .addOptional(ModIntegration.sgcLoc("avocado_leaves"))
-            .addOptional(ModIntegration.exnihiloLoc("infested_leaves"))
-            .addOptional(ModIntegration.exnihiloLoc("infesting_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.sgcLoc("avocado_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infested_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infesting_leaves"))
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SAND)
             .addTag(BlockTags.SAND)
@@ -91,7 +91,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             .addOptionalTag(TagManager.forgeLoc("bushes"));
 
         this.tag(TagManager.Blocks.BRANCHES)
-            .addOptionalTag(ModIntegration.dynamictreesLoc("branches"));
+            .addOptionalTag(SurvivalistEssentialsIntegration.dynamictreesLoc("branches"));
     }
 
 }

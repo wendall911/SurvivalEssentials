@@ -17,9 +17,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-public class ModBlockStateProvider extends BlockStateProvider {
+public class SurvivalistEssentialsBlockStateProvider extends BlockStateProvider {
 
-    public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
+    public SurvivalistEssentialsBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, SurvivalistEssentials.MODID, exFileHelper);
     }
 
