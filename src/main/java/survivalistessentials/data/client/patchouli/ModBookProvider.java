@@ -17,6 +17,9 @@ import survivalistessentials.SurvivalistEssentials;
 
 public class ModBookProvider extends PatchouliBookProvider {
 
+    private int categorySortNum = -1;
+    private int entrySortNum = -1;
+
     public ModBookProvider(DataGenerator gen) {
         super(gen, SurvivalistEssentials.MODID, "en_us");
     }
@@ -37,26 +40,27 @@ public class ModBookProvider extends PatchouliBookProvider {
             .setUseBlockyFont(true)
             .setI18n(true);
 
-        bookBuilder = addGettingStarted(bookBuilder).build();
-        bookBuilder = addTools(bookBuilder).build();
-        bookBuilder = addHealth(bookBuilder).build();
+        bookBuilder = addGettingStarted(bookBuilder, categorySortNum++, entrySortNum++).build();
+        bookBuilder = addTools(bookBuilder, categorySortNum++, entrySortNum++).build();
+        bookBuilder = addHealth(bookBuilder, categorySortNum++, entrySortNum++).build();
 
         bookBuilder.build(consumer);
     }
 
-    public CategoryBuilder addGettingStarted(BookBuilder bookBuilder) {
+    public CategoryBuilder addGettingStarted(BookBuilder bookBuilder, int catSortNum, int entSortNum) {
         return bookBuilder.addCategory(
             "getting_started",
             "info.survivalistessentials.book.getting_started.name",
             "info.survivalistessentials.book.getting_started.desc",
             new ItemStack(SurvivalistEssentialsWorld.ROCK_STONE)
         )
-        .setSortnum(0)
+        .setSortnum(catSortNum)
         .addEntry(
             "getting_started/materials",
             "info.survivalistessentials.book.getting_started.materials.name",
             new ItemStack(SurvivalistEssentialsWorld.ROCK_STONE)
         )
+        .setSortnum(entSortNum)
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK))
             .setTitle("info.survivalistessentials.book.getting_started.materials.gather_stones.title")
             .setText("info.survivalistessentials.book.getting_started.materials.gather_stones.desc").build()
@@ -75,19 +79,20 @@ public class ModBookProvider extends PatchouliBookProvider {
         .build();
     }
 
-    public CategoryBuilder addTools(BookBuilder bookBuilder) {
+    public CategoryBuilder addTools(BookBuilder bookBuilder, int catSortNum, int entSortNum) {
         return bookBuilder.addCategory(
             "tools",
             "info.survivalistessentials.book.tools.name",
             "info.survivalistessentials.book.tools.desc",
             new ItemStack(SurvivalistEssentialsItems.SHARP_SAW)
         )
-        .setSortnum(1)
+        .setSortnum(catSortNum)
         .addEntry(
             "tools/crude_tools",
             "info.survivalistessentials.book.tools.crude_tools.name",
             new ItemStack(SurvivalistEssentialsItems.CRUDE_SAW)
         )
+        .setSortnum(entSortNum)
         .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "crude_knife"))
             .setTitle("item.survivalistessentials.crude_knife")
             .setText("info.survivalistessentials.book.tools.crude_tools.knife.desc").build()
@@ -118,6 +123,7 @@ public class ModBookProvider extends PatchouliBookProvider {
             "info.survivalistessentials.book.tools.improved_tools.name",
             new ItemStack(SurvivalistEssentialsItems.SHARP_SAW_BLADE)
         )
+        .setSortnum(entSortNum)
         .setSortnum(1)
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.SHARP_SAW))
             .setText("info.survivalistessentials.book.tools.improved_tools.intro")
@@ -131,19 +137,20 @@ public class ModBookProvider extends PatchouliBookProvider {
         .build();
     }
 
-    public CategoryBuilder addHealth(BookBuilder bookBuilder) {
+    public CategoryBuilder addHealth(BookBuilder bookBuilder, int catSortNum, int entSortNum) {
         return bookBuilder.addCategory(
             "health",
             "info.survivalistessentials.book.health.name",
             "info.survivalistessentials.book.health.desc",
             new ItemStack(SurvivalistEssentialsItems.BANDAGE)
         )
-        .setSortnum(2)
+        .setSortnum(catSortNum)
         .addEntry(
             "health/ingredients",
             "info.survivalistessentials.book.health.ingredients.name",
             new ItemStack(SurvivalistEssentialsItems.CLOTH)
         )
+        .setSortnum(entSortNum)
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.CLOTH))
             .setText("info.survivalistessentials.book.health.ingredients.desc")
             .setTitle("info.survivalistessentials.book.health.ingredients.subtitle").build()
@@ -164,7 +171,7 @@ public class ModBookProvider extends PatchouliBookProvider {
             "info.survivalistessentials.book.health.bandages.name",
             new ItemStack(SurvivalistEssentialsItems.BANDAGE)
         )
-        .setSortnum(1)
+        .setSortnum(entSortNum)
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.BANDAGE))
             .setText("info.survivalistessentials.book.health.bandages.desc")
             .setTitle("info.survivalistessentials.book.health.bandages.subtitle").build()
