@@ -43,17 +43,17 @@ public class ModBookProvider extends PatchouliBookProvider {
         bookBuilder.build(consumer);
     }
 
-    private BookBuilder addGettingStarted(BookBuilder bookBuilder) {
+    public BookBuilder addGettingStarted(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
-                "getting_started",
-                "info.survivalistessentials.book.getting_started.name",
-                "info.survivalistessentials.book.getting_started.desc",
-                new ItemStack(SurvivalistEssentialsWorld.ROCK_STONE)
+            "getting_started",
+            "info.survivalistessentials.book.getting_started.name",
+            "info.survivalistessentials.book.getting_started.desc",
+            new ItemStack(SurvivalistEssentialsWorld.ROCK_STONE)
         )
         .setSortnum(0)
         .addEntry(
-        "getting_started/materials",
-     "info.survivalistessentials.book.getting_started.materials.name",
+            "getting_started/materials",
+            "info.survivalistessentials.book.getting_started.materials.name",
             new ItemStack(SurvivalistEssentialsWorld.ROCK_STONE)
         )
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK))
@@ -74,7 +74,7 @@ public class ModBookProvider extends PatchouliBookProvider {
         .build().build();
     }
 
-    private BookBuilder addTools(BookBuilder bookBuilder) {
+    public BookBuilder addTools(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
             "tools",
             "info.survivalistessentials.book.tools.name",
@@ -130,7 +130,7 @@ public class ModBookProvider extends PatchouliBookProvider {
         .build().build();
     }
 
-    private BookBuilder addHealth(BookBuilder bookBuilder) {
+    public BookBuilder addHealth(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
             "health",
             "info.survivalistessentials.book.health.name",
