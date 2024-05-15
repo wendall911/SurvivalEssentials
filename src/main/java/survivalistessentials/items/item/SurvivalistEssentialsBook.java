@@ -11,17 +11,16 @@ import net.minecraft.world.level.Level;
 
 import net.minecraftforge.fml.ModList;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 
 public class SurvivalistEssentialsBook extends Item {
 
     ResourceLocation book;
 
-    public SurvivalistEssentialsBook(Properties pProperties, String bookId) {
+    public SurvivalistEssentialsBook(Properties pProperties, String bookId, String modid) {
         super(pProperties);
 
-        this.book = new ResourceLocation(SurvivalistEssentials.MODID, bookId);
+        this.book = new ResourceLocation(modid, bookId);
     }
 
     @Override

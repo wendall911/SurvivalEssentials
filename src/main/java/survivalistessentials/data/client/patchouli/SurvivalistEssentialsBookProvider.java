@@ -45,9 +45,9 @@ public class SurvivalistEssentialsBookProvider extends PatchouliBookProvider {
         bookBuilder = addHealth(bookBuilder).build();
 
         bookBuilder.build(consumer);
-    }
+}
 
-    public CategoryBuilder addGettingStarted(BookBuilder bookBuilder) {
+    private CategoryBuilder addGettingStarted(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
             "getting_started",
             "info.survivalistessentials.book.getting_started.name",
@@ -79,7 +79,7 @@ public class SurvivalistEssentialsBookProvider extends PatchouliBookProvider {
         .build();
     }
 
-    public CategoryBuilder addTools(BookBuilder bookBuilder) {
+    private CategoryBuilder addTools(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
             "tools",
             "info.survivalistessentials.book.tools.name",
@@ -136,7 +136,7 @@ public class SurvivalistEssentialsBookProvider extends PatchouliBookProvider {
         .build();
     }
 
-    public CategoryBuilder addHealth(BookBuilder bookBuilder) {
+    private CategoryBuilder addHealth(BookBuilder bookBuilder) {
         return bookBuilder.addCategory(
             "health",
             "info.survivalistessentials.book.health.name",
@@ -183,11 +183,11 @@ public class SurvivalistEssentialsBookProvider extends PatchouliBookProvider {
         .build();
     }
 
-    public int getCategorySortNum() {
+    private int getCategorySortNum() {
         return ++categorySortNum;
     }
 
-    public int getEntrySortNum() {
+    private int getEntrySortNum() {
         return ++entrySortNum;
     }
 

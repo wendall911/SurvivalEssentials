@@ -14,6 +14,7 @@ import survivalistessentials.items.item.WoodenCup;
 import survivalistessentials.items.tool.CrudeHatchet;
 import survivalistessentials.items.tool.SurvivalKnife;
 import survivalistessentials.items.tool.SurvivalSaw;
+import survivalistessentials.SurvivalistEssentials;
 
 public final class SurvivalistEssentialsItems {
 
@@ -29,7 +30,6 @@ public final class SurvivalistEssentialsItems {
 
     // Books
     public static Item BOOK;
-    public static Item MODPACK_BOOK;
 
     // Tools
     public static Item CRUDE_KNIFE;
@@ -62,7 +62,6 @@ public final class SurvivalistEssentialsItems {
         PLANT_PASTE = registerItem("plant_paste");
         CLOTH = registerItem("cloth");
         BOOK = registerBook("book");
-        MODPACK_BOOK = registerBook("modpack_book");
 
         // Tools
         CRUDE_KNIFE = registerKnifeTool("crude_knife", ItemTiers.FLINT_TIER);
@@ -135,7 +134,8 @@ public final class SurvivalistEssentialsItems {
     public static Item registerBook(String name) {
         return registerItem(name, new SurvivalistEssentialsBook(
                 new Item.Properties().tab(CreativeTabs.ITEM_TAB_GROUP),
-                name
+                name,
+                SurvivalistEssentials.MODID
         ));
     }
 
