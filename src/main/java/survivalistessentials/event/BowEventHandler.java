@@ -7,11 +7,14 @@ import net.minecraft.world.level.Level;
 
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
+import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.sound.Sounds;
 import survivalistessentials.util.ItemUse;
 
+@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class BowEventHandler {
 
     @SubscribeEvent
