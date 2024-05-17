@@ -3,7 +3,6 @@ package survivalistessentials.proxy;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.server.ServerStartedEvent;
@@ -14,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraftforge.registries.RegisterEvent;
 import survivalistessentials.common.HarvestBlock;
@@ -56,8 +55,6 @@ public class CommonProxy {
 
         private static boolean setupDone = false;
 
-        public static IForgeRegistry<Block> BLOCK_REGISTRY;
-
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerEvent(RegisterEvent event) {
             event.register(Registry.ITEM_REGISTRY, SurvivalistEssentialsItems::init);
@@ -89,7 +86,7 @@ public class CommonProxy {
     @SubscribeEvent
     public static void serverStart(ServerStartedEvent event) {
         if (ConfigHandler.Common.logModpackData()) {
-            RegistryListener.BLOCK_REGISTRY.getValues().forEach((block) -> {
+            ForgeRegistries.BLOCKS.getValues().forEach((block) -> {
                 if (block.defaultBlockState().is(Tags.Blocks.NEEDS_WOOD_TOOL)) {
                     SurvivalistEssentials.LOGGER.warn("needs_wood_tool - level 0: %s", block);
                 }
