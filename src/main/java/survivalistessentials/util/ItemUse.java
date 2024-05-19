@@ -219,18 +219,18 @@ public class ItemUse {
 
     public static boolean isAllowedArmor(ItemStack stack) {
         ResourceLocation loc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem()));
-        String itemName = loc.getPath();
         String modid = loc.getNamespace();
         boolean hasTag = hasTag(stack);
 
         if (ConfigHandler.Common.invertListToWhitelist()) {
             // Whitelisted
             return hasTag || ConfigHandler.Common.armorMods().contains(modid)
-                || ConfigHandler.Common.armorItems().contains(itemName);
+                || ConfigHandler.Common.armorItems().contains(loc.toString());
         }
         else {
             // Blacklisted
-            return !hasTag && !ConfigHandler.Common.armorMods().contains(modid) && !ConfigHandler.Common.armorItems().contains(itemName);
+            return !hasTag && !ConfigHandler.Common.armorMods().contains(modid)
+                && !ConfigHandler.Common.armorItems().contains(loc.toString());
         }
     }
 
