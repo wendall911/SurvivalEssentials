@@ -285,4 +285,11 @@ public final class ConfigHandler {
         } catch (Exception ignored) {}
     }
 
+    @SubscribeEvent
+    public static void onFileChange(final ModConfigEvent.Loading event) {
+        try {
+            ItemUse.init();
+        } catch (Exception ignored) {}
+    }
+
 }

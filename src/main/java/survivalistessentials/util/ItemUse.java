@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -73,18 +74,17 @@ public class ItemUse {
 
     public static boolean isAllowedTool(ItemStack stack) {
         ResourceLocation loc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem()));
-        String itemName = loc.getPath();
         String modid = loc.getNamespace();
         boolean hasTag = hasTag(stack);
 
         if (ConfigHandler.Common.invertListToWhitelist()) {
             // Whitelisted
             return hasTag || ConfigHandler.Common.getMods().contains(modid)
-                    || toolsMap.get(itemName) != null;
+                    || toolsMap.get(loc.toString()) != null;
         }
         else {
             // Blacklisted
-            return !hasTag && !ConfigHandler.Common.getMods().contains(modid) && toolsMap.get(itemName) == null;
+            return !hasTag && !ConfigHandler.Common.getMods().contains(modid) && toolsMap.get(loc.toString()) == null;
         }
     }
 
