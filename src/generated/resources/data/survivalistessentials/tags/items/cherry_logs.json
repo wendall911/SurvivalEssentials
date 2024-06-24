@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "fruittrees:cherry_log",
+      "id": "fruitfulfun:cherry_log",
       "required": false
     },
     {
-      "id": "fruittrees:stripped_cherry_log",
+      "id": "fruitfulfun:stripped_cherry_log",
       "required": false
     },
     {
-      "id": "fruittrees:cherry_wood",
+      "id": "fruitfulfun:cherry_wood",
       "required": false
     },
     {
-      "id": "fruittrees:stripped_cherry_wood",
+      "id": "fruitfulfun:stripped_cherry_wood",
       "required": false
     },
     {

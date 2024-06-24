@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-02T14:37:45.730651007	SurvivalistEssentials - Item Tags
+// 1.20.1	2024-06-24T08:28:07.161984734	SurvivalistEssentials - Item Tags
 e45e70dd0c52a2590d1dae41c3722901d42e3a4c data/survivalistessentials/tags/items/advanced_knife_tools.json
 4bb85d021138d3307c41f0ed151d6df576c2872f data/survivalistessentials/tags/items/advanced_saw_tools.json
 64667dc2f6cfe646da2832101e1ca1c3a20e4755 data/survivalistessentials/tags/items/ancient_oak_log.json
@@ -18,9 +18,9 @@ d5155f72187d6d34d156d9428d85957f41068cbd data/survivalistessentials/tags/items/b
 4708be73e316a4a3fc30b04992f1463f6755cb84 data/survivalistessentials/tags/items/canopy_stripped_log.json
 59200edd4f465c022d7a60caeaa1d31970a2fe75 data/survivalistessentials/tags/items/canopy_stripped_wood.json
 84296080a2eb1c20af8c0ad59fffd96d56753aa9 data/survivalistessentials/tags/items/canopy_wood.json
-cf068096eb3cd1903971694770e96d4a1b8df3a7 data/survivalistessentials/tags/items/cherry_logs.json
+3289e5cef1a2aadb77051b8bac246b75689e9a1b data/survivalistessentials/tags/items/cherry_logs.json
 523fc69c52c021885bc0807f0fbd8cc970f5ef80 data/survivalistessentials/tags/items/cika_logs.json
-1d63e4de2ba3ceecc0912078893212d8cdeaacd1 data/survivalistessentials/tags/items/citrus_logs.json
+6d0b65d0415897618f126c2aa278249d2b7e8172 data/survivalistessentials/tags/items/citrus_logs.json
 73d8f13dcd1638971d31cb206d98fa57db3b38bf data/survivalistessentials/tags/items/coconut_logs.json
 ac8a8f8091b6d54a238d52dd678231eb4378c217 data/survivalistessentials/tags/items/cooked_meat.json
 1aee11775adb29770c8a18578344c63c91d3c7a5 data/survivalistessentials/tags/items/cypress_logs.json

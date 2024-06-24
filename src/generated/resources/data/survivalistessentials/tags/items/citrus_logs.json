@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "fruittrees:citrus_log",
+      "id": "fruitfulfun:citrus_log",
       "required": false
     },
     {
-      "id": "fruittrees:stripped_citrus_log",
+      "id": "fruitfulfun:stripped_citrus_log",
       "required": false
     },
     {
-      "id": "fruittrees:citrus_wood",
+      "id": "fruitfulfun:citrus_wood",
       "required": false
     },
     {
-      "id": "fruittrees:stripped_citrus_wood",
+      "id": "fruitfulfun:stripped_citrus_wood",
       "required": false
     }
   ]
