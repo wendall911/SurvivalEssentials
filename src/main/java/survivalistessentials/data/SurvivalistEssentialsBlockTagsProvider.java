@@ -30,10 +30,6 @@ public class SurvivalistEssentialsBlockTagsProvider extends BlockTagsProvider {
             .addTag(BlockTags.BEDS)
             .add(Blocks.GRAVEL)
             .addTag(Tags.Blocks.GRAVEL)
-            .addTag(BlockTags.LEAVES)
-            .addOptional(SurvivalistEssentialsIntegration.sgcLoc("avocado_leaves"))
-            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infested_leaves"))
-            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infesting_leaves"))
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SAND)
             .addTag(BlockTags.SAND)
@@ -45,10 +41,10 @@ public class SurvivalistEssentialsBlockTagsProvider extends BlockTagsProvider {
             .addTag(BlockTags.BEDS)
             .add(Blocks.GRAVEL)
             .addTag(Tags.Blocks.GRAVEL)
-            .addTag(BlockTags.LEAVES)
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SAND)
-            .addTag(BlockTags.SAND);
+            .addTag(BlockTags.SAND)
+            .addTag(TagManager.Blocks.FIBER_PLANTS);
 
         this.tag(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)
             .add(Blocks.GRAVEL)
@@ -87,6 +83,9 @@ public class SurvivalistEssentialsBlockTagsProvider extends BlockTagsProvider {
             .add(Blocks.LARGE_FERN)
             .add(Blocks.GRASS)
             .add(Blocks.TALL_GRASS)
+            .addOptional(ModIntegration.sgcLoc("avocado_leaves"))
+            .addOptional(ModIntegration.exnihiloLoc("infested_leaves"))
+            .addOptional(ModIntegration.exnihiloLoc("infesting_leaves"))
             .addOptionalTag(TagManager.forgeLoc("grass"))
             .addOptionalTag(TagManager.forgeLoc("bushes"));
 
