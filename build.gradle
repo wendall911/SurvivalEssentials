@@ -238,7 +238,7 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
         mainFile.addOptional('sushigocrafting')
         mainFile.addOptional('botania')
         mainFile.addOptional('ars-nouveau')
-        mainFile.addOptional('ex-nihilo-sequentia')
+        mainFile.addOptional('exnihilosequentia')
         mainFile.addOptional('the-undergarden')
         mainFile.addOptional('dynamictrees')
         mainFile.addOptional('oh-the-biomes-youll-go')
@@ -268,7 +268,7 @@ modrinth {
             optional.project 'quark'
             optional.project 'allyoucaneat'
             optional.project 'botania'
-            optional.project 'ex-nihilo-sequentia'
+            optional.project 'exnihilosequentia'
             optional.project 'dynamictrees'
             optional.project 'biomesyougo'
             optional.project 'ecologics'
