@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import net.minecraftforge.fml.ModList;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
