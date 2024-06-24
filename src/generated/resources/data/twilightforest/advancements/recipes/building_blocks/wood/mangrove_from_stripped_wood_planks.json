@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:stripped_mangrove_wood"
-            ]
+            "tag": "survivalistessentials:mangrove_stripped_wood"
           }
         ]
       }

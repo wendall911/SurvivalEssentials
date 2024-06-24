@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:sorting_wood"
-            ]
+            "tag": "survivalistessentials:sorting_wood"
           }
         ]
       }

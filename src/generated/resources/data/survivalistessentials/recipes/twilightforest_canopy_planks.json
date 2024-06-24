@@ -9,7 +9,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "item": "twilightforest:canopy_log"
+      "tag": "survivalistessentials:canopy_log"
     },
     {
       "tag": "survivalistessentials:advanced_saw_tools"

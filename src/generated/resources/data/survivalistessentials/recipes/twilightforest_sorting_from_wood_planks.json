@@ -9,7 +9,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "item": "twilightforest:sorting_wood"
+      "tag": "survivalistessentials:sorting_wood"
     },
     {
       "tag": "survivalistessentials:advanced_saw_tools"

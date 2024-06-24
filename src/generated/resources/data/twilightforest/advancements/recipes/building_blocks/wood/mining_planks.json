@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:mining_log"
-            ]
+            "tag": "survivalistessentials:mining_log"
           }
         ]
       }

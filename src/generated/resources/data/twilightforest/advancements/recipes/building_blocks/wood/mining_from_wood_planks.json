@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:mining_wood"
-            ]
+            "tag": "survivalistessentials:mining_wood"
           }
         ]
       }

@@ -9,7 +9,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "item": "twilightforest:twilight_oak_wood"
+      "tag": "survivalistessentials:twilight_oak_wood"
     },
     {
       "item": "survivalistessentials:crude_saw"

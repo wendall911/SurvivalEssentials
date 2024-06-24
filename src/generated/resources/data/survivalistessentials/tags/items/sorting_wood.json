@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "twilightforest:sorting_wood",
+      "required": false
+    }
+  ]
+}

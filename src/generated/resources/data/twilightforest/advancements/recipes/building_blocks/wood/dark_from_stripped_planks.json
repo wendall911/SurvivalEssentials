@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:stripped_dark_log"
-            ]
+            "tag": "survivalistessentials:dark_stripped_log"
           }
         ]
       }

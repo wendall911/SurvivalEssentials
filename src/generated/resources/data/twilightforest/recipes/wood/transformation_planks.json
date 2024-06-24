@@ -9,7 +9,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "item": "twilightforest:transformation_log"
+      "tag": "survivalistessentials:transformation_log"
     },
     {
       "item": "survivalistessentials:crude_saw"

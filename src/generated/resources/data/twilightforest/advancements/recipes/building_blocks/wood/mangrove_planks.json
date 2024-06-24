@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:mangrove_log"
-            ]
+            "tag": "survivalistessentials:mangrove_log"
           }
         ]
       }

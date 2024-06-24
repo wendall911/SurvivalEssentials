@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:dark_wood"
-            ]
+            "tag": "survivalistessentials:dark_wood"
           }
         ]
       }

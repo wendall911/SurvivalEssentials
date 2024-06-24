@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:stripped_twilight_oak_log"
-            ]
+            "tag": "survivalistessentials:twilight_oak_stripped_log"
           }
         ]
       }

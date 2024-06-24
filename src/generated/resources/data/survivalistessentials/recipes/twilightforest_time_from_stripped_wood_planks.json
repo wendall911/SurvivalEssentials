@@ -9,7 +9,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "item": "twilightforest:stripped_time_wood"
+      "tag": "survivalistessentials:time_stripped_wood"
     },
     {
       "tag": "survivalistessentials:advanced_saw_tools"

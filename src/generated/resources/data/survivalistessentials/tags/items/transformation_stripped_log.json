@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "twilightforest:transformation_stripped_log",
+      "required": false
+    }
+  ]
+}

@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:stripped_time_log"
-            ]
+            "tag": "survivalistessentials:time_stripped_log"
           }
         ]
       }

@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "twilightforest:transformation_wood"
-            ]
+            "tag": "survivalistessentials:transformation_wood"
           }
         ]
       }

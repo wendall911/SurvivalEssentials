@@ -9,7 +9,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "item": "twilightforest:mining_wood"
+      "tag": "survivalistessentials:mining_wood"
     },
     {
       "tag": "survivalistessentials:advanced_saw_tools"
