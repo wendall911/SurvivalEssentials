@@ -83,9 +83,9 @@ public class SurvivalistEssentialsBlockTagsProvider extends BlockTagsProvider {
             .add(Blocks.LARGE_FERN)
             .add(Blocks.GRASS)
             .add(Blocks.TALL_GRASS)
-            .addOptional(ModIntegration.sgcLoc("avocado_leaves"))
-            .addOptional(ModIntegration.exnihiloLoc("infested_leaves"))
-            .addOptional(ModIntegration.exnihiloLoc("infesting_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.sgcLoc("avocado_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infested_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infesting_leaves"))
             .addOptionalTag(TagManager.forgeLoc("grass"))
             .addOptionalTag(TagManager.forgeLoc("bushes"));
 

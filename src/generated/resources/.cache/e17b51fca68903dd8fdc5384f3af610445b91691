@@ -1,7 +1,7 @@
-// 1.19.2	2024-04-08T09:44:37.205042547	SurvivalistEssentials - Block Tags
-f975e0eb990b31b4cc9070bd6cec4f3f06473e24 data/survivalistessentials/tags/blocks/always_breakable.json
-0b7924e888e63178a739b954eb1ab7e615ec9c4c data/survivalistessentials/tags/blocks/always_drops.json
+// 1.19.2	2024-06-24T12:16:33.365946136	SurvivalistEssentials - Block Tags
+6ff716e0d15cb055a3927487dbd607d27379b36b data/survivalistessentials/tags/blocks/always_breakable.json
+39456ed986d9c7a4b5a227403a5af5bc20f5c768 data/survivalistessentials/tags/blocks/always_drops.json
 8d5dd854c5332d06513ce14e05ff2be4999b2d58 data/survivalistessentials/tags/blocks/branches.json
-857d95b569e1a8f1a9272101fd6f148471a97e92 data/survivalistessentials/tags/blocks/fiber_plants.json
+82fa59b0da532469fcc68d2293592a1cb8725153 data/survivalistessentials/tags/blocks/fiber_plants.json
 223212b2eb6002c9b29dbe2768f93eee83bc4e28 data/survivalistessentials/tags/blocks/loose_rock_placeable_on.json
 37310f4b195f2b277e1a8fdff36cf4b73d628108 data/survivalistessentials/tags/blocks/loose_rocks.json
