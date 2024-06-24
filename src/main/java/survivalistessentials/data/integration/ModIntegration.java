@@ -11,7 +11,7 @@ public final class ModIntegration {
     public static final String BMO_MODID = "biomemakeover";
     public static final String BOP_MODID = "biomesoplenty";
     public static final String BOTANIA_MODID = "botania";
-    public static final String FT_MODID = "fruittrees";
+    public static final String FT_MODID = "fruitfulfun";
     public static final String IE_MODID = "immersiveengineering";
     public static final String QUARK_MODID = "quark";
     public static final String SGC_MODID = "sushigocrafting";
