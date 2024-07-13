@@ -20,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_sapling",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sapling"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:stick_from_sapling"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

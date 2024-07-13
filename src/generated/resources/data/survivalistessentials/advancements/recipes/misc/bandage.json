@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ointment",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ointment"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:bandage"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

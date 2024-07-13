@@ -1,4 +1,13 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "tinkersurvival"
+      }
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_diamond": {
@@ -22,14 +31,13 @@
   },
   "requirements": [
     [
-      "has_diamond",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_diamond"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:sharp_knife"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

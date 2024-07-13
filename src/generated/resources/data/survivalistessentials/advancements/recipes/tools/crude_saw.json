@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_crude_saw_handle",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_crude_saw_handle"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:crude_saw"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

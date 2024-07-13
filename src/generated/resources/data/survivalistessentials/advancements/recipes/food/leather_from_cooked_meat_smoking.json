@@ -20,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_cooked_meat",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cooked_meat"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:leather_from_cooked_meat_smoking"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

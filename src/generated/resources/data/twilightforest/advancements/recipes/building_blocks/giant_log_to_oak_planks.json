@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_advanced_saw": {
@@ -20,14 +26,13 @@
   },
   "requirements": [
     [
-      "has_advanced_saw",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_advanced_saw"
     ]
   ],
   "rewards": {
     "recipes": [
       "twilightforest:giant_log_to_oak_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

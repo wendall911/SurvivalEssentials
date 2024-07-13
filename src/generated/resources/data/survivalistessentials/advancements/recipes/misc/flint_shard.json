@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_crude_knife",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_crude_knife"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:flint_shard"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

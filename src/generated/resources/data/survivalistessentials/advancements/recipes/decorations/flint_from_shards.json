@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_flint_shard",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_flint_shard"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:flint_from_shards"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -1,15 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:not",
+      "type": "neoforge:not",
       "value": {
-        "type": "forge:mod_loaded",
+        "type": "neoforge:mod_loaded",
         "modid": "tinkersurvival"
       }
     }
   ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "D": {
       "item": "minecraft:diamond"
@@ -27,6 +27,5 @@
   ],
   "result": {
     "item": "survivalistessentials:sharp_knife"
-  },
-  "show_notification": true
+  }
 }

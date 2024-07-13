@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_loose_rock",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_loose_rock"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:cobblestone_from_rocks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

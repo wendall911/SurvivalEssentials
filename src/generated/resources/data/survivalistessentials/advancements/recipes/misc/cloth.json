@@ -20,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_string",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_string"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:cloth"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

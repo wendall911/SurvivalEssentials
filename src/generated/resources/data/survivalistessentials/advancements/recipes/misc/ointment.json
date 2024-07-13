@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_plant_paste",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_plant_paste"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:ointment"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

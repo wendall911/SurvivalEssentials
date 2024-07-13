@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_plant_fiber",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_plant_fiber"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:mortar_and_pestle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

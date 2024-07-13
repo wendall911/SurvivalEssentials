@@ -4,7 +4,7 @@
     "minecraft:vine",
     "minecraft:fern",
     "minecraft:large_fern",
-    "minecraft:grass",
+    "minecraft:grass_block",
     "minecraft:tall_grass",
     {
       "id": "sushigocrafting:avocado_leaves",
@@ -19,11 +19,11 @@
       "required": false
     },
     {
-      "id": "#forge:grass",
+      "id": "#c:grass",
       "required": false
     },
     {
-      "id": "#forge:bushes",
+      "id": "#c:bushes",
       "required": false
     }
   ]

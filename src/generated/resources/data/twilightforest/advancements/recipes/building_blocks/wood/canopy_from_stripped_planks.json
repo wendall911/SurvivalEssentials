@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_logs": {
@@ -20,14 +26,13 @@
   },
   "requirements": [
     [
-      "has_logs",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_logs"
     ]
   ],
   "rewards": {
     "recipes": [
       "twilightforest:wood/canopy_from_stripped_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

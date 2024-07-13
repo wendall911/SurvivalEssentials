@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_the_recipe": {
@@ -11,7 +17,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:treated_wood"
+            "tag": "c:treated_wood"
           }
         ]
       },
@@ -20,14 +26,13 @@
   },
   "requirements": [
     [
-      "has_treated_planks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_treated_planks"
     ]
   ],
   "rewards": {
     "recipes": [
       "survivalistessentials:stick_treated"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

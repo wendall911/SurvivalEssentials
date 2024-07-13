@@ -1,11 +1,12 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "allyoucaneat"
     }
   ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
   "group": "planks",
   "ingredients": [
     {

@@ -16,7 +16,7 @@
       }
     },
     {
-      "condition": "survivalistessentials:is_tag",
+      "condition": "survivalistessentials:block_is_tag",
       "tag": "survivalistessentials:fiber_plants"
     }
   ]
