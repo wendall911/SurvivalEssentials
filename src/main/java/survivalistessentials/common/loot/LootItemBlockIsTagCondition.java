@@ -1,13 +1,12 @@
 package survivalistessentials.common.loot;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
+import org.jetbrains.annotations.NotNull;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -15,22 +14,20 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 
-public class LootItemBlockIsTagCondition implements LootItemCondition {
+public record LootItemBlockIsTagCondition(TagKey<Block> tag) implements LootItemCondition {
 
-    public static final LootItemConditionType LOOT_ITEM_BLOCK_IS_TAG = new LootItemConditionType(new LootItemBlockIsTagCondition.Serializer());
-    final TagKey<Block> tag;
-
-    LootItemBlockIsTagCondition(TagKey<Block> tag) {
-        this.tag = tag;
-    }
+    public static final LootItemConditionType LOOT_ITEM_BLOCK_IS_TAG = new LootItemConditionType(LootItemBlockIsTagCondition.CODEC);
+    public static final Codec<LootItemBlockIsTagCondition> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+        TagKey.codec(Registries.BLOCK).fieldOf("tag").forGetter(LootItemBlockIsTagCondition::tag)
+    ).apply(builder, LootItemBlockIsTagCondition::new));
 
     public static LootItemBlockIsTagCondition isTag(TagKey<Block> tag) {
         return new LootItemBlockIsTagCondition(tag);
     }
 
     @Override
-    public LootItemConditionType getType() {
-        return LOOT_ITEM_BLOCK_IS_TAG;
+    public @NotNull LootItemConditionType getType() {
+        return SurvivalistEssentialsLootConditionTypes.BLOCK_IS_TAG.get();
     }
 
     @Override
@@ -39,13 +36,4 @@ public class LootItemBlockIsTagCondition implements LootItemCondition {
         return state != null && state.is(this.tag);
     }
 
-    public static class Serializer implements net.minecraft.world.level.storage.loot.Serializer<LootItemBlockIsTagCondition> {
-        public void serialize(JsonObject object, LootItemBlockIsTagCondition cond, JsonSerializationContext context) {
-            object.addProperty("tag", cond.tag.location().toString());
-        }
-
-        public LootItemBlockIsTagCondition deserialize(JsonObject object, JsonDeserializationContext context) {
-            return new LootItemBlockIsTagCondition(BlockTags.create(new ResourceLocation(GsonHelper.getAsString(object, "tag"))));
-        }
-    }
 }

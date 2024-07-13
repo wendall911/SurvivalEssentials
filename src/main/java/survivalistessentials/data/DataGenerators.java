@@ -10,13 +10,13 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.world.ForgeBiomeModifiers;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.world.BiomeModifiers;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import survivalistessentials.data.client.ModBlockStateProvider;
 import survivalistessentials.data.client.ModItemModelProvider;
@@ -35,8 +35,8 @@ public final class DataGenerators {
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
         .add(Registries.CONFIGURED_FEATURE, SurvivalistEssentialsFeatures::configuredBootstrap)
         .add(Registries.PLACED_FEATURE, SurvivalistEssentialsFeatures::placementBootstrap)
-        .add(ForgeRegistries.Keys.BIOME_MODIFIERS, context -> {
-            context.register(SurvivalistEssentialsBiomeModifiers.LOOSE_ROCKS_MODIFIER_KEY, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+        .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, context -> {
+            context.register(SurvivalistEssentialsBiomeModifiers.LOOSE_ROCKS_MODIFIER_KEY, new BiomeModifiers.AddFeaturesBiomeModifier(
                 context.lookup(Registries.BIOME).getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(context.lookup(Registries.PLACED_FEATURE).getOrThrow(SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION
@@ -51,13 +51,13 @@ public final class DataGenerators {
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper());
         String modpackOverrides = System.getenv("MOD_OVERRIDES");
 
-        gen.addProvider(event.includeServer(), new ModItemModelProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeServer(), new ModBlockStateProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeServer(), blockTags);
         gen.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, event.getLookupProvider(), blockTags, existingFileHelper));
         gen.addProvider(event.includeServer(), new ModRecipesProvider(packOutput));
         gen.addProvider(event.includeServer(), ModLootTables.create(packOutput));
         gen.addProvider(event.includeServer(), new GlobalLootModifier(packOutput));
+        gen.addProvider(event.includeServer(), new ModItemModelProvider(packOutput, existingFileHelper));
 
         if (modpackOverrides != null && modpackOverrides.contains("all")) {
             gen.addProvider(event.includeServer(), new BlockTagsOverrideProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper()));

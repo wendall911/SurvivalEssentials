@@ -30,6 +30,8 @@ public final class SurvivalistEssentialsFeatures extends SurvivalistEssentialsMo
 
     public SurvivalistEssentialsFeatures() {}
 
+    public static void init() {}
+
     public static void configuredBootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         register(context, SurvivalistEssentialsFeatures.LOOSE_ROCKS_KEY, SurvivalistEssentialsFeatures.LOOSE_ROCKS_FEATURE, NoneFeatureConfiguration.INSTANCE);
     }

@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.WorldGenLevel;
 
-import net.minecraftforge.common.util.Lazy;
+import net.neoforged.neoforge.common.util.Lazy;
 
 import survivalistessentials.common.TagManager;
 import survivalistessentials.world.SurvivalistEssentialsWorld;

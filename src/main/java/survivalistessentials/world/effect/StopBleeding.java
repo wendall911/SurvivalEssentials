@@ -24,7 +24,7 @@ public class StopBleeding extends MobEffect {
     }
 
     @Override
-    public boolean isDurationEffectTick(int duration, int amplifier) {
+    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         int j = 50 >> amplifier;
 
         if (j > 0) {

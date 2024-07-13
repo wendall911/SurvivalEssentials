@@ -3,6 +3,7 @@ package survivalistessentials.jei;
 import java.util.Collections;
 import java.util.Objects;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -14,8 +15,9 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.fml.ModList;
+
+import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
@@ -36,7 +38,7 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
         addIngredientInfo(registry, SurvivalistEssentialsItems.FLINT_SHARD);
         addIngredientInfo(registry, Items.STICK);
 
-        if (ModList.get().isLoaded("tinkersurvival")) {
+        if (ModList.get().isLoaded(ModIntegration.TS_MODID)) {
             registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
                 Collections.singleton(new ItemStack(SurvivalistEssentialsItems.BASIC_SAW_BLADE)));
             registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
@@ -53,7 +55,7 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
     }
 
     private void addIngredientInfo(IRecipeRegistration registry, Item item) {
-        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
+        String name = BuiltInRegistries.ITEM.getKey(item).getPath();
 
         registry.addIngredientInfo(
             new ItemStack(item),

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -16,12 +17,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.ForgeRegistries;
-
+import net.neoforged.fml.ModList;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
+import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
 
 public class ItemUse {
@@ -72,7 +72,7 @@ public class ItemUse {
     }
 
     public static boolean isAllowedTool(ItemStack stack) {
-        ResourceLocation loc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem()));
+        ResourceLocation loc = BuiltInRegistries.ITEM.getKey(stack.getItem());
         String itemName = loc.getPath();
         String modid = loc.getNamespace();
         boolean hasTag = hasTag(stack);
@@ -89,7 +89,7 @@ public class ItemUse {
     }
 
     public static String getModId(Block block) {
-        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getNamespace();
+        return BuiltInRegistries.BLOCK.getKey(block).getNamespace();
     }
 
     public static boolean alwaysDrops(BlockState state) {
@@ -102,7 +102,7 @@ public class ItemUse {
     }
 
     public static String getToolClass(ItemStack stack) {
-        String itemName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).toString();
+        String itemName = BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
         String type = toolsMap.get(itemName);
 
         if (ToolType.PICKAXE.is(stack.getItem())) {
@@ -183,7 +183,7 @@ public class ItemUse {
 
     public static boolean isAlwaysBreakable(BlockState state) {
         if (((AbstractBlockStateAccessor) state).getDestroySpeed() == 0) {
-            if (!ModList.get().isLoaded("dynamictrees")) {
+            if (!ModList.get().isLoaded(ModIntegration.DYNAMICTREES_MODID)) {
                 return true;
             }
             else {
@@ -244,7 +244,7 @@ public class ItemUse {
     }
 
     public static boolean isAllowedArmor(ItemStack stack) {
-        ResourceLocation loc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem()));
+        ResourceLocation loc = BuiltInRegistries.ITEM.getKey(stack.getItem());
         String itemName = loc.getPath();
         String modid = loc.getNamespace();
         boolean hasTag = hasTag(stack);

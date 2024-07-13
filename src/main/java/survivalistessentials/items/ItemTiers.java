@@ -3,7 +3,7 @@ package survivalistessentials.items;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 
 public class ItemTiers {
 

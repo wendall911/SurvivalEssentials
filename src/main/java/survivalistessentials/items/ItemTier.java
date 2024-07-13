@@ -1,6 +1,6 @@
 package survivalistessentials.items;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -87,7 +87,7 @@ public class ItemTier implements Tier {
     }
 
     @Override
-    @Nonnull
+    @NotNull
     public Ingredient getRepairIngredient() {
         if (this.repairIngredientTag != null) {
             return Ingredient.of(this.repairIngredientTag);

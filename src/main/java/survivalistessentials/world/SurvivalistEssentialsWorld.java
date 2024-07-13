@@ -8,7 +8,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.block.LooseRockBlock;
@@ -59,7 +59,7 @@ public final class SurvivalistEssentialsWorld {
     private static Block registerBlock(String name) {
         Block block = new LooseRockBlock();
 
-        BLOCK_REGISTRY.register(name, block);
+        BLOCK_REGISTRY.register(new ResourceLocation(SurvivalistEssentials.MODID, name), block);
 
         return block;
     }

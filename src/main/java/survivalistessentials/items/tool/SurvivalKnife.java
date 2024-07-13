@@ -1,6 +1,6 @@
 package survivalistessentials.items.tool;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -13,7 +13,6 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.TagManager;
 
 public class SurvivalKnife extends SwordItem {
@@ -22,9 +21,9 @@ public class SurvivalKnife extends SwordItem {
         super(tier, damage, speed, tabGroup);
     }
 
-    @Nonnull
+    @NotNull
     @Override
-    public ItemStack getCraftingRemainingItem(@Nonnull ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
         
         if (!container.hurt(1, RandomSource.create(), null)) {
@@ -36,12 +35,12 @@ public class SurvivalKnife extends SwordItem {
     }
 
     @Override
-    public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
         return true;
     }
 
     @Override
-    public boolean mineBlock(ItemStack knife, Level level, BlockState state, BlockPos pos, LivingEntity player) {
+    public boolean mineBlock(@NotNull ItemStack knife, @NotNull Level level, BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity player) {
         float destroySpeed = state.getDestroySpeed(level, pos);
 
         if (destroySpeed != 0.0F) {

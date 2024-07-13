@@ -1,6 +1,8 @@
 package survivalistessentials.items.tool;
 
-import javax.annotation.Nonnull;
+import java.util.Objects;
+
+import org.jetbrains.annotations.NotNull;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -18,9 +20,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+
+import net.neoforged.neoforge.common.ToolAction;
 
 import survivalistessentials.common.TagManager;
 import survivalistessentials.items.SurvivalistEssentialsItems;
@@ -43,12 +46,12 @@ public class SurvivalSaw extends TieredItem {
         this.defaultModifiers = builder.build();
     }
 
-    @Nonnull
+    @NotNull
     @Override
-    public ItemStack getCraftingRemainingItem(@Nonnull ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
         
-        if (this.name == "saw_handle") {
+        if (Objects.equals(this.name, "saw_handle")) {
             return ItemStack.EMPTY;
         }
         else if (!container.hurt(1, RandomSource.create(), null)) {
@@ -60,12 +63,12 @@ public class SurvivalSaw extends TieredItem {
     }
 
     @Override
-    public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
         return true;
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
+    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot pEquipmentSlot) {
         return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
 
@@ -75,22 +78,22 @@ public class SurvivalSaw extends TieredItem {
     }
 
     @Override
-    public boolean isEnchantable(ItemStack pStack) {
+    public boolean isEnchantable(@NotNull ItemStack pStack) {
         return false;
     }
 
     @Override
-    public boolean isValidRepairItem(ItemStack pToRepair, ItemStack pRepair) {
+    public boolean isValidRepairItem(@NotNull ItemStack pToRepair, @NotNull ItemStack pRepair) {
         return false;
     }
 
     @Override
-    public float getDestroySpeed(ItemStack pStack, BlockState pState) {
+    public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
         return !pState.is(TagManager.Blocks.ALWAYS_BREAKABLE) ? this.speed : 1.0F;
     }
 
     @Override
-    public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
+    public boolean mineBlock(@NotNull ItemStack pStack, Level pLevel, @NotNull BlockState pState, @NotNull BlockPos pPos, @NotNull LivingEntity pEntityLiving) {
           if (!pLevel.isClientSide && pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
              pStack.hurtAndBreak(1, pEntityLiving, (entity) -> {
                 entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
@@ -101,17 +104,17 @@ public class SurvivalSaw extends TieredItem {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public InteractionResult useOn(@NotNull UseOnContext pContext) {
         return InteractionResult.FAIL;
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return false;
     }
 
     @Override
-    public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+    public boolean hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
         return false;
     }
 

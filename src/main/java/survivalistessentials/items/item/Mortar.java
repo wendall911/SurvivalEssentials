@@ -1,6 +1,6 @@
 package survivalistessentials.items.item;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -11,15 +11,14 @@ public class Mortar extends Item {
         super(tabGroup);
     }
 
-
     @Override
-    public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
         return true;
     }
 
-    @Nonnull
+    @NotNull
     @Override
-    public ItemStack getCraftingRemainingItem(@Nonnull ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
         return stack.copy();
     }
 

@@ -1,5 +1,7 @@
 package survivalistessentials.data.overrides;
 
+import java.util.concurrent.CompletableFuture;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -8,11 +10,9 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import survivalistessentials.SurvivalistEssentials;
-
-import java.util.concurrent.CompletableFuture;
 
 public class BlockTagsOverrideProvider extends IntrinsicHolderTagsProvider<Block> {
 

@@ -7,8 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 
-import net.minecraftforge.registries.RegisterEvent;
-
+import net.neoforged.neoforge.registries.RegisterEvent;
 import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.items.item.Bandage;
 import survivalistessentials.items.item.CrudeBandage;

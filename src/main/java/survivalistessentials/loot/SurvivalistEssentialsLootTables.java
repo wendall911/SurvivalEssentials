@@ -2,7 +2,7 @@ package survivalistessentials.loot;
 
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 import com.google.common.base.Suppliers;
 
@@ -15,15 +15,17 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
-import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.common.loot.LootModifier;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
+import net.neoforged.neoforge.common.loot.LootModifier;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
-import net.minecraftforge.registries.RegistryObject;
 import survivalistessentials.common.SurvivalistEssentialsModule;
 
 public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule {
 
-    public static RegistryObject<Codec<LootTableModifier>> ADD_LOOT = LOOT_MODIFIER_REGISTRY.register("add_loot", LootTableModifier.CODEC_SUPPLIER);
+    public static DeferredHolder<Codec<? extends IGlobalLootModifier>, Codec<LootTableModifier>> ADD_LOOT = LOOT_MODIFIER_REGISTRY.register("add_loot", LootTableModifier.CODEC_SUPPLIER);
+
+    public static void init() {}
 
     public static class LootTableModifier extends LootModifier {
 
@@ -49,16 +51,16 @@ public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule
         }
 
         @Override
-        @Nonnull
-        protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+        @NotNull
+        protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, @NotNull LootContext context) {
             generatedLoot.add(stack.copy());
 
             return generatedLoot;
         }
 
         @Override
-        public Codec<? extends IGlobalLootModifier> codec() {
-            return CODEC_SUPPLIER.get();
+        public @NotNull Codec<? extends IGlobalLootModifier> codec() {
+            return ADD_LOOT.get();
         }
 
     }

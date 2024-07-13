@@ -1,18 +1,17 @@
 package survivalistessentials.data.client;
 
-import java.util.Objects;
 import java.util.Optional;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
@@ -38,8 +37,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK);
         blockItem(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
 
-        ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
-        ModelFile itemHandheld = getExistingFile(mcLoc("item/handheld"));
+        ModelFile itemGenerated = getExistingFile(mcLoc(ITEM_FOLDER + "/generated"));
+        ModelFile itemHandheld = getExistingFile(mcLoc(ITEM_FOLDER + "/handheld"));
 
         build(itemGenerated, SurvivalistEssentialsWorld.ROCK_STONE);
         build(itemGenerated, SurvivalistEssentialsItems.FLINT_SHARD);
@@ -68,19 +67,19 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private void build(ModelFile itemGenerated, Item item) {
-        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
+        String name = BuiltInRegistries.ITEM.getKey(item).getPath();
 
-        getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+        getBuilder(name).parent(itemGenerated).texture("layer0", ITEM_FOLDER + "/" + name);
     }
 
     protected void blockItem(Block block) {
-        String type = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath().replace("_loose_rock", "");
+        String type = BuiltInRegistries.BLOCK.getKey(block).getPath().replace("_loose_rock", "");
 
-        ItemModelBuilder builder = Optional.ofNullable(block)
-            .map(ForgeRegistries.BLOCKS::getKey)
+        ItemModelBuilder builder = Optional.of(block)
+            .map(BuiltInRegistries.BLOCK::getKey)
             .map(ResourceLocation::getPath)
             .map(path -> {
-                return withExistingParent(path, modLoc("block/" + path));
+                return withExistingParent(path, modLoc(BLOCK_FOLDER + "/" + path));
             })
             .orElseThrow(() -> new IllegalStateException("Failed to create model for Block Item"));
 

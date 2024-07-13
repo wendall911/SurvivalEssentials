@@ -18,17 +18,14 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.event.entity.ProjectileImpactEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.event.TagsUpdatedEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.ModList;
-
-import tschipp.carryon.common.carry.CarryOnData;
-import tschipp.carryon.common.carry.CarryOnDataManager;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.TagsUpdatedEvent;
+import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
@@ -37,6 +34,7 @@ import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
 import survivalistessentials.sound.Sounds;
 import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.util.CarryOnHelper;
 import survivalistessentials.util.Chat;
 import survivalistessentials.util.ItemUse;
 import survivalistessentials.util.ToolType;
@@ -58,21 +56,18 @@ public class HarvestEventHandler {
         final LevelAccessor level = event.getLevel();
         final BlockPos pos = event.getPos();
         final BlockState state = level.getBlockState(pos);
-        final Player player = event.getPlayer() != null ? event.getPlayer() : null;
+        final Player player = event.getPlayer();
         final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
         boolean cancel = false;
         boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE) ||
                 ItemUse.isAlwaysBreakable(state);
 
-        if (player == null) return;
-
-        if (ModList.get().isLoaded("carryon")) {
+        if (ModList.get().isLoaded(ModIntegration.CARRYON_MODID)) {
             final ItemStack handStack = player.getMainHandItem();
             final ItemStack offhandStack = player.getOffhandItem();
 
             if (handStack.isEmpty() && offhandStack.isEmpty()) {
-                CarryOnData carry = CarryOnDataManager.getCarryData(player);
-                if (carry.isKeyPressed()) {
+                if (CarryOnHelper.isKeyPressed(player)) {
                     alwaysBreakable = true;
                 }
             }
@@ -131,8 +126,8 @@ public class HarvestEventHandler {
             Vec3 position = projectile.position();
             Vec3 nextPosition = position.add(projectile.getDeltaMovement());
 
-            HitResult hitresult = projectile.level().clip(new ClipContext(position, nextPosition, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, projectile));
-            BlockPos pos = ((BlockHitResult)hitresult).getBlockPos();
+            BlockHitResult hitresult = projectile.level().clip(new ClipContext(position, nextPosition, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, projectile));
+            BlockPos pos = hitresult.getBlockPos();
 
             spellHitBlock = projectile.level().getBlockState(new BlockPos(pos)).getBlock();
         }
@@ -140,10 +135,10 @@ public class HarvestEventHandler {
 
     @SubscribeEvent
     public static void harvestCheckEvent(PlayerEvent.HarvestCheck event) {
-        final Player player = event.getEntity() != null ? event.getEntity() : null;
+        final Player player = event.getEntity();
         final BlockState state = event.getTargetBlock();
 
-        if (player != null && !player.isCreative()) {
+        if (!player.isCreative()) {
             final ItemStack handStack = getHandStack(player, state);
             final boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
@@ -169,10 +164,10 @@ public class HarvestEventHandler {
     // Controls the slow mining speed of blocks that aren't the right tool
     @SubscribeEvent
     public static void slowMining(PlayerEvent.BreakSpeed event) {
-        final Player player = event.getEntity() != null ? event.getEntity() : null;
+        final Player player = event.getEntity();
         final Optional<BlockPos> pos = event.getPosition();
 
-        if (player == null || pos.isEmpty()) return;
+        if (pos.isEmpty()) return;
 
         final Level level = player.level();
         final BlockState state = level.getBlockState(pos.get());

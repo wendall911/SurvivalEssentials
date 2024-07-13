@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DiggerItem;
@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.mixin.AbstractBlockAccessor;
@@ -39,7 +38,7 @@ public final class HarvestBlock {
     public static final Map<Item, ToolType> ITEM_TOOL_TYPES = new HashMap<>();
 
     public static void init() {
-        for (Block block : ForgeRegistries.BLOCKS.getValues()) {
+        BuiltInRegistries.BLOCK.forEach(block -> {
             final AbstractBlockAccessor blockAccess = (AbstractBlockAccessor) block;
             final BlockBehaviour.Properties settings = blockAccess.getProperties();
 
@@ -52,7 +51,7 @@ public final class HarvestBlock {
 
                 abstractState.setRequiresCorrectToolForDrops(true);
             }
-        }
+        });
 
     }
 
@@ -61,11 +60,11 @@ public final class HarvestBlock {
 
         final Map<ToolType, List<Block>> unknownToolTypeBlocks = new HashMap<>();
 
-        for (Block block : ForgeRegistries.BLOCKS.getValues()) {
+        BuiltInRegistries.BLOCK.forEach(block -> {
             if (ConfigHandler.Common.blockWhitelistMods().contains(ItemUse.getModId(block))) {
                 BLOCK_TOOL_TYPES.put(block, ToolType.NONE);
 
-                continue;
+                return;
             }
 
             // Infer a primary tool type for the block.
@@ -105,12 +104,12 @@ public final class HarvestBlock {
                 // Unknown tool type. Collect and log it later
                 unknownToolTypeBlocks.computeIfAbsent(ToolType.NONE, k -> new ArrayList<>()).add(block);
             }
-        }
+        });
 
-        for (Item item : ForgeRegistries.ITEMS.getValues()) {
-            if (item instanceof DiggerItem) {
-                final DiggerItem digger = (DiggerItem) item;
+        BuiltInRegistries.ITEM.forEach(item -> {
+            if (item instanceof DiggerItem digger) {
                 final ToolType toolType = toolTypeForMineableTag(((DiggerItemAccessor) digger).getBlocks());
+
                 if (toolType != ToolType.NONE) {
                     ITEM_TOOL_TYPES.put(item, toolType);
                 }
@@ -118,7 +117,7 @@ public final class HarvestBlock {
             else if (item instanceof SwordItem || item instanceof ShearsItem) {
                 ITEM_TOOL_TYPES.put(item, ToolType.SHARP);
             }
-        }
+        });
 
         if (!unknownToolTypeBlocks.isEmpty()) {
             SurvivalistEssentials.LOGGER.debug("Unable to infer primary tools for %s blocks with unknown ToolType. These blocks will not enforce correct tool.", unknownToolTypeBlocks.values().stream().mapToInt(Collection::size).sum());

@@ -1,12 +1,12 @@
 package survivalistessentials.data.recipes;
 
-import java.util.Objects;
-import java.util.function.Consumer;
+import org.jetbrains.annotations.NotNull;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -19,28 +19,24 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.ItemLike;
 
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.crafting.conditions.ICondition;
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import net.minecraftforge.common.crafting.conditions.NotCondition;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
+import net.neoforged.neoforge.common.conditions.NotCondition;
 
 import survivalistessentials.common.TagManager;
 import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
-import survivalistessentials.util.ItemUse;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-public class ModRecipesProvider extends RecipeProvider implements IConditionBuilder {
+public class ModRecipesProvider extends RecipeProvider {
 
     public ModRecipesProvider(PackOutput packOutput) {
         super(packOutput);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    public void buildRecipes(@NotNull RecipeOutput recipeOutput) {
         ItemLike rockStone = SurvivalistEssentialsWorld.ROCK_STONE;
         ItemLike flintShard = SurvivalistEssentialsItems.FLINT_SHARD;
         ItemLike plantFiber = SurvivalistEssentialsItems.PLANT_FIBER;
@@ -50,7 +46,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         ItemLike ointment = SurvivalistEssentialsItems.OINTMENT;
         ItemLike cloth = SurvivalistEssentialsItems.CLOTH;
         ItemLike crudeKnife = SurvivalistEssentialsItems.CRUDE_KNIFE;
-        Consumer<FinishedRecipe> wrapped;
+        RecipeOutput wrapped;
 
         // Material Recipes
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.COBBLESTONE)
@@ -58,26 +54,26 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("RR")
                 .pattern("RR")
                 .unlockedBy("has_loose_rock", has(rockStone))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "cobblestone_from_rocks"));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, "cobblestone_from_rocks"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, rockStone, 4)
                 .requires(Blocks.COBBLESTONE)
                 .unlockedBy("has_cobblestone", has(Blocks.COBBLESTONE))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "rocks_from_cobblestone"));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, "rocks_from_cobblestone"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Items.FLINT)
                 .define('S', flintShard)
                 .pattern("SS")
                 .pattern("SS")
                 .unlockedBy("has_flint_shard", has(flintShard))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "flint_from_shards"));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, "flint_from_shards"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, plantString)
                 .define('F', plantFiber)
                 .pattern("FF")
                 .pattern("F ")
                 .unlockedBy("has_plant_fiber", has(plantFiber))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, plantPaste)
                 .define('F', plantFiber)
@@ -85,27 +81,27 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("F")
                 .pattern("U")
                 .unlockedBy("has_plant_fiber", has(plantFiber))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ointment)
                 .define('P', plantPaste)
                 .pattern("PP")
                 .pattern("PP")
                 .unlockedBy("has_plant_paste", has(plantPaste))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, cloth)
                 .define('S', Tags.Items.STRING)
                 .pattern("SSS")
                 .unlockedBy("has_string", has(Tags.Items.STRING))
-                .save(consumer);
+                .save(recipeOutput);
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(plantString), RecipeCategory.MISC, Items.STRING, 0.1F, 50)
                 .unlockedBy("has_plant_string", has(plantString))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "string_from_plant_string"));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, "string_from_plant_string"));
 
         // Add condition for recipes to hide stuff if TinkerSurvival is loaded
-        wrapped = withCondition(consumer, new NotCondition(new ModLoadedCondition(ModIntegration.TS_MODID)));
+        wrapped = recipeOutput.withConditions(new NotCondition(new ModLoadedCondition(ModIntegration.TS_MODID)));
 
         // Saw Blades
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.CRUDE_SAW_BLADE)
@@ -115,7 +111,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("ID")
                 .pattern("SD")
                 .unlockedBy("has_plant_string", has(plantString))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.BASIC_SAW_BLADE)
                 .define('D', Items.IRON_INGOT)
@@ -124,7 +120,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("ID")
                 .pattern("SD")
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.SHARP_SAW_BLADE)
                 .define('D', Items.DIAMOND)
@@ -133,7 +129,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("ID")
                 .pattern("SD")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .save(consumer);
+                .save(recipeOutput);
         
         // Tool Recipes
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, crudeKnife)
@@ -142,7 +138,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("S")
                 .pattern("T")
                 .unlockedBy("has_flint_shard", has(flintShard))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.BASIC_KNIFE)
                 .define('I', Items.IRON_INGOT)
@@ -169,7 +165,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("SR")
                 .pattern("I ")
                 .unlockedBy("has_loose_rock", has(rockStone))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.SAW_HANDLE)
                 .define('S', plantString)
@@ -177,7 +173,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("IS")
                 .pattern(" I")
                 .unlockedBy("has_plant_string", has(plantString))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.CRUDE_SAW)
                 .define('H', SurvivalistEssentialsItems.SAW_HANDLE)
@@ -186,7 +182,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("BS")
                 .pattern(" H")
                 .unlockedBy("has_crude_saw_handle", has(SurvivalistEssentialsItems.SAW_HANDLE))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.BASIC_SAW)
                 .define('H', SurvivalistEssentialsItems.SAW_HANDLE)
@@ -214,7 +210,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("PRP")
                 .pattern(" P ")
                 .unlockedBy("has_plant_fiber", has(plantFiber))
-                .save(consumer);
+                .save(recipeOutput);
 
         // Knife Recipes
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STICK)
@@ -222,28 +218,28 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .requires(TagManager.Items.KNIFE_TOOLS)
                 .group("sticks")
                 .unlockedBy("has_sapling", has(ItemTags.SAPLINGS))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "stick_from_sapling"));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, "stick_from_sapling"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 2)
                 .requires(ItemTags.WOOL)
                 .requires(crudeKnife)
                 .group("string")
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "string_from_wool"));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, "string_from_wool"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 4)
                 .requires(ItemTags.WOOL)
                 .requires(TagManager.Items.ADVANCED_KNIFE_TOOLS)
                 .group("string")
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "string_from_wool_advanced"));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, "string_from_wool_advanced"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, flintShard, 2)
                 .requires(TagManager.Items.FLINT_KNAPPABLE)
                 .requires(TagManager.Items.KNIFE_TOOLS)
                 .group("flint_shards")
                 .unlockedBy("has_crude_knife", has(crudeKnife))
-                .save(consumer);
+                .save(recipeOutput);
 
         //Bandages
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SurvivalistEssentialsItems.CRUDE_BANDAGE)
@@ -253,7 +249,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("SF")
                 .pattern("PF")
                 .unlockedBy("has_plant_string", has(plantString))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SurvivalistEssentialsItems.BANDAGE)
                 .define('P', plantString)
@@ -263,15 +259,15 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .pattern("SC")
                 .pattern("PO")
                 .unlockedBy("has_ointment", has(ointment))
-                .save(consumer);
+                .save(recipeOutput);
 
         // Leather from Smoking
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(TagManager.Items.COOKED_MEAT), RecipeCategory.FOOD, Items.LEATHER, 0.35F, 100)
             .unlockedBy("has_cooked_meat", has(TagManager.Items.COOKED_MEAT))
-            .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, "leather_from_cooked_meat_smoking"));
+            .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, "leather_from_cooked_meat_smoking"));
 
         // Book
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.PATCHOULI_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.PATCHOULI_MODID));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SurvivalistEssentialsItems.BOOK)
             .requires(Items.DIRT)
             .requires(Items.DIRT)
@@ -287,25 +283,25 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
 
         // Saw Recipes
         // Minecraft
-        plankRecipeBuilder(consumer, Blocks.OAK_PLANKS, ItemTags.OAK_LOGS, "has_logs");
-        plankRecipeBuilder(consumer, Blocks.ACACIA_PLANKS, ItemTags.ACACIA_LOGS, "has_log");
-        plankRecipeBuilder(consumer, Blocks.BIRCH_PLANKS, ItemTags.BIRCH_LOGS, "has_logs");
-        plankRecipeBuilder(consumer, Blocks.DARK_OAK_PLANKS, ItemTags.DARK_OAK_LOGS, "has_log");
-        plankRecipeBuilder(consumer, Blocks.JUNGLE_PLANKS, ItemTags.JUNGLE_LOGS, "has_logs");
-        plankRecipeBuilder(consumer, Blocks.SPRUCE_PLANKS, ItemTags.SPRUCE_LOGS, "has_logs");
-        plankRecipeBuilder(consumer, Blocks.WARPED_PLANKS, ItemTags.WARPED_STEMS, "has_logs");
-        plankRecipeBuilder(consumer, Blocks.CRIMSON_PLANKS, ItemTags.CRIMSON_STEMS, "has_logs");
-        plankRecipeBuilder(consumer, Blocks.MANGROVE_PLANKS, ItemTags.MANGROVE_LOGS, "has_logs");
-        plankRecipeBuilder(consumer, Blocks.CHERRY_PLANKS, ItemTags.CHERRY_LOGS, "has_logs");
-        bambooRecipeBuilder(consumer, Blocks.BAMBOO_PLANKS, ItemTags.BAMBOO_BLOCKS, "has_bamboo_block");
+        plankRecipeBuilder(recipeOutput, Blocks.OAK_PLANKS, ItemTags.OAK_LOGS, "has_logs");
+        plankRecipeBuilder(recipeOutput, Blocks.ACACIA_PLANKS, ItemTags.ACACIA_LOGS, "has_log");
+        plankRecipeBuilder(recipeOutput, Blocks.BIRCH_PLANKS, ItemTags.BIRCH_LOGS, "has_logs");
+        plankRecipeBuilder(recipeOutput, Blocks.DARK_OAK_PLANKS, ItemTags.DARK_OAK_LOGS, "has_log");
+        plankRecipeBuilder(recipeOutput, Blocks.JUNGLE_PLANKS, ItemTags.JUNGLE_LOGS, "has_logs");
+        plankRecipeBuilder(recipeOutput, Blocks.SPRUCE_PLANKS, ItemTags.SPRUCE_LOGS, "has_logs");
+        plankRecipeBuilder(recipeOutput, Blocks.WARPED_PLANKS, ItemTags.WARPED_STEMS, "has_logs");
+        plankRecipeBuilder(recipeOutput, Blocks.CRIMSON_PLANKS, ItemTags.CRIMSON_STEMS, "has_logs");
+        plankRecipeBuilder(recipeOutput, Blocks.MANGROVE_PLANKS, ItemTags.MANGROVE_LOGS, "has_logs");
+        plankRecipeBuilder(recipeOutput, Blocks.CHERRY_PLANKS, ItemTags.CHERRY_LOGS, "has_logs");
+        bambooRecipeBuilder(recipeOutput, Blocks.BAMBOO_PLANKS, ItemTags.BAMBOO_BLOCKS, "has_bamboo_block");
 
         // Fruit Trees
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.FT_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.FT_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.CHERRY_PLANKS, TagManager.Items.CHERRY_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.CITRUS_PLANKS, TagManager.Items.CITRUS_LOGS, "has_logs");
 
         // Biome Makeover
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.BMO_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.BMO_MODID));
         itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_LOG, "has_logs", "wood/ancient_oak/", "ancient_oak_planks", ModIntegration.BMO_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_LOG, "has_logs", "wood/ancient_oak/", "ancient_oak_planks_stripped", ModIntegration.BMO_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_WOOD, "has_logs", "wood/ancient_oak/", "ancient_oak_planks_wood", ModIntegration.BMO_MODID);
@@ -324,7 +320,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_STRIPPED_WILLOW_WOOD, "has_logs", "wood/willow/", "willow_planks_wood_stripped", ModIntegration.BMO_MODID);
 
         //Biomes O' Plenty
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.BOP_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.BOP_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.BOP_DEAD_PLANKS, TagManager.Items.BOP_DEAD_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BOP_FIR_PLANKS, TagManager.Items.BOP_FIR_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BOP_HELLBARK_PLANKS, TagManager.Items.BOP_HELLBARK_LOGS, "has_logs");
@@ -337,41 +333,41 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         plankRecipeBuilder(wrapped, ModIntegration.BOP_WILLOW_PLANKS, TagManager.Items.BOP_WILLOW_LOGS, "has_logs");
 
         //Quark
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.QUARK_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.QUARK_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.QUARK_AZALEA_PLANKS, TagManager.Items.QUARK_AZALEA_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.QUARK_BLOSSOM_PLANKS, TagManager.Items.QUARK_BLOSSOM_LOGS, "has_logs");
 
         //All You Can Eat
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.AYCE_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.AYCE_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.AYCE_HAZEL_PLANKS, TagManager.Items.AYCE_HAZEL_LOGS, "has_logs");
 
         // Tinkers' Construct
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.TCON_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.TCON_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.TCON_BLOODSHROOM_PLANKS, TagManager.Items.TCON_BLOODSHROOM_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.TCON_GREENHEART_PLANKS, TagManager.Items.TCON_GREENHEART_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.TCON_SKYROOT_PLANKS, TagManager.Items.TCON_SKYROOT_LOGS, "has_logs");
 
         // Water Source
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.WS_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.WS_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.WS_PALM_TREE_PLANKS, TagManager.Items.WS_PALM_TREE_LOGS, "has_logs");
 
         // Botania
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.BOTANIA_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.BOTANIA_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.BOTANIA_DREAMWOOD_PLANKS, TagManager.Items.BOTANIA_DREAMWOOD_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BOTANIA_LIVINGWOOD_PLANKS, TagManager.Items.BOTANIA_LIVINGWOOD_LOGS, "has_logs");
 
         // Ars Nouveau
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.AN_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.AN_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.AN_ARCHWOOD_PLANKS, ItemTags.create(new ResourceLocation("forge:logs/archwood")), "has_logs");
 
         // Undergarden
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.UNDERGARDEN_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.UNDERGARDEN_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.UNDERGARDEN_GRONGLE_PLANKS, TagManager.Items.UNDERGARDEN_GRONGLE_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.UNDERGARDEN_SMOGSTEM_PLANKS, TagManager.Items.UNDERGARDEN_SMOGSTEM_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.UNDERGARDEN_WIGGLEWOOD_PLANKS, TagManager.Items.UNDERGARDEN_WIGGLEWOOD_LOGS, "has_logs");
 
         // BYG
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.BYG_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.BYG_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.BYG_ETHER_PLANKS, TagManager.Items.BYG_ETHER_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_WHITE_MANGROVE_PLANKS, TagManager.Items.BYG_WHITE_MANGROVE_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_REDWOOD_PLANKS, TagManager.Items.BYG_REDWOOD_LOGS, "has_logs");
@@ -403,7 +399,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         plankRecipeBuilder(wrapped, ModIntegration.BYG_BULBIS_PLANKS, TagManager.Items.BYG_BULBIS_LOGS, "has_logs");
 
         // Twilight Forest
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.TF_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.TF_MODID));
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_LOG, "has_logs", "wood/", "canopy_planks", ModIntegration.TF_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_LOG, "has_logs", "wood/", "canopy_from_stripped_planks", ModIntegration.TF_MODID);
         itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_WOOD, "has_logs", "wood/", "canopy_from_wood_planks", ModIntegration.TF_MODID);
@@ -445,7 +441,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .save(wrapped, new ResourceLocation(ModIntegration.TF_MODID, "giant_log_to_oak_planks"));
 
         // Aquaculture
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.AQUA_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.AQUA_MODID));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.OAK_PLANKS, 2)
                 .requires(ModIntegration.AQUA_DRIFTWOOD)
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
@@ -461,7 +457,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .save(wrapped, new ResourceLocation(SurvivalistEssentials.MODID, "planks_from_driftwood"));
 
         // Immersive Engineering
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.IE_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.IE_MODID));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModIntegration.IE_STICK_TREATED, 2)
                 .requires(TagManager.Items.IE_TREATED_WOOD)
@@ -479,7 +475,7 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .save(wrapped, new ResourceLocation(ModIntegration.IE_MODID, "crafting/stick_treated"));
 
         // Ecologics
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.ECO_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.ECO_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.ECO_COCONUT_PLANKS, TagManager.Items.ECO_COCONUT_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.ECO_WALNUT_PLANKS, TagManager.Items.ECO_WALNUT_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.ECO_AZALEA_PLANKS, TagManager.Items.ECO_AZALEA_LOGS, "has_logs");
@@ -490,43 +486,43 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .requires(TagManager.Items.SAW_TOOLS)
                 .group("sticks")
                 .unlockedBy("has_planks", has(ItemTags.PLANKS))
-                .save(consumer);
+                .save(recipeOutput);
 
         // Malum
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.MALUM_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.MALUM_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.MALUM_RUNEWOOD_PLANKS, TagManager.Items.MALUM_RUNEWOOD_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.MALUM_SOULWOOD_PLANKS, TagManager.Items.MALUM_SOULWOOD_LOGS, "has_logs");
 
         // Ice and Fire; Dragons
-        wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.IFD_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.IFD_MODID));
         plankRecipeBuilder(wrapped, ModIntegration.IFD_DREADWOOD_PLANKS, TagManager.Items.IFD_DREADWOOD_LOGS, "has_logs");
     }
 
-    private static void plankRecipeBuilder(Consumer<FinishedRecipe> consumer, ItemLike item, TagKey<Item> itemTag, String label) {
+    private static void plankRecipeBuilder(RecipeOutput recipeOutput, ItemLike item, TagKey<Item> itemTag, String label) {
         ShapelessRecipeBuilder plankOverrideRecipe = ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, item, 2)
                 .requires(itemTag)
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
                 .group("planks")
                 .unlockedBy(label, has(itemTag));
 
-        ResourceLocation itemLoc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem()));
+        ResourceLocation itemLoc = BuiltInRegistries.ITEM.getKey(item.asItem());
         String name = itemLoc.getPath();
         String modid = itemLoc.getNamespace();
 
         if (modid.contains(ModIntegration.TCON_MODID)) {
-            plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));
+            plankOverrideRecipe.save(recipeOutput, new ResourceLocation(ModIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));
         }
         else if (modid.contains(ModIntegration.QUARK_MODID)) {
-            plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.QUARK_MODID, "world/crafting/woodsets/" + name.split("_")[0] + "/planks"));
+            plankOverrideRecipe.save(recipeOutput, new ResourceLocation(ModIntegration.QUARK_MODID, "world/crafting/woodsets/" + name.split("_")[0] + "/planks"));
         }
         else if (modid.contains(ModIntegration.MALUM_MODID)) {
-            plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.MALUM_MODID, name));
+            plankOverrideRecipe.save(recipeOutput, new ResourceLocation(ModIntegration.MALUM_MODID, name));
         }
         else if (modid.contains(ModIntegration.IFD_MODID)) {
-            plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.IFD_MODID, "dread_wood_planks"));
+            plankOverrideRecipe.save(recipeOutput, new ResourceLocation(ModIntegration.IFD_MODID, "dread_wood_planks"));
         }
         else {
-            plankOverrideRecipe.save(consumer);
+            plankOverrideRecipe.save(recipeOutput);
         }
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, item, 4)
@@ -534,55 +530,45 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, modid + "_" + name));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, modid + "_" + name));
     }
 
-    private static void itemPlankRecipeBuilder(Consumer<FinishedRecipe> consumer, ItemLike output, TagKey<Item> input, String label, String path, String name, String modid) {
+    private static void itemPlankRecipeBuilder(RecipeOutput recipeOutput, ItemLike output, TagKey<Item> input, String label, String path, String name, String modid) {
         ShapelessRecipeBuilder plankOverrideRecipe = ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, output, 2)
                 .requires(input)
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
                 .group("planks")
                 .unlockedBy(label, has(input));
 
-        plankOverrideRecipe.save(consumer, new ResourceLocation(modid, path + name));
+        plankOverrideRecipe.save(recipeOutput, new ResourceLocation(modid, path + name));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, output, 4)
                 .requires(input)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, modid + "_" + name));
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, modid + "_" + name));
     }
 
-    private static void bambooRecipeBuilder(Consumer<FinishedRecipe> consumer, ItemLike item, TagKey<Item> itemTag, String label) {
+    private static void bambooRecipeBuilder(RecipeOutput recipeOutput, ItemLike item, TagKey<Item> itemTag, String label) {
         ShapelessRecipeBuilder plankOverrideRecipe = ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, item, 1)
                 .requires(itemTag)
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
                 .group("planks")
                 .unlockedBy(label, has(itemTag));
 
-        ResourceLocation itemLoc = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem()));
+        ResourceLocation itemLoc = BuiltInRegistries.ITEM.getKey(item.asItem());
         String name = itemLoc.getPath();
         String modid = itemLoc.getNamespace();
 
-        plankOverrideRecipe.save(consumer);
+        plankOverrideRecipe.save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, item, 2)
                 .requires(itemTag)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(consumer, new ResourceLocation(SurvivalistEssentials.MODID, modid + "_" + name));
-    }
-
-    private static Consumer<FinishedRecipe> withCondition(Consumer<FinishedRecipe> consumer, ICondition... conditions) {
-        ConsumerWrapperBuilder builder = ConsumerWrapperBuilder.wrap();
-
-        for (ICondition condition : conditions) {
-            builder.addCondition(condition);
-        }
-
-        return builder.build(consumer);
+                .save(recipeOutput, new ResourceLocation(SurvivalistEssentials.MODID, modid + "_" + name));
     }
 
 }

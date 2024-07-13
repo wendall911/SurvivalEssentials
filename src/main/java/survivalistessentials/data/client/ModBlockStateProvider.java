@@ -2,17 +2,17 @@ package survivalistessentials.data.client;
 
 import java.util.Objects;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
@@ -69,7 +69,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void generateLooseRockVariants(Block block) {
-        ResourceLocation name = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block));
+        ResourceLocation name = BuiltInRegistries.BLOCK.getKey(block);
         String type = Objects.requireNonNull(name).getPath().replace("_loose_rock", "");
 
         if (type.contains("rock_stone")) {

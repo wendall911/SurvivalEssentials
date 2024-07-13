@@ -1,6 +1,6 @@
 package survivalistessentials.items.tool;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.AxeItem;
@@ -14,9 +14,9 @@ public class CrudeHatchet extends AxeItem {
         super(tier, damage, speed, tabGroup);
     }
 
-    @Nonnull
+    @NotNull
     @Override
-    public ItemStack getCraftingRemainingItem(@Nonnull ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
         
         if (!container.hurt(1, RandomSource.create(), null)) {
@@ -28,7 +28,7 @@ public class CrudeHatchet extends AxeItem {
     }
 
     @Override
-    public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
         return true;
     }
 

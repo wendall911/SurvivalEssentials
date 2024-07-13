@@ -10,8 +10,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.SurvivalistEssentials;
@@ -89,7 +89,7 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .add(Blocks.VINE)
             .add(Blocks.FERN)
             .add(Blocks.LARGE_FERN)
-            .add(Blocks.GRASS)
+            .add(Blocks.GRASS_BLOCK)
             .add(Blocks.TALL_GRASS)
             .addOptional(ModIntegration.sgcLoc("avocado_leaves"))
             .addOptional(ModIntegration.exnihiloLoc("infested_leaves"))

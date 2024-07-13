@@ -3,6 +3,7 @@ package survivalistessentials.items.item;
 import java.util.Objects;
 
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -20,7 +21,6 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 
-import net.minecraftforge.registries.ForgeRegistries;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 
@@ -43,7 +43,7 @@ public class ItemBase extends Item {
         }
 
         if (!level.isClientSide) {
-            String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).getPath();
+            String name = BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
 
             if (name.contains("bandage")) {
                 int amplifier = 0;
@@ -79,7 +79,7 @@ public class ItemBase extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        String name = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(stack.getItem())).getPath();
+        String name = BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
         boolean stopBleeding = player.hasEffect(SurvivalistEssentialsEffects.STOP_BLEEDING.get());
         boolean zombieEssence = player.hasEffect(SurvivalistEssentialsEffects.ZOMBIE_ESSENCE.get());
 

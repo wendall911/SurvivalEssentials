@@ -7,16 +7,16 @@ import java.util.List;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
-import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
-import net.minecraftforge.common.ForgeConfigSpec.IntValue;
-import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.BooleanValue;
+import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;
+import net.neoforged.neoforge.common.ModConfigSpec.DoubleValue;
+import net.neoforged.neoforge.common.ModConfigSpec.IntValue;
 
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.ItemUse;
@@ -33,18 +33,18 @@ public final class ConfigHandler {
 
     public static final class Client {
 
-        private static final ForgeConfigSpec CONFIG_SPEC;
+        private static final ModConfigSpec CONFIG_SPEC;
         private static final Client CONFIG;
-        private BooleanValue ENABLE_FAIL_SOUND;
+        private ModConfigSpec.BooleanValue ENABLE_FAIL_SOUND;
 
         static {
-            Pair<Client, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Client::new);
+            Pair<Client, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Client::new);
 
             CONFIG_SPEC = specPair.getRight();
             CONFIG = specPair.getLeft();
         }
 
-        Client(ForgeConfigSpec.Builder builder) {
+        Client(ModConfigSpec.Builder builder) {
             ENABLE_FAIL_SOUND = builder
                 .comment("Enables the fail sound if using the wrong tool.")
                 .define("ENABLE_FAIL_SOUND", true);
@@ -58,7 +58,7 @@ public final class ConfigHandler {
 
     public static final class Common {
 
-        private static final ForgeConfigSpec CONFIG_SPEC;
+        private static final ModConfigSpec CONFIG_SPEC;
         private static final Common CONFIG;
         private DoubleValue FLINT_CHANCE;
         private DoubleValue HEAL_RATE;
@@ -108,13 +108,13 @@ public final class ConfigHandler {
         private static ConfigValue<List<? extends String>> TAGS;
 
         static {
-            Pair<Common,ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
+            Pair<Common, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Common::new);
 
             CONFIG_SPEC = specPair.getRight();
             CONFIG = specPair.getLeft();
         }
 
-        Common(ForgeConfigSpec.Builder builder) {
+        Common(ModConfigSpec.Builder builder) {
             FLINT_CHANCE = builder
                 .comment("Chance for a successful flint knapping. (1.0 = 100%, 0.4 = 40%, etc.)")
                 .defineInRange("FLINT_CHANCE", 0.6, 0.1, 1.0);

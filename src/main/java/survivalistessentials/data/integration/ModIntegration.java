@@ -3,7 +3,7 @@ package survivalistessentials.data.integration;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 public final class ModIntegration {
 
@@ -31,6 +31,7 @@ public final class ModIntegration {
     public static final String MALUM_MODID = "malum";
     public static final String IFD_MODID = "iceandfire";
     public static final String TS_MODID = "tinkersurvival";
+    public static final String CARRYON_MODID = "carryon";
 
     public static Item AQUA_DRIFTWOOD;
     public static Item CHERRY_PLANKS;

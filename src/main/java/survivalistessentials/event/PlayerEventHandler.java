@@ -9,11 +9,10 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.SurvivalistEssentials;
 
@@ -33,8 +32,7 @@ public class PlayerEventHandler {
 
         applyHealthPenalty(player);
 
-        if ((player != null)
-                && !player.isCreative()
+        if (!player.isCreative()
                 && !player.isSpectator()
                 && !player.level().isClientSide
                 && event.isWasDeath()) {
@@ -64,7 +62,7 @@ public class PlayerEventHandler {
                         AttributeModifier.Operation.ADDITION
                 );
 
-                attributeInstance.removeModifier(modifier);
+                attributeInstance.removeModifier(STARTING_HEALTH_PENALTY);
                 attributeInstance.addPermanentModifier(modifier);
             }
         }

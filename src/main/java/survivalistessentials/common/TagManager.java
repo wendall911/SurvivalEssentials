@@ -1,15 +1,10 @@
 package survivalistessentials.common;
 
-import java.util.Collections;
-import java.util.Objects;
-
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-
-import net.minecraftforge.registries.ForgeRegistries;
 
 import survivalistessentials.SurvivalistEssentials;
 
@@ -174,11 +169,11 @@ public final class TagManager {
         public static TagKey<Item> IFD_DREADWOOD_LOGS = create("dreadwood_logs");
 
         private static TagKey<Item> create(String id) {
-            return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
+            return TagKey.create(Registries.ITEM, identifier(id));
         }
 
         private static TagKey<Item> forgeTag(String name) {
-            return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(forgeLoc(name), Collections.emptySet());
+            return TagKey.create(Registries.ITEM, forgeLoc(name));
         }
 
         private static TagKey<Item> getItemTag(String modid, String name) {
@@ -198,11 +193,11 @@ public final class TagManager {
         public static final TagKey<Block> BRANCHES = create("branches");
 
         private static TagKey<Block> create(String id) {
-            return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
+            return TagKey.create(Registries.BLOCK, identifier(id));
         }
 
         private static TagKey<Block> forgeTag(String name) {
-            return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(forgeLoc(name), Collections.emptySet());
+            return TagKey.create(Registries.BLOCK, forgeLoc(name));
         }
     }
 
@@ -211,7 +206,7 @@ public final class TagManager {
     }
 
     public static ResourceLocation forgeLoc(String path) {
-        return new ResourceLocation("forge", path);
+        return new ResourceLocation("c", path);
     }
 
 }
