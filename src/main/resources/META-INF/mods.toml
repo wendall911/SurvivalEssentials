@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="${loader_version_range}"
-issueTrackerURL="${issue_tracker}"
+loaderVersion="[1,)"
 license="${license}"
+issueTrackerURL="${issue_tracker}"
 
 [[mods]]
-  modId="${modid}"
+  modId="${mod_id}"
   displayName="${display_name}"
   description="${description}"
   version="${version}"
@@ -14,118 +14,119 @@ license="${license}"
   credits="${credits}"
   itemIcon="survivalistessentials:rock_stone"
   logoFile="${logo_file}"
-
-[[dependencies.survivalistessentials]]
-    modId="forge"
-    mandatory=true
-    versionRange="${forge_version_range}"
+[[mixins]]
+    config = "${mod_id}.mixins.json"
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neoforge_loader_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.survivalistessentials]]
+[[dependencies.${mod_id}]]
     modId="minecraft"
-    mandatory=true
-    versionRange="${minecraft_version_range}"
+    type="required"
+    versionRange="${neoforge_mc_version_range}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.survivalistessentials]]
-    modId="fruittrees"
-    mandatory=false
+    modId="fruitfulfun"
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="quark"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="biomesoplenty"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="allyoucaneat"
-    mandatory=false
+    type="optional"
     versionRange="[0,]"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="watersource"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="sushigocrafting"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="botania"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="immersiveengineering"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="ars_nouveau"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="geckolib3"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="undergarden"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="byg"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="twilightforest"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="ecologics"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="aquaculture"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="malum"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="iceandfire"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
