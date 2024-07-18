@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "issues": "${issue_tracker}"
+  },
+  "license": "${license}",
+  "icon": "${mod_id}_icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "survivalistessentials.SurvivalistEssentialsFabric"
+    ],
+    "fabric-datagen": [
+      "survivalistessentials.data.FabricDatagenInitializer"
+    ],
+    "rei_client": [
+      "survivalistessentials.rei.REIPlugin"
+    ],
+    "jei_mod_plugin": [
+      "survivalistessentials.jei.JEIPlugin"
+    ],
+    "spectrelib": [
+      "survivalistessentials.FabricConfigInitializer"
+    ]
+  },
+  "mixins": [
+    "survivalistessentials.mixins.json",
+    "survivalistessentials.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "${fabric_loader_min_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}"
+  }
+}

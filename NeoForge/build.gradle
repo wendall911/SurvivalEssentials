@@ -1,0 +1,205 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.neoforged.gradle.userdev'
+    id 'net.darkhax.curseforgegradle'
+    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin'
+    id 'com.modrinth.minotaur'
+    id 'org.jetbrains.gradle.plugin.idea-ext'
+}
+
+archivesBaseName = "${mod_id}"
+version = neoforge_mod_version
+
+runs {
+    configureEach {
+        workingDirectory project.file('run')
+        modSource project.sourceSets.main
+    }
+    client {
+        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+    }
+    server {
+        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        programArgument '--nogui'
+    }
+    gameTestServer {
+        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+    }
+    data {
+        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+    }
+}
+
+subsystems {
+    parchment {
+        minecraftVersion = "${parchment_mc_version}"
+        mappingsVersion = "${parchment_version}"
+    }
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neoforge_version}"
+
+    implementation group: 'com.illusivesoulworks.spectrelib', name: 'spectrelib-neoforge', version: "${spectrelib_version}+${minecraft_version}"
+    jarJar group: 'com.illusivesoulworks.spectrelib', name: 'spectrelib-neoforge', version: "${spectrelib_version}+${minecraft_version}"
+
+    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    implementation "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+
+    runtimeOnly ("mcjty.theoneprobe:theoneprobe:${minecraft_version}_neo-${probe_version}") {
+        transitive = false
+    }
+
+    implementation "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT"
+    implementation "xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}"
+
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}:api"
+
+    compileOnly "curse.maven:carryon-274259:${carryon_neoforge_version}"
+
+    // For some day in the far distant future when TConstruct updates
+    //runtimeOnly "slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}"
+    //runtimeOnly "slimeknights.tconstruct:TConstruct:${minecraft_version}-${tic_version}"
+    //runtimeOnly "com.github.wendall911.tinkersurvival:tinkersurvival:${minecraft_version}-${ts_version}" {
+    //    transitive = false
+    //}
+
+    if (System.getenv('DATA_GEN') != null) {
+    }
+    else {
+        //runtimeOnly "curse.maven:crafttweaker-239197:3918220"
+        //runtimeOnly "curse.maven:configured-457570:4462839"
+        //runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
+        //runtimeOnly "dev.architectury:architectury-neoforge:${architectury_version}"
+        //runtimeOnly "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
+        runtimeOnly "curse.maven:simpletextoverlay-321283:${simpletextoverlay_neoforge_version}"
+        //Include some examples here for testing other mods
+        //runtimeOnly "curse.maven:terrablender-563928:${terrablender_neoforge_version}"
+        //runtimeOnly "curse.maven:byg-247560:${byg_neoforge_version}"
+        //runtimeOnly "curse.maven:bop-220318:${bop_neoforge_version}"
+        //runtimeOnly "curse.maven:glitch_core-955399:${glitch_core_neoforge_version}"
+        //runtimeOnly "curse.maven:kiwi-303657:3974084"
+        //runtimeOnly "curse.maven:fruittrees-355467:3990227"
+        //runtimeOnly "curse.maven:biomemakeover-567709:4642570"
+        //runtimeOnly "curse.maven:architectury-419699:4633048"
+        //runtimeOnly "curse.maven:botania-225643:???"
+        //runtimeOnly "curse.maven:immersiveengineering-231951:3963698"
+        //runtimeOnly "curse.maven:twilightforest-227639:3995805"
+        //runtimeOnly "curse.maven:catalogue-459701:3873264"
+        //runtimeOnly "curse.maven:autoreglib-250363:3857246"
+        //runtimeOnly "curse.maven:quark-243121:3961436"
+        //runtimeOnly "curse.maven:ayce-494854:???"
+        //runtimeOnly "curse.maven:water_source-388078:???"
+        //runtimeOnly "curse.maven:geckolib-388172:4019767"
+        //runtimeOnly "curse.maven:arsnouveau-401955:4631683"
+        //runtimeOnly "curse.maven:undergarden-379849:???"
+        //runtimeOnly "curse.maven:dynamictrees-252818:4979755"
+        //runtimeOnly "curse.maven:ecologics-570463:3987881"
+        //runtimeOnly "curse.maven:aquaculture-60028:3990680"
+        //runtimeOnly "curse.maven:carryon-274259:${carryon_neoforge_version}"
+        //runtimeOnly "curse.maven:lodestone-616457:4636991"
+        //runtimeOnly "curse.maven:malum-484064:4638343"
+        //runtimeOnly "curse.maven:citadel-331936:3783096"
+        //runtimeOnly "curse.maven:iceandfire-264231:4614465"
+    }
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
+tasks.jarJar.configure {
+    archiveClassifier.set("")
+}
+
+task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
+    file = new File(project(":").projectDir.toString() + '/build/libs/changelog.txt');
+    templateContent = file(project(":").projectDir.toString() + '/files/templates/changelog.mustache').getText('UTF-8');
+    fromRepo = file("$projectDir");
+    toRef = "HEAD";
+    fromRef = "${minecraft_version}-${last_mod_version}";
+}
+
+def updates = tasks.register("generateUpdates", Copy) {
+    it.outputs.upToDateWhen {
+        false
+    }
+
+    it.from("../files/templates/") {
+        include 'updates.json'
+        expand 'version': version, 'minecraft_version': minecraft_version
+    }
+
+    it.into '../files/'
+}
+
+tasks.generateUpdates.mustRunAfter('jar', 'sourcesJar')
+
+tasks.build.dependsOn('changelog', 'generateUpdates')
+
+def changelogFile = project(":").projectDir.toString() + '/build/libs/changelog.txt'
+
+task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+    if (project.hasProperty('securseApiKey')) {
+        apiToken = project.securseApiKey
+        def mainFile = upload(project.securseId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
+        if (file(changelogFile).exists()) {
+            mainFile.changelog = file(changelogFile)
+        }
+        mainFile.addJavaVersion('Java 17')
+        mainFile.addModLoader('NeoForge')
+        mainFile.releaseType = "${release_type}"
+        "${release_versions}".split(',').each {
+            mainFile.addGameVersion("${it}")
+        }
+        mainFile.addOptional('configured')
+        mainFile.addOptional('catalogue')
+        mainFile.addOptional('fruit-trees')
+        mainFile.addOptional('quark')
+        mainFile.addOptional('biomes-o-plenty')
+        mainFile.addOptional('all-you-can-eat')
+        mainFile.addOptional('water-source')
+        mainFile.addOptional('sushigocrafting')
+        mainFile.addOptional('botania')
+        mainFile.addOptional('ars-nouveau')
+        mainFile.addOptional('exnihilosequentia')
+        mainFile.addOptional('the-undergarden')
+        mainFile.addOptional('dynamictrees')
+        mainFile.addOptional('oh-the-biomes-youll-go')
+        mainFile.addOptional('the-twilight-forest')
+        mainFile.addOptional('ecologics')
+        mainFile.addOptional('alexs-mobs')
+        mainFile.addOptional('betteranimalsplus')
+        mainFile.addOptional('aquaculture')
+        mainFile.addOptional('malum')
+        mainFile.addOptional('ice-and-fire-dragons')
+        mainFile.addOptional('psi')
+    }
+}
+
+modrinth {
+    if (project.hasProperty('seModrinthId')) {
+        token = project.modrinthKey
+        projectId = project.seModrinthId
+        version = getVersion()
+        versionType = "${release_type}"
+        if (file(changelogFile).exists()) {
+            changelog = file(changelogFile).text
+        }
+        uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
+        gameVersions = "${release_versions}".split(",") as List<String>
+        loaders = ['neoforge']
+        dependencies {
+            optional.project 'quark'
+            optional.project 'allyoucaneat'
+            optional.project 'botania'
+            optional.project 'exnihilosequentia'
+            optional.project 'dynamictrees'
+            optional.project 'biomesyougo'
+            optional.project 'ecologics'
+            optional.project 'psi'
+        }
+    }
+}
+
