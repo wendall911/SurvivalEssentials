@@ -6,7 +6,6 @@
   "mixins": [
     "AbstractBlockAccessor",
     "AbstractBlockStateAccessor",
-    "DiggerItemAccessor",
     "PunchTreeTutorialStepMixin",
     "CraftPlanksTutorialStepMixin"
   ],
