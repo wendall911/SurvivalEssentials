@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalistessentials:transformation_wood"
+    },
+    {
+      "item": "survivalistessentials:crude_saw"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "twilightforest:transformation_planks"
+  }
+}

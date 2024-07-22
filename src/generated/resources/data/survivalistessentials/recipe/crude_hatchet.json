@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "survivalistessentials:rock_stone"
+    },
+    "S": {
+      "item": "survivalistessentials:plant_string"
+    }
+  },
+  "pattern": [
+    "SR",
+    "I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "survivalistessentials:crude_hatchet"
+  }
+}

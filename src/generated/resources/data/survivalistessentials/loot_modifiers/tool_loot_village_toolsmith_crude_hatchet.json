@@ -1,11 +1,8 @@
 {
   "type": "survivalistessentials:add_loot",
   "additional": {
-    "Count": 1,
-    "id": "survivalistessentials:crude_hatchet",
-    "tag": {
-      "Damage": 0
-    }
+    "count": 1,
+    "id": "survivalistessentials:crude_hatchet"
   },
   "conditions": [
     {

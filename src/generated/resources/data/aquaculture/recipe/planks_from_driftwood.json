@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "aquaculture:driftwood"
+    },
+    {
+      "item": "survivalistessentials:crude_saw"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:oak_planks"
+  }
+}

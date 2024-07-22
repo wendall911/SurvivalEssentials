@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "minecraft:bamboo_blocks"
+    },
+    {
+      "item": "survivalistessentials:crude_saw"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:bamboo_planks"
+  }
+}

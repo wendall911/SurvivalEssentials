@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "cookingtime": 50,
-  "experience": 0.1,
-  "ingredient": {
-    "item": "survivalistessentials:plant_string"
-  },
-  "result": "minecraft:string"
-}

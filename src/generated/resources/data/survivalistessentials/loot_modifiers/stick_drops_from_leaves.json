@@ -1,7 +1,7 @@
 {
   "type": "survivalistessentials:add_loot",
   "additional": {
-    "Count": 1,
+    "count": 1,
     "id": "minecraft:stick"
   },
   "conditions": [
@@ -12,7 +12,7 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "tag": "survivalistessentials:knife_tools"
+        "items": "#survivalistessentials:knife_tools"
       }
     },
     {

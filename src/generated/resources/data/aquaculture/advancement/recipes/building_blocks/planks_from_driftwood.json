@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_driftwood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "aquaculture:driftwood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aquaculture:planks_from_driftwood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_driftwood"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aquaculture:planks_from_driftwood"
+    ]
+  }
+}

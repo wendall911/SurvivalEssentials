@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "minecraft:oak_logs"
+    },
+    {
+      "tag": "survivalistessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:oak_planks"
+  }
+}

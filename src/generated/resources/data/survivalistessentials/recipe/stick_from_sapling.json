@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sticks",
+  "ingredients": [
+    {
+      "tag": "minecraft:saplings"
+    },
+    {
+      "tag": "survivalistessentials:knife_tools"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:stick"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "tinkersurvival"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "survivalistessentials:sharp_saw_blade"
+    },
+    "H": {
+      "item": "survivalistessentials:saw_handle"
+    },
+    "S": {
+      "tag": "c:strings"
+    }
+  },
+  "pattern": [
+    "BS",
+    " H"
+  ],
+  "result": {
+    "count": 1,
+    "id": "survivalistessentials:sharp_saw"
+  }
+}

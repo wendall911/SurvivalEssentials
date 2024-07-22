@@ -1,0 +1,24 @@
+{
+  "values": [
+    "minecraft:gravel",
+    "#c:gravels",
+    "minecraft:stone",
+    "minecraft:calcite",
+    "minecraft:granite",
+    "minecraft:diorite",
+    "minecraft:andesite",
+    "minecraft:coal_ore",
+    "#c:ores/coal",
+    "minecraft:sandstone",
+    "minecraft:iron_block",
+    "#c:ores/iron",
+    "minecraft:copper_ore",
+    "#c:ores/copper",
+    "minecraft:mossy_cobblestone",
+    "minecraft:red_sandstone",
+    "#minecraft:dirt",
+    "#minecraft:sand",
+    "#c:sands",
+    "#minecraft:terracotta"
+  ]
+}

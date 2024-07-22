@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "tinkersurvival"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "c:strings"
+    }
+  },
+  "pattern": [
+    "DX",
+    " S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "survivalistessentials:sharp_knife"
+  }
+}

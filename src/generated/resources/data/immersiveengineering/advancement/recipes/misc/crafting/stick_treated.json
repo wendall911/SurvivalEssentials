@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "immersiveengineering:crafting/stick_treated"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_treated_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:treated_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_treated_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "immersiveengineering:crafting/stick_treated"
+    ]
+  }
+}

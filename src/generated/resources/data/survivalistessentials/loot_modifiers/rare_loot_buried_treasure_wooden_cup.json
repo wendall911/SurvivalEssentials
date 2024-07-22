@@ -1,7 +1,7 @@
 {
   "type": "survivalistessentials:add_loot",
   "additional": {
-    "Count": 1,
+    "count": 1,
     "id": "survivalistessentials:wooden_cup"
   },
   "conditions": [

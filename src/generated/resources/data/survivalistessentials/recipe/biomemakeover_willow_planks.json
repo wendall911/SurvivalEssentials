@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomemakeover"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalistessentials:willow_log"
+    },
+    {
+      "tag": "survivalistessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "biomemakeover:willow_planks"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "survivalistessentials:crude_saw_blade"
+    },
+    "H": {
+      "item": "survivalistessentials:saw_handle"
+    },
+    "S": {
+      "item": "survivalistessentials:plant_string"
+    }
+  },
+  "pattern": [
+    "BS",
+    " H"
+  ],
+  "result": {
+    "count": 1,
+    "id": "survivalistessentials:crude_saw"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "type": "survivalistessentials:add_loot",
   "additional": {
-    "Count": 1,
+    "count": 1,
     "id": "minecraft:stick"
   },
   "conditions": [
@@ -25,14 +25,16 @@
       "term": {
         "condition": "minecraft:match_tool",
         "predicate": {
-          "enchantments": [
-            {
-              "enchantment": "minecraft:silk_touch",
-              "levels": {
-                "min": 1
+          "predicates": {
+            "minecraft:enchantments": [
+              {
+                "enchantments": "minecraft:silk_touch",
+                "levels": {
+                  "min": 1
+                }
               }
-            }
-          ]
+            ]
+          }
         }
       }
     },
@@ -41,7 +43,7 @@
       "term": {
         "condition": "minecraft:match_tool",
         "predicate": {
-          "tag": "survivalistessentials:shear_tools"
+          "items": "#survivalistessentials:shear_tools"
         }
       }
     }

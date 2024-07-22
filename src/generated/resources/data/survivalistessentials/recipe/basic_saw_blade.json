@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "tag": "c:strings"
+    }
+  },
+  "pattern": [
+    "ID",
+    "SD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "survivalistessentials:basic_saw_blade"
+  }
+}
