@@ -1,12 +1,11 @@
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.133'
+    id 'net.neoforged.moddev' version '0.1.110'
+    id 'io.github.goooler.shadow' version '8.1.7'
     id 'net.darkhax.curseforgegradle' version '1.+'
     id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
     id 'com.modrinth.minotaur' version '2.+'
-    // Required for NeoGradle
-    id "org.jetbrains.gradle.plugin.idea-ext" version "1.1.7"
 }
 
 repositories {
@@ -54,40 +53,39 @@ version = "${minecraft_version}-${mod_version}"
 java.toolchain.languageVersion = JavaLanguageVersion.of(java_version)
 
 base {
-    archivesName = "${mod_id}-${project.name}-${minecraft_version}"
+    archivesName = "${mod_name}"
 }
 
-runs {
-    configureEach {
-        workingDirectory project.file('run')
-        modSource project.sourceSets.main
-    }
-    client {
-        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-    }
-    server {
-        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        programArgument '--nogui'
-    }
-    gameTestServer {
-        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-    }
-    data {
-        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-    }
-}
-
-subsystems {
+neoForge {
+    version = neoforge_version
     parchment {
-        minecraftVersion = "${parchment_mc_version}"
-        mappingsVersion = "${parchment_version}"
+        minecraftVersion = parchment_mc_version
+        mappingsVersion = parchment_version
+    }
+    runs {
+        configureEach {
+            systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
+            ideName = "NeoForge ${it.name.capitalize()} (${project.path})" // Unify the run config names with fabric
+        }
+        client {
+            client()
+        }
+        server {
+            server()
+        }
+        data {
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+            data()
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
     }
 }
 
 dependencies {
-    implementation "net.neoforged:neoforge:${neoforge_version}"
-    //annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
-
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
     implementation "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
 
@@ -95,11 +93,11 @@ dependencies {
         transitive = false
     }
 
-    implementation "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT"
-    implementation "xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}"
+    //implementation "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT"
+    //implementation "xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}"
 
-    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"
-    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}:api"
+    //runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"
+    //compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}:api"
 
     compileOnly "curse.maven:carryon-274259:${carryon_version}"
 
@@ -163,23 +161,31 @@ jar {
     }
 }
 
-def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta', '*.mixins.json']
-def replaceProperties = [ 'version': version,
-    'issue_tracker': issue_tracker, 'license': license, 'mod_id': mod_id, 'display_name': display_name,
-    'description': description, 'display_url': display_url, 'update_url': update_url, 'authors': authors,
-    'credits': credits, 'logo_file': logo_file, 'neoforge_mc_version_range': neoforge_mc_version_range,
-    'neoforge_loader_version_range': neoforge_loader_version_range
-]
+
 
 processResources {
-    duplicatesStrategy(DuplicatesStrategy.FAIL)
-    inputs.properties replaceProperties
+    def resourceTargets = ['META-INF/neoforge.mods.toml', 'pack.mcmeta', '*.mixins.json']
+    def expandProps = [
+        'version': version,
+        'issue_tracker': issue_tracker,
+        'license': license,
+        'mod_id': mod_id,
+        'display_name': display_name,
+        'description': description,
+        'display_url': display_url,
+        'update_url': update_url,
+        'authors': authors,
+        'credits': credits,
+        'logo_file': logo_file,
+        'neoforge_mc_version_range': neoforge_mc_version_range,
+        'neoforge_loader_version_range': neoforge_loader_version_range
+    ]
     exclude '.cache'
-    replaceProperties.put 'project', project
 
     filesMatching(resourceTargets) {
-        expand replaceProperties
+        expand expandProps
     }
+    inputs.properties(expandProps)
 }
 
 def updates = tasks.register("generateUpdates", Copy) {
@@ -195,7 +201,7 @@ def updates = tasks.register("generateUpdates", Copy) {
     it.into 'files/'
 }
 
-def changelogFile = 'build/libs/' + project.getName() + '-' + version + '-changelog.txt'
+def changelogFile = 'build/libs/' + mod_name + '-' + version + '-changelog.txt'
 
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
     file = new File(changelogFile);
