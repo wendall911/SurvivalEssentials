@@ -13,8 +13,9 @@ import net.minecraft.world.level.Level;
 
 import net.neoforged.fml.ModList;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.data.integration.ModIntegration;
+
+import static survivalistessentials.SurvivalistEssentials.loc;
 
 public class SurvivalistEssentialsBook extends Item {
 
@@ -23,14 +24,15 @@ public class SurvivalistEssentialsBook extends Item {
     public SurvivalistEssentialsBook(Properties pProperties, String bookId) {
         super(pProperties);
 
-        this.book = new ResourceLocation(SurvivalistEssentials.MODID, bookId);
+        this.book = loc(bookId);
     }
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player playerIn, @NotNull InteractionHand handIn) {
         if (ModList.get().isLoaded(ModIntegration.PATCHOULI_MODID)) {
             if (level.isClientSide()) {
-                vazkii.patchouli.api.PatchouliAPI.get().openBookGUI(book);
+                // TODO re-enable once Patchouli is available
+                //vazkii.patchouli.api.PatchouliAPI.get().openBookGUI(book);
             }
         }
 

@@ -2,8 +2,8 @@ package survivalistessentials.common.loot;
 
 import org.jetbrains.annotations.NotNull;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
@@ -17,7 +17,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 public record LootItemBlockIsTagCondition(TagKey<Block> tag) implements LootItemCondition {
 
     public static final LootItemConditionType LOOT_ITEM_BLOCK_IS_TAG = new LootItemConditionType(LootItemBlockIsTagCondition.CODEC);
-    public static final Codec<LootItemBlockIsTagCondition> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+    public static final MapCodec<LootItemBlockIsTagCondition> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
         TagKey.codec(Registries.BLOCK).fieldOf("tag").forGetter(LootItemBlockIsTagCondition::tag)
     ).apply(builder, LootItemBlockIsTagCondition::new));
 
@@ -27,7 +27,7 @@ public record LootItemBlockIsTagCondition(TagKey<Block> tag) implements LootItem
 
     @Override
     public @NotNull LootItemConditionType getType() {
-        return SurvivalistEssentialsLootConditionTypes.BLOCK_IS_TAG.get();
+        return SurvivalistEssentialsLootConditionTypes.BLOCK_IS_TAG;
     }
 
     @Override

@@ -11,7 +11,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -19,6 +21,7 @@ import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,7 +30,6 @@ import net.minecraft.world.level.material.PushReaction;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.mixin.AbstractBlockAccessor;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
-import survivalistessentials.mixin.DiggerItemAccessor;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.ItemUse;
 import survivalistessentials.util.ToolType;
@@ -108,10 +110,28 @@ public final class HarvestBlock {
 
         BuiltInRegistries.ITEM.forEach(item -> {
             if (item instanceof DiggerItem digger) {
-                final ToolType toolType = toolTypeForMineableTag(((DiggerItemAccessor) digger).getBlocks());
+                Tool tool = digger.components().get(DataComponents.TOOL);
+                TagKey<Block> tagKey = null;
+
+                if (tool != null) {
+                    for (Tool.Rule rule : tool.rules()) {
+                        if (rule.correctForDrops().isPresent()) {
+                            Optional<TagKey<Block>> optionalBlockTagKey = rule.blocks().unwrapKey();
+
+                            if (optionalBlockTagKey.isPresent()) {
+                                tagKey = optionalBlockTagKey.get();
+                            }
+                        }
+                    }
+                }
+
+                final ToolType toolType = toolTypeForMineableTag(tagKey);
 
                 if (toolType != ToolType.NONE) {
                     ITEM_TOOL_TYPES.put(item, toolType);
+                }
+                else {
+                    SurvivalistEssentials.LOGGER.debug("Unable to determine digger tool type. %s", digger);
                 }
             }
             else if (item instanceof SwordItem || item instanceof ShearsItem) {

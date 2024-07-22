@@ -6,7 +6,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import survivalistessentials.SurvivalistEssentials;
+import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public final class TagManager {
 
@@ -82,7 +83,7 @@ public final class TagManager {
         public static final TagKey<Item> BOTANIA_LIVINGWOOD_LOGS = create("livingwood_logs");
 
         // IE
-        public static final TagKey<Item> IE_TREATED_WOOD = forgeTag("treated_wood");
+        public static final TagKey<Item> IE_TREATED_WOOD = commonTag("treated_wood");
 
         // Undergarden
         public static final TagKey<Item> UNDERGARDEN_GRONGLE_LOGS = create("grongle_logs");
@@ -172,12 +173,12 @@ public final class TagManager {
             return TagKey.create(Registries.ITEM, identifier(id));
         }
 
-        private static TagKey<Item> forgeTag(String name) {
-            return TagKey.create(Registries.ITEM, forgeLoc(name));
+        private static TagKey<Item> commonTag(String name) {
+            return TagKey.create(Registries.ITEM, commonLoc(name));
         }
 
         private static TagKey<Item> getItemTag(String modid, String name) {
-            return TagKey.create(Registries.ITEM, new ResourceLocation(modid, name));
+            return TagKey.create(Registries.ITEM, prefix(modid, name));
         }
     }
 
@@ -197,16 +198,16 @@ public final class TagManager {
         }
 
         private static TagKey<Block> forgeTag(String name) {
-            return TagKey.create(Registries.BLOCK, forgeLoc(name));
+            return TagKey.create(Registries.BLOCK, commonLoc(name));
         }
     }
 
     public static ResourceLocation identifier(String path) {
-        return new ResourceLocation(SurvivalistEssentials.MODID, path);
+        return loc(path);
     }
 
-    public static ResourceLocation forgeLoc(String path) {
-        return new ResourceLocation("c", path);
+    public static ResourceLocation commonLoc(String path) {
+        return prefix("c", path);
     }
 
 }

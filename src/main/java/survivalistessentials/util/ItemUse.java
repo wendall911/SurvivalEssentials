@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import net.neoforged.fml.ModList;
+
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -261,14 +262,7 @@ public class ItemUse {
     }
 
     public static boolean hasTag(ItemStack stack) {
-        CompoundTag tags = stack.getTag();
-        boolean hasTag = false;
-
-        if (tags != null) {
-            hasTag = ConfigHandler.Common.tagList().stream().anyMatch(tags::contains);
-        }
-
-        return hasTag;
+        return ConfigHandler.Common.tagList().stream().anyMatch(stack::is);
     }
 
 }

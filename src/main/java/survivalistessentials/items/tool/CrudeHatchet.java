@@ -2,7 +2,6 @@ package survivalistessentials.items.tool;
 
 import org.jetbrains.annotations.NotNull;
 
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -10,19 +9,23 @@ import net.minecraft.world.item.Tier;
 
 public class CrudeHatchet extends AxeItem {
 
-    public CrudeHatchet(Tier tier, int damage, float speed, Item.Properties tabGroup) {
-        super(tier, damage, speed, tabGroup);
+    public CrudeHatchet(Tier tier, Item.Properties tabGroup) {
+        super(tier, tabGroup);
     }
 
     @NotNull
     @Override
     public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
-        
-        if (!container.hurt(1, RandomSource.create(), null)) {
+
+        container.setDamageValue(container.getDamageValue() + 1);
+
+        if (container.getDamageValue() < container.getMaxDamage()) {
             return container;
         }
         else {
+            stack.shrink(1);
+
             return ItemStack.EMPTY;
         }
     }

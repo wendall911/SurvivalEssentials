@@ -3,6 +3,7 @@ package survivalistessentials.data.loot;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -17,8 +18,8 @@ import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
 
-    public ModBlockLootTables() {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    protected ModBlockLootTables(HolderLookup.Provider provider) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
     }
 
     @Override

@@ -1,15 +1,19 @@
 package survivalistessentials.common.loot;
 
+import java.util.function.BiConsumer;
+
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 
-import net.neoforged.neoforge.registries.DeferredHolder;
+import static survivalistessentials.SurvivalistEssentials.loc;
 
-import survivalistessentials.common.SurvivalistEssentialsModule;
+public class SurvivalistEssentialsLootConditionTypes {
 
-public class SurvivalistEssentialsLootConditionTypes extends SurvivalistEssentialsModule {
+    public static final ResourceLocation BLOCK_IS_TAG_ID = loc("block_is_tag");
+    public static final LootItemConditionType BLOCK_IS_TAG = new LootItemConditionType(LootItemBlockIsTagCondition.CODEC);
 
-    public static final DeferredHolder<LootItemConditionType, LootItemConditionType> BLOCK_IS_TAG = LOOT_ITEM_CONDITION_TYPES.register("block_is_tag", () -> new LootItemConditionType(LootItemBlockIsTagCondition.CODEC));
-
-    public static void init() {}
+    public static void init(BiConsumer<LootItemConditionType, ResourceLocation> consumer) {
+        consumer.accept(BLOCK_IS_TAG, BLOCK_IS_TAG_ID);
+    }
 
 }

@@ -31,6 +31,11 @@ public class CreativeTabs extends SurvivalistEssentialsModule {
 
                         output.accept(new ItemStack(item));
                     }
+                    for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getToolsAndUtilities().entrySet()) {
+                        Item item = entry.getValue();
+
+                        output.accept(new ItemStack(item));
+                    }
                     for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsWorld.getAll().entrySet()) {
                         Item item = entry.getValue();
 

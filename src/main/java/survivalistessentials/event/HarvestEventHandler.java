@@ -2,6 +2,7 @@ package survivalistessentials.event;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 import net.minecraft.core.BlockPos;
@@ -15,11 +16,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.TagsUpdatedEvent;
@@ -33,13 +32,11 @@ import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
 import survivalistessentials.sound.Sounds;
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.CarryOnHelper;
 import survivalistessentials.util.Chat;
 import survivalistessentials.util.ItemUse;
 import survivalistessentials.util.ToolType;
 
-@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class HarvestEventHandler {
 
     private static final Map<Player, BlockPos> harvestAttempts = new HashMap<>();
@@ -98,7 +95,7 @@ public class HarvestEventHandler {
                     }
 
                     if (!toolClass.equals("unknown") && !player.level().isClientSide && ConfigHandler.Client.enableFailSound()) {
-                        level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL.get(), SoundSource.PLAYERS, 0.6F, 1.0F);
+                        level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL, SoundSource.PLAYERS, 0.6F, 1.0F);
                     }
                 }
                 else {
@@ -147,7 +144,7 @@ public class HarvestEventHandler {
                     || expectedToolType == ToolType.NONE;
 
             if (!canHarvest) {
-                final boolean isOre = state.is(Tags.Blocks.ORES) || state.is(Tags.Blocks.OBSIDIAN);
+                final boolean isOre = state.is(Tags.Blocks.ORES) || state.is(Tags.Blocks.OBSIDIANS);
 
                 if (isOre && expectedToolType == ToolType.PICKAXE) {
                     canHarvest = (correctTool && handStack.isCorrectToolForDrops(state));
@@ -209,7 +206,8 @@ public class HarvestEventHandler {
 
         if (spellHitBlock != null && spellHitBlock.equals(blockState.getBlock())) {
             String toolClass = ItemUse.getToolClass(stack);
-            if (toolClass != "spell" && toolClass != "cad") {
+
+            if (!Objects.equals(toolClass, "spell") && !Objects.equals(toolClass, "cad")) {
                 stack = player.getOffhandItem();
             }
         }

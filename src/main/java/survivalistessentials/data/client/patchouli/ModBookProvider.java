@@ -1,5 +1,5 @@
 package survivalistessentials.data.client.patchouli;
-
+/*
 import java.util.function.Consumer;
 
 import org.jetbrains.annotations.NotNull;
@@ -180,3 +180,5 @@ public class ModBookProvider extends PatchouliBookProvider {
     }
 
 }
+
+ */

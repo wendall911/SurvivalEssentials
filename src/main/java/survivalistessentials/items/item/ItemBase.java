@@ -1,8 +1,9 @@
 package survivalistessentials.items.item;
 
-import java.util.Objects;
+import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -21,12 +22,11 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 
 public class ItemBase extends Item {
 
-    private static UseAnim animation;
+    private final UseAnim animation;
 
     public ItemBase(Item.Properties props, UseAnim animation) {
         super(props);
@@ -35,7 +35,7 @@ public class ItemBase extends Item {
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
+    public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity entity) {
         Player player = entity instanceof Player ? (Player)entity : null;
 
         if (player instanceof ServerPlayer) {
@@ -52,11 +52,11 @@ public class ItemBase extends Item {
                     amplifier = 1;
                 }
 
-                MobEffect effect = SurvivalistEssentialsEffects.STOP_BLEEDING.get();
+                Holder<MobEffect> effect = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(SurvivalistEssentialsEffects.STOP_BLEEDING);
                 entity.addEffect(new MobEffectInstance(effect, 600, amplifier));
             }
             else if (name.contains("cup")) {
-                MobEffect effect = SurvivalistEssentialsEffects.ZOMBIE_ESSENCE.get();
+                Holder<MobEffect> effect = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(SurvivalistEssentialsEffects.ZOMBIE_ESSENCE);
                 entity.addEffect(new MobEffectInstance(effect, 3600, 1));
             }
 
@@ -77,11 +77,11 @@ public class ItemBase extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         String name = BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
-        boolean stopBleeding = player.hasEffect(SurvivalistEssentialsEffects.STOP_BLEEDING.get());
-        boolean zombieEssence = player.hasEffect(SurvivalistEssentialsEffects.ZOMBIE_ESSENCE.get());
+        boolean stopBleeding = player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(SurvivalistEssentialsEffects.STOP_BLEEDING));
+        boolean zombieEssence = player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(SurvivalistEssentialsEffects.ZOMBIE_ESSENCE));
 
         if (name.contains("bandage")) {
             if (stopBleeding || player.getHealth() >= player.getMaxHealth()) {
@@ -96,17 +96,17 @@ public class ItemBase extends Item {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
+    public @NotNull UseAnim getUseAnimation(@NotNull ItemStack stack) {
         return animation;
     }
 
     @Override
-    public int getUseDuration(ItemStack stack) {
+    public int getUseDuration(@NotNull ItemStack pStack, @NotNull LivingEntity pEntity) {
         return 1;
     }
 
     @Override
-    public SoundEvent getDrinkingSound() {
+    public @NotNull SoundEvent getDrinkingSound() {
         return SoundEvents.PLAYER_ATTACK_WEAK;
     }
 

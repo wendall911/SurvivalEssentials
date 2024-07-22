@@ -4,17 +4,12 @@ import java.util.Objects;
 
 import org.jetbrains.annotations.NotNull;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
-
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -23,8 +18,6 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.neoforged.neoforge.common.ToolAction;
-
 import survivalistessentials.common.TagManager;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 
@@ -32,32 +25,31 @@ public class SurvivalSaw extends TieredItem {
 
     public String name;
     private final float speed;
-    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     public SurvivalSaw(String name, Tier tier, float speed, Item.Properties tabGroup) {
         super(tier, tabGroup);
 
         this.speed = speed;
         this.name = name;
-
-        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Speed modifier", speed, AttributeModifier.Operation.ADDITION));
-        this.defaultModifiers = builder.build();
     }
 
     @NotNull
     @Override
     public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
-        
+
         if (Objects.equals(this.name, "saw_handle")) {
             return ItemStack.EMPTY;
         }
-        else if (!container.hurt(1, RandomSource.create(), null)) {
+
+        container.setDamageValue(container.getDamageValue() + 1);
+
+        if (container.getDamageValue() < container.getMaxDamage()) {
             return container;
         }
         else {
+            stack.shrink(1);
+
             return new ItemStack(SurvivalistEssentialsItems.SAW_HANDLE);
         }
     }
@@ -65,11 +57,6 @@ public class SurvivalSaw extends TieredItem {
     @Override
     public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
         return true;
-    }
-
-    @Override
-    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot pEquipmentSlot) {
-        return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
 
     @Override
@@ -95,22 +82,22 @@ public class SurvivalSaw extends TieredItem {
     @Override
     public boolean mineBlock(@NotNull ItemStack pStack, Level pLevel, @NotNull BlockState pState, @NotNull BlockPos pPos, @NotNull LivingEntity pEntityLiving) {
           if (!pLevel.isClientSide && pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
-             pStack.hurtAndBreak(1, pEntityLiving, (entity) -> {
-                entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-             });
+              Tool tool = (Tool)pStack.get(DataComponents.TOOL);
+              if (tool == null) {
+                  return false;
+              } else if (tool.damagePerBlock() > 0) {
+                  pStack.hurtAndBreak(tool.damagePerBlock(), pEntityLiving, EquipmentSlot.MAINHAND);
+
+                  return true;
+              }
           }
 
           return true;
     }
 
     @Override
-    public InteractionResult useOn(@NotNull UseOnContext pContext) {
+    public @NotNull InteractionResult useOn(@NotNull UseOnContext pContext) {
         return InteractionResult.FAIL;
-    }
-
-    @Override
-    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
-        return false;
     }
 
     @Override

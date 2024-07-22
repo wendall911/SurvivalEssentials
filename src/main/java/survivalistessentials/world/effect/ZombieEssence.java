@@ -13,7 +13,7 @@ public class ZombieEssence extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity entity, int amplifier) {
+    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
         /*
         World world = entity.getEntityWorld();
         boolean noGravity = false;
@@ -45,6 +45,7 @@ public class ZombieEssence extends MobEffect {
         entity.setNoGravity(noGravity);
         entity.noClip = noClip;
         */
+        return true;
     }
 
     @Override

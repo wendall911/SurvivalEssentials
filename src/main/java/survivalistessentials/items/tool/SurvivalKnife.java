@@ -3,7 +3,6 @@ package survivalistessentials.items.tool;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -17,19 +16,23 @@ import survivalistessentials.common.TagManager;
 
 public class SurvivalKnife extends SwordItem {
 
-    public SurvivalKnife(Tier tier, int damage, float speed, Item.Properties tabGroup) {
-        super(tier, damage, speed, tabGroup);
+    public SurvivalKnife(Tier tier, Item.Properties tabGroup) {
+        super(tier, tabGroup);
     }
 
     @NotNull
     @Override
     public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
-        
-        if (!container.hurt(1, RandomSource.create(), null)) {
+
+        container.setDamageValue(container.getDamageValue() + 1);
+
+        if (container.getDamageValue() < container.getMaxDamage()) {
             return container;
         }
         else {
+            stack.shrink(1);
+
             return ItemStack.EMPTY;
         }
     }
@@ -56,9 +59,7 @@ public class SurvivalKnife extends SwordItem {
     }
 
     private void doDamage(ItemStack knife, LivingEntity player) {
-        knife.hurtAndBreak(1, player, (item) -> {
-            item.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+        knife.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
     }
 
 }

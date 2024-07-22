@@ -2,20 +2,22 @@ package survivalistessentials.items;
 
 import org.jetbrains.annotations.NotNull;
 
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 
 public class ItemTier implements Tier {
     private int uses = 0;
     private float speed = 0.0F;
     private float attackDamageBonus = 0.0F;
-    private int harvestLvl = 0;
     private int enchantability = 0;
     private Item repairIngredientItem = Items.BARRIER;
     private TagKey<Item> repairIngredientTag;
+    private TagKey<Block> incorrectBlocksForDrops = BlockTags.INCORRECT_FOR_WOODEN_TOOL;
 
     public ItemTier() {}
 
@@ -33,12 +35,6 @@ public class ItemTier implements Tier {
 
     public ItemTier setAttackDamage(float dmg) {
         this.attackDamageBonus = dmg;
-
-        return this;
-    }
-
-    public ItemTier setHarvestLvl(int lvl) {
-        this.harvestLvl = lvl;
 
         return this;
     }
@@ -61,6 +57,10 @@ public class ItemTier implements Tier {
         return this;
     }
 
+    public void setIncorrectBlocksForDrops(TagKey<Block> incorrectBlocksForDrops) {
+        this.incorrectBlocksForDrops = incorrectBlocksForDrops;
+    }
+
     @Override
     public int getUses() {
         return this.uses;
@@ -77,8 +77,8 @@ public class ItemTier implements Tier {
     }
 
     @Override
-    public int getLevel() {
-        return this.harvestLvl;
+    public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
+        return this.incorrectBlocksForDrops;
     }
 
     @Override

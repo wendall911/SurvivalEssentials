@@ -1,7 +1,6 @@
 package survivalistessentials.jei;
 
 import java.util.Collections;
-import java.util.Objects;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -22,13 +21,15 @@ import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
+import static survivalistessentials.SurvivalistEssentials.loc;
+
 @SuppressWarnings("unused")
 @JeiPlugin
 public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
-        return new ResourceLocation(SurvivalistEssentials.MODID, "jei_plugin");
+        return loc("jei_plugin");
     }
 
     @Override

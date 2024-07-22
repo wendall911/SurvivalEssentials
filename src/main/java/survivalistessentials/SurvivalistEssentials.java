@@ -1,20 +1,27 @@
 package survivalistessentials;
 
 import java.util.Map;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
@@ -30,6 +37,12 @@ import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.common.loot.SurvivalistEssentialsLootConditionTypes;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.event.AttackEventHandler;
+import survivalistessentials.event.HarvestEventHandler;
+import survivalistessentials.event.HoeEventHandler;
+import survivalistessentials.event.LivingEquipmentChangeEventHandler;
+import survivalistessentials.event.PlayerEventHandler;
+import survivalistessentials.event.TooltipEventHandler;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.loot.SurvivalistEssentialsLootTables;
 import survivalistessentials.sound.Sounds;
@@ -43,37 +56,40 @@ public class SurvivalistEssentials {
     public static final String MODID = "survivalistessentials";
     public static final Logger LOGGER = LogManager.getFormatterLogger(SurvivalistEssentials.MODID);
 
-    public SurvivalistEssentials(IEventBus bus) {
-        ConfigHandler.init();
-        Sounds.init(bus);
+    public SurvivalistEssentials(IEventBus bus, Dist dist, ModContainer container) {
+        registryInit(bus);
+        ConfigHandler.init(container);
         registerListeners(bus);
         SurvivalistEssentialsModule.initRegistries(bus);
+        bus.addListener(ConfigHandler::onFileChange);
+        bus.addListener(ConfigHandler::loadConfigs);
     }
 
     public void registerListeners(IEventBus bus) {
         bus.register(RegistryListener.class);
-        SurvivalistEssentialsLootConditionTypes.init();
         SurvivalistEssentialsLootTables.init();
-        SurvivalistEssentialsFeatures.init();
-        SurvivalistEssentialsEffects.init();
+        SurvivalistEssentialsFeatures.setup();
     }
 
     public static final class RegistryListener {
-
-        private static boolean setupDone = false;
-
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerEvent(RegisterEvent event) {
-            event.register(Registries.ITEM, SurvivalistEssentialsItems::init);
-            event.register(Registries.ITEM, ModIntegration::init);
-            event.register(Registries.ITEM, SurvivalistEssentialsWorld::initItems);
-            event.register(Registries.BLOCK, SurvivalistEssentialsWorld::initBlocks);
-            event.register(Registries.LOOT_CONDITION_TYPE, new ResourceLocation(SurvivalistEssentials.MODID, "is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
+            event.register(Registries.LOOT_CONDITION_TYPE, loc("is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
+
+            if (event.getRegistryKey().equals(Registries.CREATIVE_MODE_TAB)) {
+                CreativeTabs.init();
+            }
         }
 
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {
             HarvestBlock.init();
+            NeoForge.EVENT_BUS.register(AttackEventHandler.class);
+            NeoForge.EVENT_BUS.register(HarvestEventHandler.class);
+            NeoForge.EVENT_BUS.register(HoeEventHandler.class);
+            NeoForge.EVENT_BUS.register(LivingEquipmentChangeEventHandler.class);
+            NeoForge.EVENT_BUS.register(PlayerEventHandler.class);
+            NeoForge.EVENT_BUS.register(TooltipEventHandler.class);
         }
 
         @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -125,6 +141,33 @@ public class SurvivalistEssentials {
                 }
             });
         }
+    }
+
+    private void registryInit(IEventBus bus) {
+        bind(bus, Registries.FEATURE, SurvivalistEssentialsFeatures::init);
+        bind(bus, Registries.MOB_EFFECT, SurvivalistEssentialsEffects::init);
+        bind(bus, Registries.ITEM, ModIntegration::init);
+        bind(bus, Registries.ITEM, SurvivalistEssentialsItems::init);
+        bind(bus, Registries.ITEM, SurvivalistEssentialsWorld::initItems);
+        bind(bus, Registries.BLOCK, SurvivalistEssentialsWorld::initBlocks);
+        bind(bus, Registries.LOOT_CONDITION_TYPE, SurvivalistEssentialsLootConditionTypes::init);
+        bind(bus, Registries.SOUND_EVENT, Sounds::init);
+    }
+
+    private static <T> void bind(IEventBus bus, ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
+        bus.addListener((RegisterEvent event) -> {
+            if (registry.equals(event.getRegistryKey())) {
+                source.accept((t, rl) -> event.register(registry, rl, () -> t));
+            }
+        });
+    }
+
+    public static ResourceLocation prefix(String namespace, String path) {
+        return ResourceLocation.fromNamespaceAndPath(namespace, path);
+    }
+
+    public static ResourceLocation loc(String path) {
+        return prefix(SurvivalistEssentials.MODID, path);
     }
 
 }

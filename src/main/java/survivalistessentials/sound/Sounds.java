@@ -1,34 +1,44 @@
 package survivalistessentials.sound;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.BiConsumer;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import static survivalistessentials.SurvivalistEssentials.loc;
 
-import survivalistessentials.SurvivalistEssentials;
-import survivalistessentials.common.SurvivalistEssentialsModule;
+public class Sounds {
 
-public class Sounds extends SurvivalistEssentialsModule {
+    private static final Map<ResourceLocation, SoundEvent> ALL = new LinkedHashMap<>();
+    public static SoundEvent ARMOR_FAIL;
+    public static SoundEvent BOW_FAIL;
+    public static SoundEvent FLINT_KNAPPING;
+    public static SoundEvent HOE_FAIL;
+    public static SoundEvent SWORD_FAIL;
+    public static SoundEvent TOOL_FAIL;
 
-    public static DeferredHolder<SoundEvent, SoundEvent> ARMOR_FAIL;
-    public static DeferredHolder<SoundEvent, SoundEvent> BOW_FAIL;
-    public static DeferredHolder<SoundEvent, SoundEvent> FLINT_KNAPPING;
-    public static DeferredHolder<SoundEvent, SoundEvent> HOE_FAIL;
-    public static DeferredHolder<SoundEvent, SoundEvent> SWORD_FAIL;
-    public static DeferredHolder<SoundEvent, SoundEvent> TOOL_FAIL;
+    public static void init(BiConsumer<SoundEvent, ResourceLocation> consumer) {
+        ARMOR_FAIL = makeSoundEvent("armor_fail");
+        BOW_FAIL = makeSoundEvent("bow_fail");
+        FLINT_KNAPPING = makeSoundEvent("knapping");
+        HOE_FAIL = makeSoundEvent("hoe_fail");
+        SWORD_FAIL = makeSoundEvent("sword_fail");
+        TOOL_FAIL = makeSoundEvent("tool_fail");
 
-    public static void init(IEventBus bus) {
-        ARMOR_FAIL = registerSound("armor_fail");
-        BOW_FAIL = registerSound("bow_fail");
-        FLINT_KNAPPING = registerSound("knapping");
-        HOE_FAIL = registerSound("hoe_fail");
-        SWORD_FAIL = registerSound("sword_fail");
-        TOOL_FAIL = registerSound("tool_fail");
+        for (Map.Entry<ResourceLocation, SoundEvent> entry : ALL.entrySet()) {
+            consumer.accept(entry.getValue(), entry.getKey());
+        }
     }
 
-    private static DeferredHolder<SoundEvent, SoundEvent> registerSound(String name) {
-        return SOUND_REGISTRY.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(SurvivalistEssentials.MODID, name)));
+    private static SoundEvent makeSoundEvent(String name) {
+        ResourceLocation loc = loc(name);
+        SoundEvent soundEvent = SoundEvent.createVariableRangeEvent(loc);
+
+        ALL.put(loc, soundEvent);
+
+        return soundEvent;
     }
 
 }

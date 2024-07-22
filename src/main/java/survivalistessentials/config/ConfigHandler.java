@@ -1,5 +1,6 @@
 package survivalistessentials.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -7,11 +8,15 @@ import java.util.List;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModLoadingContext;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.ModConfigSpec.BooleanValue;
 import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;
@@ -21,21 +26,20 @@ import net.neoforged.neoforge.common.ModConfigSpec.IntValue;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.ItemUse;
 
-@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ConfigHandler {
 
     private ConfigHandler() {}
 
-    public static void init() {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Client.CONFIG_SPEC);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Common.CONFIG_SPEC);
+    public static void init(ModContainer container) {
+        container.registerConfig(ModConfig.Type.CLIENT, ConfigHandler.Client.CONFIG_SPEC);
+        container.registerConfig(ModConfig.Type.COMMON, ConfigHandler.Common.CONFIG_SPEC);
     }
 
     public static final class Client {
 
         private static final ModConfigSpec CONFIG_SPEC;
         private static final Client CONFIG;
-        private ModConfigSpec.BooleanValue ENABLE_FAIL_SOUND;
+        private final ModConfigSpec.BooleanValue ENABLE_FAIL_SOUND;
 
         static {
             Pair<Client, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Client::new);
@@ -57,20 +61,19 @@ public final class ConfigHandler {
     }
 
     public static final class Common {
-
         private static final ModConfigSpec CONFIG_SPEC;
         private static final Common CONFIG;
-        private DoubleValue FLINT_CHANCE;
-        private DoubleValue HEAL_RATE;
-        private DoubleValue SLOW_DOWN_SPEED;
-        private BooleanValue ENABLE_HUNGER_PENALTY;
-        private IntValue HUNGER;
-        private IntValue SATURATION;
-        private BooleanValue ENABLE_HEALTH_PENALTY;
-        private DoubleValue HEALTH;
-        private DoubleValue STARTING_HEALTH_PENALTY;
-        private IntValue GENERIC_DAMAGE;
-        private BooleanValue INVERT_LIST_TO_WHITELIST;
+        private final DoubleValue FLINT_CHANCE;
+        private final DoubleValue HEAL_RATE;
+        private final DoubleValue SLOW_DOWN_SPEED;
+        private final BooleanValue ENABLE_HUNGER_PENALTY;
+        private final IntValue HUNGER;
+        private final IntValue SATURATION;
+        private final BooleanValue ENABLE_HEALTH_PENALTY;
+        private final DoubleValue HEALTH;
+        private final DoubleValue STARTING_HEALTH_PENALTY;
+        private final IntValue GENERIC_DAMAGE;
+        private final BooleanValue INVERT_LIST_TO_WHITELIST;
 
         private static final List<String> MODS_LIST = List.of("mods");
         private static final String[] modsStrings = new String[] {};
@@ -98,13 +101,14 @@ public final class ConfigHandler {
         private static ConfigValue<List<? extends String>> ARMOR_MODS;
         private static final List<String> ARMOR_LIST = List.of("armor");
         private static final String[] armorStrings = new String[] {};
-        private static final Predicate<Object> armoridValidator = s -> s instanceof String
+        private static final Predicate<Object> resourceLocationValidator = s -> s instanceof String
                 && ((String) s).matches("[a-z]+[:]{1}[a-z_]+");
         private static ConfigValue<List<? extends String>> ARMORS;
         private static final List<String> TAG_LIST = List.of("tag");
         private static final String[] tagStrings = new String[] {
-            "blacklist_tools"
+            "c:blacklist_tools"
         };
+        private static final List<TagKey<Item>> tagList = new ArrayList<>();
         private static ConfigValue<List<? extends String>> TAGS;
 
         static {
@@ -170,11 +174,11 @@ public final class ConfigHandler {
             ARMORS = builder
                 .comment("List of individual armor items that will be disabled. If inverted, acts as a whitelist. Format modid:item Default: "
                         + "[\"" + String.join("\", \"", armorStrings) + "\"]")
-                .defineListAllowEmpty(ARMOR_LIST, getFields(armorStrings), armoridValidator);
+                .defineListAllowEmpty(ARMOR_LIST, getFields(armorStrings), resourceLocationValidator);
             TAGS = builder
                 .comment("List of tags when added to tools or armor will be disabled. If inverted, acts as a whitelist."
                         + "[\"" + String.join("\", \"", tagStrings) + "\"]")
-                .defineListAllowEmpty(TAG_LIST, getFields(tagStrings), s -> (s instanceof String));
+                .defineListAllowEmpty(TAG_LIST, getFields(tagStrings), resourceLocationValidator);
         }
 
         public static double flintChance() {
@@ -199,26 +203,20 @@ public final class ConfigHandler {
             return () -> Arrays.asList(strings);
         }
 
-        public static List<String> getMods() {
-            List<String> mods = (List<String>) CONFIG.MODS.get();
-
-            return mods;
+        public static List<? extends String> getMods() {
+            return MODS.get();
         }
 
-        public static List<String> getItems() {
-            List<String> items = (List<String>) CONFIG.ITEMS.get();
-
-            return items;
+        public static List<? extends String> getItems() {
+            return ITEMS.get();
         }
 
         public static boolean logModpackData() {
-            return CONFIG.LOG_MODPACK_DATA.get();
+            return LOG_MODPACK_DATA.get();
         }
 
-        public static List<String> blockWhitelistMods() {
-            List<String> mods = (List<String>) BLOCK_MODS.get();
-
-            return mods;
+        public static List<? extends String> blockWhitelistMods() {
+            return BLOCK_MODS.get();
         }
 
         public static boolean enableHungerPenalty() {
@@ -256,25 +254,35 @@ public final class ConfigHandler {
             return (float) damage;
         }
 
-        public static List<String> armorMods() {
-            return (List<String>) CONFIG.ARMOR_MODS.get();
+        public static List<? extends String> armorMods() {
+            return ARMOR_MODS.get();
         }
 
-        public static List<String> armorItems() {
-            return (List<String>) CONFIG.ARMORS.get();
+        public static List<? extends String> armorItems() {
+            return ARMORS.get();
         }
 
-        public static List<String> tagList() {
-            return (List<String>) CONFIG.TAGS.get();
+        public static List<TagKey<Item>> tagList() {
+            return tagList;
         }
 
     }
 
-    @SubscribeEvent
-    public static void onFileChange(final ModConfigEvent.Reloading event) {
-        ModConfig config = event.getConfig();
+    public static void loadConfigs(final ModConfigEvent.Loading event) {
+        loadCommonConfig(event.getConfig());
+    }
 
+    public static void onFileChange(final ModConfigEvent.Reloading event) {
+        loadCommonConfig(event.getConfig());
+    }
+
+    private static void loadCommonConfig(ModConfig config) {
         if (config.getType() == ModConfig.Type.COMMON && config.getModId().equals(SurvivalistEssentials.MODID)) {
+            Common.tagList().clear();
+            Common.TAGS.get().forEach((s) -> {
+                Common.tagList().add(TagKey.create(Registries.ITEM, ResourceLocation.parse(s)));
+            });
+
             ItemUse.init();
         }
     }

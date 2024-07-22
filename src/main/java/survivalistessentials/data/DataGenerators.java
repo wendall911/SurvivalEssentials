@@ -1,7 +1,9 @@
 package survivalistessentials.data;
 
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -11,7 +13,7 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
@@ -20,7 +22,6 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import survivalistessentials.data.client.ModBlockStateProvider;
 import survivalistessentials.data.client.ModItemModelProvider;
-import survivalistessentials.data.client.patchouli.ModBookProvider;
 import survivalistessentials.data.loot.ModLootTables;
 import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
@@ -29,7 +30,7 @@ import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
 import survivalistessentials.world.modifier.SurvivalistEssentialsBiomeModifiers;
 
-@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = SurvivalistEssentials.MODID, bus = EventBusSubscriber.Bus.MOD)
 public final class DataGenerators {
 
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
@@ -50,13 +51,14 @@ public final class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper());
         String modpackOverrides = System.getenv("MOD_OVERRIDES");
+        CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
         gen.addProvider(event.includeServer(), new ModBlockStateProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeServer(), blockTags);
-        gen.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, event.getLookupProvider(), blockTags, existingFileHelper));
-        gen.addProvider(event.includeServer(), new ModRecipesProvider(packOutput));
-        gen.addProvider(event.includeServer(), ModLootTables.create(packOutput));
-        gen.addProvider(event.includeServer(), new GlobalLootModifier(packOutput));
+        gen.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, provider, blockTags, existingFileHelper));
+        gen.addProvider(event.includeServer(), new ModRecipesProvider(packOutput, provider));
+        gen.addProvider(event.includeServer(), ModLootTables.create(packOutput, provider));
+        gen.addProvider(event.includeServer(), new GlobalLootModifier(packOutput, provider));
         gen.addProvider(event.includeServer(), new ModItemModelProvider(packOutput, existingFileHelper));
 
         if (modpackOverrides != null && modpackOverrides.contains("all")) {
@@ -70,7 +72,7 @@ public final class DataGenerators {
                 Set.of(SurvivalistEssentials.MODID)
         ));
 
-        gen.addProvider(event.includeServer(), new ModBookProvider(packOutput));
+        //gen.addProvider(event.includeServer(), new ModBookProvider(packOutput));
     }
 
 }

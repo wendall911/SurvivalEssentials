@@ -8,19 +8,16 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.sound.Sounds;
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.ItemUse;
 
-@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class AttackEventHandler {
 
     @SubscribeEvent
-    public static void onHurt(LivingHurtEvent event) {
+    public static void onHurt(LivingDamageEvent.Pre event) {
         if (event.getSource().getDirectEntity() instanceof Player player) {
             if (!player.isCreative()) {
                 final ItemStack handStack = player.getMainHandItem();
@@ -34,14 +31,10 @@ public class AttackEventHandler {
 
                 if (checkAllowed && (handStack.is(Items.AIR) || !ItemUse.isAllowedTool(handStack))) {
                     if (!level.isClientSide && ConfigHandler.Client.enableFailSound() && ConfigHandler.Common.genericDamage() == 0.0F) {
-                        level.playSound(null, player.getOnPos(), Sounds.SWORD_FAIL.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
+                        level.playSound(null, player.getOnPos(), Sounds.SWORD_FAIL, SoundSource.PLAYERS, 0.4F, 1.0F);
                     }
 
-                    event.setAmount(ConfigHandler.Common.genericDamage());
-
-                    if (ConfigHandler.Common.genericDamage() == 0.0F) {
-                        event.setCanceled(true);
-                    }
+                    event.setNewDamage(ConfigHandler.Common.genericDamage());
                 }
             }
         }

@@ -37,9 +37,9 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .add(Blocks.GRAVEL)
             .add(Blocks.BAMBOO)
             .add(Blocks.SNOW)
-            .addTag(Tags.Blocks.GRAVEL)
+            .addTag(Tags.Blocks.GRAVELS)
             .addTag(BlockTags.DIRT)
-            .addTag(Tags.Blocks.SAND)
+            .addTag(Tags.Blocks.SANDS)
             .addTag(BlockTags.SAND)
             .addTag(TagManager.Blocks.FIBER_PLANTS);
 
@@ -48,15 +48,15 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addTag(BlockTags.BEDS)
             .add(Blocks.GRAVEL)
             .add(Blocks.SNOW)
-            .addTag(Tags.Blocks.GRAVEL)
+            .addTag(Tags.Blocks.GRAVELS)
             .addTag(BlockTags.DIRT)
-            .addTag(Tags.Blocks.SAND)
+            .addTag(Tags.Blocks.SANDS)
             .addTag(BlockTags.SAND)
             .addTag(TagManager.Blocks.FIBER_PLANTS);
 
         this.tag(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)
             .add(Blocks.GRAVEL)
-            .addTag(Tags.Blocks.GRAVEL)
+            .addTag(Tags.Blocks.GRAVELS)
             .add(Blocks.STONE)
             .add(Blocks.CALCITE)
             .add(Blocks.GRANITE)
@@ -73,7 +73,7 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .add(Blocks.RED_SANDSTONE)
             .addTag(BlockTags.DIRT)
             .addTag(BlockTags.SAND)
-            .addTag(Tags.Blocks.SAND)
+            .addTag(Tags.Blocks.SANDS)
             .addTag(BlockTags.TERRACOTTA);
 
         this.tag(TagManager.Blocks.LOOSE_ROCKS)
@@ -94,8 +94,8 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addOptional(ModIntegration.sgcLoc("avocado_leaves"))
             .addOptional(ModIntegration.exnihiloLoc("infested_leaves"))
             .addOptional(ModIntegration.exnihiloLoc("infesting_leaves"))
-            .addOptionalTag(TagManager.forgeLoc("grass"))
-            .addOptionalTag(TagManager.forgeLoc("bushes"));
+            .addOptionalTag(TagManager.commonLoc("grass"))
+            .addOptionalTag(TagManager.commonLoc("bushes"));
 
         this.tag(TagManager.Blocks.BRANCHES)
             .addOptionalTag(ModIntegration.dynamictreesLoc("branches"));

@@ -4,10 +4,10 @@ import java.util.function.Supplier;
 
 import org.jetbrains.annotations.NotNull;
 
-import com.google.common.base.Suppliers;
-
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.mojang.serialization.MapCodec;
+
+import com.google.common.base.Suppliers;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
@@ -23,16 +23,16 @@ import survivalistessentials.common.SurvivalistEssentialsModule;
 
 public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule {
 
-    public static DeferredHolder<Codec<? extends IGlobalLootModifier>, Codec<LootTableModifier>> ADD_LOOT = LOOT_MODIFIER_REGISTRY.register("add_loot", LootTableModifier.CODEC_SUPPLIER);
+    public static DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<LootTableModifier>> ADD_LOOT = LOOT_MODIFIER_REGISTRY.register("add_loot", LootTableModifier.CODEC_SUPPLIER);
 
     public static void init() {}
 
     public static class LootTableModifier extends LootModifier {
 
-        public static final Supplier<Codec<LootTableModifier>> CODEC_SUPPLIER = Suppliers.memoize(() -> RecordCodecBuilder.create(inst ->
-                codecStart(inst)
-                        .and(ItemStack.CODEC.fieldOf("additional").forGetter(LootTableModifier::getStack))
-                        .apply(inst, LootTableModifier::new)));
+        public static final Supplier<MapCodec<LootTableModifier>> CODEC_SUPPLIER = Suppliers.memoize(() -> RecordCodecBuilder.mapCodec(inst ->
+            codecStart(inst)
+                .and(ItemStack.CODEC.fieldOf("additional").forGetter(LootTableModifier::getStack))
+                .apply(inst, LootTableModifier::new)));
 
         private final ItemStack stack;
 
@@ -59,7 +59,7 @@ public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule
         }
 
         @Override
-        public @NotNull Codec<? extends IGlobalLootModifier> codec() {
+        public @NotNull MapCodec<? extends IGlobalLootModifier> codec() {
             return ADD_LOOT.get();
         }
 

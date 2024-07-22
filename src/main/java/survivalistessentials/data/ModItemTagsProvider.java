@@ -90,7 +90,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addTag(TagManager.Items.KNIFE_TOOLS)
             .addTag(TagManager.Items.AXE_TOOLS);
         this.tag(TagManager.Items.SHEAR_TOOLS)
-            .addTag(Tags.Items.SHEARS);
+            .addTag(Tags.Items.TOOLS_SHEAR);
         builder(TagManager.Items.ROCK, SurvivalistEssentialsWorld.ROCK_STONE);
         builder(
             TagManager.Items.SAW_PARTS,

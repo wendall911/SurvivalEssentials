@@ -5,7 +5,15 @@ import net.minecraft.world.item.Item;
 
 import net.neoforged.neoforge.registries.RegisterEvent;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.BiConsumer;
+
+import static survivalistessentials.SurvivalistEssentials.prefix;
+
 public final class ModIntegration {
+
+    private static final Map<ResourceLocation, Item> ALL = new LinkedHashMap<>();
 
     public static final String AYCE_MODID = "allyoucaneat";
     public static final String BMO_MODID = "biomemakeover";
@@ -163,83 +171,81 @@ public final class ModIntegration {
 
     public static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
 
-    public static void init(RegisterEvent.RegisterHelper<Item> registry) {
-        ITEM_REGISTRY = registry;
-
+    public static void init(BiConsumer<Item, ResourceLocation> consumer) {
         String dataGen = System.getenv("DATA_GEN");
         if (dataGen != null && dataGen.contains("all")) {
-            AQUA_DRIFTWOOD = registerItem(aquaLoc("driftwood"));
-            CHERRY_PLANKS = registerItem(ftLoc("cherry_planks"));
-            CITRUS_PLANKS = registerItem(ftLoc("citrus_planks"));
-            BMO_ANCIENT_OAK_PLANKS = registerItem(bmoLoc("ancient_oak_planks"));
-            BMO_BLIGHTED_BALSA_PLANKS = registerItem(bmoLoc("blighted_balsa_planks"));
-            BMO_SWAMP_CYPRESS_PLANKS = registerItem(bmoLoc("swamp_cypress_planks"));
-            BMO_WILLOW_PLANKS = registerItem(bmoLoc("willow_planks"));
-            BOP_DEAD_PLANKS = registerItem(bopLoc("dead_planks"));
-            BOP_FIR_PLANKS = registerItem(bopLoc("fir_planks"));
-            BOP_HELLBARK_PLANKS = registerItem(bopLoc("hellbark_planks"));
-            BOP_JACARANDA_PLANKS = registerItem(bopLoc("jacaranda_planks"));
-            BOP_MAGIC_PLANKS = registerItem(bopLoc("magic_planks"));
-            BOP_MAHOGANY_PLANKS = registerItem(bopLoc("mahogany_planks"));
-            BOP_PALM_PLANKS = registerItem(bopLoc("palm_planks"));
-            BOP_REDWOOD_PLANKS = registerItem(bopLoc("redwood_planks"));
-            BOP_UMBRAN_PLANKS = registerItem(bopLoc("umbran_planks"));
-            BOP_WILLOW_PLANKS = registerItem(bopLoc("willow_planks"));
-            BOTANIA_DREAMWOOD_PLANKS = registerItem(botaniaLoc("dreamwood_planks"));
-            BOTANIA_LIVINGWOOD_PLANKS = registerItem(botaniaLoc("livingwood_planks"));
-            IE_STICK_TREATED = registerItem(ieLoc("stick_treated"));
-            QUARK_AZALEA_PLANKS = registerItem(qLoc("azalea_planks"));
-            QUARK_BLOSSOM_PLANKS = registerItem(qLoc("blossom_planks"));
-            AYCE_HAZEL_PLANKS = registerItem(ayceLoc("hazel_planks"));
-            TCON_BLOODSHROOM_PLANKS = registerItem(tconLoc("bloodshroom_planks"));
-            TCON_GREENHEART_PLANKS = registerItem(tconLoc("greenheart_planks"));
-            TCON_SKYROOT_PLANKS = registerItem(tconLoc("skyroot_planks"));
-            WS_PALM_TREE_PLANKS = registerItem(wsLoc("palm_tree_planks"));
-            AN_ARCHWOOD_PLANKS = registerItem(anLoc("archwood_planks"));
-            UNDERGARDEN_GRONGLE_PLANKS = registerItem(undergardenLoc("grongle_planks"));
-            UNDERGARDEN_SMOGSTEM_PLANKS = registerItem(undergardenLoc("smogstem_planks"));
-            UNDERGARDEN_WIGGLEWOOD_PLANKS = registerItem(undergardenLoc("wigglewood_planks"));
-            BYG_ETHER_PLANKS = registerItem(bygLoc("ether_planks"));
-            BYG_WHITE_MANGROVE_PLANKS = registerItem(bygLoc("white_mangrove_planks"));
-            BYG_REDWOOD_PLANKS = registerItem(bygLoc("redwood_planks"));
-            BYG_BLUE_ENCHANTED_PLANKS = registerItem(bygLoc("blue_enchanted_planks"));
-            BYG_GREEN_ENCHANTED_PLANKS = registerItem(bygLoc("green_enchanted_planks"));
-            BYG_LAMENT_PLANKS = registerItem(bygLoc("lament_planks"));
-            BYG_MAHOGANY_PLANKS = registerItem(bygLoc("mahogany_planks"));
-            BYG_CHERRY_PLANKS = registerItem(bygLoc("cherry_planks"));
-            BYG_BAOBAB_PLANKS = registerItem(bygLoc("baobab_planks"));
-            BYG_JACARANDA_PLANKS = registerItem(bygLoc("jacaranda_planks"));
-            BYG_CYPRESS_PLANKS = registerItem(bygLoc("cypress_planks"));
-            BYG_PALM_PLANKS = registerItem(bygLoc("palm_planks"));
-            BYG_EBONY_PLANKS = registerItem(bygLoc("ebony_planks"));
-            BYG_NIGHTSHADE_PLANKS = registerItem(bygLoc("nightshade_planks"));
-            BYG_RAINBOW_EUCALYPTUS_PLANKS = registerItem(bygLoc("rainbow_eucalyptus_planks"));
-            BYG_ASPEN_PLANKS = registerItem(bygLoc("aspen_planks"));
-            BYG_FIR_PLANKS = registerItem(bygLoc("fir_planks"));
-            BYG_SKYRIS_PLANKS = registerItem(bygLoc("skyris_planks"));
-            BYG_CIKA_PLANKS = registerItem(bygLoc("cika_planks"));
-            BYG_HOLLY_PLANKS = registerItem(bygLoc("holly_planks"));
-            BYG_MAPLE_PLANKS = registerItem(bygLoc("maple_planks"));
-            BYG_PINE_PLANKS = registerItem(bygLoc("pine_planks"));
-            BYG_WILLOW_PLANKS = registerItem(bygLoc("willow_planks"));
-            BYG_WITCH_HAZEL_PLANKS = registerItem(bygLoc("witch_hazel_planks"));
-            BYG_ZELKOVA_PLANKS = registerItem(bygLoc("zelkova_planks"));
-            BYG_EMBUR_PLANKS = registerItem(bygLoc("embur_planks"));
-            BYG_SYTHIAN_PLANKS = registerItem(bygLoc("sythian_planks"));
-            BYG_IMPARIUS_PLANKS = registerItem(bygLoc("imparius_planks"));
-            BYG_BULBIS_PLANKS = registerItem(bygLoc("bulbis_planks"));
-            TF_CANOPY_PLANKS = registerItem(tfLoc("canopy_planks"));
-            TF_DARK_PLANKS = registerItem(tfLoc("dark_planks"));
-            TF_MANGROVE_PLANKS = registerItem(tfLoc("mangrove_planks"));
-            TF_MINING_PLANKS = registerItem(tfLoc("mining_planks"));
-            TF_SORTING_PLANKS = registerItem(tfLoc("sorting_planks"));
-            TF_TIME_PLANKS = registerItem(tfLoc("time_planks"));
-            TF_TRANSFORMATION_PLANKS = registerItem(tfLoc("transformation_planks"));
-            TF_TWILIGHT_OAK_PLANKS = registerItem(tfLoc("twilight_oak_planks"));
-            ECO_COCONUT_PLANKS = registerItem(ecoLoc("coconut_planks"));
-            ECO_WALNUT_PLANKS = registerItem(ecoLoc("walnut_planks"));
-            ECO_AZALEA_PLANKS = registerItem(ecoLoc("azalea_planks"));
-            ECO_FLOWERING_AZALEA_PLANKS = registerItem(ecoLoc("flowering_azalea_planks"));
+            AQUA_DRIFTWOOD = makeItem(aquaLoc("driftwood"));
+            CHERRY_PLANKS = makeItem(ftLoc("cherry_planks"));
+            CITRUS_PLANKS = makeItem(ftLoc("citrus_planks"));
+            BMO_ANCIENT_OAK_PLANKS = makeItem(bmoLoc("ancient_oak_planks"));
+            BMO_BLIGHTED_BALSA_PLANKS = makeItem(bmoLoc("blighted_balsa_planks"));
+            BMO_SWAMP_CYPRESS_PLANKS = makeItem(bmoLoc("swamp_cypress_planks"));
+            BMO_WILLOW_PLANKS = makeItem(bmoLoc("willow_planks"));
+            BOP_DEAD_PLANKS = makeItem(bopLoc("dead_planks"));
+            BOP_FIR_PLANKS = makeItem(bopLoc("fir_planks"));
+            BOP_HELLBARK_PLANKS = makeItem(bopLoc("hellbark_planks"));
+            BOP_JACARANDA_PLANKS = makeItem(bopLoc("jacaranda_planks"));
+            BOP_MAGIC_PLANKS = makeItem(bopLoc("magic_planks"));
+            BOP_MAHOGANY_PLANKS = makeItem(bopLoc("mahogany_planks"));
+            BOP_PALM_PLANKS = makeItem(bopLoc("palm_planks"));
+            BOP_REDWOOD_PLANKS = makeItem(bopLoc("redwood_planks"));
+            BOP_UMBRAN_PLANKS = makeItem(bopLoc("umbran_planks"));
+            BOP_WILLOW_PLANKS = makeItem(bopLoc("willow_planks"));
+            BOTANIA_DREAMWOOD_PLANKS = makeItem(botaniaLoc("dreamwood_planks"));
+            BOTANIA_LIVINGWOOD_PLANKS = makeItem(botaniaLoc("livingwood_planks"));
+            IE_STICK_TREATED = makeItem(ieLoc("stick_treated"));
+            QUARK_AZALEA_PLANKS = makeItem(qLoc("azalea_planks"));
+            QUARK_BLOSSOM_PLANKS = makeItem(qLoc("blossom_planks"));
+            AYCE_HAZEL_PLANKS = makeItem(ayceLoc("hazel_planks"));
+            TCON_BLOODSHROOM_PLANKS = makeItem(tconLoc("bloodshroom_planks"));
+            TCON_GREENHEART_PLANKS = makeItem(tconLoc("greenheart_planks"));
+            TCON_SKYROOT_PLANKS = makeItem(tconLoc("skyroot_planks"));
+            WS_PALM_TREE_PLANKS = makeItem(wsLoc("palm_tree_planks"));
+            AN_ARCHWOOD_PLANKS = makeItem(anLoc("archwood_planks"));
+            UNDERGARDEN_GRONGLE_PLANKS = makeItem(undergardenLoc("grongle_planks"));
+            UNDERGARDEN_SMOGSTEM_PLANKS = makeItem(undergardenLoc("smogstem_planks"));
+            UNDERGARDEN_WIGGLEWOOD_PLANKS = makeItem(undergardenLoc("wigglewood_planks"));
+            BYG_ETHER_PLANKS = makeItem(bygLoc("ether_planks"));
+            BYG_WHITE_MANGROVE_PLANKS = makeItem(bygLoc("white_mangrove_planks"));
+            BYG_REDWOOD_PLANKS = makeItem(bygLoc("redwood_planks"));
+            BYG_BLUE_ENCHANTED_PLANKS = makeItem(bygLoc("blue_enchanted_planks"));
+            BYG_GREEN_ENCHANTED_PLANKS = makeItem(bygLoc("green_enchanted_planks"));
+            BYG_LAMENT_PLANKS = makeItem(bygLoc("lament_planks"));
+            BYG_MAHOGANY_PLANKS = makeItem(bygLoc("mahogany_planks"));
+            BYG_CHERRY_PLANKS = makeItem(bygLoc("cherry_planks"));
+            BYG_BAOBAB_PLANKS = makeItem(bygLoc("baobab_planks"));
+            BYG_JACARANDA_PLANKS = makeItem(bygLoc("jacaranda_planks"));
+            BYG_CYPRESS_PLANKS = makeItem(bygLoc("cypress_planks"));
+            BYG_PALM_PLANKS = makeItem(bygLoc("palm_planks"));
+            BYG_EBONY_PLANKS = makeItem(bygLoc("ebony_planks"));
+            BYG_NIGHTSHADE_PLANKS = makeItem(bygLoc("nightshade_planks"));
+            BYG_RAINBOW_EUCALYPTUS_PLANKS = makeItem(bygLoc("rainbow_eucalyptus_planks"));
+            BYG_ASPEN_PLANKS = makeItem(bygLoc("aspen_planks"));
+            BYG_FIR_PLANKS = makeItem(bygLoc("fir_planks"));
+            BYG_SKYRIS_PLANKS = makeItem(bygLoc("skyris_planks"));
+            BYG_CIKA_PLANKS = makeItem(bygLoc("cika_planks"));
+            BYG_HOLLY_PLANKS = makeItem(bygLoc("holly_planks"));
+            BYG_MAPLE_PLANKS = makeItem(bygLoc("maple_planks"));
+            BYG_PINE_PLANKS = makeItem(bygLoc("pine_planks"));
+            BYG_WILLOW_PLANKS = makeItem(bygLoc("willow_planks"));
+            BYG_WITCH_HAZEL_PLANKS = makeItem(bygLoc("witch_hazel_planks"));
+            BYG_ZELKOVA_PLANKS = makeItem(bygLoc("zelkova_planks"));
+            BYG_EMBUR_PLANKS = makeItem(bygLoc("embur_planks"));
+            BYG_SYTHIAN_PLANKS = makeItem(bygLoc("sythian_planks"));
+            BYG_IMPARIUS_PLANKS = makeItem(bygLoc("imparius_planks"));
+            BYG_BULBIS_PLANKS = makeItem(bygLoc("bulbis_planks"));
+            TF_CANOPY_PLANKS = makeItem(tfLoc("canopy_planks"));
+            TF_DARK_PLANKS = makeItem(tfLoc("dark_planks"));
+            TF_MANGROVE_PLANKS = makeItem(tfLoc("mangrove_planks"));
+            TF_MINING_PLANKS = makeItem(tfLoc("mining_planks"));
+            TF_SORTING_PLANKS = makeItem(tfLoc("sorting_planks"));
+            TF_TIME_PLANKS = makeItem(tfLoc("time_planks"));
+            TF_TRANSFORMATION_PLANKS = makeItem(tfLoc("transformation_planks"));
+            TF_TWILIGHT_OAK_PLANKS = makeItem(tfLoc("twilight_oak_planks"));
+            ECO_COCONUT_PLANKS = makeItem(ecoLoc("coconut_planks"));
+            ECO_WALNUT_PLANKS = makeItem(ecoLoc("walnut_planks"));
+            ECO_AZALEA_PLANKS = makeItem(ecoLoc("azalea_planks"));
+            ECO_FLOWERING_AZALEA_PLANKS = makeItem(ecoLoc("flowering_azalea_planks"));
 
             // TF Messed up log/wood crap
             TF_CANOPY_LOG = tfLoc("canopy_log");
@@ -297,16 +303,20 @@ public final class ModIntegration {
             BMO_STRIPPED_WILLOW_LOG = bmoLoc("stripped_willow_log");
             BMO_WILLOW_WOOD = bmoLoc("willow_wood");
             BMO_STRIPPED_WILLOW_WOOD = bmoLoc("stripped_willow_wood");
-            MALUM_RUNEWOOD_PLANKS = registerItem(malumLoc("runewood_planks"));
-            MALUM_SOULWOOD_PLANKS = registerItem(malumLoc("soulwood_planks"));
-            IFD_DREADWOOD_PLANKS = registerItem(ifdLoc("dreadwood_planks"));
+            MALUM_RUNEWOOD_PLANKS = makeItem(malumLoc("runewood_planks"));
+            MALUM_SOULWOOD_PLANKS = makeItem(malumLoc("soulwood_planks"));
+            IFD_DREADWOOD_PLANKS = makeItem(ifdLoc("dreadwood_planks"));
+        }
+
+        for (Map.Entry<ResourceLocation, Item> entry : ALL.entrySet()) {
+            consumer.accept(entry.getValue(), entry.getKey());
         }
     }
 
-    private static Item registerItem(ResourceLocation loc) {
+    private static Item makeItem(ResourceLocation loc) {
         Item item = (new Item(new Item.Properties()));
 
-        ITEM_REGISTRY.register(loc, item);
+        ALL.put(loc, item);
 
         return item;
     }
@@ -404,7 +414,7 @@ public final class ModIntegration {
     }
 
     private static ResourceLocation getLoc(String modid, String name) {
-        return new ResourceLocation(modid, name);
+        return prefix(modid, name);
     }
 
 }

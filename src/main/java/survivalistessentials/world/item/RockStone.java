@@ -55,7 +55,7 @@ public class RockStone extends BlockItem {
 
                         Objects.requireNonNull(player).getItemInHand(hand).shrink(1);
                     }
-                    level.playSound(null, Objects.requireNonNull(player).getOnPos(), Sounds.FLINT_KNAPPING.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.playSound(null, Objects.requireNonNull(player).getOnPos(), Sounds.FLINT_KNAPPING, SoundSource.BLOCKS, 1.0F, 1.0F);
                 }
             }
 
