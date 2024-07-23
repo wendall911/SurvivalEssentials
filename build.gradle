@@ -93,7 +93,7 @@ dependencies {
         transitive = false
     }
 
-    //implementation "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT"
+    implementation "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT"
     //implementation "xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}"
 
     //runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"

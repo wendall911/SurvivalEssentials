@@ -31,8 +31,7 @@ public class SurvivalistEssentialsBook extends Item {
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player playerIn, @NotNull InteractionHand handIn) {
         if (ModList.get().isLoaded(ModIntegration.PATCHOULI_MODID)) {
             if (level.isClientSide()) {
-                // TODO re-enable once Patchouli is available
-                //vazkii.patchouli.api.PatchouliAPI.get().openBookGUI(book);
+                vazkii.patchouli.api.PatchouliAPI.get().openBookGUI(book);
             }
         }
 
