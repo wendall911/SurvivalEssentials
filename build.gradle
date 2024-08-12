@@ -1,7 +1,7 @@
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle' version '[6.0.13,6.2)'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+'
     id 'net.darkhax.curseforgegradle' version '1.+'
@@ -121,7 +121,7 @@ sourceSets.main.resources {
 }
 
 dependencies {
-    minecraft "net.neoforged:forge:${minecraft_version}-${forge_version}"
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
@@ -155,7 +155,7 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:kiwi-303657:3974084")
     //runtimeOnly fg.deobf("curse.maven:fruittrees-355467:3990227")
     //runtimeOnly fg.deobf("curse.maven:biomemakeover-567709:4642570")
-    //runtimeOnly fg.deobf("curse.maven:architectury-419699:4633048")
+    //runtimeOnly fg.deobf("curse.maven:architectury-419699:5137938")
     //runtimeOnly fg.deobf("curse.maven:botania-225643:???")
     //runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:3963698")
     //runtimeOnly fg.deobf("curse.maven:twilightforest-227639:3995805")
@@ -167,7 +167,10 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:geckolib-388172:4019767")
     //runtimeOnly fg.deobf("curse.maven:arsnouveau-401955:4631683")
     //runtimeOnly fg.deobf("curse.maven:undergarden-379849:???")
-    //runtimeOnly fg.deobf("curse.maven:dynamictrees-252818:4979755")
+    //runtimeOnly fg.deobf("curse.maven:panda_lib-975460:5485115")
+    //runtimeOnly fg.deobf("curse.maven:falling_trees-880630:5505040")
+    //runtimeOnly fg.deobf("curse.maven:lmft-656346:4892299")
+    //runtimeOnly fg.deobf("curse.maven:dynamictrees-252818:5602385")
     //runtimeOnly fg.deobf("curse.maven:ecologics-570463:3987881")
     //runtimeOnly fg.deobf("curse.maven:aquaculture-60028:3990680")
     //runtimeOnly fg.deobf("curse.maven:carryon-274259:${carryon_version}")
