@@ -86,10 +86,10 @@ neoForge {
 }
 
 dependencies {
-    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
-    implementation "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    compileOnly "mezz.jei:jei-1.21-common-api:${jei_version}"
+    implementation "mezz.jei:jei-1.21-neoforge:${jei_version}"
 
-    runtimeOnly ("mcjty.theoneprobe:theoneprobe:${minecraft_version}_neo-${probe_version}") {
+    runtimeOnly ("mcjty.theoneprobe:theoneprobe:1.21_neo-${probe_version}") {
         transitive = false
     }
 
