@@ -173,6 +173,9 @@ public final class TagManager {
         // Ice and Fire; Dragons
         public static TagKey<Item> IFD_DREADWOOD_LOGS = create("dreadwood_logs");
 
+        // Aquaculture
+        public static TagKey<Item> AQUA_DRIFTWOOD = create("driftwood");
+
         private static TagKey<Item> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }

@@ -315,6 +315,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.tag(TagManager.Items.IFD_DREADWOOD_LOGS)
             .addOptional(ModIntegration.ifdLoc("dreadwood_log"));
 
+        // Aquaculture
+        this.tag(TagManager.Items.AQUA_DRIFTWOOD)
+            .addOptional(ModIntegration.aquaLoc("driftwood"));
+
     }
 
     private void addWsLogVariants(TagKey<Item> tag, String type) {
