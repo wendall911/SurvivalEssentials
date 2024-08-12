@@ -451,14 +451,14 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(ModIntegration.AQUA_DRIFTWOOD)
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
                 .group("planks")
-                .unlockedBy("has_driftwood", has(ModIntegration.AQUA_DRIFTWOOD))
+                .unlockedBy("has_driftwood", has(TagManager.Items.AQUA_DRIFTWOOD))
                 .save(wrapped, prefix(ModIntegration.AQUA_MODID, "planks_from_driftwood"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.OAK_PLANKS, 4)
                 .requires(ModIntegration.AQUA_DRIFTWOOD)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
-                .unlockedBy("has_driftwood", has(ModIntegration.AQUA_DRIFTWOOD))
+                .unlockedBy("has_driftwood", has(TagManager.Items.AQUA_DRIFTWOOD))
                 .save(wrapped, loc("planks_from_driftwood"));
 
         // Immersive Engineering
