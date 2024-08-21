@@ -21,6 +21,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
@@ -89,7 +90,9 @@ public class SurvivalistEssentials {
             NeoForge.EVENT_BUS.register(HoeEventHandler.class);
             NeoForge.EVENT_BUS.register(LivingEquipmentChangeEventHandler.class);
             NeoForge.EVENT_BUS.register(PlayerEventHandler.class);
-            NeoForge.EVENT_BUS.register(TooltipEventHandler.class);
+            if (FMLEnvironment.dist == Dist.CLIENT) {
+                NeoForge.EVENT_BUS.register(TooltipEventHandler.class);
+            }
         }
 
         @SubscribeEvent(priority = EventPriority.LOWEST)
