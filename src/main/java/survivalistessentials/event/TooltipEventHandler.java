@@ -7,12 +7,10 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
-import survivalistessentials.SurvivalistEssentials;
+
 import survivalistessentials.util.ItemUse;
 
-@Mod.EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public class TooltipEventHandler {
 
     @SubscribeEvent

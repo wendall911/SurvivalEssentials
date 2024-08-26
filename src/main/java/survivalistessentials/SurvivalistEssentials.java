@@ -10,11 +10,14 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.FMLEnvironment;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
@@ -23,13 +26,13 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.SurvivalistEssentialsModule;
 import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.common.loot.SurvivalistEssentialsLootConditionTypes;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.event.TooltipEventHandler;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.loot.SurvivalistEssentialsLootTables;
 import survivalistessentials.sound.Sounds;
@@ -74,6 +77,9 @@ public class SurvivalistEssentials {
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {
             HarvestBlock.init();
+            if (FMLEnvironment.dist == Dist.CLIENT) {
+                NeoForge.EVENT_BUS.register(TooltipEventHandler.class);
+            }
         }
 
         @SubscribeEvent(priority = EventPriority.LOWEST)
