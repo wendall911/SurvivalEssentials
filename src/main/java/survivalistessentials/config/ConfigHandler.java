@@ -27,7 +27,7 @@ public final class ConfigHandler {
     private ConfigHandler() {}
 
     public static void init() {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Client.CONFIG_SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Client.CONFIG_SPEC, SurvivalistEssentials.MODID + "-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Common.CONFIG_SPEC);
     }
 
