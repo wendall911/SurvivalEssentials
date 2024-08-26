@@ -6,11 +6,12 @@
   "mixins": [
     "AbstractBlockAccessor",
     "AbstractBlockStateAccessor",
-    "DiggerItemAccessor",
+    "DiggerItemAccessor"
+  ],
+  "client": [
     "PunchTreeTutorialStepMixin",
     "CraftPlanksTutorialStepMixin"
   ],
-  "client": [],
   "injectors": {
     "defaultRequire": 1
   },
