@@ -5,11 +5,12 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AbstractBlockAccessor",
-    "AbstractBlockStateAccessor",
+    "AbstractBlockStateAccessor"
+  ],
+  "client": [
     "PunchTreeTutorialStepMixin",
     "CraftPlanksTutorialStepMixin"
   ],
-  "client": [],
   "injectors": {
     "defaultRequire": 1
   },
