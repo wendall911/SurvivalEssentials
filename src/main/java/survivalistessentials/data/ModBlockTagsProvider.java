@@ -47,6 +47,7 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addTag(TagManager.Blocks.LOOSE_ROCKS)
             .addTag(BlockTags.BEDS)
             .add(Blocks.GRAVEL)
+            .add(Blocks.BAMBOO)
             .add(Blocks.SNOW)
             .addTag(Tags.Blocks.GRAVELS)
             .addTag(BlockTags.DIRT)
