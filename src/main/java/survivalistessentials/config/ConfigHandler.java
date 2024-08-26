@@ -31,7 +31,7 @@ public final class ConfigHandler {
     private ConfigHandler() {}
 
     public static void init(ModContainer container) {
-        container.registerConfig(ModConfig.Type.CLIENT, ConfigHandler.Client.CONFIG_SPEC);
+        container.registerConfig(ModConfig.Type.STARTUP, ConfigHandler.Client.CONFIG_SPEC, SurvivalistEssentials.MODID + "-client.toml");
         container.registerConfig(ModConfig.Type.COMMON, ConfigHandler.Common.CONFIG_SPEC);
     }
 
