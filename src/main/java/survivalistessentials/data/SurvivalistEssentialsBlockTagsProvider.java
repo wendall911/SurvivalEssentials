@@ -44,7 +44,8 @@ public class SurvivalistEssentialsBlockTagsProvider extends BlockTagsProvider {
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SAND)
             .addTag(BlockTags.SAND)
-            .addTag(TagManager.Blocks.FIBER_PLANTS);
+            .addTag(TagManager.Blocks.FIBER_PLANTS)
+            .add(Blocks.BAMBOO);
 
         this.tag(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)
             .add(Blocks.GRAVEL)
