@@ -20,6 +20,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -58,7 +59,7 @@ public class HarvestEventHandler {
         boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE) ||
                 ItemUse.isAlwaysBreakable(state);
 
-        if (player == null) return;
+        if (player == null || player instanceof FakePlayer) return;
 
         if (ModList.get().isLoaded("carryon")) {
             final ItemStack handStack = player.getMainHandItem();
@@ -139,7 +140,7 @@ public class HarvestEventHandler {
         final Player player = event.getEntity() != null ? event.getEntity() : null;
         final BlockState state = event.getTargetBlock();
 
-        if (player != null && !player.isCreative()) {
+        if (player != null && !(player instanceof FakePlayer) && !player.isCreative()) {
             final ItemStack handStack = getHandStack(player, state);
             final boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
@@ -168,7 +169,7 @@ public class HarvestEventHandler {
         final Player player = event.getEntity() != null ? event.getEntity() : null;
         final Optional<BlockPos> pos = event.getPosition();
 
-        if (player == null || pos.isEmpty()) return;
+        if (player == null || player instanceof FakePlayer || pos.isEmpty()) return;
 
         final Level level = player.getLevel();
         final BlockState state = level.getBlockState(pos.get());
