@@ -22,6 +22,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.util.FakePlayer;
 import net.neoforged.neoforge.event.TagsUpdatedEvent;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -57,6 +58,7 @@ public class HarvestEventHandler {
         final BlockPos pos = event.getPos();
         final BlockState state = level.getBlockState(pos);
         final Player player = event.getPlayer();
+        if (player instanceof FakePlayer) return;
         final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
         boolean cancel = false;
         boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE) ||
@@ -138,7 +140,7 @@ public class HarvestEventHandler {
         final Player player = event.getEntity();
         final BlockState state = event.getTargetBlock();
 
-        if (!player.isCreative()) {
+        if (!(player instanceof FakePlayer) && !player.isCreative()) {
             final ItemStack handStack = getHandStack(player, state);
             final boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
@@ -167,6 +169,7 @@ public class HarvestEventHandler {
         final Player player = event.getEntity();
         final Optional<BlockPos> pos = event.getPosition();
 
+        if (player instanceof FakePlayer) return;
         if (pos.isEmpty()) return;
 
         final Level level = player.level();
