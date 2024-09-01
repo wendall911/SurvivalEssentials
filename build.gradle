@@ -86,8 +86,8 @@ neoForge {
 }
 
 dependencies {
-    compileOnly "mezz.jei:jei-1.21-common-api:${jei_version}"
-    implementation "mezz.jei:jei-1.21-neoforge:${jei_version}"
+    compileOnly "mezz.jei:jei-1.21.1-common-api:${jei_version}"
+    implementation "mezz.jei:jei-1.21.1-neoforge:${jei_version}"
 
     runtimeOnly ("mcjty.theoneprobe:theoneprobe:1.21_neo-${probe_version}") {
         transitive = false
@@ -138,6 +138,7 @@ dependencies {
     //runtimeOnly "curse.maven:malum-484064:4638343"
     //runtimeOnly "curse.maven:citadel-331936:3783096"
     //runtimeOnly "curse.maven:iceandfire-264231:4614465"
+    //runtimeOnly "curse.maven:railcraft_reborn-901491:5650759"
 
     implementation fileTree(dir: 'libs', include: '*.jar')
 }
