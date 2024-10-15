@@ -5,7 +5,7 @@ plugins {
     id 'io.github.goooler.shadow' version '8.1.7'
     id 'net.darkhax.curseforgegradle' version '1.+'
     id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
-    id 'com.modrinth.minotaur' version '2.+'
+    id 'me.modmuss50.mod-publish-plugin' version '0.7.3'
 }
 
 repositories {
@@ -202,7 +202,67 @@ def updates = tasks.register("generateUpdates", Copy) {
     it.into 'files/'
 }
 
-def changelogFile = 'build/libs/' + mod_name + '-' + version + '-changelog.txt'
+def changelogFile = project(":").projectDir.toString() + '/build/libs/' + project.getName() + '-' + version + '-changelog.txt'
+def publishFile = project(":").projectDir.toString() + "/build/libs/${archivesBaseName}-${version}.jar"
+
+publishMods {
+    file = file(publishFile)
+    if (file(changelogFile).exists()) {
+        changelog = file(changelogFile).text
+    }
+    type = "${release_type}".startsWith("release") ? STABLE : ("${release_type}".startsWith("beta") ? BETA : ALPHA)
+    modLoaders.addAll(['neoforge', 'forge'])
+
+    if (project.hasProperty('securseApiKey')) {
+        curseforge {
+            accessToken = project.securseApiKey
+            projectId = project.securseId
+            javaVersions.add(JavaVersion.toVersion("${java_version}"))
+            clientRequired = true
+            serverRequired = true
+            minecraftVersions.addAll("${release_versions}".split(','))
+            embeds('spectrelib')
+            optional('configured')
+            optional('catalogue')
+            optional('fruit-trees')
+            optional('quark')
+            optional('biomes-o-plenty')
+            optional('all-you-can-eat')
+            optional('water-source')
+            optional('sushigocrafting')
+            optional('botania')
+            optional('ars-nouveau')
+            optional('exnihilosequentia')
+            optional('the-undergarden')
+            optional('dynamictrees')
+            optional('oh-the-biomes-youll-go')
+            optional('the-twilight-forest')
+            optional('ecologics')
+            optional('alexs-mobs')
+            optional('betteranimalsplus')
+            optional('malum')
+            optional('ice-and-fire-dragons')
+            optional('psi')
+        }
+    }
+    if (project.hasProperty('seModrinthId')) {
+        modrinth {
+            accessToken = project.modrinthKey
+            projectId = project.seModrinthId
+            minecraftVersions.addAll("${release_versions}".split(','))
+            optional('quark')
+            optional('allyoucaneat')
+            optional('botania')
+            optional('exnihilosequentia')
+            optional('dynamictrees')
+            optional('biomesyougo')
+            optional('ecologics')
+            optional('psi')
+        }
+    }
+    if (project.hasProperty('seGithubToken')) {
+    }
+}
 
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
     file = new File(changelogFile);
@@ -215,67 +275,6 @@ task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
 tasks.generateUpdates.mustRunAfter('jar')
 
 tasks.build.dependsOn('changelog', 'generateUpdates')
-
-task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-    if (project.hasProperty('securseApiKey')) {
-        apiToken = project.securseApiKey
-        def mainFile = upload(project.securseId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
-        mainFile.changelog = file(changelogFile)
-        mainFile.addJavaVersion('Java 17')
-        mainFile.addModLoader('NeoForge')
-        mainFile.releaseType = "${release_type}"
-        "${release_versions}".split(',').each {
-            mainFile.addGameVersion("${it}")
-        }
-        mainFile.addOptional('configured')
-        mainFile.addOptional('catalogue')
-        mainFile.addOptional('fruit-trees')
-        mainFile.addOptional('quark')
-        mainFile.addOptional('biomes-o-plenty')
-        mainFile.addOptional('all-you-can-eat')
-        mainFile.addOptional('water-source')
-        mainFile.addOptional('sushigocrafting')
-        mainFile.addOptional('botania')
-        mainFile.addOptional('ars-nouveau')
-        mainFile.addOptional('exnihilosequentia')
-        mainFile.addOptional('the-undergarden')
-        mainFile.addOptional('dynamictrees')
-        mainFile.addOptional('oh-the-biomes-youll-go')
-        mainFile.addOptional('the-twilight-forest')
-        mainFile.addOptional('ecologics')
-        mainFile.addOptional('alexs-mobs')
-        mainFile.addOptional('betteranimalsplus')
-        mainFile.addOptional('aquaculture')
-        mainFile.addOptional('malum')
-        mainFile.addOptional('ice-and-fire-dragons')
-        mainFile.addOptional('psi')
-    }
-}
-
-modrinth {
-    if (project.hasProperty('seModrinthId')) {
-        token = project.modrinthKey
-        projectId = project.seModrinthId
-        version = getVersion()
-        versionType = "${release_type}"
-        if (file(changelogFile).exists()) {
-            changelog = file(changelogFile).text
-        }
-        uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
-        gameVersions = "${release_versions}".split(",") as List<String>
-        loaders = ['neoforge']
-        dependencies {
-            optional.project 'quark'
-            optional.project 'allyoucaneat'
-            optional.project 'botania'
-            optional.project 'exnihilosequentia'
-            optional.project 'dynamictrees'
-            optional.project 'biomesyougo'
-            optional.project 'ecologics'
-            optional.project 'psi'
-        }
-    }
-}
 
 publishing {
     repositories {
