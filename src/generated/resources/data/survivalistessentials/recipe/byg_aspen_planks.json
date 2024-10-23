@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:aspen_logs"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "#survivalistessentials:aspen_logs",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,

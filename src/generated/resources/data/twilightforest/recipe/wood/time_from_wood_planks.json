@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:time_wood"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#survivalistessentials:time_wood",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

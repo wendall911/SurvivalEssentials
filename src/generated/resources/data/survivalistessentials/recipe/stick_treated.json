@@ -9,12 +9,8 @@
   "category": "misc",
   "group": "treated_sticks",
   "ingredients": [
-    {
-      "tag": "c:treated_wood"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#c:treated_wood",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

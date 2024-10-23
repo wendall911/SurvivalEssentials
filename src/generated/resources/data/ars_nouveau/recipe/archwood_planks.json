@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "c:logs/archwood"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#c:logs/archwood",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

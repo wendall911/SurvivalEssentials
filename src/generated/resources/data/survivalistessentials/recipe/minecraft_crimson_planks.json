@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "minecraft:crimson_stems"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "#minecraft:crimson_stems",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,

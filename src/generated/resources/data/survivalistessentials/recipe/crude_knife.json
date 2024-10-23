@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "S": {
-      "item": "survivalistessentials:flint_shard"
-    },
-    "T": {
-      "item": "minecraft:stick"
-    }
+    "S": "survivalistessentials:flint_shard",
+    "T": "minecraft:stick"
   },
   "pattern": [
     "S",

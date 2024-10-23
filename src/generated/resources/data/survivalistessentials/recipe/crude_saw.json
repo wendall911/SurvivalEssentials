@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "B": {
-      "item": "survivalistessentials:crude_saw_blade"
-    },
-    "H": {
-      "item": "survivalistessentials:saw_handle"
-    },
-    "S": {
-      "item": "survivalistessentials:plant_string"
-    }
+    "B": "survivalistessentials:crude_saw_blade",
+    "H": "survivalistessentials:saw_handle",
+    "S": "survivalistessentials:plant_string"
   },
   "pattern": [
     "BS",

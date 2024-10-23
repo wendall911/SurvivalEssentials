@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "string",
   "ingredients": [
-    {
-      "tag": "minecraft:wool"
-    },
-    {
-      "tag": "survivalistessentials:advanced_knife_tools"
-    }
+    "#minecraft:wool",
+    "#survivalistessentials:advanced_knife_tools"
   ],
   "result": {
     "count": 4,

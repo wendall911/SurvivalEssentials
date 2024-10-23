@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "R": {
-      "item": "survivalistessentials:rock_stone"
-    }
+    "R": "survivalistessentials:rock_stone"
   },
   "pattern": [
     "RR",

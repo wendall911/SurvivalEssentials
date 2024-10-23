@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "P": {
-      "item": "survivalistessentials:plant_paste"
-    }
+    "P": "survivalistessentials:plant_paste"
   },
   "pattern": [
     "PP",

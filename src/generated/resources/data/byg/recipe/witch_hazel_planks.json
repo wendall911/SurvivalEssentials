@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:witch_hazel_logs"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#survivalistessentials:witch_hazel_logs",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

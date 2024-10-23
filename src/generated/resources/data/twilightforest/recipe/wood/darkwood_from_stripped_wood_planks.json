@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:dark_stripped_wood"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#survivalistessentials:dark_stripped_wood",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

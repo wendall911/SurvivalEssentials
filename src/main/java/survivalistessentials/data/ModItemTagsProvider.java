@@ -16,6 +16,7 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
+import org.jetbrains.annotations.NotNull;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.data.integration.ModIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
@@ -34,8 +35,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
-        builder(TagManager.Items.FLINT_TOOL_MATERIALS, Items.BARRIER);
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         builder(
             TagManager.Items.FLINT_KNAPPABLE,
             Items.FLINT,

@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:smogstem_logs"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "#survivalistessentials:smogstem_logs",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,

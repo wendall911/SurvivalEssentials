@@ -9,15 +9,9 @@
   "category": "misc",
   "group": "treated_sticks",
   "ingredients": [
-    {
-      "tag": "c:treated_wood"
-    },
-    {
-      "tag": "c:treated_wood"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "#c:treated_wood",
+    "#c:treated_wood",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,

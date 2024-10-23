@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 100,
   "experience": 0.35,
-  "ingredient": {
-    "tag": "survivalistessentials:cooked_meat"
-  },
+  "ingredient": "#survivalistessentials:cooked_meat",
   "result": {
     "count": 1,
     "id": "minecraft:leather"

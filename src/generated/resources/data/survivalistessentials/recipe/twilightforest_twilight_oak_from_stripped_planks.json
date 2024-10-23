@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:twilight_oak_stripped_log"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "#survivalistessentials:twilight_oak_stripped_log",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,

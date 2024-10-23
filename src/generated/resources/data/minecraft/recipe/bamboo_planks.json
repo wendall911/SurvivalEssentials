@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "minecraft:bamboo_blocks"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#minecraft:bamboo_blocks",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 1,

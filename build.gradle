@@ -1,9 +1,8 @@
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '0.1.110'
+    id 'net.neoforged.moddev' version '2.0.42-beta'
     id 'io.github.goooler.shadow' version '8.1.7'
-    id 'net.darkhax.curseforgegradle' version '1.+'
     id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
     id 'me.modmuss50.mod-publish-plugin' version '0.7.3'
 }
@@ -87,13 +86,13 @@ neoForge {
 
 dependencies {
     compileOnly "mezz.jei:jei-1.21.1-common-api:${jei_version}"
-    implementation "mezz.jei:jei-1.21.1-neoforge:${jei_version}"
+    //implementation "mezz.jei:jei-1.21.1-neoforge:${jei_version}"
 
-    runtimeOnly ("mcjty.theoneprobe:theoneprobe:1.21_neo-${probe_version}") {
-        transitive = false
-    }
+    //runtimeOnly ("mcjty.theoneprobe:theoneprobe:1.21_neo-${probe_version}") {
+    //    transitive = false
+    //}
 
-    implementation "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT"
+    compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT"
     //implementation "xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}"
 
     //runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"

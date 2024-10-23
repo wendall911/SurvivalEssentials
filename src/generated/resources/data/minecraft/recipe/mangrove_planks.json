@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "minecraft:mangrove_logs"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#minecraft:mangrove_logs",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

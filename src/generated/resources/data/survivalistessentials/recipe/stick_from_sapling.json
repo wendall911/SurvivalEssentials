@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "sticks",
   "ingredients": [
-    {
-      "tag": "minecraft:saplings"
-    },
-    {
-      "tag": "survivalistessentials:knife_tools"
-    }
+    "#minecraft:saplings",
+    "#survivalistessentials:knife_tools"
   ],
   "result": {
     "count": 1,

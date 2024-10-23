@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "sticks",
   "ingredients": [
-    {
-      "tag": "minecraft:planks"
-    },
-    {
-      "tag": "survivalistessentials:saw_tools"
-    }
+    "#minecraft:planks",
+    "#survivalistessentials:saw_tools"
   ],
   "result": {
     "count": 2,

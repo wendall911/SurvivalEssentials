@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "D": {
-      "item": "survivalistessentials:flint_shard"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    },
-    "S": {
-      "item": "survivalistessentials:plant_string"
-    }
+    "D": "survivalistessentials:flint_shard",
+    "I": "minecraft:stick",
+    "S": "survivalistessentials:plant_string"
   },
   "pattern": [
     "ID",

@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "item": "aquaculture:driftwood"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "aquaculture:driftwood",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,

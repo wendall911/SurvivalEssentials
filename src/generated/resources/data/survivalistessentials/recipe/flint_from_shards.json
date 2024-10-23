@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "survivalistessentials:flint_shard"
-    }
+    "S": "survivalistessentials:flint_shard"
   },
   "pattern": [
     "SS",

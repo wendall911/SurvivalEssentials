@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:sorting_stripped_wood"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "#survivalistessentials:sorting_stripped_wood",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,

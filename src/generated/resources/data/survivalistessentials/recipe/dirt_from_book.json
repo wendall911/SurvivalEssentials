@@ -9,9 +9,7 @@
   "category": "building",
   "group": "books",
   "ingredients": [
-    {
-      "item": "survivalistessentials:book"
-    }
+    "survivalistessentials:book"
   ],
   "result": {
     "count": 2,

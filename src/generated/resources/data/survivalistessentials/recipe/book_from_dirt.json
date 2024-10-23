@@ -9,12 +9,8 @@
   "category": "misc",
   "group": "books",
   "ingredients": [
-    {
-      "item": "minecraft:dirt"
-    },
-    {
-      "item": "minecraft:dirt"
-    }
+    "minecraft:dirt",
+    "minecraft:dirt"
   ],
   "result": {
     "count": 1,

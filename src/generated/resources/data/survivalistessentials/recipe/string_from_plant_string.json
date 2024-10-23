@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 50,
   "experience": 0.1,
-  "ingredient": {
-    "item": "survivalistessentials:plant_string"
-  },
+  "ingredient": "survivalistessentials:plant_string",
   "result": {
     "count": 1,
     "id": "minecraft:string"

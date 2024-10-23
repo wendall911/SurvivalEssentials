@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "F": {
-      "item": "survivalistessentials:plant_fiber"
-    },
-    "P": {
-      "item": "survivalistessentials:plant_string"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "F": "survivalistessentials:plant_fiber",
+    "P": "survivalistessentials:plant_string",
+    "S": "minecraft:stick"
   },
   "pattern": [
     "SF",

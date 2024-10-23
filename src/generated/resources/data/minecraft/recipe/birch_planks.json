@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "minecraft:birch_logs"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#minecraft:birch_logs",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

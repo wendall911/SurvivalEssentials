@@ -11,15 +11,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "B": {
-      "item": "survivalistessentials:basic_saw_blade"
-    },
-    "H": {
-      "item": "survivalistessentials:saw_handle"
-    },
-    "S": {
-      "tag": "c:strings"
-    }
+    "B": "survivalistessentials:basic_saw_blade",
+    "H": "survivalistessentials:saw_handle",
+    "S": "#c:strings"
   },
   "pattern": [
     "BS",

@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:stripped_ancient_oak_wood"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#survivalistessentials:stripped_ancient_oak_wood",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

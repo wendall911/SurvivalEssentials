@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "I": {
-      "item": "minecraft:stick"
-    },
-    "P": {
-      "tag": "minecraft:planks"
-    },
-    "R": {
-      "item": "survivalistessentials:rock_stone"
-    }
+    "I": "minecraft:stick",
+    "P": "#minecraft:planks",
+    "R": "survivalistessentials:rock_stone"
   },
   "pattern": [
     "  I",

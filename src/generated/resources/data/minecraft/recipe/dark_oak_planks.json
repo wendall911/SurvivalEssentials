@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "minecraft:dark_oak_logs"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#minecraft:dark_oak_logs",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

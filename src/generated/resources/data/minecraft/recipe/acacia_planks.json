@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "minecraft:acacia_logs"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#minecraft:acacia_logs",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

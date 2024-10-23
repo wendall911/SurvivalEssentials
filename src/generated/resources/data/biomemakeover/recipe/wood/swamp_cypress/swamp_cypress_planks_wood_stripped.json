@@ -9,12 +9,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:stripped_swamp_cypress_wood"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#survivalistessentials:stripped_swamp_cypress_wood",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

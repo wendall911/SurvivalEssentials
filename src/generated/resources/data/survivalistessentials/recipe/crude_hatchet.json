@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "I": {
-      "item": "minecraft:stick"
-    },
-    "R": {
-      "item": "survivalistessentials:rock_stone"
-    },
-    "S": {
-      "item": "survivalistessentials:plant_string"
-    }
+    "I": "minecraft:stick",
+    "R": "survivalistessentials:rock_stone",
+    "S": "survivalistessentials:plant_string"
   },
   "pattern": [
     "SR",

@@ -12,7 +12,6 @@ import static survivalistessentials.SurvivalistEssentials.prefix;
 public final class TagManager {
 
     public static final class Items {
-        public static final TagKey<Item> FLINT_TOOL_MATERIALS = create("flint_tool_materials");
         public static final TagKey<Item> FLINT_KNAPPABLE = create("flint_knappable");
         public static final TagKey<Item> PICKAXE_TOOLS = create("pickaxe_tools");
         public static final TagKey<Item> AXE_TOOLS = create("axe_tools");

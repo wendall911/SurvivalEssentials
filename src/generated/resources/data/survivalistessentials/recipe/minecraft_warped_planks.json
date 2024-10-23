@@ -3,12 +3,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "minecraft:warped_stems"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "#minecraft:warped_stems",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,
