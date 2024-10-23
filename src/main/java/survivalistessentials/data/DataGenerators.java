@@ -2,6 +2,7 @@ package survivalistessentials.data;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
@@ -45,7 +46,7 @@ public final class DataGenerators {
         });
 
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
+    public static void gatherData(GatherDataEvent event) throws ExecutionException, InterruptedException {
         DataGenerator gen = event.getGenerator();
         PackOutput packOutput = gen.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
@@ -56,7 +57,7 @@ public final class DataGenerators {
         gen.addProvider(event.includeServer(), new ModBlockStateProvider(packOutput, existingFileHelper));
         gen.addProvider(event.includeServer(), blockTags);
         gen.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, provider, blockTags, existingFileHelper));
-        gen.addProvider(event.includeServer(), new ModRecipesProvider(packOutput, provider));
+        gen.addProvider(event.includeServer(), new ModRecipesProvider.Runner(packOutput, provider));
         gen.addProvider(event.includeServer(), ModLootTables.create(packOutput, provider));
         gen.addProvider(event.includeServer(), new GlobalLootModifier(packOutput, provider));
         gen.addProvider(event.includeServer(), new ModItemModelProvider(packOutput, existingFileHelper));

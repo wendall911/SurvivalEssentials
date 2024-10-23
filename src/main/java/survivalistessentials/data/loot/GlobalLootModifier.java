@@ -2,7 +2,9 @@ package survivalistessentials.data.loot;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
+import net.minecraft.core.HolderGetter;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
@@ -42,7 +44,10 @@ import survivalistessentials.common.TagManager;
 
 public class GlobalLootModifier extends GlobalLootModifierProvider {
 
-    public GlobalLootModifier(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+    private static HolderGetter<Item> itemHolderGetter;
+    private static HolderGetter<EntityType<?>> entityTypeHolderGetter;
+
+    public GlobalLootModifier(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) throws ExecutionException, InterruptedException {
         super(packOutput, lookupProvider, SurvivalistEssentials.MODID);
     }
 
@@ -53,6 +58,9 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
+        itemHolderGetter = registries.lookupOrThrow(Registries.ITEM);
+        entityTypeHolderGetter = registries.lookupOrThrow(Registries.ENTITY_TYPE);
+
         addPlantFiberDrops(TagManager.Blocks.FIBER_PLANTS, "fiber_plants");
         addStickDrops(BlockTags.LEAVES, "leaves");
 
@@ -145,7 +153,7 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public static LootItemCondition[] createKnifeChanceCondition(float chance, TagKey<Block> tag) {
         return new LootItemCondition[] {
             LootItemRandomChanceCondition.randomChance(chance).build(),
-            MatchTool.toolMatches(ItemPredicate.Builder.item().of(TagManager.Items.KNIFE_TOOLS)).build(),
+            MatchTool.toolMatches(ItemPredicate.Builder.item().of(itemHolderGetter, TagManager.Items.KNIFE_TOOLS)).build(),
             LootItemBlockIsTagCondition.isTag(tag)
         };
     }
@@ -176,10 +184,10 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     public LootItemCondition[] createExtraStickDropConditions(float chance, TagKey<Block> tag) {
         return new LootItemCondition[] {
             LootItemRandomChanceCondition.randomChance(chance).build(),
-            LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().of(EntityType.PLAYER)).build(),
+            LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().of(entityTypeHolderGetter, EntityType.PLAYER)).build(),
             LootItemBlockIsTagCondition.isTag(tag),
             hasSilkTouch().invert().build(),
-            MatchTool.toolMatches(ItemPredicate.Builder.item().of(TagManager.Items.SHEAR_TOOLS)).invert().build()
+            MatchTool.toolMatches(ItemPredicate.Builder.item().of(itemHolderGetter, TagManager.Items.SHEAR_TOOLS)).invert().build()
         };
     }
 

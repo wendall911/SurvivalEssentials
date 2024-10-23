@@ -1,6 +1,9 @@
 package survivalistessentials.world.effect;
 
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,7 +17,7 @@ public class StopBleeding extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
+    public boolean applyEffectTick(@NotNull ServerLevel level, LivingEntity entity, int amplifier) {
         float healRate = (float) ConfigHandler.Common.healRate();
 
         if (entity.getHealth() >= entity.getMaxHealth()) {

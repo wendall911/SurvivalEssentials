@@ -1,12 +1,12 @@
 package survivalistessentials.items.item;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.ItemUseAnimation;
 
 public class Bandage extends ItemBase {
 
     public Bandage(Item.Properties props) {
-        super(props, UseAnim.BOW);
+        super(props, ItemUseAnimation.BOW);
     }
 
 }

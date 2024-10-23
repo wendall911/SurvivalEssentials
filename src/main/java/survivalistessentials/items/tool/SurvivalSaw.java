@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.InteractionResult;
@@ -13,21 +14,20 @@ import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 import survivalistessentials.common.TagManager;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 
-public class SurvivalSaw extends TieredItem {
+public class SurvivalSaw extends Item {
 
     public String name;
     private final float speed;
 
-    public SurvivalSaw(String name, Tier tier, float speed, Item.Properties tabGroup) {
-        super(tier, tabGroup);
+    public SurvivalSaw(String name, ToolMaterial toolMaterial, float speed, float damage, Item.Properties properties) {
+        super(toolMaterial.applyToolProperties(properties, BlockTags.MINEABLE_WITH_AXE, speed, damage));
 
         this.speed = speed;
         this.name = name;
@@ -35,7 +35,7 @@ public class SurvivalSaw extends TieredItem {
 
     @NotNull
     @Override
-    public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
+    public ItemStack getCraftingRemainder(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
 
         if (Objects.equals(this.name, "saw_handle")) {
@@ -52,26 +52,6 @@ public class SurvivalSaw extends TieredItem {
 
             return new ItemStack(SurvivalistEssentialsItems.SAW_HANDLE);
         }
-    }
-
-    @Override
-    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
-        return true;
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return 0;
-    }
-
-    @Override
-    public boolean isEnchantable(@NotNull ItemStack pStack) {
-        return false;
-    }
-
-    @Override
-    public boolean isValidRepairItem(@NotNull ItemStack pToRepair, @NotNull ItemStack pRepair) {
-        return false;
     }
 
     @Override
@@ -102,6 +82,11 @@ public class SurvivalSaw extends TieredItem {
 
     @Override
     public boolean hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
+        return false;
+    }
+
+    @Override
+    public boolean isRepairable(@NotNull ItemStack stack) {
         return false;
     }
 

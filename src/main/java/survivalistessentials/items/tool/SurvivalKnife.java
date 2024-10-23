@@ -8,7 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 
@@ -16,13 +16,13 @@ import survivalistessentials.common.TagManager;
 
 public class SurvivalKnife extends SwordItem {
 
-    public SurvivalKnife(Tier tier, Item.Properties tabGroup) {
-        super(tier, tabGroup);
+    public SurvivalKnife(ToolMaterial toolMaterial, float speed, float damage, Item.Properties properties) {
+        super(toolMaterial, speed, damage, properties);
     }
 
     @NotNull
     @Override
-    public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
+    public ItemStack getCraftingRemainder(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
 
         container.setDamageValue(container.getDamageValue() + 1);
@@ -35,11 +35,6 @@ public class SurvivalKnife extends SwordItem {
 
             return ItemStack.EMPTY;
         }
-    }
-
-    @Override
-    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
-        return true;
     }
 
     @Override
@@ -60,6 +55,11 @@ public class SurvivalKnife extends SwordItem {
 
     private void doDamage(ItemStack knife, LivingEntity player) {
         knife.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
+    }
+
+    @Override
+    public boolean isRepairable(@NotNull ItemStack stack) {
+        return false;
     }
 
 }

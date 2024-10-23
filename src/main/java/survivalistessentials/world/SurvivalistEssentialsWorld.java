@@ -4,6 +4,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -60,24 +62,27 @@ public final class SurvivalistEssentialsWorld {
     }
 
     private static Block makeBlock(String name) {
-        Block block = new LooseRockBlock();
+        ResourceLocation resourceLocation = loc(name);
+        ResourceKey<Block> resourceKey = ResourceKey.create(Registries.BLOCK, resourceLocation);
+        Block block = new LooseRockBlock(resourceKey);
 
-        ALL_BLOCKS.put(loc(name), block);
+        ALL_BLOCKS.put(resourceLocation, block);
 
         return block;
     }
 
     private static void make(String name, Block block) {
-        make(name, new BlockItem(block, new Item.Properties()));
+        ResourceLocation loc = loc(name);
+
+        make(loc, new BlockItem(block, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, loc))));
 
         if (name.contains("rock_stone_block")) {
-            ROCK_STONE = make("rock_stone", new RockStone(block, new Item.Properties()));
+            loc = loc("rock_stone");
+            ROCK_STONE = make(loc, new RockStone(block, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, loc))));
         }
     }
 
-    private static Item make(String name, Item item) {
-        ResourceLocation loc = loc(name);
-
+    private static Item make(ResourceLocation loc, Item item) {
         ALL.put(loc, item);
 
         return item;

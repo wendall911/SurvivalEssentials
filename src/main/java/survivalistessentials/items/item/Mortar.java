@@ -7,18 +7,13 @@ import net.minecraft.world.item.ItemStack;
 
 public class Mortar extends Item {
 
-    public Mortar(Item.Properties tabGroup) {
-        super(tabGroup);
-    }
-
-    @Override
-    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
-        return true;
+    public Mortar(Item.Properties properties) {
+        super(properties);
     }
 
     @NotNull
     @Override
-    public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
+    public ItemStack getCraftingRemainder(@NotNull ItemStack stack) {
         return stack.copy();
     }
 

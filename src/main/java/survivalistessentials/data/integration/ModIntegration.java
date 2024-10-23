@@ -1,5 +1,7 @@
 package survivalistessentials.data.integration;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
@@ -9,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
+import static survivalistessentials.SurvivalistEssentials.loc;
 import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public final class ModIntegration {
@@ -314,7 +317,7 @@ public final class ModIntegration {
     }
 
     private static Item makeItem(ResourceLocation loc) {
-        Item item = (new Item(new Item.Properties()));
+        Item item = (new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, loc))));
 
         ALL.put(loc, item);
 

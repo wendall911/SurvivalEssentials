@@ -35,6 +35,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        builder(TagManager.Items.FLINT_TOOL_MATERIALS, Items.BARRIER);
         builder(
             TagManager.Items.FLINT_KNAPPABLE,
             Items.FLINT,

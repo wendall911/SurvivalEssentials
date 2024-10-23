@@ -32,7 +32,7 @@ public record LootItemBlockIsTagCondition(TagKey<Block> tag) implements LootItem
 
     @Override
     public boolean test(LootContext lootContext) {
-        BlockState state = lootContext.getParamOrNull(LootContextParams.BLOCK_STATE);
+        BlockState state = lootContext.getOptionalParameter(LootContextParams.BLOCK_STATE);
         return state != null && state.is(this.tag);
     }
 

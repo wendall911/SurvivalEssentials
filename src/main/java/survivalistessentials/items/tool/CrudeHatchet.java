@@ -5,17 +5,18 @@ import org.jetbrains.annotations.NotNull;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.level.Level;
 
 public class CrudeHatchet extends AxeItem {
 
-    public CrudeHatchet(Tier tier, Item.Properties tabGroup) {
-        super(tier, tabGroup);
+    public CrudeHatchet(ToolMaterial toolMaterial, float speed, float damage, Item.Properties properties) {
+        super(toolMaterial, speed, damage, properties);
     }
 
     @NotNull
     @Override
-    public ItemStack getCraftingRemainingItem(@NotNull ItemStack stack) {
+    public ItemStack getCraftingRemainder(@NotNull ItemStack stack) {
         ItemStack container = stack.copy();
 
         container.setDamageValue(container.getDamageValue() + 1);
@@ -28,11 +29,6 @@ public class CrudeHatchet extends AxeItem {
 
             return ItemStack.EMPTY;
         }
-    }
-
-    @Override
-    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
-        return true;
     }
 
 }
