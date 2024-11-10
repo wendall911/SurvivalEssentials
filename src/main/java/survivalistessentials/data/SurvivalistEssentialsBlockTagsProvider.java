@@ -34,6 +34,8 @@ public class SurvivalistEssentialsBlockTagsProvider extends BlockTagsProvider {
             .addTag(Tags.Blocks.SAND)
             .addTag(BlockTags.SAND)
             .addTag(TagManager.Blocks.FIBER_PLANTS)
+            .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_vines"))
+            .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_leaves"))
             .add(Blocks.BAMBOO);
 
         this.tag(TagManager.Blocks.ALWAYS_DROPS)
@@ -45,6 +47,8 @@ public class SurvivalistEssentialsBlockTagsProvider extends BlockTagsProvider {
             .addTag(Tags.Blocks.SAND)
             .addTag(BlockTags.SAND)
             .addTag(TagManager.Blocks.FIBER_PLANTS)
+            .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_vines"))
+            .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_leaves"))
             .add(Blocks.BAMBOO);
 
         this.tag(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)
