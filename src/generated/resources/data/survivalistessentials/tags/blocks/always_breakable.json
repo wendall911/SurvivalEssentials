@@ -8,6 +8,14 @@
     "#forge:sand",
     "#minecraft:sand",
     "#survivalistessentials:fiber_plants",
+    {
+      "id": "#tconstruct:slimy_vines",
+      "required": false
+    },
+    {
+      "id": "#tconstruct:slimy_leaves",
+      "required": false
+    },
     "minecraft:bamboo"
   ]
 }
