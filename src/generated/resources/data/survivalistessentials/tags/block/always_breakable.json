@@ -9,6 +9,14 @@
     "#minecraft:dirt",
     "#c:sands",
     "#minecraft:sand",
+    {
+      "id": "#tconstruct:slimy_vines",
+      "required": false
+    },
+    {
+      "id": "#tconstruct:slimy_leaves",
+      "required": false
+    },
     "#survivalistessentials:fiber_plants"
   ]
 }
