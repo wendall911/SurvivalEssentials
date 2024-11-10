@@ -41,6 +41,8 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SAND)
             .addTag(BlockTags.SAND)
+            .addOptionalTag(ModIntegration.tconLoc("slimy_vines"))
+            .addOptionalTag(ModIntegration.tconLoc("slimy_leaves"))
             .addTag(TagManager.Blocks.FIBER_PLANTS);
 
         this.tag(TagManager.Blocks.ALWAYS_DROPS)
@@ -53,6 +55,8 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SAND)
             .addTag(BlockTags.SAND)
+            .addOptionalTag(ModIntegration.tconLoc("slimy_vines"))
+            .addOptionalTag(ModIntegration.tconLoc("slimy_leaves"))
             .addTag(TagManager.Blocks.FIBER_PLANTS);
 
         this.tag(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)
