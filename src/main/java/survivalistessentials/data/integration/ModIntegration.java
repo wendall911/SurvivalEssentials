@@ -99,6 +99,7 @@ public final class ModIntegration {
     public static Item BYG_IRONWOOD_PLANKS;
     public static Item BYG_SAKURA_PLANKS;
     public static Item BYG_PALO_VERDE_PLANKS;
+    public static Item BYG_SPIRIT_PLANKS;
     public static Item ECO_COCONUT_PLANKS;
     public static Item ECO_WALNUT_PLANKS;
     public static Item ECO_AZALEA_PLANKS;
@@ -224,6 +225,10 @@ public final class ModIntegration {
             BYG_WILLOW_PLANKS = makeItem(bygLoc("willow_planks"));
             BYG_WITCH_HAZEL_PLANKS = makeItem(bygLoc("witch_hazel_planks"));
             BYG_ZELKOVA_PLANKS = makeItem(bygLoc("zelkova_planks"));
+            BYG_IRONWOOD_PLANKS = makeItem(bygLoc("ironwood_planks"));
+            BYG_SAKURA_PLANKS = makeItem(bygLoc("sakura_planks"));
+            BYG_PALO_VERDE_PLANKS = makeItem(getLoc("minecraft", "birch_planks"));
+            BYG_SPIRIT_PLANKS = makeItem(bygLoc("spirit_planks"));
             TF_CANOPY_PLANKS = makeItem(tfLoc("canopy_planks"));
             TF_DARK_PLANKS = makeItem(tfLoc("dark_planks"));
             TF_MANGROVE_PLANKS = makeItem(tfLoc("mangrove_planks"));
@@ -236,9 +241,6 @@ public final class ModIntegration {
             ECO_WALNUT_PLANKS = makeItem(ecoLoc("walnut_planks"));
             ECO_AZALEA_PLANKS = makeItem(ecoLoc("azalea_planks"));
             ECO_FLOWERING_AZALEA_PLANKS = makeItem(ecoLoc("flowering_azalea_planks"));
-            BYG_IRONWOOD_PLANKS = makeItem(bygLoc("ironwood_planks"));
-            BYG_SAKURA_PLANKS = makeItem(bygLoc("sakura_planks"));
-            BYG_PALO_VERDE_PLANKS = makeItem(getLoc("minecraft", "birch_planks"));
 
             // TF Messed up log/wood crap
             TF_CANOPY_LOG = tfLoc("canopy_log");
