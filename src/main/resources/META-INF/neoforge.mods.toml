@@ -95,7 +95,7 @@ issueTrackerURL="${issue_tracker}"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
-    modId="byg"
+    modId="biomeswevegone"
     type="optional"
     versionRange="[0,)"
     ordering="AFTER"
