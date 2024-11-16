@@ -372,20 +372,16 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
 
         // BYG
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.BYG_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_ETHER_PLANKS, TagManager.Items.BYG_ETHER_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_WHITE_MANGROVE_PLANKS, TagManager.Items.BYG_WHITE_MANGROVE_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_REDWOOD_PLANKS, TagManager.Items.BYG_REDWOOD_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_BLUE_ENCHANTED_PLANKS, TagManager.Items.BYG_BLUE_ENCHANTED_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_GREEN_ENCHANTED_PLANKS, TagManager.Items.BYG_GREEN_ENCHANTED_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_LAMENT_PLANKS, TagManager.Items.BYG_LAMENT_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_MAHOGANY_PLANKS, TagManager.Items.BYG_MAHOGANY_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_CHERRY_PLANKS, TagManager.Items.BYG_CHERRY_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_BAOBAB_PLANKS, TagManager.Items.BYG_BAOBAB_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_JACARANDA_PLANKS, TagManager.Items.BYG_JACARANDA_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_CYPRESS_PLANKS, TagManager.Items.BYG_CYPRESS_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_PALM_PLANKS, TagManager.Items.BYG_PALM_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_EBONY_PLANKS, TagManager.Items.BYG_EBONY_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_NIGHTSHADE_PLANKS, TagManager.Items.BYG_NIGHTSHADE_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_RAINBOW_EUCALYPTUS_PLANKS, TagManager.Items.BYG_RAINBOW_EUCALYPTUS_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_ASPEN_PLANKS, TagManager.Items.BYG_ASPEN_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_FIR_PLANKS, TagManager.Items.BYG_FIR_LOGS, "has_logs");
@@ -397,10 +393,9 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         plankRecipeBuilder(wrapped, ModIntegration.BYG_WILLOW_PLANKS, TagManager.Items.BYG_WILLOW_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_WITCH_HAZEL_PLANKS, TagManager.Items.BYG_WITCH_HAZEL_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_ZELKOVA_PLANKS, TagManager.Items.BYG_ZELKOVA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_EMBUR_PLANKS, TagManager.Items.BYG_EMBUR_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_SYTHIAN_PLANKS, TagManager.Items.BYG_SYTHIAN_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_IMPARIUS_PLANKS, TagManager.Items.BYG_IMPARIUS_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_BULBIS_PLANKS, TagManager.Items.BYG_BULBIS_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, ModIntegration.BYG_IRONWOOD_PLANKS, TagManager.Items.BYG_IRONWOOD_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, ModIntegration.BYG_SAKURA_PLANKS, TagManager.Items.BYG_SAKURA_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, ModIntegration.BYG_PALO_VERDE_PLANKS, TagManager.Items.BYG_PALO_VERDE_LOGS, "has_logs");
 
         // Twilight Forest
         wrapped = withCondition(consumer, new ModLoadedCondition(ModIntegration.TF_MODID));
@@ -524,6 +519,13 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         }
         else if (modid.contains(ModIntegration.IFD_MODID)) {
             plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.IFD_MODID, "dread_wood_planks"));
+        }
+        else if (itemTag.equals(TagManager.Items.BYG_PALO_VERDE_LOGS)) {
+            plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs"));
+            modid = ModIntegration.BYG_MODID;
+        }
+        else if (itemTag.equals(ItemTags.BIRCH_LOGS)) {
+            plankOverrideRecipe.save(consumer, new ResourceLocation("minecraft", "birch_planks"));
         }
         else {
             plankOverrideRecipe.save(consumer);

@@ -95,20 +95,16 @@ public final class TagManager {
         public static final TagKey<Item> UNDERGARDEN_WIGGLEWOOD_LOGS = create("wigglewood_logs");
 
         // BYG
-        public static final TagKey<Item> BYG_ETHER_LOGS = create("ether_logs");
         public static final TagKey<Item> BYG_WHITE_MANGROVE_LOGS = create("white_mangrove_logs");
         public static final TagKey<Item> BYG_REDWOOD_LOGS = create("redwood_logs");
         public static final TagKey<Item> BYG_BLUE_ENCHANTED_LOGS = create("blue_enchanted_logs");
         public static final TagKey<Item> BYG_GREEN_ENCHANTED_LOGS = create("green_enchanted_logs");
-        public static final TagKey<Item> BYG_LAMENT_LOGS = create("lament_logs");
         public static final TagKey<Item> BYG_MAHOGANY_LOGS = create("mahogany_logs");
-        public static final TagKey<Item> BYG_CHERRY_LOGS = create("cherry_logs");
         public static final TagKey<Item> BYG_BAOBAB_LOGS = create("baobab_logs");
         public static final TagKey<Item> BYG_JACARANDA_LOGS = create("jacaranda_logs");
         public static final TagKey<Item> BYG_CYPRESS_LOGS = create("cypress_logs");
         public static final TagKey<Item> BYG_PALM_LOGS = create("palm_logs");
         public static final TagKey<Item> BYG_EBONY_LOGS = create("ebony_logs");
-        public static final TagKey<Item> BYG_NIGHTSHADE_LOGS = create("nightshade_logs");
         public static final TagKey<Item> BYG_RAINBOW_EUCALYPTUS_LOGS = create("rainbow_eucalyptus_logs");
         public static final TagKey<Item> BYG_ASPEN_LOGS = create("aspen_logs");
         public static final TagKey<Item> BYG_FIR_LOGS = create("fir_logs");
@@ -120,10 +116,9 @@ public final class TagManager {
         public static final TagKey<Item> BYG_WILLOW_LOGS = create("willow_logs");
         public static final TagKey<Item> BYG_WITCH_HAZEL_LOGS = create("witch_hazel_logs");
         public static final TagKey<Item> BYG_ZELKOVA_LOGS = create("zelkova_logs");
-        public static final TagKey<Item> BYG_EMBUR_LOGS = create("embur_logs");
-        public static final TagKey<Item> BYG_SYTHIAN_LOGS = create("sythian_logs");
-        public static final TagKey<Item> BYG_IMPARIUS_LOGS = create("imparius_logs");
-        public static final TagKey<Item> BYG_BULBIS_LOGS = create("bulbis_logs");
+        public static final TagKey<Item> BYG_IRONWOOD_LOGS = create("ironwood_logs");
+        public static final TagKey<Item> BYG_SAKURA_LOGS = create("sakura_logs");
+        public static final TagKey<Item> BYG_PALO_VERDE_LOGS = create("palo_verde_logs");
 
         // Twilight Forest
         public static final TagKey<Item> TF_GIANT_LOGS = create("giant_logs");
