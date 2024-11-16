@@ -1,4 +1,4 @@
-// 1.21.1	2024-11-16T10:05:26.050390002	SurvivalistEssentials - Item Tags
+// 1.21.1	2024-11-16T10:24:45.838139266	SurvivalistEssentials - Item Tags
 e45e70dd0c52a2590d1dae41c3722901d42e3a4c data/survivalistessentials/tags/item/advanced_knife_tools.json
 4bb85d021138d3307c41f0ed151d6df576c2872f data/survivalistessentials/tags/item/advanced_saw_tools.json
 64667dc2f6cfe646da2832101e1ca1c3a20e4755 data/survivalistessentials/tags/item/ancient_oak_log.json
@@ -81,6 +81,7 @@ e0f6538bd47b5b5e76113013d1eae62930aa0de5 data/survivalistessentials/tags/item/sa
 b3f10230c6ff1c640671329aa3dbc397b2134c80 data/survivalistessentials/tags/item/sorting_stripped_wood.json
 77f5910f8e96f36a1388b9fb1206b4cf83bb3fe8 data/survivalistessentials/tags/item/sorting_wood.json
 e29f56babef3c3452c2e66b84f600b7911c0decb data/survivalistessentials/tags/item/soulwood_logs.json
+c48f6708f384a8a252f54e2f7136bfea19f18e08 data/survivalistessentials/tags/item/spirit_logs.json
 37ff9c11874f8c5b3247ee2cac67fe8ffadd81d7 data/survivalistessentials/tags/item/stripped_ancient_oak_log.json
 fa9fde7440ef873e2b5f3c4ebe18bb7f38c74619 data/survivalistessentials/tags/item/stripped_ancient_oak_wood.json
 492ef25ae2d79eb3782d28fd4fbb94efe33bf515 data/survivalistessentials/tags/item/stripped_blighted_balsa_log.json
