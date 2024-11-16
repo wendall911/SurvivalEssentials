@@ -222,6 +222,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addLogVariants(TagManager.Items.BYG_ZELKOVA_LOGS, "zelkova", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_IRONWOOD_LOGS, "ironwood", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_SAKURA_LOGS, "sakura", ModIntegration::bygLoc);
+        addLogVariants(TagManager.Items.BYG_SPIRIT_LOGS, "spirit", ModIntegration::bygLoc);
         this.tag(TagManager.Items.BYG_PALO_VERDE_LOGS)
             .addOptionalTag(ModIntegration.bygLoc("palo_verde_logs"));
 

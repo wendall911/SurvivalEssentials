@@ -115,6 +115,7 @@ public final class TagManager {
         public static final TagKey<Item> BYG_IRONWOOD_LOGS = create("ironwood_logs");
         public static final TagKey<Item> BYG_SAKURA_LOGS = create("sakura_logs");
         public static final TagKey<Item> BYG_PALO_VERDE_LOGS = create("palo_verde_logs");
+        public static final TagKey<Item> BYG_SPIRIT_LOGS = create("spirit_logs");
 
         // Twilight Forest
         public static final TagKey<Item> TF_GIANT_LOGS = create("giant_logs");
