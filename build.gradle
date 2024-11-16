@@ -37,6 +37,14 @@ repositories {
 		url = "https://maven.theillusivec4.top/"
 	}
     maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content {
+            includeGroup('software.bernie.geckolib')
+            includeGroup('com.eliotlash.mclib')
+        }
+    }
+    maven {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/wendall911/TinkerSurvival")
         credentials {
@@ -110,8 +118,11 @@ dependencies {
     //runtimeOnly "curse.maven:crafttweaker-239197:3918220"
 
     //Include some examples here for testing other mods
-    //runtimeOnly "curse.maven:terrablender-563928:${terrablender_version}"
-    //runtimeOnly "curse.maven:byg-247560:${byg_version}"
+    //runtimeOnly "curse.maven:terrablender-940057:${terrablender_version}"
+    //runtimeOnly "curse.maven:byg-1070751:${byg_version}"
+    //runtimeOnly "curse.maven:tyg-962544:${tyg_version}"
+    //runtimeOnly "curse.maven:corgilib-693313:${corgilib_version}"
+    //runtimeOnly "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     //runtimeOnly "curse.maven:bop-220318:${bop_version}"
     //runtimeOnly "curse.maven:glitch_core-955399:${glitch_core_version}"
     //runtimeOnly "curse.maven:kiwi-303657:3974084"
@@ -234,7 +245,7 @@ publishMods {
             optional('exnihilosequentia')
             optional('the-undergarden')
             optional('dynamictrees')
-            optional('oh-the-biomes-youll-go')
+            optional('oh-the-biomes-weve-gone')
             optional('the-twilight-forest')
             optional('ecologics')
             optional('alexs-mobs')
@@ -254,7 +265,7 @@ publishMods {
             optional('botania')
             optional('exnihilosequentia')
             optional('dynamictrees')
-            optional('biomesyougo')
+            optional('oh-the-biomes-weve-gone')
             optional('ecologics')
             optional('psi')
         }
