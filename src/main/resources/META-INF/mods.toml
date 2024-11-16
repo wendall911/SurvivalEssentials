@@ -94,7 +94,7 @@ license="${license}"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.survivalistessentials]]
-    modId="byg"
+    modId="biomeswevegone"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
