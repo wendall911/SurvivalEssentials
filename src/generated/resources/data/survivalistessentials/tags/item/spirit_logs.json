@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "biomeswevegone:spirit_log",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:stripped_spirit_log",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:spirit_wood",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:stripped_spirit_wood",
+      "required": false
+    }
+  ]
+}
