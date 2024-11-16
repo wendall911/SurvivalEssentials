@@ -17,19 +17,19 @@
       "required": false
     },
     {
-      "id": "byg:redwood_log",
+      "id": "biomeswevegone:redwood_log",
       "required": false
     },
     {
-      "id": "byg:stripped_redwood_log",
+      "id": "biomeswevegone:stripped_redwood_log",
       "required": false
     },
     {
-      "id": "byg:redwood_wood",
+      "id": "biomeswevegone:redwood_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_redwood_wood",
+      "id": "biomeswevegone:stripped_redwood_wood",
       "required": false
     }
   ]

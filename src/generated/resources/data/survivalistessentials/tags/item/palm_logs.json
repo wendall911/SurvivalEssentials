@@ -17,19 +17,19 @@
       "required": false
     },
     {
-      "id": "byg:palm_log",
+      "id": "biomeswevegone:palm_log",
       "required": false
     },
     {
-      "id": "byg:stripped_palm_log",
+      "id": "biomeswevegone:stripped_palm_log",
       "required": false
     },
     {
-      "id": "byg:palm_wood",
+      "id": "biomeswevegone:palm_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_palm_wood",
+      "id": "biomeswevegone:stripped_palm_wood",
       "required": false
     }
   ]

@@ -17,19 +17,19 @@
       "required": false
     },
     {
-      "id": "byg:willow_log",
+      "id": "biomeswevegone:willow_log",
       "required": false
     },
     {
-      "id": "byg:stripped_willow_log",
+      "id": "biomeswevegone:stripped_willow_log",
       "required": false
     },
     {
-      "id": "byg:willow_wood",
+      "id": "biomeswevegone:willow_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_willow_wood",
+      "id": "biomeswevegone:stripped_willow_wood",
       "required": false
     }
   ]

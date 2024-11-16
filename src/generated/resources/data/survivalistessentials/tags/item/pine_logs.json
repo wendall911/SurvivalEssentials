@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:pine_log",
+      "id": "biomeswevegone:pine_log",
       "required": false
     },
     {
-      "id": "byg:stripped_pine_log",
+      "id": "biomeswevegone:stripped_pine_log",
       "required": false
     },
     {
-      "id": "byg:pine_wood",
+      "id": "biomeswevegone:pine_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_pine_wood",
+      "id": "biomeswevegone:stripped_pine_wood",
       "required": false
     }
   ]

@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:ebony_log",
+      "id": "biomeswevegone:ebony_log",
       "required": false
     },
     {
-      "id": "byg:stripped_ebony_log",
+      "id": "biomeswevegone:stripped_ebony_log",
       "required": false
     },
     {
-      "id": "byg:ebony_wood",
+      "id": "biomeswevegone:ebony_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_ebony_wood",
+      "id": "biomeswevegone:stripped_ebony_wood",
       "required": false
     }
   ]

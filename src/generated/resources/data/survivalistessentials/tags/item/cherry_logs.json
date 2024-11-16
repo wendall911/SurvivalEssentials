@@ -15,22 +15,6 @@
     {
       "id": "fruitfulfun:stripped_cherry_wood",
       "required": false
-    },
-    {
-      "id": "byg:cherry_log",
-      "required": false
-    },
-    {
-      "id": "byg:stripped_cherry_log",
-      "required": false
-    },
-    {
-      "id": "byg:cherry_wood",
-      "required": false
-    },
-    {
-      "id": "byg:stripped_cherry_wood",
-      "required": false
     }
   ]
 }

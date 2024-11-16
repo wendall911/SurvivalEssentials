@@ -17,19 +17,19 @@
       "required": false
     },
     {
-      "id": "byg:fir_log",
+      "id": "biomeswevegone:fir_log",
       "required": false
     },
     {
-      "id": "byg:stripped_fir_log",
+      "id": "biomeswevegone:stripped_fir_log",
       "required": false
     },
     {
-      "id": "byg:fir_wood",
+      "id": "biomeswevegone:fir_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_fir_wood",
+      "id": "biomeswevegone:stripped_fir_wood",
       "required": false
     }
   ]

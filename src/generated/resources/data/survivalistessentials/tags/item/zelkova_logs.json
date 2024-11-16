@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:zelkova_log",
+      "id": "biomeswevegone:zelkova_log",
       "required": false
     },
     {
-      "id": "byg:stripped_zelkova_log",
+      "id": "biomeswevegone:stripped_zelkova_log",
       "required": false
     },
     {
-      "id": "byg:zelkova_wood",
+      "id": "biomeswevegone:zelkova_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_zelkova_wood",
+      "id": "biomeswevegone:stripped_zelkova_wood",
       "required": false
     }
   ]
