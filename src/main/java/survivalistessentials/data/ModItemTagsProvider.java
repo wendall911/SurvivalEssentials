@@ -199,20 +199,16 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addLogVariants(TagManager.Items.UNDERGARDEN_WIGGLEWOOD_LOGS, "wigglewood", ModIntegration::undergardenLoc);
 
         // BYG
-        addLogVariants(TagManager.Items.BYG_ETHER_LOGS, "ether", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_WHITE_MANGROVE_LOGS, "white_mangrove", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_REDWOOD_LOGS, "redwood", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_BLUE_ENCHANTED_LOGS, "blue_enchanted", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_GREEN_ENCHANTED_LOGS, "green_enchanted", ModIntegration::bygLoc);
-        addLogVariants(TagManager.Items.BYG_LAMENT_LOGS, "lament", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_MAHOGANY_LOGS, "mahogany", ModIntegration::bygLoc);
-        addLogVariants(TagManager.Items.BYG_CHERRY_LOGS, "cherry", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_BAOBAB_LOGS, "baobab", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_JACARANDA_LOGS, "jacaranda", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_CYPRESS_LOGS, "cypress", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_PALM_LOGS, "palm", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_EBONY_LOGS, "ebony", ModIntegration::bygLoc);
-        addLogVariants(TagManager.Items.BYG_NIGHTSHADE_LOGS, "nightshade", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_RAINBOW_EUCALYPTUS_LOGS, "rainbow_eucalyptus", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_ASPEN_LOGS, "aspen", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_FIR_LOGS, "fir", ModIntegration::bygLoc);
@@ -224,14 +220,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addLogVariants(TagManager.Items.BYG_WILLOW_LOGS, "willow", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_WITCH_HAZEL_LOGS, "witch_hazel", ModIntegration::bygLoc);
         addLogVariants(TagManager.Items.BYG_ZELKOVA_LOGS, "zelkova", ModIntegration::bygLoc);
-        this.tag(TagManager.Items.BYG_EMBUR_LOGS)
-            .addOptionalTag(ModIntegration.bygLoc("embur_logs"));
-        this.tag(TagManager.Items.BYG_SYTHIAN_LOGS)
-            .addOptionalTag(ModIntegration.bygLoc("sythian_logs"));
-        this.tag(TagManager.Items.BYG_IMPARIUS_LOGS)
-            .addOptionalTag(ModIntegration.bygLoc("imparius_logs"));
-        this.tag(TagManager.Items.BYG_BULBIS_LOGS)
-            .addOptionalTag(ModIntegration.bygLoc("bulbis_logs"));
+        addLogVariants(TagManager.Items.BYG_IRONWOOD_LOGS, "ironwood", ModIntegration::bygLoc);
+        addLogVariants(TagManager.Items.BYG_SAKURA_LOGS, "sakura", ModIntegration::bygLoc);
+        this.tag(TagManager.Items.BYG_PALO_VERDE_LOGS)
+            .addOptionalTag(ModIntegration.bygLoc("palo_verde_logs"));
 
         // Twilight Forest
         this.tag(TagManager.Items.TF_GIANT_LOGS)
