@@ -17,19 +17,19 @@
       "required": false
     },
     {
-      "id": "byg:mahogany_log",
+      "id": "biomeswevegone:mahogany_log",
       "required": false
     },
     {
-      "id": "byg:stripped_mahogany_log",
+      "id": "biomeswevegone:stripped_mahogany_log",
       "required": false
     },
     {
-      "id": "byg:mahogany_wood",
+      "id": "biomeswevegone:mahogany_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_mahogany_wood",
+      "id": "biomeswevegone:stripped_mahogany_wood",
       "required": false
     }
   ]

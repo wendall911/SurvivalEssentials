@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:rainbow_eucalyptus_log",
+      "id": "biomeswevegone:rainbow_eucalyptus_log",
       "required": false
     },
     {
-      "id": "byg:stripped_rainbow_eucalyptus_log",
+      "id": "biomeswevegone:stripped_rainbow_eucalyptus_log",
       "required": false
     },
     {
-      "id": "byg:rainbow_eucalyptus_wood",
+      "id": "biomeswevegone:rainbow_eucalyptus_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_rainbow_eucalyptus_wood",
+      "id": "biomeswevegone:stripped_rainbow_eucalyptus_wood",
       "required": false
     }
   ]

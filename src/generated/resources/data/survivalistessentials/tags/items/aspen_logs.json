@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:aspen_log",
+      "id": "biomeswevegone:aspen_log",
       "required": false
     },
     {
-      "id": "byg:stripped_aspen_log",
+      "id": "biomeswevegone:stripped_aspen_log",
       "required": false
     },
     {
-      "id": "byg:aspen_wood",
+      "id": "biomeswevegone:aspen_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_aspen_wood",
+      "id": "biomeswevegone:stripped_aspen_wood",
       "required": false
     }
   ]

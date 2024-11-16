@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "biomeswevegone:sakura_log",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:stripped_sakura_log",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:sakura_wood",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:stripped_sakura_wood",
+      "required": false
+    }
+  ]
+}

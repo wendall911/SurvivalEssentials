@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "survivalistessentials:sakura_logs"
+    },
+    {
+      "tag": "survivalistessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "biomeswevegone:sakura_planks"
+  }
+}

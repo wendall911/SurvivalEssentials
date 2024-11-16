@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:holly_log",
+      "id": "biomeswevegone:holly_log",
       "required": false
     },
     {
-      "id": "byg:stripped_holly_log",
+      "id": "biomeswevegone:stripped_holly_log",
       "required": false
     },
     {
-      "id": "byg:holly_wood",
+      "id": "biomeswevegone:holly_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_holly_wood",
+      "id": "biomeswevegone:stripped_holly_wood",
       "required": false
     }
   ]

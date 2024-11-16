@@ -17,19 +17,19 @@
       "required": false
     },
     {
-      "id": "byg:jacaranda_log",
+      "id": "biomeswevegone:jacaranda_log",
       "required": false
     },
     {
-      "id": "byg:stripped_jacaranda_log",
+      "id": "biomeswevegone:stripped_jacaranda_log",
       "required": false
     },
     {
-      "id": "byg:jacaranda_wood",
+      "id": "biomeswevegone:jacaranda_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_jacaranda_wood",
+      "id": "biomeswevegone:stripped_jacaranda_wood",
       "required": false
     }
   ]
