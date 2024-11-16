@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:green_enchanted_log",
+      "id": "biomeswevegone:green_enchanted_log",
       "required": false
     },
     {
-      "id": "byg:stripped_green_enchanted_log",
+      "id": "biomeswevegone:stripped_green_enchanted_log",
       "required": false
     },
     {
-      "id": "byg:green_enchanted_wood",
+      "id": "biomeswevegone:green_enchanted_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_green_enchanted_wood",
+      "id": "biomeswevegone:stripped_green_enchanted_wood",
       "required": false
     }
   ]

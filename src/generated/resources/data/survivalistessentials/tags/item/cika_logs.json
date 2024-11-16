@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:cika_log",
+      "id": "biomeswevegone:cika_log",
       "required": false
     },
     {
-      "id": "byg:stripped_cika_log",
+      "id": "biomeswevegone:stripped_cika_log",
       "required": false
     },
     {
-      "id": "byg:cika_wood",
+      "id": "biomeswevegone:cika_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_cika_wood",
+      "id": "biomeswevegone:stripped_cika_wood",
       "required": false
     }
   ]

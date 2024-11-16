@@ -5,13 +5,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
 import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public final class ModIntegration {
@@ -227,7 +227,7 @@ public final class ModIntegration {
             BYG_ZELKOVA_PLANKS = makeItem(bygLoc("zelkova_planks"));
             BYG_IRONWOOD_PLANKS = makeItem(bygLoc("ironwood_planks"));
             BYG_SAKURA_PLANKS = makeItem(bygLoc("sakura_planks"));
-            BYG_PALO_VERDE_PLANKS = makeItem(getLoc("minecraft", "birch_planks"));
+            BYG_PALO_VERDE_PLANKS = Items.BIRCH_PLANKS;
             BYG_SPIRIT_PLANKS = makeItem(bygLoc("spirit_planks"));
             TF_CANOPY_PLANKS = makeItem(tfLoc("canopy_planks"));
             TF_DARK_PLANKS = makeItem(tfLoc("dark_planks"));

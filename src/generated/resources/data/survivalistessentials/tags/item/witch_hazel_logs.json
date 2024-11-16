@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:witch_hazel_log",
+      "id": "biomeswevegone:witch_hazel_log",
       "required": false
     },
     {
-      "id": "byg:stripped_witch_hazel_log",
+      "id": "biomeswevegone:stripped_witch_hazel_log",
       "required": false
     },
     {
-      "id": "byg:witch_hazel_wood",
+      "id": "biomeswevegone:witch_hazel_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_witch_hazel_wood",
+      "id": "biomeswevegone:stripped_witch_hazel_wood",
       "required": false
     }
   ]

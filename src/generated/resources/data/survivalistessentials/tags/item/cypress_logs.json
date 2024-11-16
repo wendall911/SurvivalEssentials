@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:cypress_log",
+      "id": "biomeswevegone:cypress_log",
       "required": false
     },
     {
-      "id": "byg:stripped_cypress_log",
+      "id": "biomeswevegone:stripped_cypress_log",
       "required": false
     },
     {
-      "id": "byg:cypress_wood",
+      "id": "biomeswevegone:cypress_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_cypress_wood",
+      "id": "biomeswevegone:stripped_cypress_wood",
       "required": false
     }
   ]

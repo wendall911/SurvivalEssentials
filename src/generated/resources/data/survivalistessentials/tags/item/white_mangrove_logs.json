@@ -1,19 +1,19 @@
 {
   "values": [
     {
-      "id": "byg:white_mangrove_log",
+      "id": "biomeswevegone:white_mangrove_log",
       "required": false
     },
     {
-      "id": "byg:stripped_white_mangrove_log",
+      "id": "biomeswevegone:stripped_white_mangrove_log",
       "required": false
     },
     {
-      "id": "byg:white_mangrove_wood",
+      "id": "biomeswevegone:white_mangrove_wood",
       "required": false
     },
     {
-      "id": "byg:stripped_white_mangrove_wood",
+      "id": "biomeswevegone:stripped_white_mangrove_wood",
       "required": false
     }
   ]
