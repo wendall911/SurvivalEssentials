@@ -530,11 +530,11 @@ public class ModRecipesProvider extends RecipeProvider {
             plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.IFD_MODID, "dread_wood_planks").toString());
         }
         else if (itemTag.equals(TagManager.Items.BYG_PALO_VERDE_LOGS)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs"));
+            plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs").toString());
             modid = ModIntegration.BYG_MODID;
         }
         else if (itemTag.equals(ItemTags.BIRCH_LOGS)) {
-            plankOverrideRecipe.save(recipeOutput, prefix("minecraft", "birch_planks"));
+            plankOverrideRecipe.save(recipeOutput, prefix("minecraft", "birch_planks").toString());
         }
         else {
             plankOverrideRecipe.save(recipeOutput);
