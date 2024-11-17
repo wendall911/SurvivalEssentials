@@ -3,6 +3,7 @@ package survivalistessentials.data.integration;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
+import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.RegisterEvent;
 
 public final class ModIntegration {
@@ -216,7 +217,7 @@ public final class ModIntegration {
             BYG_ZELKOVA_PLANKS = registerItem(bygLoc("zelkova_planks"));
             BYG_IRONWOOD_PLANKS = registerItem(bygLoc("ironwood_planks"));
             BYG_SAKURA_PLANKS = registerItem(bygLoc("sakura_planks"));
-            BYG_PALO_VERDE_PLANKS = registerItem(getLoc("minecraft", "birch_planks"));
+            BYG_PALO_VERDE_PLANKS = Items.BIRCH_PLANKS.asItem();
             TF_CANOPY_PLANKS = registerItem(tfLoc("canopy_planks"));
             TF_DARK_PLANKS = registerItem(tfLoc("dark_planks"));
             TF_MANGROVE_PLANKS = registerItem(tfLoc("mangrove_planks"));

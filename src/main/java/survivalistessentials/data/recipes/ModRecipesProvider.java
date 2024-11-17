@@ -524,9 +524,6 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
             plankOverrideRecipe.save(consumer, new ResourceLocation(ModIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs"));
             modid = ModIntegration.BYG_MODID;
         }
-        else if (itemTag.equals(ItemTags.BIRCH_LOGS)) {
-            plankOverrideRecipe.save(consumer, new ResourceLocation("minecraft", "birch_planks"));
-        }
         else {
             plankOverrideRecipe.save(consumer);
         }
