@@ -314,6 +314,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.tag(TagManager.Items.AQUA_DRIFTWOOD)
             .addOptional(ModIntegration.aquaLoc("driftwood"));
 
+        // Immersive Engineering
+        this.tag(TagManager.Items.IE_TREATED_WOOD)
+            .addOptional(ModIntegration.ieLoc("treated_wood_horizontal"))
+            .addOptional(ModIntegration.ieLoc("treated_wood_vertical"))
+            .addOptional(ModIntegration.ieLoc("treated_wood_packaged"));
     }
 
     private void addWsLogVariants(TagKey<Item> tag, String type) {
