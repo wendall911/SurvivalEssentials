@@ -1,4 +1,4 @@
-// 1.20.1	2024-11-16T08:04:57.170362274	SurvivalistEssentials - Item Tags
+// 1.20.1	2024-11-17T08:12:52.714020326	SurvivalistEssentials - Item Tags
 e45e70dd0c52a2590d1dae41c3722901d42e3a4c data/survivalistessentials/tags/items/advanced_knife_tools.json
 4bb85d021138d3307c41f0ed151d6df576c2872f data/survivalistessentials/tags/items/advanced_saw_tools.json
 64667dc2f6cfe646da2832101e1ca1c3a20e4755 data/survivalistessentials/tags/items/ancient_oak_log.json
@@ -34,6 +34,7 @@ e7ec139e67e3376d0c4eb52b4c480f1260da48b3 data/survivalistessentials/tags/items/d
 189886aa26a9b950ba776b69cc457418ee1c5c64 data/survivalistessentials/tags/items/ebony_logs.json
 5f367ef465709f38cdaa3c4ae8bc62a7fe7d7a08 data/survivalistessentials/tags/items/fir_logs.json
 d282aefe8c4e14620d49350781a38aac164342cd data/survivalistessentials/tags/items/flint_knappable.json
+4a71e289a3d4a176a9f0ee29d2a97670b680d978 data/survivalistessentials/tags/items/florus_stems.json
 c2b5a92564f619aa02779f6f760a02ad231c6ca0 data/survivalistessentials/tags/items/flowering_azalea_logs.json
 68416d96e4ef4c1e5888b72e4a69f055e9f4a29d data/survivalistessentials/tags/items/giant_logs.json
 1693a4b6f48a769553b1d866da772d617b7e4221 data/survivalistessentials/tags/items/green_enchanted_logs.json

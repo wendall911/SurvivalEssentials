@@ -1,10 +1,16 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "building",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
   "group": "planks",
   "ingredients": [
     {
-      "tag": "minecraft:birch_logs"
+      "tag": "survivalistessentials:florus_stems"
     },
     {
       "item": "survivalistessentials:crude_saw"
@@ -12,6 +18,6 @@
   ],
   "result": {
     "count": 2,
-    "item": "minecraft:birch_planks"
+    "item": "biomeswevegone:florus_planks"
   }
 }

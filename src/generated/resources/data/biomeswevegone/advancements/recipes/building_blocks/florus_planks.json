@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "survivalistessentials:advanced_saw_tools"
+            "tag": "survivalistessentials:florus_stems"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "survivalistessentials:minecraft_air"
+        "recipe": "biomeswevegone:florus_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "survivalistessentials:minecraft_air"
+      "biomeswevegone:florus_planks"
     ]
   },
   "sends_telemetry_event": false
