@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "immersiveengineering:treated_wood_horizontal",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:treated_wood_vertical",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:treated_wood_packaged",
+      "required": false
+    }
+  ]
+}
