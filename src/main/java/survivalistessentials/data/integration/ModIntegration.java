@@ -100,6 +100,7 @@ public final class ModIntegration {
     public static Item BYG_SAKURA_PLANKS;
     public static Item BYG_PALO_VERDE_PLANKS;
     public static Item BYG_SPIRIT_PLANKS;
+    public static Item BYG_FLORUS_STEM;
     public static Item ECO_COCONUT_PLANKS;
     public static Item ECO_WALNUT_PLANKS;
     public static Item ECO_AZALEA_PLANKS;
@@ -228,6 +229,7 @@ public final class ModIntegration {
             BYG_IRONWOOD_PLANKS = makeItem(bygLoc("ironwood_planks"));
             BYG_SAKURA_PLANKS = makeItem(bygLoc("sakura_planks"));
             BYG_PALO_VERDE_PLANKS = Items.BIRCH_PLANKS;
+            BYG_FLORUS_STEM = makeItem(bygLoc("florus_planks"));
             BYG_SPIRIT_PLANKS = makeItem(bygLoc("spirit_planks"));
             TF_CANOPY_PLANKS = makeItem(tfLoc("canopy_planks"));
             TF_DARK_PLANKS = makeItem(tfLoc("dark_planks"));

@@ -405,6 +405,7 @@ public class ModRecipesProvider extends RecipeProvider {
         plankRecipeBuilder(wrapped, ModIntegration.BYG_SAKURA_PLANKS, TagManager.Items.BYG_SAKURA_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_PALO_VERDE_PLANKS, TagManager.Items.BYG_PALO_VERDE_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_SPIRIT_PLANKS, TagManager.Items.BYG_SPIRIT_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, ModIntegration.BYG_FLORUS_STEM, TagManager.Items.BYG_FLORUS_STEMS, "has_logs");
 
         // Twilight Forest
         wrapped = this.output.withConditions(new ModLoadedCondition(ModIntegration.TF_MODID));
