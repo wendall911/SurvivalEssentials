@@ -224,6 +224,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addLogVariants(TagManager.Items.BYG_SAKURA_LOGS, "sakura", ModIntegration::bygLoc);
         this.tag(TagManager.Items.BYG_PALO_VERDE_LOGS)
             .addOptionalTag(ModIntegration.bygLoc("palo_verde_logs"));
+        this.tag(TagManager.Items.BYG_FLORUS_STEMS)
+            .addOptionalTag(ModIntegration.bygLoc("florus_logs"));
 
         // Twilight Forest
         this.tag(TagManager.Items.TF_GIANT_LOGS)
