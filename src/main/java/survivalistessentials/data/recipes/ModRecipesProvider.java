@@ -399,6 +399,7 @@ public class ModRecipesProvider extends RecipeProvider {
         plankRecipeBuilder(wrapped, ModIntegration.BYG_SAKURA_PLANKS, TagManager.Items.BYG_SAKURA_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_PALO_VERDE_PLANKS, TagManager.Items.BYG_PALO_VERDE_LOGS, "has_logs");
         plankRecipeBuilder(wrapped, ModIntegration.BYG_SPIRIT_PLANKS, TagManager.Items.BYG_SPIRIT_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, ModIntegration.BYG_FLORUS_STEM, TagManager.Items.BYG_FLORUS_STEMS, "has_logs");
 
         // Twilight Forest
         wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.TF_MODID));
@@ -526,9 +527,6 @@ public class ModRecipesProvider extends RecipeProvider {
         else if (itemTag.equals(TagManager.Items.BYG_PALO_VERDE_LOGS)) {
             plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs"));
             modid = ModIntegration.BYG_MODID;
-        }
-        else if (itemTag.equals(ItemTags.BIRCH_LOGS)) {
-            plankOverrideRecipe.save(recipeOutput, prefix("minecraft", "birch_planks"));
         }
         else {
             plankOverrideRecipe.save(recipeOutput);
