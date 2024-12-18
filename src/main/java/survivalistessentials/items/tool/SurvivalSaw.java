@@ -86,7 +86,7 @@ public class SurvivalSaw extends Item {
     }
 
     @Override
-    public boolean isRepairable(@NotNull ItemStack stack) {
+public boolean isCombineRepairable(@NotNull ItemStack stack) {
         return false;
     }
 

@@ -58,7 +58,7 @@ public class SurvivalKnife extends SwordItem {
     }
 
     @Override
-    public boolean isRepairable(@NotNull ItemStack stack) {
+    public boolean isCombineRepairable(@NotNull ItemStack stack) {
         return false;
     }
 

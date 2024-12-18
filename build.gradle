@@ -1,7 +1,7 @@
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.42-beta'
+    id 'net.neoforged.moddev' version '2.0.61-beta'
     id 'io.github.goooler.shadow' version '8.1.7'
     id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
     id 'me.modmuss50.mod-publish-plugin' version '0.7.3'
@@ -82,7 +82,7 @@ neoForge {
         }
         data {
             programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-            data()
+            clientData()
         }
     }
     mods {

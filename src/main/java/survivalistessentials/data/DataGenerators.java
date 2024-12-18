@@ -46,7 +46,7 @@ public final class DataGenerators {
         });
 
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) throws ExecutionException, InterruptedException {
+    public static void gatherData(GatherDataEvent.Client event) throws ExecutionException, InterruptedException {
         DataGenerator gen = event.getGenerator();
         PackOutput packOutput = gen.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
@@ -54,19 +54,19 @@ public final class DataGenerators {
         String modpackOverrides = System.getenv("MOD_OVERRIDES");
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        gen.addProvider(event.includeServer(), new ModBlockStateProvider(packOutput, existingFileHelper));
-        gen.addProvider(event.includeServer(), blockTags);
-        gen.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, provider, blockTags, existingFileHelper));
-        gen.addProvider(event.includeServer(), new ModRecipesProvider.Runner(packOutput, provider));
-        gen.addProvider(event.includeServer(), ModLootTables.create(packOutput, provider));
-        gen.addProvider(event.includeServer(), new GlobalLootModifier(packOutput, provider));
-        gen.addProvider(event.includeServer(), new ModItemModelProvider(packOutput, existingFileHelper));
+        gen.addProvider(true, new ModBlockStateProvider(packOutput, existingFileHelper));
+        gen.addProvider(true, blockTags);
+        gen.addProvider(true, new ModItemTagsProvider(packOutput, provider, blockTags, existingFileHelper));
+        gen.addProvider(true, new ModRecipesProvider.Runner(packOutput, provider));
+        gen.addProvider(true, ModLootTables.create(packOutput, provider));
+        gen.addProvider(true, new GlobalLootModifier(packOutput, provider));
+        gen.addProvider(true, new ModItemModelProvider(packOutput, existingFileHelper));
 
         if (modpackOverrides != null && modpackOverrides.contains("all")) {
-            gen.addProvider(event.includeServer(), new BlockTagsOverrideProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper()));
+            gen.addProvider(true, new BlockTagsOverrideProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper()));
         }
 
-        gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
+        gen.addProvider(true, new DatapackBuiltinEntriesProvider(
                 packOutput,
                 event.getLookupProvider(),
                 BUILDER,
